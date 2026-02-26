@@ -1,112 +1,278 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { useAppStore } from "@/store/useAppStore";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useLocalSearchParams } from "expo-router";
+import { useEffect, useState } from "react";
+import {
+  ActivityIndicator,
+  FlatList,
+  Pressable,
+  Text,
+  View,
+} from "react-native";
 
-import { Collapsible } from '@/components/ui/collapsible';
-import { ExternalLink } from '@/components/external-link';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Fonts } from '@/constants/theme';
+const STORAGE_KEY = "visited_heritage";
 
-export default function TabTwoScreen() {
+const CACHE_VERSION = "v1";
+const DATA_CACHE_KEY = `heritage_cache_${CACHE_VERSION}`;
+
+type HeritageItem = {
+  id: string;
+  name: string;
+  country: string;
+};
+
+const sanitizeKeyPart = (value: string) =>
+  value
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+
+const buildStableId = (item: any, index: number) => {
+  const rawId = item?.id ?? item?.recordid;
+  const idAsString = rawId != null ? String(rawId).trim() : "";
+
+  if (idAsString && idAsString !== "undefined" && idAsString !== "null") {
+    return idAsString;
+  }
+
+  const rawName = item?.name ?? item?.fields?.name_en ?? "unknown-site";
+  const rawCountry =
+    item?.country ?? item?.fields?.states_name_en ?? "unknown-country";
+
+  return `fallback-${index}-${sanitizeKeyPart(String(rawName))}-${sanitizeKeyPart(String(rawCountry))}`;
+};
+
+const normalizeHeritageData = (items: any[]): HeritageItem[] => {
+  const seen = new Set<string>();
+  const normalized: HeritageItem[] = [];
+
+  items.forEach((item, index) => {
+    const id = buildStableId(item, index);
+    if (seen.has(id)) return;
+
+    seen.add(id);
+    normalized.push({
+      id,
+      name: item?.name ?? item?.fields?.name_en ?? "Unknown site",
+      country:
+        item?.country ?? item?.fields?.states_name_en ?? "Unknown country",
+    });
+  });
+
+  return normalized;
+};
+
+export default function ExploreScreen() {
+  const { type } = useLocalSearchParams();
+  const categoryParam = Array.isArray(type) ? type[0] : type;
+  const category = typeof categoryParam === "string" ? categoryParam : "heritage";
+  const isHeritageCategory = category === "heritage";
+
+  const [data, setData] = useState<HeritageItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const visited = useAppStore((s) => s.visitedHeritage);
+  const setVisited = useAppStore((s) => s.setVisitedHeritage);
+
+  // 🔥 veri yükleme (cache varsa API çağrılmaz)
+  useEffect(() => {
+    const fetchHeritage = async () => {
+      try {
+        // önce cache kontrol
+        const cached = await AsyncStorage.getItem(DATA_CACHE_KEY);
+
+        if (cached) {
+          const parsed = JSON.parse(cached);
+
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            console.log("Loaded from cache");
+            setData(parsed);
+            setLoading(false);
+            return;
+          }
+
+          console.log("Cache empty → refetching");
+        }
+
+        console.log("Fetching ALL heritage from API");
+
+        const limit = 100;
+
+        // toplam kayıt sayısını öğren
+        const first = await fetch(
+          "https://data.unesco.org/api/explore/v2.1/catalog/datasets/whc001/records?limit=1",
+        );
+        const firstJson = await first.json();
+
+        const total = firstJson.total_count;
+
+        let all: HeritageItem[] = [];
+
+        // pagination ile hepsini çek
+        for (let offset = 0; offset < total; offset += limit) {
+          console.log("fetching offset", offset);
+
+          const res = await fetch(
+            `https://data.unesco.org/api/explore/v2.1/catalog/datasets/whc001/records?limit=${limit}&offset=${offset}`,
+          );
+
+          const json = await res.json();
+          console.log("json", json);
+          const parsed = (json.results ?? [])
+            .map((r: any, index: number) => ({
+              id: String(r.uuid ?? `fallback-${offset + index}`),
+              name: r.name_en ?? r.name_fr,
+              country: Array.isArray(r.states_names)
+                ? r.states_names.join(", ")
+                : r.states_names,
+            }))
+            .filter((x: any) => x.name && x.name.trim().length > 0);
+          console.log("parsed", parsed);
+          all = [...all, ...parsed];
+        }
+
+        const uniqueAll = normalizeHeritageData(all);
+
+        console.log("TOTAL FETCHED:", uniqueAll.length);
+
+        setData(uniqueAll);
+
+        // cache'e yaz
+        await AsyncStorage.setItem(DATA_CACHE_KEY, JSON.stringify(uniqueAll));
+
+        setLoading(false);
+      } catch (e) {
+        console.log("FETCH ERROR", e);
+        setLoading(false);
+      }
+    };
+
+    if (isHeritageCategory) {
+      fetchHeritage();
+    } else {
+      setData([]);
+      setLoading(false);
+    }
+  }, [isHeritageCategory]);
+
+  
+
+  // 🔥 visited yükle
+  useEffect(() => {
+    AsyncStorage.getItem(STORAGE_KEY).then((data) => {
+      if (data) setVisited(JSON.parse(data));
+    });
+  }, [setVisited]);
+
+  const toggle = async (id: string) => {
+    let updated;
+
+    if (visited.includes(id)) {
+      updated = visited.filter((v) => v !== id);
+    } else {
+      updated = [...visited, id];
+    }
+
+    setVisited(updated);
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+  };
+
+  const percent =
+    data.length > 0 ? Math.round((visited.length / data.length) * 100) : 0;
+
+  if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <ActivityIndicator size="large" />
+        <Text style={{ marginTop: 12 }}>Loading heritage sites…</Text>
+      </View>
+    );
+  }
+
+  if (!isHeritageCategory) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text style={{ fontSize: 24, fontWeight: "700", color: "#111" }}>
+          Coming soon
+        </Text>
+        <Text style={{ marginTop: 10, fontSize: 14, color: "#777" }}>
+          This category has no data yet.
+        </Text>
+      </View>
+    );
+  }
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText
-          type="title"
-          style={{
-            fontFamily: Fonts.rounded,
-          }}>
-          Explore
-        </ThemedText>
-      </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
-        <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
-        </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
-        </ThemedText>
-        <Image
-          source={require('@/assets/images/react-logo.png')}
-          style={{ width: 100, height: 100, alignSelf: 'center' }}
-        />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user&apos;s current color scheme is, and so you can adjust UI colors accordingly.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful{' '}
-          <ThemedText type="defaultSemiBold" style={{ fontFamily: Fonts.mono }}>
-            react-native-reanimated
-          </ThemedText>{' '}
-          library to create a waving hand animation.
-        </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
-      </Collapsible>
-    </ParallaxScrollView>
+    <View style={{ flex: 1, backgroundColor: "#F7F7F7" }}>
+      <View style={{ paddingLeft: 20, paddingTop: 20 }}>
+        <Text style={{ fontSize: 18, fontWeight: "600" }}>
+          Progress: {percent}%
+        </Text>
+      </View>
+
+      <FlatList
+        contentContainerStyle={{ padding: 16, paddingBottom: 40 }}
+        data={data}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => {
+          const isVisited = visited.includes(item.id);
+          return (
+            <Pressable
+              onPress={() => toggle(item.id)}
+              style={{
+                backgroundColor: "#fff",
+                borderRadius: 16,
+                padding: 18,
+                marginBottom: 14,
+                shadowColor: "#000",
+                shadowOpacity: 0.05,
+                shadowRadius: 10,
+                shadowOffset: { width: 0, height: 4 },
+                elevation: 3,
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                opacity: 1,
+              }}
+            >
+              <View style={{ flex: 1 }}>
+                <Text
+                  style={{
+                    fontSize: 16,
+                    fontWeight: "600",
+                    color: "#111",
+                    marginBottom: 4,
+                  }}
+                >
+                  {item.name}
+                </Text>
+
+                <Text style={{ fontSize: 14, color: "#888" }}>
+                  {item.country}
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  width: 26,
+                  height: 26,
+                  borderRadius: 13,
+                  borderWidth: 1.5,
+                  borderColor: isVisited ? "#111" : "#DDD",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: isVisited ? "#111" : "transparent",
+                }}
+              >
+                {isVisited && (
+                  <Text style={{ color: "#fff", fontSize: 14 }}>✓</Text>
+                )}
+              </View>
+            </Pressable>
+          );
+        }}
+      />
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-});

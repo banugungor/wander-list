@@ -1,0 +1,102 @@
+[
+  {
+    "id": "giza_pyramids",
+    "name": "Pyramids of Giza",
+    "country": "Egypt",
+    "city": "Giza",
+    "lat": 29.9792,
+    "lng": 31.1342,
+    "category": "heritage",
+    "visited": false
+  },
+  {
+    "id": "great_wall",
+    "name": "Great Wall",
+    "country": "China",
+    "city": "Beijing",
+    "lat": 40.4319,
+    "lng": 116.5704,
+    "category": "heritage",
+    "visited": false
+  },
+  {
+    "id": "machu_picchu",
+    "name": "Machu Picchu",
+    "country": "Peru",
+    "city": "Cusco Region",
+    "lat": -13.1631,
+    "lng": -72.545,
+    "category": "heritage",
+    "visited": false
+  },
+  {
+    "id": "taj_mahal",
+    "name": "Taj Mahal",
+    "country": "India",
+    "city": "Agra",
+    "lat": 27.1751,
+    "lng": 78.0421,
+    "category": "heritage",
+    "visited": false
+  },
+  {
+    "id": "colosseum",
+    "name": "Colosseum",
+    "country": "Italy",
+    "city": "Rome",
+    "lat": 41.8902,
+    "lng": 12.4922,
+    "category": "heritage",
+    "visited": false
+  },
+  {
+    "id": "acropolis",
+    "name": "Acropolis of Athens",
+    "country": "Greece",
+    "city": "Athens",
+    "lat": 37.9715,
+    "lng": 23.7257,
+    "category": "heritage",
+    "visited": false
+  },
+  {
+    "id": "stonehenge",
+    "name": "Stonehenge",
+    "country": "United Kingdom",
+    "city": "Wiltshire",
+    "lat": 51.1789,
+    "lng": -1.8262,
+    "category": "heritage",
+    "visited": false
+  },
+  {
+    "id": "petra",
+    "name": "Petra",
+    "country": "Jordan",
+    "city": "Ma'an",
+    "lat": 30.3285,
+    "lng": 35.4444,
+    "category": "heritage",
+    "visited": false
+  },
+  {
+    "id": "cappadocia",
+    "name": "Göreme National Park and Cappadocia",
+    "country": "Turkey",
+    "city": "Nevşehir",
+    "lat": 38.6431,
+    "lng": 34.827,
+    "category": "heritage",
+    "visited": false
+  },
+  {
+    "id": "statue_of_liberty",
+    "name": "Statue of Liberty",
+    "country": "United States",
+    "city": "New York",
+    "lat": 40.6892,
+    "lng": -74.0445,
+    "category": "heritage",
+    "visited": false
+  }
+]

@@ -1,98 +1,144 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { LinearGradient } from "expo-linear-gradient";
+import { router, useFocusEffect } from "expo-router";
+import { useCallback, useState } from "react";
+import { Pressable, Text, View } from "react-native";
 
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+const STORAGE_KEY = "visited_heritage";
+const CACHE_VERSION = "v1";
+const DATA_CACHE_KEY = `heritage_cache_${CACHE_VERSION}`;
 
-export default function HomeScreen() {
+const categories = [
+  { id: "heritage", title: "World Heritage", emoji: "🏛" },
+  { id: "places", title: "Places Visited", emoji: "🌍" },
+  { id: "cuisine", title: "World Cuisines", emoji: "🍜" },
+  { id: "books", title: "Books", emoji: "📚" },
+  { id: "movies", title: "Movies", emoji: "🎬" },
+];
+
+function CategoryCard({ cat, progress }: any) {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+    <Pressable
+      onPress={() =>
+        router.push({
+          pathname: "/explore",
+          params: { type: cat.id },
+        })
+      }
+      style={{
+        width: "48%",
+        backgroundColor: "#fff",
+        padding: 18,
+        borderRadius: 20,
+        marginBottom: 14,
+        shadowColor: "#000",
+        shadowOpacity: 0.05,
+        shadowRadius: 10,
+        shadowOffset: { width: 0, height: 4 },
+        elevation: 3,
+      }}
+    >
+      <Text style={{ fontSize: 26, marginBottom: 10 }}>{cat.emoji}</Text>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      <Text style={{ fontSize: 15, fontWeight: "600", color: "#111" }}>
+        {cat.title}
+      </Text>
+
+      {/* Progress */}
+      <View style={{ marginTop: 12 }}>
+        <View
+          style={{
+            height: 6,
+            backgroundColor: "#eee",
+            borderRadius: 6,
+            overflow: "hidden",
+          }}
+        >
+          <View
+            style={{
+              width: `${progress}%`,
+              height: 6,
+              backgroundColor: "#111",
+            }}
+          />
+        </View>
+
+        <Text style={{ marginTop: 6, fontSize: 12, color: "#777" }}>
+          {progress}% completed
+        </Text>
+      </View>
+    </Pressable>
   );
 }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
+export default function HomeScreen() {
+  const [progressMap, setProgressMap] = useState<any>({});
+
+  useFocusEffect(
+    useCallback(() => {
+      const load = async () => {
+        try {
+          // heritage visited
+          const visitedData = await AsyncStorage.getItem(STORAGE_KEY);
+          const visited = visitedData ? JSON.parse(visitedData) : [];
+
+          // heritage total
+          const cachedData = await AsyncStorage.getItem(DATA_CACHE_KEY);
+          const cached = cachedData ? JSON.parse(cachedData) : [];
+
+          const heritageTotal = cached.length || 1;
+          const heritagePercent = Math.round(
+            (visited.length / heritageTotal) * 100,
+          );
+
+          // diğer kategoriler şimdilik 0
+          setProgressMap({
+            heritage: heritagePercent,
+            places: 0,
+            cuisine: 0,
+            books: 0,
+            movies: 0,
+          });
+        } catch (e) {
+          console.log("home load error", e);
+        }
+      };
+
+      load();
+    }, []),
+  );
+
+  return (
+    <LinearGradient colors={["#F5F7FA", "#ECEFF3"]} style={{ flex: 1 }}>
+      {/* HEADER */}
+      <View style={{ paddingHorizontal: 20, paddingTop: 60 }}>
+        <Text style={{ fontSize: 28, fontWeight: "700", color: "#111" }}>
+          Life Experience Map
+        </Text>
+
+        <Text style={{ marginTop: 6, fontSize: 14, color: "#777" }}>
+          Track the experiences that shape your life
+        </Text>
+      </View>
+
+      {/* CARDS */}
+      <View
+        style={{
+          marginTop: 28,
+          paddingHorizontal: 16,
+          flexDirection: "row",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
+        }}
+      >
+        {categories.map((cat) => (
+          <CategoryCard
+            key={cat.id}
+            cat={cat}
+            progress={progressMap[cat.id] ?? 0}
+          />
+        ))}
+      </View>
+    </LinearGradient>
+  );
+}
