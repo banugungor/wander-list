@@ -1,6 +1,7 @@
-import { palette } from "@/constants/palette";
 import { ProgressCard } from "@/components/progress-card";
 import { VisitedBadge } from "@/components/visited-badge";
+import { palette } from "@/constants/palette";
+import { fetchCuisines, type CuisineItem } from "@/data/cuisineApi";
 import {
   CUISINE_AREA_TOTALS_KEY,
   HERITAGE_DATA_CACHE_KEY,
@@ -11,12 +12,13 @@ import { useAppStore } from "@/store/useAppStore";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Stack, router, useLocalSearchParams } from "expo-router";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
   Pressable,
   Text,
+  TextInput,
   View,
 } from "react-native";
 
@@ -26,11 +28,6 @@ type HeritageItem = {
   id: string;
   name: string;
   country: string;
-};
-
-type CuisineItem = {
-  id: string;
-  name: string;
 };
 
 type Item = HeritageItem | CuisineItem;
@@ -55,11 +52,12 @@ export default function ExploreScreen() {
   const categoryTitle = categoryTitleMap[category] ?? "Details";
 
   const [data, setData] = useState<Item[]>([]);
+  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [offset, setOffset] = useState(0);
   const [hasMore, setHasMore] = useState(true);
-  const [totalCount, setTotalCount] = useState<number>(0);
+  const [totalCount, setTotalCount] = useState<number | null>(null);
 
   const visited = useAppStore((s) => s.visitedHeritage);
   const setVisited = useAppStore((s) => s.setVisitedHeritage);
@@ -145,23 +143,29 @@ export default function ExploreScreen() {
     try {
       setLoading(true);
 
-      const res = await fetch(
-        "https://www.themealdb.com/api/json/v1/1/list.php?a=list",
-      );
-      const json = await res.json();
+      const cuisines = await fetchCuisines();
 
-      const cuisines: CuisineItem[] = (json.meals ?? []).map((c: any) => ({
-        id: c.strArea,
-        name: c.strArea,
-      }));
+      const seenAreas = new Set<string>();
+      const deduped = cuisines.filter((c) => {
+        if (!c.id || seenAreas.has(c.id)) return false;
+        seenAreas.add(c.id);
+        return true;
+      });
 
-      setData(cuisines);
+      setData(deduped);
       setLoading(false);
 
       // Tüm alanların yemek sayılarını arka planda çek (bir kez)
       const existingRaw = await AsyncStorage.getItem(CUISINE_AREA_TOTALS_KEY);
-      const existingTotals = existingRaw ? JSON.parse(existingRaw) : {};
-      const missing = cuisines.filter(
+      let existingTotals: Record<string, number> = {};
+      if (existingRaw) {
+        try {
+          existingTotals = JSON.parse(existingRaw);
+        } catch (e) {
+          console.log("CUISINE TOTALS PARSE ERROR", e);
+        }
+      }
+      const missing = deduped.filter(
         (c) => existingTotals[c.name] === undefined,
       );
 
@@ -207,20 +211,27 @@ export default function ExploreScreen() {
         ]);
 
         if (cachedTotalCount) {
-          const parsedCount = JSON.parse(cachedTotalCount);
-          persistTotalCount(parsedCount);
+          try {
+            persistTotalCount(JSON.parse(cachedTotalCount));
+          } catch (e) {
+            console.log("HERITAGE TOTAL COUNT PARSE ERROR", e);
+          }
         }
 
         if (cached) {
-          const parsed = JSON.parse(cached);
-          if (Array.isArray(parsed) && parsed.length > 0) {
-            setData(parsed);
-            setLoading(false);
-            setOffset(parsed.length);
-            if (!cachedTotalCount) {
-              fetchHeritageTotalCount();
+          try {
+            const parsed = JSON.parse(cached);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              setData(parsed);
+              setLoading(false);
+              setOffset(parsed.length);
+              if (!cachedTotalCount) {
+                fetchHeritageTotalCount();
+              }
+              return;
             }
-            return;
+          } catch (e) {
+            console.log("HERITAGE CACHE PARSE ERROR", e);
           }
         }
         fetchHeritagePage(0);
@@ -246,7 +257,12 @@ export default function ExploreScreen() {
   // =========================
   useEffect(() => {
     AsyncStorage.getItem(HERITAGE_VISITED_KEY).then((data) => {
-      if (data) setVisited(JSON.parse(data));
+      if (!data) return;
+      try {
+        setVisited(JSON.parse(data));
+      } catch (e) {
+        console.log("HERITAGE VISITED PARSE ERROR", e);
+      }
     });
   }, [setVisited]);
 
@@ -277,33 +293,23 @@ export default function ExploreScreen() {
     await AsyncStorage.setItem(HERITAGE_VISITED_KEY, JSON.stringify(updated));
   };
 
-  const heritageTotal = totalCount || data.length;
+  const heritageTotal = totalCount ?? data.length;
   const rawPercent =
     isHeritage && heritageTotal > 0
       ? Math.round((visited.length / heritageTotal) * 100)
       : 0;
   const percent = Math.min(100, Math.max(0, rawPercent));
 
-  // =========================
-  // UI STATES
-  // =========================
-  if (loading) {
-    return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: palette.cream,
-        }}
-      >
-        <ActivityIndicator size="large" color={palette.coral} />
-        <Text style={{ marginTop: 12, color: palette.inkMuted }}>
-          Loading…
-        </Text>
-      </View>
-    );
-  }
+  const filteredData = useMemo(() => {
+    const query = search.trim().toLowerCase();
+    if (!query) return data;
+    return data.filter((item) => {
+      const matchesName = item.name.toLowerCase().includes(query);
+      const matchesCountry =
+        "country" in item && item.country.toLowerCase().includes(query);
+      return matchesName || matchesCountry;
+    });
+  }, [data, search]);
 
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
@@ -314,7 +320,18 @@ export default function ExploreScreen() {
         }}
       />
 
-      {isComingSoon && (
+      {loading && (
+        <View
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        >
+          <ActivityIndicator size="large" color={palette.coral} />
+          <Text style={{ marginTop: 12, color: palette.inkMuted }}>
+            Loading…
+          </Text>
+        </View>
+      )}
+
+      {!loading && isComingSoon && (
         <View
           style={{
             flex: 1,
@@ -340,7 +357,7 @@ export default function ExploreScreen() {
         </View>
       )}
 
-      {!isComingSoon && (
+      {!loading && !isComingSoon && (
         <>
           {isHeritage && (
             <ProgressCard
@@ -351,12 +368,58 @@ export default function ExploreScreen() {
             />
           )}
 
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              marginHorizontal: 16,
+              marginTop: isHeritage ? 4 : 16,
+              paddingHorizontal: 14,
+              height: 44,
+              borderRadius: 12,
+              backgroundColor: palette.surface,
+              borderWidth: 1,
+              borderColor: palette.hairline,
+            }}
+          >
+            <Ionicons name="search-outline" size={18} color={palette.inkFaint} />
+            <TextInput
+              value={search}
+              onChangeText={setSearch}
+              placeholder="Search..."
+              placeholderTextColor={palette.inkFaint}
+              style={{ flex: 1, marginLeft: 8, fontSize: 15, color: palette.ink }}
+            />
+            {search.length > 0 && (
+              <Pressable onPress={() => setSearch("")}>
+                <Ionicons
+                  name="close-circle"
+                  size={18}
+                  color={palette.inkFaint}
+                />
+              </Pressable>
+            )}
+          </View>
+
           <FlatList
             contentContainerStyle={{ padding: 16, paddingBottom: 40 }}
-            data={data}
+            data={filteredData}
             keyExtractor={(item) => item.id}
             onEndReached={loadMore}
             onEndReachedThreshold={0.5}
+            ListEmptyComponent={
+              search.trim().length > 0 ? (
+                <Text
+                  style={{
+                    textAlign: "center",
+                    marginTop: 40,
+                    color: palette.inkMuted,
+                  }}
+                >
+                  No results match “{search}”
+                </Text>
+              ) : null
+            }
             ListFooterComponent={
               loadingMore ? (
                 <ActivityIndicator
