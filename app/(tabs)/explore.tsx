@@ -1,12 +1,13 @@
 import { useAppStore } from "@/store/useAppStore";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useLocalSearchParams } from "expo-router";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
   Pressable,
   Text,
+  TextInput,
   View,
 } from "react-native";
 
@@ -71,6 +72,7 @@ export default function ExploreScreen() {
 
   const [data, setData] = useState<HeritageItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [query, setQuery] = useState("");
 
   const visited = useAppStore((s) => s.visitedHeritage);
   const setVisited = useAppStore((s) => s.setVisitedHeritage);
@@ -181,6 +183,16 @@ export default function ExploreScreen() {
   const percent =
     data.length > 0 ? Math.round((visited.length / data.length) * 100) : 0;
 
+  const filteredData = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return data;
+    return data.filter(
+      (item) =>
+        item.name.toLowerCase().includes(q) ||
+        item.country.toLowerCase().includes(q),
+    );
+  }, [data, query]);
+
   if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -205,16 +217,47 @@ export default function ExploreScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: "#F7F7F7" }}>
-      <View style={{ paddingLeft: 20, paddingTop: 20 }}>
+      <View style={{ paddingHorizontal: 20, paddingTop: 20 }}>
         <Text style={{ fontSize: 18, fontWeight: "600" }}>
           Progress: {percent}%
         </Text>
+
+        <TextInput
+          value={query}
+          onChangeText={setQuery}
+          placeholder="Search by site or country…"
+          placeholderTextColor="#999"
+          autoCorrect={false}
+          clearButtonMode="while-editing"
+          style={{
+            marginTop: 14,
+            backgroundColor: "#fff",
+            borderRadius: 12,
+            paddingHorizontal: 14,
+            paddingVertical: 10,
+            fontSize: 15,
+            borderWidth: 1,
+            borderColor: "#E4E4E4",
+          }}
+        />
+
+        {query.trim().length > 0 && (
+          <Text style={{ marginTop: 8, fontSize: 13, color: "#888" }}>
+            {filteredData.length} result{filteredData.length === 1 ? "" : "s"}
+          </Text>
+        )}
       </View>
 
       <FlatList
         contentContainerStyle={{ padding: 16, paddingBottom: 40 }}
-        data={data}
+        data={filteredData}
         keyExtractor={(item) => item.id}
+        keyboardShouldPersistTaps="handled"
+        ListEmptyComponent={
+          <Text style={{ textAlign: "center", marginTop: 40, color: "#888" }}>
+            No sites match “{query}”
+          </Text>
+        }
         renderItem={({ item }) => {
           const isVisited = visited.includes(item.id);
           return (
