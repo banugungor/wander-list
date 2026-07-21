@@ -1,0 +1,16 @@
+export const palette = {
+  ink: "#2B1B3D",
+  inkMuted: "#8A7A9C",
+  inkFaint: "#C4B4D6",
+  cream: "#FFF6F0",
+  creamDeep: "#FFE8DC",
+  surface: "#FFFFFF",
+  hairline: "rgba(43, 27, 61, 0.08)",
+  hairlineStrong: "rgba(43, 27, 61, 0.16)",
+  coral: "#FF5E7A",
+  coralSoft: "#FFC7D1",
+  orange: "#FFA53D",
+  violet: "#7C3AED",
+  violetDeep: "#5B21B6",
+  shadow: "#2B1B3D",
+};
