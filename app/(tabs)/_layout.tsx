@@ -13,8 +13,31 @@ export default function TabLayout() {
       <Stack.Screen
         name="explore"
         options={{
-          title: "Detay",
-          headerBackTitle: "Geri",
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="places-map"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="map"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="stats"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="profile"
+        options={{
+          headerShown: false,
         }}
       />
     </Stack>

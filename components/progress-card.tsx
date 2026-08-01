@@ -1,31 +1,29 @@
 import { palette } from "@/constants/palette";
-import { Ionicons } from "@expo/vector-icons";
-import { LinearGradient } from "expo-linear-gradient";
 import { Text, View } from "react-native";
 
 type ProgressCardProps = {
   label: string;
   detail: string;
   percent: number;
-  icon: keyof typeof Ionicons.glyphMap;
+  accentBg?: string;
+  accentFg?: string;
 };
 
-export function ProgressCard({ label, detail, percent, icon }: ProgressCardProps) {
+export function ProgressCard({
+  label,
+  detail,
+  percent,
+  accentBg = palette.greenSoft,
+  accentFg = palette.brand,
+}: ProgressCardProps) {
   return (
     <View
       style={{
         marginHorizontal: 16,
         marginTop: 16,
-        padding: 18,
-        borderRadius: 22,
-        backgroundColor: palette.surface,
-        borderWidth: 1,
-        borderColor: palette.hairline,
-        shadowColor: palette.shadow,
-        shadowOpacity: 0.06,
-        shadowRadius: 16,
-        shadowOffset: { width: 0, height: 8 },
-        elevation: 2,
+        padding: 16,
+        borderRadius: 16,
+        backgroundColor: accentBg,
       }}
     >
       <View
@@ -35,40 +33,26 @@ export function ProgressCard({ label, detail, percent, icon }: ProgressCardProps
           justifyContent: "space-between",
         }}
       >
-        <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
-          <View
-            style={{
-              width: 28,
-              height: 28,
-              borderRadius: 10,
-              backgroundColor: palette.creamDeep,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Ionicons name={icon} size={14} color={palette.violet} />
-          </View>
-          <Text
-            style={{
-              fontSize: 12,
-              fontWeight: "700",
-              color: palette.violet,
-              letterSpacing: 1.4,
-              textTransform: "uppercase",
-            }}
-          >
-            {label}
-          </Text>
-        </View>
+        <Text
+          style={{
+            fontSize: 11,
+            fontWeight: "700",
+            color: accentFg,
+            letterSpacing: 1.2,
+            textTransform: "uppercase",
+          }}
+        >
+          {label}
+        </Text>
 
         <Text style={{ fontSize: 12, color: palette.inkMuted }}>{detail}</Text>
       </View>
 
       <Text
         style={{
-          marginTop: 10,
-          fontSize: 34,
-          fontWeight: "800",
+          marginTop: 8,
+          fontSize: 28,
+          fontWeight: "700",
           color: palette.ink,
           letterSpacing: -0.5,
         }}
@@ -78,18 +62,20 @@ export function ProgressCard({ label, detail, percent, icon }: ProgressCardProps
 
       <View
         style={{
-          height: 8,
-          backgroundColor: palette.creamDeep,
-          borderRadius: 8,
+          height: 5,
+          backgroundColor: "rgba(255,255,255,0.6)",
+          borderRadius: 5,
           overflow: "hidden",
-          marginTop: 12,
+          marginTop: 10,
         }}
       >
-        <LinearGradient
-          colors={[palette.coral, palette.violet]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          style={{ width: `${percent}%`, height: 8, borderRadius: 8 }}
+        <View
+          style={{
+            width: `${percent}%`,
+            height: 5,
+            borderRadius: 5,
+            backgroundColor: accentFg,
+          }}
         />
       </View>
     </View>

@@ -1,6 +1,9 @@
 import { ProgressCard } from "@/components/progress-card";
+import { ScreenHeader } from "@/components/screen-header";
 import { VisitedBadge } from "@/components/visited-badge";
+import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
+import { logActivity } from "@/data/activityLog";
 import { fetchCuisines, type CuisineItem } from "@/data/cuisineApi";
 import {
   CUISINE_AREA_TOTALS_KEY,
@@ -8,11 +11,13 @@ import {
   HERITAGE_TOTAL_COUNT_KEY,
   HERITAGE_VISITED_KEY,
 } from "@/data/heritageStorage";
+import { fetchWikipediaThumbnail } from "@/data/wikipediaApi";
 import { useAppStore } from "@/store/useAppStore";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Image } from "expo-image";
 import { Stack, router, useLocalSearchParams } from "expo-router";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
@@ -28,9 +33,100 @@ type HeritageItem = {
   id: string;
   name: string;
   country: string;
+  category?: "Cultural" | "Natural" | "Mixed";
+  // undefined = not fetched yet, null = fetched but no image found
+  imageUrl?: string | null;
+  latitude?: number;
+  longitude?: number;
 };
 
+// UNESCO's dataset has exposed geo coordinates under a few different shapes
+// over time (geo_point_2d object, separate lat/lon fields, etc). Try them all.
+function extractLatLng(r: any): { latitude?: number; longitude?: number } {
+  const candidates = [
+    r.location,
+    r.geo_point_2d,
+    r.coordinates,
+    r.geo_point,
+  ];
+
+  for (const c of candidates) {
+    if (!c) continue;
+    if (typeof c.lat === "number" && typeof c.lon === "number") {
+      return { latitude: c.lat, longitude: c.lon };
+    }
+    if (Array.isArray(c) && c.length === 2) {
+      const [a, b] = c;
+      if (typeof a === "number" && typeof b === "number") {
+        return { latitude: a, longitude: b };
+      }
+    }
+  }
+
+  const lat = Number(r.latitude ?? r.lat);
+  const lon = Number(r.longitude ?? r.lon ?? r.lng);
+  if (Number.isFinite(lat) && Number.isFinite(lon)) {
+    return { latitude: lat, longitude: lon };
+  }
+
+  return {};
+}
+
 type Item = HeritageItem | CuisineItem;
+
+function HeritageThumbnail({
+  item,
+  onResolved,
+}: {
+  item: HeritageItem;
+  onResolved: (id: string, imageUrl: string | null) => void;
+}) {
+  const [imageUrl, setImageUrl] = useState(item.imageUrl);
+
+  useEffect(() => {
+    if (item.imageUrl !== undefined) {
+      setImageUrl(item.imageUrl);
+      return;
+    }
+
+    let cancelled = false;
+    fetchWikipediaThumbnail(item.name).then((thumb) => {
+      if (cancelled) return;
+      setImageUrl(thumb);
+      onResolved(item.id, thumb);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [item.id, item.imageUrl, item.name, onResolved]);
+
+  if (imageUrl) {
+    return (
+      <Image
+        source={{ uri: imageUrl }}
+        style={{ width: 76, height: 76, borderRadius: 18 }}
+        contentFit="cover"
+        transition={200}
+      />
+    );
+  }
+
+  return (
+    <View
+      style={{
+        width: 76,
+        height: 76,
+        borderRadius: 18,
+        backgroundColor: palette.creamDeep,
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Ionicons name="business-outline" size={24} color={palette.violet} />
+    </View>
+  );
+}
 
 export default function ExploreScreen() {
   const { type } = useLocalSearchParams();
@@ -50,9 +146,11 @@ export default function ExploreScreen() {
     movies: "Movies",
   };
   const categoryTitle = categoryTitleMap[category] ?? "Details";
+  const categoryMeta = getCategory(category);
 
   const [data, setData] = useState<Item[]>([]);
   const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState<"all" | "visited" | "unvisited">("all");
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [offset, setOffset] = useState(0);
@@ -114,11 +212,27 @@ export default function ExploreScreen() {
             country: Array.isArray(r.states_names)
               ? r.states_names.join(", ")
               : (r.states_names ?? "Unknown country"),
+            category:
+              r.category === "Cultural" ||
+              r.category === "Natural" ||
+              r.category === "Mixed"
+                ? r.category
+                : undefined,
+            ...extractLatLng(r),
           }))
           .filter((x: HeritageItem) => x.name.trim().length > 0);
 
+        if (pageOffset === 0 && parsed.length > 0 && !parsed[0].latitude) {
+          console.log(
+            "HERITAGE: no lat/lng found on API response — check field names in raw payload",
+            json.results?.[0],
+          );
+        }
+
         setData((prev) => {
-          const merged = [...prev, ...parsed];
+          const seen = new Set(prev.map((p) => p.id));
+          const uniqueNew = parsed.filter((p) => !seen.has(p.id));
+          const merged = [...prev, ...uniqueNew];
           AsyncStorage.setItem(HERITAGE_DATA_CACHE_KEY, JSON.stringify(merged));
           return merged;
         });
@@ -269,21 +383,39 @@ export default function ExploreScreen() {
   // =========================
   // 🔥 LOAD MORE (only heritage)
   // =========================
+  const loadingMoreRef = useRef(false);
+
   const loadMore = () => {
     if (!isHeritage) return;
+    if (loadingMoreRef.current || !hasMore) return;
 
-    if (!loadingMore && hasMore) {
-      const next = offset + LIMIT;
-      setOffset(next);
-      fetchHeritagePage(next);
-    }
+    loadingMoreRef.current = true;
+    const next = offset + LIMIT;
+    setOffset(next);
+    fetchHeritagePage(next).finally(() => {
+      loadingMoreRef.current = false;
+    });
   };
+
+  const resolveHeritageImage = useCallback(
+    (id: string, imageUrl: string | null) => {
+      setData((prev) => {
+        const updated = prev.map((item) =>
+          item.id === id ? { ...item, imageUrl } : item,
+        );
+        AsyncStorage.setItem(HERITAGE_DATA_CACHE_KEY, JSON.stringify(updated));
+        return updated;
+      });
+    },
+    [],
+  );
 
   const toggle = async (id: string) => {
     if (!isHeritage) return;
 
+    const wasVisited = visited.includes(id);
     let updated;
-    if (visited.includes(id)) {
+    if (wasVisited) {
       updated = visited.filter((v) => v !== id);
     } else {
       updated = [...visited, id];
@@ -291,6 +423,18 @@ export default function ExploreScreen() {
 
     setVisited(updated);
     await AsyncStorage.setItem(HERITAGE_VISITED_KEY, JSON.stringify(updated));
+
+    if (!wasVisited) {
+      const item = data.find((d) => d.id === id) as HeritageItem | undefined;
+      if (item) {
+        logActivity({
+          id: item.id,
+          type: "heritage",
+          title: item.name,
+          subtitle: item.country,
+        });
+      }
+    }
   };
 
   const heritageTotal = totalCount ?? data.length;
@@ -302,29 +446,40 @@ export default function ExploreScreen() {
 
   const filteredData = useMemo(() => {
     const query = search.trim().toLowerCase();
-    if (!query) return data;
+
     return data.filter((item) => {
-      const matchesName = item.name.toLowerCase().includes(query);
-      const matchesCountry =
-        "country" in item && item.country.toLowerCase().includes(query);
-      return matchesName || matchesCountry;
+      if (query) {
+        const matchesName = item.name.toLowerCase().includes(query);
+        const matchesCountry =
+          "country" in item && item.country.toLowerCase().includes(query);
+        if (!matchesName && !matchesCountry) return false;
+      }
+
+      if (isHeritage && filter !== "all") {
+        const isVisited = visited.includes(item.id);
+        if (filter === "visited" && !isVisited) return false;
+        if (filter === "unvisited" && isVisited) return false;
+      }
+
+      return true;
     });
-  }, [data, search]);
+  }, [data, search, filter, isHeritage, visited]);
 
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
-      <Stack.Screen
-        options={{
-          title: categoryTitle,
-          headerBackTitle: "Back",
-        }}
+      <Stack.Screen options={{ headerShown: false }} />
+
+      <ScreenHeader
+        title={categoryTitle}
+        accentBg={categoryMeta?.bg}
+        accentFg={categoryMeta?.fg}
       />
 
       {loading && (
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
-          <ActivityIndicator size="large" color={palette.coral} />
+          <ActivityIndicator size="large" color={palette.brand} />
           <Text style={{ marginTop: 12, color: palette.inkMuted }}>
             Loading…
           </Text>
@@ -364,7 +519,8 @@ export default function ExploreScreen() {
               label="Progress"
               detail={`${visited.length} of ${heritageTotal} visited`}
               percent={percent}
-              icon="flag-outline"
+              accentBg={categoryMeta?.bg}
+              accentFg={categoryMeta?.fg}
             />
           )}
 
@@ -382,13 +538,22 @@ export default function ExploreScreen() {
               borderColor: palette.hairline,
             }}
           >
-            <Ionicons name="search-outline" size={18} color={palette.inkFaint} />
+            <Ionicons
+              name="search-outline"
+              size={18}
+              color={palette.inkFaint}
+            />
             <TextInput
               value={search}
               onChangeText={setSearch}
               placeholder="Search..."
               placeholderTextColor={palette.inkFaint}
-              style={{ flex: 1, marginLeft: 8, fontSize: 15, color: palette.ink }}
+              style={{
+                flex: 1,
+                marginLeft: 8,
+                fontSize: 15,
+                color: palette.ink,
+              }}
             />
             {search.length > 0 && (
               <Pressable onPress={() => setSearch("")}>
@@ -401,8 +566,55 @@ export default function ExploreScreen() {
             )}
           </View>
 
+          {isHeritage && (
+            <View
+              style={{
+                flexDirection: "row",
+                gap: 8,
+                marginHorizontal: 16,
+                marginTop: 12,
+              }}
+            >
+              {(
+                [
+                  { id: "all", label: "All" },
+                  { id: "visited", label: "Visited" },
+                  { id: "unvisited", label: "Not visited" },
+                ] as const
+              ).map((chip) => {
+                const active = filter === chip.id;
+                return (
+                  <Pressable
+                    key={chip.id}
+                    onPress={() => setFilter(chip.id)}
+                    style={{
+                      paddingHorizontal: 12,
+                      paddingVertical: 6,
+                      borderRadius: 999,
+                      backgroundColor: active
+                        ? (categoryMeta?.fg ?? palette.brand)
+                        : palette.surface,
+                      borderWidth: active ? 0 : 1,
+                      borderColor: palette.hairline,
+                    }}
+                  >
+                    <Text
+                      style={{
+                        fontSize: 12,
+                        fontWeight: "600",
+                        color: active ? palette.surface : palette.inkMuted,
+                      }}
+                    >
+                      {chip.label}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          )}
+
           <FlatList
-            contentContainerStyle={{ padding: 16, paddingBottom: 40 }}
+            contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
             data={filteredData}
             keyExtractor={(item) => item.id}
             onEndReached={loadMore}
@@ -424,7 +636,7 @@ export default function ExploreScreen() {
               loadingMore ? (
                 <ActivityIndicator
                   style={{ marginTop: 20 }}
-                  color={palette.coral}
+                  color={palette.brand}
                 />
               ) : null
             }
@@ -443,60 +655,102 @@ export default function ExploreScreen() {
                   style={({ pressed }) => [
                     {
                       backgroundColor: palette.surface,
-                      borderRadius: 18,
-                      padding: 16,
-                      marginBottom: 12,
-                      borderWidth: 1,
-                      borderColor: palette.hairline,
-                      shadowColor: palette.shadow,
-                      shadowOpacity: 0.06,
-                      shadowRadius: 12,
-                      shadowOffset: { width: 0, height: 6 },
-                      elevation: 2,
+                      paddingHorizontal: 16,
+                      paddingVertical: 14,
+                      borderBottomWidth: 1,
+                      borderBottomColor: palette.hairline,
                       flexDirection: "row",
                       alignItems: "center",
-                      gap: 12,
+                      gap: 14,
                     },
-                    pressed && { opacity: 0.9 },
+                    pressed && { opacity: 0.85 },
                   ]}
                 >
-                  <View
-                    style={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: 12,
-                      backgroundColor: palette.creamDeep,
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Ionicons
-                      name={isCuisine ? "restaurant-outline" : "business-outline"}
-                      size={18}
-                      color={palette.violet}
-                    />
+                  <View>
+                    {isHeritage ? (
+                      <HeritageThumbnail
+                        item={item as HeritageItem}
+                        onResolved={resolveHeritageImage}
+                      />
+                    ) : (
+                      <View
+                        style={{
+                          width: 76,
+                          height: 76,
+                          borderRadius: 18,
+                          backgroundColor: palette.creamDeep,
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Ionicons
+                          name="restaurant-outline"
+                          size={24}
+                          color={palette.violet}
+                        />
+                      </View>
+                    )}
+                    {isHeritage && (
+                      <VisitedBadge checked={isVisited} color={categoryMeta?.fg} />
+                    )}
                   </View>
 
                   <View style={{ flex: 1 }}>
                     <Text
                       style={{
-                        fontSize: 16,
+                        fontSize: 17,
                         fontWeight: "700",
                         color: palette.ink,
-                        marginBottom: 4,
+                        lineHeight: 22,
                       }}
                     >
                       {item.name}
                     </Text>
 
                     {"country" in item && (
-                      <Text style={{ fontSize: 13, color: palette.inkMuted }}>
-                        {item.country}
-                      </Text>
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          alignItems: "center",
+                          marginTop: 6,
+                          gap: 4,
+                        }}
+                      >
+                        <Ionicons
+                          name="location-outline"
+                          size={13}
+                          color={palette.inkMuted}
+                        />
+                        <Text style={{ fontSize: 13, color: palette.inkMuted }}>
+                          {item.country}
+                        </Text>
+                      </View>
+                    )}
+
+                    {"category" in item && item.category && (
+                      <View
+                        style={{
+                          alignSelf: "flex-start",
+                          marginTop: 8,
+                          paddingHorizontal: 10,
+                          paddingVertical: 3,
+                          borderRadius: 999,
+                          backgroundColor: palette.violetSoft,
+                        }}
+                      >
+                        <Text
+                          style={{
+                            fontSize: 11,
+                            fontWeight: "700",
+                            color: palette.violet,
+                            letterSpacing: 0.5,
+                          }}
+                        >
+                          {item.category.toUpperCase()}
+                        </Text>
+                      </View>
                     )}
                   </View>
-
-                  {isHeritage && <VisitedBadge checked={isVisited} />}
 
                   {isCuisine && (
                     <Ionicons

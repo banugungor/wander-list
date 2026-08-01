@@ -1,5 +1,8 @@
 import { ProgressCard } from "@/components/progress-card";
+import { ScreenHeader } from "@/components/screen-header";
+import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
+import { logActivity } from "@/data/activityLog";
 import {
   CUISINE_AREA_TOTALS_KEY,
   CUISINE_VISITED_KEY,
@@ -76,27 +79,47 @@ export default function CuisineMealsScreen() {
   const toggle = async (id: string) => {
     const raw = await AsyncStorage.getItem(CUISINE_VISITED_KEY);
     const current: string[] = raw ? JSON.parse(raw) : [];
-    const updated = current.includes(id)
+    const wasVisited = current.includes(id);
+    const updated = wasVisited
       ? current.filter((x) => x !== id)
       : [...current, id];
     setVisited(updated);
     await AsyncStorage.setItem(CUISINE_VISITED_KEY, JSON.stringify(updated));
+
+    if (!wasVisited) {
+      const meal = data.find((m) => m.id === id);
+      if (meal) {
+        logActivity({
+          id: meal.id,
+          type: "cuisine",
+          title: meal.name,
+          subtitle: cuisineTitle,
+        });
+      }
+    }
   };
 
   if (loading) {
     return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: palette.cream,
-        }}
-      >
-        <ActivityIndicator size="large" color={palette.coral} />
-        <Text style={{ marginTop: 10, color: palette.inkMuted }}>
-          Loading meals…
-        </Text>
+      <View style={{ flex: 1, backgroundColor: palette.cream }}>
+        <Stack.Screen options={{ headerShown: false }} />
+        <ScreenHeader
+          title={cuisineTitle}
+          accentBg={getCategory("cuisine")?.bg}
+          accentFg={getCategory("cuisine")?.fg}
+        />
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <ActivityIndicator size="large" color={palette.coral} />
+          <Text style={{ marginTop: 10, color: palette.inkMuted }}>
+            Loading meals…
+          </Text>
+        </View>
       </View>
     );
   }
@@ -106,11 +129,12 @@ export default function CuisineMealsScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
-      <Stack.Screen
-        options={{
-          title: `${cuisineTitle} Meals`,
-          headerBackTitle: "Back",
-        }}
+      <Stack.Screen options={{ headerShown: false }} />
+
+      <ScreenHeader
+        title={cuisineTitle}
+        accentBg={getCategory("cuisine")?.bg}
+        accentFg={getCategory("cuisine")?.fg}
       />
 
       {data.length > 0 && (
@@ -118,7 +142,8 @@ export default function CuisineMealsScreen() {
           label="Tasted"
           detail={`${triedCount} of ${data.length} tried`}
           percent={percent}
-          icon="restaurant-outline"
+          accentBg={getCategory("cuisine")?.bg}
+          accentFg={getCategory("cuisine")?.fg}
         />
       )}
 
