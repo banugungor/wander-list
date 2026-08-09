@@ -31,8 +31,9 @@ export function BottomTabBar() {
       <Pressable
         key={tab.href}
         onPress={() => {
+          if (active) return;
           Haptics.selectionAsync();
-          router.push(tab.href as any);
+          router.replace(tab.href as any);
         }}
         style={{ padding: 10 }}
       >

@@ -4,10 +4,10 @@ import type { CategoryId } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { type Badge, type BadgeContext, computeBadges } from "@/data/badges";
 import { fetchCuisines } from "@/data/cuisineApi";
+import { heritageSites } from "@/data/heritageSites";
 import {
   CUISINE_MEAL_AREAS_KEY,
   CUISINE_VISITED_KEY,
-  HERITAGE_TOTAL_COUNT_KEY,
   HERITAGE_VISITED_KEY,
   PLACES_VISITED_KEY,
 } from "@/data/storageKeys";
@@ -35,25 +35,18 @@ export default function BadgesScreen() {
   useFocusEffect(
     useCallback(() => {
       const load = async () => {
-        const [
-          heritageRaw,
-          heritageTotalRaw,
-          placesRaw,
-          cuisineRaw,
-          cuisineMealAreasRaw,
-          cuisines,
-        ] = await Promise.all([
-          AsyncStorage.getItem(HERITAGE_VISITED_KEY),
-          AsyncStorage.getItem(HERITAGE_TOTAL_COUNT_KEY),
-          AsyncStorage.getItem(PLACES_VISITED_KEY),
-          AsyncStorage.getItem(CUISINE_VISITED_KEY),
-          AsyncStorage.getItem(CUISINE_MEAL_AREAS_KEY),
-          fetchCuisines().catch(() => []),
-        ]);
+        const [heritageRaw, placesRaw, cuisineRaw, cuisineMealAreasRaw, cuisines] =
+          await Promise.all([
+            AsyncStorage.getItem(HERITAGE_VISITED_KEY),
+            AsyncStorage.getItem(PLACES_VISITED_KEY),
+            AsyncStorage.getItem(CUISINE_VISITED_KEY),
+            AsyncStorage.getItem(CUISINE_MEAL_AREAS_KEY),
+            fetchCuisines().catch(() => []),
+          ]);
 
         const nextCtx: BadgeContext = {
           heritageVisitedCount: heritageRaw ? JSON.parse(heritageRaw).length : 0,
-          heritageTotal: heritageTotalRaw ? JSON.parse(heritageTotalRaw) : 0,
+          heritageTotal: heritageSites.length,
           countriesVisitedIds: placesRaw ? JSON.parse(placesRaw) : [],
           cuisineVisitedMealIds: cuisineRaw ? JSON.parse(cuisineRaw) : [],
           cuisineMealAreas: cuisineMealAreasRaw

@@ -5,11 +5,10 @@ import { CountryFlag } from "@/components/country-flag";
 import { categories, getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { ActivityEntry, getActivityLog, timeAgo } from "@/data/activityLog";
+import { heritageSites } from "@/data/heritageSites";
 import {
   CUISINE_AREA_TOTALS_KEY,
   CUISINE_VISITED_KEY,
-  HERITAGE_DATA_CACHE_KEY,
-  HERITAGE_TOTAL_COUNT_KEY,
   HERITAGE_VISITED_KEY,
 } from "@/data/heritageStorage";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
@@ -37,19 +36,7 @@ export default function HomeScreen() {
           const visitedData = await AsyncStorage.getItem(HERITAGE_VISITED_KEY);
           const visited: string[] = visitedData ? JSON.parse(visitedData) : [];
 
-          const [cachedTotalCountData, cachedData] = await Promise.all([
-            AsyncStorage.getItem(HERITAGE_TOTAL_COUNT_KEY),
-            AsyncStorage.getItem(HERITAGE_DATA_CACHE_KEY),
-          ]);
-          const cachedTotalCount = cachedTotalCountData
-            ? JSON.parse(cachedTotalCountData)
-            : 0;
-          const cached = cachedData ? JSON.parse(cachedData) : [];
-
-          const heritageTotal =
-            typeof cachedTotalCount === "number" && cachedTotalCount > 0
-              ? cachedTotalCount
-              : cached.length;
+          const heritageTotal = heritageSites.length;
           const heritagePercent =
             heritageTotal > 0
               ? Math.min(100, Math.round((visited.length / heritageTotal) * 100))
@@ -182,13 +169,15 @@ export default function HomeScreen() {
             }}
           >
             <Image
-              source={{ uri: getCategory("places")?.image }}
+              source={{
+                uri: "https://images.unsplash.com/photo-1483347756197-71ef80e95f73?w=400&q=60&auto=format&fit=crop",
+              }}
               style={{
                 position: "absolute",
                 top: 0,
                 bottom: 0,
                 right: 0,
-                width: "42%",
+                width: "110%",
                 opacity: 0.4,
               }}
               contentFit="cover"

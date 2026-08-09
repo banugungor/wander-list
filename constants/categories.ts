@@ -1,8 +1,5 @@
-import HeritageIllustration from "@/assets/illustrations/heritage.svg";
 import { palette } from "@/constants/palette";
 import { Ionicons } from "@expo/vector-icons";
-import type { FC } from "react";
-import type { SvgProps } from "react-native-svg";
 
 export type CategoryId = "heritage" | "places" | "cuisine" | "books" | "movies";
 
@@ -13,8 +10,6 @@ export type Category = {
   bg: string;
   fg: string;
   implemented: boolean;
-  image: string;
-  illustration?: FC<SvgProps>;
 };
 
 export const categories: Category[] = [
@@ -25,9 +20,6 @@ export const categories: Category[] = [
     bg: palette.greenSoft,
     fg: palette.greenText,
     implemented: true,
-    image:
-      "https://images.unsplash.com/photo-1555993539-1732b0258235?w=400&q=60&auto=format&fit=crop",
-    illustration: HeritageIllustration,
   },
   {
     id: "places",
@@ -36,8 +28,6 @@ export const categories: Category[] = [
     bg: palette.greenSoft,
     fg: palette.greenText,
     implemented: true,
-    image:
-      "https://images.unsplash.com/photo-1483347756197-71ef80e95f73?w=400&q=60&auto=format&fit=crop",
   },
   {
     id: "cuisine",
@@ -46,8 +36,6 @@ export const categories: Category[] = [
     bg: palette.coralPale,
     fg: palette.coralText,
     implemented: true,
-    image:
-      "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=60&auto=format&fit=crop",
   },
   {
     id: "books",
@@ -56,8 +44,6 @@ export const categories: Category[] = [
     bg: palette.violetPale,
     fg: palette.violetText,
     implemented: false,
-    image:
-      "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&q=60&auto=format&fit=crop",
   },
   {
     id: "movies",
@@ -66,8 +52,6 @@ export const categories: Category[] = [
     bg: palette.bluePale,
     fg: palette.blueText,
     implemented: false,
-    image:
-      "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&q=60&auto=format&fit=crop",
   },
 ];
 

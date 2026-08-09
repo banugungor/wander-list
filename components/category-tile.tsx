@@ -1,7 +1,6 @@
 import type { Category } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { Ionicons } from "@expo/vector-icons";
-import { Image } from "expo-image";
 import { Pressable, Text, View } from "react-native";
 
 type CategoryTileProps = {
@@ -19,38 +18,8 @@ export function CategoryTile({
   wide = false,
   onPress,
 }: CategoryTileProps) {
-  const Illustration = category.illustration;
   const percent =
     total > 0 ? Math.min(100, Math.round((count / total) * 100)) : 0;
-
-  const decoration = Illustration ? (
-    <Illustration
-      width={wide ? 76 : 96}
-      height={wide ? 76 : 96}
-      style={{
-        position: "absolute",
-        bottom: wide ? -18 : -10,
-        right: wide ? -10 : -14,
-      }}
-    />
-  ) : (
-    <Image
-      source={{ uri: category.image }}
-      style={
-        wide
-          ? { position: "absolute", top: 0, bottom: 0, right: 0, width: "34%" }
-          : {
-              position: "absolute",
-              bottom: 0,
-              right: 0,
-              width: "62%",
-              height: "70%",
-            }
-      }
-      contentFit="cover"
-      transition={200}
-    />
-  );
 
   const badge = (
     <View
@@ -107,8 +76,6 @@ export function CategoryTile({
         pressed && { opacity: 0.85 },
       ]}
     >
-      {decoration}
-
       {wide ? (
         <>
           <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>

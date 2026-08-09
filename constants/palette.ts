@@ -5,7 +5,7 @@ export const palette = {
   cream: "#FAFAF8",
   creamDeep: "#EFEDE7",
   surface: "#FFFFFF",
-  hairline: "rgba(30, 27, 24, 0.06)",
+  hairline: "rgba(30, 27, 24, 0.08)",
   hairlineStrong: "rgba(30, 27, 24, 0.14)",
   coral: "#E8871E",
   coralSoft: "#FFC7D1",
