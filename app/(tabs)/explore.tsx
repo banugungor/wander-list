@@ -4,6 +4,7 @@ import { VisitedBadge } from "@/components/visited-badge";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { logActivity } from "@/data/activityLog";
+import { queueCloudSync } from "@/data/cloudSync";
 import { fetchCuisines, type CuisineItem } from "@/data/cuisineApi";
 import {
   CUISINE_AREA_TOTALS_KEY,
@@ -301,6 +302,7 @@ export default function ExploreScreen() {
           CUISINE_AREA_TOTALS_KEY,
           JSON.stringify(merged),
         );
+        queueCloudSync();
       }
     } catch (e) {
       console.log("CUISINE ERROR", e);
@@ -423,6 +425,7 @@ export default function ExploreScreen() {
 
     setVisited(updated);
     await AsyncStorage.setItem(HERITAGE_VISITED_KEY, JSON.stringify(updated));
+    queueCloudSync();
 
     if (!wasVisited) {
       const item = data.find((d) => d.id === id) as HeritageItem | undefined;
@@ -432,6 +435,7 @@ export default function ExploreScreen() {
           type: "heritage",
           title: item.name,
           subtitle: item.country,
+          imageUrl: item.imageUrl,
         });
       }
     }

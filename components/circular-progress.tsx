@@ -8,6 +8,7 @@ type CircularProgressProps = {
   strokeWidth?: number;
   color?: string;
   trackColor?: string;
+  textColor?: string;
 };
 
 export function CircularProgress({
@@ -16,6 +17,7 @@ export function CircularProgress({
   strokeWidth = 7,
   color = palette.brand,
   trackColor = palette.creamDeep,
+  textColor = palette.ink,
 }: CircularProgressProps) {
   const clamped = Math.min(100, Math.max(0, percent));
   const radius = (size - strokeWidth) / 2;
@@ -63,7 +65,7 @@ export function CircularProgress({
           style={{
             fontSize: size >= 60 ? 15 : 12,
             fontWeight: "600",
-            color: palette.ink,
+            color: textColor,
           }}
         >
           {clamped}%

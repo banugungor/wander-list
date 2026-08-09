@@ -3,6 +3,7 @@ import { CountryFlag } from "@/components/country-flag";
 import { ScreenHeader } from "@/components/screen-header";
 import { palette } from "@/constants/palette";
 import { logActivity } from "@/data/activityLog";
+import { queueCloudSync } from "@/data/cloudSync";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
 import worldData from "@/data/worldCountries.json";
 import { Ionicons } from "@expo/vector-icons";
@@ -122,9 +123,15 @@ export default function PlacesMapScreen() {
 
     setVisited(updated);
     await AsyncStorage.setItem(PLACES_VISITED_KEY, JSON.stringify(updated));
+    queueCloudSync();
 
     if (!wasVisited) {
-      logActivity({ id: country.id, type: "places", title: country.name });
+      logActivity({
+        id: country.id,
+        type: "places",
+        title: country.name,
+        iso2: country.iso2,
+      });
     }
   };
 

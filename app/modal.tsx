@@ -73,7 +73,7 @@ export default function AddScreen() {
               justifyContent: "center",
             }}
           >
-            <Ionicons name={cat.icon} size={19} color={cat.fg} />
+            <Ionicons name={cat.icon} size={20} color={cat.fg} />
           </View>
           <View style={{ flex: 1 }}>
             <Text

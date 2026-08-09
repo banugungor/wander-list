@@ -6,14 +6,14 @@ import { Pressable, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type TabDef = {
-  href: "/" | "/map" | "/stats" | "/profile";
+  href: "/" | "/badges" | "/stats" | "/profile";
   icon: keyof typeof Ionicons.glyphMap;
   activeIcon: keyof typeof Ionicons.glyphMap;
 };
 
 const tabs: TabDef[] = [
   { href: "/", icon: "home-outline", activeIcon: "home" },
-  { href: "/map", icon: "map-outline", activeIcon: "map" },
+  { href: "/badges", icon: "ribbon-outline", activeIcon: "ribbon" },
 ];
 
 const tabsRight: TabDef[] = [

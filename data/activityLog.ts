@@ -1,7 +1,9 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import type { CategoryId } from "@/constants/categories";
+import { queueCloudSync } from "@/data/cloudSync";
+import { ACTIVITY_LOG_KEY } from "@/data/storageKeys";
 
-export const ACTIVITY_LOG_KEY = "activity_log_v1";
+export { ACTIVITY_LOG_KEY };
 const MAX_ENTRIES = 30;
 
 export type ActivityEntry = {
@@ -9,6 +11,8 @@ export type ActivityEntry = {
   type: CategoryId;
   title: string;
   subtitle?: string;
+  imageUrl?: string | null;
+  iso2?: string;
   timestamp: number;
 };
 
@@ -30,6 +34,7 @@ export async function logActivity(
     );
 
     await AsyncStorage.setItem(ACTIVITY_LOG_KEY, JSON.stringify(updated));
+    queueCloudSync();
   } catch (e) {
     console.log("ACTIVITY LOG WRITE ERROR", e);
   }

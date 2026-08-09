@@ -1,1 +1,1 @@
-export const PLACES_VISITED_KEY = "visited_countries";
+export { PLACES_VISITED_KEY } from "@/data/storageKeys";

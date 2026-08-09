@@ -26,6 +26,7 @@ export default function RootLayout() {
             name="modal"
             options={{ presentation: "modal", title: "Ekle" }}
           />
+          <Stack.Screen name="auth" options={{ presentation: "modal" }} />
         </Stack>
 
         <StatusBar style="auto" />

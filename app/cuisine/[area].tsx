@@ -3,8 +3,10 @@ import { ScreenHeader } from "@/components/screen-header";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { logActivity } from "@/data/activityLog";
+import { queueCloudSync } from "@/data/cloudSync";
 import {
   CUISINE_AREA_TOTALS_KEY,
+  CUISINE_MEAL_AREAS_KEY,
   CUISINE_VISITED_KEY,
 } from "@/data/heritageStorage";
 import { Ionicons } from "@expo/vector-icons";
@@ -60,6 +62,19 @@ export default function CuisineMealsScreen() {
           CUISINE_AREA_TOTALS_KEY,
           JSON.stringify(totals),
         );
+
+        // rozet hesaplaması için yemek ID -> bölge eşlemesini güncelle
+        const existingAreas = await AsyncStorage.getItem(CUISINE_MEAL_AREAS_KEY);
+        const mealAreas = existingAreas ? JSON.parse(existingAreas) : {};
+        meals.forEach((meal) => {
+          mealAreas[meal.id] = cuisineTitle;
+        });
+        await AsyncStorage.setItem(
+          CUISINE_MEAL_AREAS_KEY,
+          JSON.stringify(mealAreas),
+        );
+
+        queueCloudSync();
       } catch (e) {
         console.log("MEAL ERROR", e);
         setLoading(false);
@@ -85,6 +100,7 @@ export default function CuisineMealsScreen() {
       : [...current, id];
     setVisited(updated);
     await AsyncStorage.setItem(CUISINE_VISITED_KEY, JSON.stringify(updated));
+    queueCloudSync();
 
     if (!wasVisited) {
       const meal = data.find((m) => m.id === id);
@@ -94,6 +110,7 @@ export default function CuisineMealsScreen() {
           type: "cuisine",
           title: meal.name,
           subtitle: cuisineTitle,
+          imageUrl: meal.thumb,
         });
       }
     }

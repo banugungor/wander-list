@@ -1,6 +1,7 @@
 import { BottomTabBar } from "@/components/bottom-tab-bar";
 import { CategoryTile } from "@/components/category-tile";
 import { CircularProgress } from "@/components/circular-progress";
+import { CountryFlag } from "@/components/country-flag";
 import { categories, getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { ActivityEntry, getActivityLog, timeAgo } from "@/data/activityLog";
@@ -15,9 +16,11 @@ import { PLACES_VISITED_KEY } from "@/data/placesStorage";
 import worldData from "@/data/worldCountries.json";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Image } from "expo-image";
+import { LinearGradient } from "expo-linear-gradient";
 import { router, useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
-import { ScrollView, Text, View } from "react-native";
+import { Pressable, ScrollView, Text, View } from "react-native";
 
 type CategoryStats = { count: number; total: number; percent: number };
 
@@ -133,7 +136,7 @@ export default function HomeScreen() {
         >
           <View>
             <Text style={{ fontSize: 18, fontWeight: "600", color: palette.ink }}>
-              Merhaba, Banu
+              Merhaba, Banu 👋
             </Text>
             <Text style={{ marginTop: 3, fontSize: 13, color: palette.inkMuted }}>
               Bugün ne biriktirdin?
@@ -156,61 +159,87 @@ export default function HomeScreen() {
         </View>
 
         {/* OVERALL PROGRESS */}
-        <View
-          style={{
-            marginTop: 20,
-            backgroundColor: palette.surface,
-            borderRadius: 18,
-            padding: 16,
-            flexDirection: "row",
-            alignItems: "center",
-            gap: 14,
-            shadowColor: palette.shadow,
-            shadowOpacity: 0.06,
-            shadowRadius: 14,
-            shadowOffset: { width: 0, height: 6 },
-            elevation: 2,
-          }}
+        <Pressable
+          onPress={() => router.push("/stats")}
+          style={({ pressed }) => [{ marginTop: 20 }, pressed && { opacity: 0.9 }]}
         >
-          <CircularProgress percent={overallPercent} size={64} strokeWidth={7} />
-          <View style={{ flex: 1 }}>
-            <Text
+          <LinearGradient
+            colors={[palette.cardDarkFrom, palette.cardDarkTo]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={{
+              borderRadius: 18,
+              padding: 16,
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 14,
+              overflow: "hidden",
+              shadowColor: palette.shadow,
+              shadowOpacity: 0.18,
+              shadowRadius: 14,
+              shadowOffset: { width: 0, height: 6 },
+              elevation: 2,
+            }}
+          >
+            <Image
+              source={{ uri: getCategory("places")?.image }}
               style={{
-                fontSize: 11,
-                fontWeight: "700",
-                color: palette.inkMuted,
-                letterSpacing: 0.6,
-                textTransform: "uppercase",
+                position: "absolute",
+                top: 0,
+                bottom: 0,
+                right: 0,
+                width: "42%",
+                opacity: 0.4,
               }}
-            >
-              Genel ilerleme
-            </Text>
-            {implementedStats.length === 0 ? (
-              <Text style={{ marginTop: 6, fontSize: 12, color: palette.inkMuted }}>
-                Henüz veri yok, keşfetmeye başla
+              contentFit="cover"
+            />
+            <CircularProgress
+              percent={overallPercent}
+              size={64}
+              strokeWidth={7}
+              trackColor={palette.onDarkTrack}
+              textColor={palette.onDark}
+            />
+            <View style={{ flex: 1 }}>
+              <Text
+                style={{
+                  fontSize: 11,
+                  fontWeight: "700",
+                  color: palette.onDarkMuted,
+                  letterSpacing: 0.6,
+                  textTransform: "uppercase",
+                }}
+              >
+                Genel ilerleme
               </Text>
-            ) : (
-              categories
-                .filter((c) => stats[c.id] && stats[c.id].total > 0)
-                .map((c) => (
-                  <View
-                    key={c.id}
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      gap: 6,
-                      marginTop: 6,
-                    }}
-                  >
-                    <Ionicons name={c.icon} size={12} color={c.fg} />
-                    <Text style={{ fontSize: 12, color: palette.ink }}>
-                      {c.title} {stats[c.id].count}/{stats[c.id].total}
-                    </Text>
-                  </View>
-                ))
-            )}
-          </View>
-        </View>
+              {implementedStats.length === 0 ? (
+                <Text style={{ marginTop: 6, fontSize: 12, color: palette.onDarkMuted }}>
+                  Henüz veri yok, keşfetmeye başla
+                </Text>
+              ) : (
+                categories
+                  .filter((c) => stats[c.id] && stats[c.id].total > 0)
+                  .map((c) => (
+                    <View
+                      key={c.id}
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        gap: 6,
+                        marginTop: 6,
+                      }}
+                    >
+                      <Ionicons name={c.icon} size={18} color={palette.brand} />
+                      <Text style={{ fontSize: 12, color: palette.onDark }}>
+                        {c.title} {stats[c.id].count}/{stats[c.id].total}
+                      </Text>
+                    </View>
+                  ))
+              )}
+            </View>
+            <Ionicons name="chevron-forward" size={18} color={palette.onDarkMuted} />
+          </LinearGradient>
+        </Pressable>
 
         {/* CATEGORY GRID */}
         <Text
@@ -227,14 +256,17 @@ export default function HomeScreen() {
           Kategoriler
         </Text>
         <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 12 }}>
-          {categories.map((cat) => {
+          {categories.map((cat, i) => {
             const s = stats[cat.id] ?? emptyStats;
+            const isLastOdd =
+              i === categories.length - 1 && categories.length % 2 === 1;
             return (
               <CategoryTile
                 key={cat.id}
                 category={cat}
                 count={s.count}
                 total={s.total}
+                wide={isLastOdd}
                 onPress={() =>
                   cat.id === "places"
                     ? router.push("/places-map")
@@ -266,6 +298,7 @@ export default function HomeScreen() {
             </Text>
             {recent.map((entry, i) => {
               const cat = getCategory(entry.type);
+              const hasPhoto = !!entry.imageUrl;
               return (
                 <View
                   key={`${entry.type}-${entry.id}-${i}`}
@@ -273,24 +306,69 @@ export default function HomeScreen() {
                     flexDirection: "row",
                     alignItems: "center",
                     gap: 12,
-                    paddingVertical: 10,
+                    padding: 10,
+                    marginBottom: 8,
+                    borderRadius: 14,
+                    backgroundColor: palette.surface,
+                    shadowColor: palette.shadow,
+                    shadowOpacity: 0.04,
+                    shadowRadius: 8,
+                    shadowOffset: { width: 0, height: 3 },
+                    elevation: 1,
                   }}
                 >
-                  <View
-                    style={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: 10,
-                      backgroundColor: cat?.bg ?? palette.creamDeep,
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Ionicons
-                      name={cat?.icon ?? "checkmark"}
-                      size={16}
-                      color={cat?.fg ?? palette.brand}
-                    />
+                  <View style={{ width: 44, height: 44 }}>
+                    <View
+                      style={{
+                        width: 44,
+                        height: 44,
+                        borderRadius: 12,
+                        overflow: "hidden",
+                        backgroundColor: cat?.bg ?? palette.creamDeep,
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {hasPhoto ? (
+                        <Image
+                          source={{ uri: entry.imageUrl! }}
+                          style={{ width: 44, height: 44 }}
+                          contentFit="cover"
+                          transition={200}
+                        />
+                      ) : entry.type === "places" ? (
+                        <CountryFlag id={entry.id} iso2={entry.iso2} size={20} />
+                      ) : (
+                        <Ionicons
+                          name={cat?.icon ?? "checkmark"}
+                          size={18}
+                          color={cat?.fg ?? palette.brand}
+                        />
+                      )}
+                    </View>
+                    {hasPhoto && (
+                      <View
+                        style={{
+                          position: "absolute",
+                          bottom: -2,
+                          right: -2,
+                          width: 18,
+                          height: 18,
+                          borderRadius: 9,
+                          backgroundColor: cat?.bg ?? palette.creamDeep,
+                          borderWidth: 1.5,
+                          borderColor: palette.surface,
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Ionicons
+                          name={cat?.icon ?? "checkmark"}
+                          size={9}
+                          color={cat?.fg ?? palette.brand}
+                        />
+                      </View>
+                    )}
                   </View>
                   <View style={{ flex: 1 }}>
                     <Text

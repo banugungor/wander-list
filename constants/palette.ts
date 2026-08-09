@@ -27,4 +27,11 @@ export const palette = {
   violetText: "#7C5CD1",
   bluePale: "#E2EEFC",
   blueText: "#3D7DD8",
+
+  // Dark gradient card (home progress card)
+  cardDarkFrom: "#2d6a4e",
+  cardDarkTo: "#244131",
+  onDark: "#FFFFFF",
+  onDarkMuted: "rgba(255, 255, 255, 0.6)",
+  onDarkTrack: "rgba(255, 255, 255, 0.16)",
 };
