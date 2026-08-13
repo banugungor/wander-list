@@ -1,21 +1,21 @@
 {
   "expo": {
-    "name": "Waylog",
-    "slug": "mydonelist",
+    "name": "Wanderlist",
+    "slug": "wanderlist",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "mydonelist",
+    "scheme": "wanderlist",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
 
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.banu.mydonelist"
+      "bundleIdentifier": "com.wanderlist.app"
     },
 
     "android": {
-      "package": "com.banu.mydonelist",
+      "package": "com.wanderlist.app",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -23,12 +23,7 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false,
-      "config": {
-        "googleMaps": {
-          "apiKey": "REPLACE_WITH_YOUR_GOOGLE_MAPS_API_KEY"
-        }
-      }
+      "predictiveBackGestureEnabled": false
     },
 
     "web": {
