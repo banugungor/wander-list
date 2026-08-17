@@ -5,6 +5,7 @@ import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { getLocalizedCountryField } from "@/data/countryNamesTr";
 import { getHeritageSiteById } from "@/data/heritageSites";
+import { getLocalizedHeritageItem } from "@/data/heritageTranslations";
 import { toggleHeritageVisited } from "@/data/heritageStorage";
 import { useAppStore } from "@/store/useAppStore";
 import { Ionicons } from "@expo/vector-icons";
@@ -20,6 +21,10 @@ export default function HeritageDetailScreen() {
   const item = useMemo(
     () => (siteId ? getHeritageSiteById(siteId) : null),
     [siteId],
+  );
+  const displayItem = useMemo(
+    () => (item ? getLocalizedHeritageItem(item, language) : null),
+    [item, language],
   );
 
   const visited = useAppStore((s) => s.visitedHeritage);
@@ -103,7 +108,7 @@ export default function HeritageDetailScreen() {
               color: palette.ink,
             }}
           >
-            {item.name}
+            {displayItem?.name}
           </Text>
 
           <View
@@ -132,7 +137,7 @@ export default function HeritageDetailScreen() {
               lineHeight: 20,
             }}
           >
-            {item.description ?? t("heritageDetail.noDescription")}
+            {displayItem?.description ?? t("heritageDetail.noDescription")}
           </Text>
 
           <Pressable

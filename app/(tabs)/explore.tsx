@@ -9,6 +9,7 @@ import { getLocalizedCountryField } from "@/data/countryNamesTr";
 import type { CuisineItem } from "@/data/cuisineApi";
 import { getContinentsForCountryField } from "@/data/heritageContinents";
 import type { HeritageItem } from "@/data/heritageSites";
+import { getLocalizedHeritageItem } from "@/data/heritageTranslations";
 import { useCuisineExplorer } from "@/hooks/use-cuisine-explorer";
 import { useHeritageExplorer } from "@/hooks/use-heritage-explorer";
 import { Ionicons } from "@expo/vector-icons";
@@ -129,6 +130,9 @@ export default function ExploreScreen() {
 
   const renderExploreItem = ({ item }: { item: Item }) => {
     const isVisited = isHeritage && heritage.visited.includes(item.id);
+    const displayItem = isHeritage
+      ? getLocalizedHeritageItem(item as HeritageItem, language)
+      : item;
 
     return (
       <Pressable
@@ -185,7 +189,7 @@ export default function ExploreScreen() {
               lineHeight: 22,
             }}
           >
-            {item.name}
+            {displayItem.name}
           </Text>
 
           {"country" in item && (
