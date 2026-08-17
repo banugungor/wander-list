@@ -1,4 +1,5 @@
 import { palette } from "@/constants/palette";
+import { useLanguage } from "@/contexts/language-context";
 import { syncAfterAuth } from "@/data/cloudSync";
 import { supabase } from "@/lib/supabase";
 import * as AppleAuthentication from "expo-apple-authentication";
@@ -15,6 +16,7 @@ import {
 } from "react-native";
 
 export default function AuthScreen() {
+  const { t } = useLanguage();
   const [mode, setMode] = useState<"signIn" | "signUp">("signIn");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,7 +31,7 @@ export default function AuthScreen() {
 
   const handleEmailAuth = async () => {
     if (!email.trim() || !password) {
-      Alert.alert("Eksik bilgi", "Email ve şifre gerekli.");
+      Alert.alert(t("auth.missingInfoTitle"), t("auth.missingInfoMessage"));
       return;
     }
 
@@ -41,17 +43,14 @@ export default function AuthScreen() {
           : await supabase.auth.signUp({ email, password });
 
       if (error) {
-        Alert.alert("Hata", error.message);
+        Alert.alert(t("auth.errorTitle"), error.message);
         return;
       }
 
       // Email confirmation is enabled on this Supabase project: a fresh
       // sign-up returns a user but no session until the link is clicked.
       if (mode === "signUp" && !data.session) {
-        Alert.alert(
-          "E-postanı onayla",
-          "Hesabını aktifleştirmek için email adresine gönderilen bağlantıya tıkla, sonra giriş yap.",
-        );
+        Alert.alert(t("auth.confirmEmailTitle"), t("auth.confirmEmailMessage"));
         setMode("signIn");
         return;
       }
@@ -73,7 +72,7 @@ export default function AuthScreen() {
       });
 
       if (!credential.identityToken) {
-        Alert.alert("Hata", "Apple girişi tamamlanamadı.");
+        Alert.alert(t("auth.errorTitle"), t("auth.appleSignInFailed"));
         return;
       }
 
@@ -83,7 +82,7 @@ export default function AuthScreen() {
       });
 
       if (error) {
-        Alert.alert("Hata", error.message);
+        Alert.alert(t("auth.errorTitle"), error.message);
         return;
       }
 
@@ -91,7 +90,7 @@ export default function AuthScreen() {
       router.back();
     } catch (e: any) {
       if (e?.code !== "ERR_REQUEST_CANCELED") {
-        Alert.alert("Hata", "Apple girişi tamamlanamadı.");
+        Alert.alert(t("auth.errorTitle"), t("auth.appleSignInFailed"));
       }
     } finally {
       setLoading(false);
@@ -109,13 +108,13 @@ export default function AuthScreen() {
     >
       <Stack.Screen
         options={{
-          title: mode === "signIn" ? "Giriş Yap" : "Kayıt Ol",
+          title: mode === "signIn" ? t("auth.signIn") : t("auth.signUp"),
           headerShown: true,
         }}
       />
 
       <TextInput
-        placeholder="Email"
+        placeholder={t("auth.email")}
         placeholderTextColor={palette.inkFaint}
         autoCapitalize="none"
         keyboardType="email-address"
@@ -133,7 +132,7 @@ export default function AuthScreen() {
       />
 
       <TextInput
-        placeholder="Şifre"
+        placeholder={t("auth.password")}
         placeholderTextColor={palette.inkFaint}
         secureTextEntry
         value={password}
@@ -169,7 +168,7 @@ export default function AuthScreen() {
           <Text
             style={{ color: palette.surface, fontSize: 14, fontWeight: "700" }}
           >
-            {mode === "signIn" ? "Giriş Yap" : "Kayıt Ol"}
+            {mode === "signIn" ? t("auth.signIn") : t("auth.signUp")}
           </Text>
         )}
       </Pressable>
@@ -179,9 +178,7 @@ export default function AuthScreen() {
         style={{ marginTop: 16, alignItems: "center" }}
       >
         <Text style={{ fontSize: 13, color: palette.inkMuted }}>
-          {mode === "signIn"
-            ? "Hesabın yok mu? Kayıt ol"
-            : "Zaten hesabın var mı? Giriş yap"}
+          {mode === "signIn" ? t("auth.noAccount") : t("auth.hasAccount")}
         </Text>
       </Pressable>
 

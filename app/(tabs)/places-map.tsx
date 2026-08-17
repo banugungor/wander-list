@@ -2,9 +2,11 @@ import { CircularProgress } from "@/components/circular-progress";
 import { CountryFlag } from "@/components/country-flag";
 import { ScreenHeader } from "@/components/screen-header";
 import { palette } from "@/constants/palette";
+import { useLanguage, type Language } from "@/contexts/language-context";
 import { logActivity } from "@/data/activityLog";
 import { queueCloudSync } from "@/data/cloudSync";
 import { CONTINENT_BY_COUNTRY_ID, CONTINENTS, ContinentId } from "@/data/continents";
+import { getLocalizedCountryName } from "@/data/countryNamesTr";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
 import worldData from "@/data/worldCountries.json";
 import { Ionicons } from "@expo/vector-icons";
@@ -37,7 +39,12 @@ const mapWidth = screenWidth - 32;
 const mapHeight = mapWidth * (worldData.height / worldData.width);
 const MAX_SCALE = 5;
 
+function localizedNameOf(country: CountryPath, language: Language): string {
+  return getLocalizedCountryName(country.name, language);
+}
+
 export default function PlacesMapScreen() {
+  const { t, language } = useLanguage();
   const [visited, setVisited] = useState<string[]>([]);
   const [zoomed, setZoomed] = useState(false);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
@@ -139,17 +146,20 @@ export default function PlacesMapScreen() {
     }
   };
 
+  const sortByLocalizedName = useCallback(
+    (a: CountryPath, b: CountryPath) =>
+      localizedNameOf(a, language).localeCompare(localizedNameOf(b, language)),
+    [language],
+  );
+
   const visitedCountries = useMemo(
-    () =>
-      countries
-        .filter((c) => visited.includes(c.id))
-        .sort((a, b) => a.name.localeCompare(b.name)),
-    [countries, visited],
+    () => countries.filter((c) => visited.includes(c.id)).sort(sortByLocalizedName),
+    [countries, visited, sortByLocalizedName],
   );
 
   const allSorted = useMemo(
-    () => [...countries].sort((a, b) => a.name.localeCompare(b.name)),
-    [countries],
+    () => [...countries].sort(sortByLocalizedName),
+    [countries, sortByLocalizedName],
   );
 
   const displayedCountries =
@@ -159,10 +169,15 @@ export default function PlacesMapScreen() {
     const query = pickerSearch.trim().toLowerCase();
     return allSorted.filter((c) => {
       if (pickerFilter === "visited" && !visited.includes(c.id)) return false;
-      if (query && !c.name.toLowerCase().includes(query)) return false;
+      if (
+        query &&
+        !c.name.toLowerCase().includes(query) &&
+        !localizedNameOf(c, language).toLowerCase().includes(query)
+      )
+        return false;
       return true;
     });
-  }, [allSorted, pickerSearch, pickerFilter, visited]);
+  }, [allSorted, pickerSearch, pickerFilter, visited, language]);
 
   const countriesByContinent = useMemo(() => {
     const map = new Map<ContinentId, CountryPath[]>();
@@ -196,8 +211,8 @@ export default function PlacesMapScreen() {
 
       <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
         <ScreenHeader
-          title="Gittiğin Ülkeler"
-          subtitle="Dünyayı keşfetmeye devam et"
+          title={t("placesMap.title")}
+          subtitle={t("placesMap.subtitle")}
         />
 
         {/* STATS ROW */}
@@ -229,15 +244,14 @@ export default function PlacesMapScreen() {
             <Text style={{ fontSize: 22, fontWeight: "700", color: palette.greenText }}>
               {visited.length}
             </Text>
-            <Text style={{ fontSize: 11, color: palette.greenText }}>Ülke</Text>
+            <Text style={{ fontSize: 11, color: palette.greenText }}>
+              {t("placesMap.countryUnit")}
+            </Text>
           </View>
 
           <View style={{ flex: 1, marginLeft: 14 }}>
             <Text style={{ fontSize: 13, color: palette.inkMuted }}>
-              <Text style={{ fontWeight: "700", color: palette.ink }}>
-                /{countries.length}
-              </Text>{" "}
-              ülke keşfedildi
+              {t("placesMap.countriesDiscovered", { total: countries.length })}
             </Text>
           </View>
 
@@ -325,7 +339,7 @@ export default function PlacesMapScreen() {
           >
             <Ionicons name="hand-left-outline" size={14} color={palette.greenText} />
             <Text style={{ fontSize: 12, fontWeight: "600", color: palette.greenText }}>
-              Ülke seçerek işaretle
+              {t("placesMap.tapToMark")}
             </Text>
           </View>
         </View>
@@ -344,8 +358,8 @@ export default function PlacesMapScreen() {
           <View style={{ flexDirection: "row", gap: 8 }}>
             {(
               [
-                { id: "all", label: "Tümü" },
-                { id: "visited", label: "Ziyaret ettiklerin" },
+                { id: "all", label: t("placesMap.filterAll") },
+                { id: "visited", label: t("placesMap.filterVisited") },
               ] as const
             ).map((chip) => {
               const active = listFilter === chip.id;
@@ -418,7 +432,7 @@ export default function PlacesMapScreen() {
               color: palette.inkMuted,
             }}
           >
-            Henüz işaretlediğin ülke yok
+            {t("placesMap.noVisitedCountries")}
           </Text>
         ) : (
           <View
@@ -464,7 +478,7 @@ export default function PlacesMapScreen() {
                     }}
                     numberOfLines={1}
                   >
-                    {c.name}
+                    {localizedNameOf(c, language)}
                   </Text>
                   <Ionicons
                     name={isVisited ? "checkmark-circle" : "ellipse-outline"}
@@ -496,7 +510,7 @@ export default function PlacesMapScreen() {
           ]}
         >
           <Text style={{ fontSize: 15, fontWeight: "700", color: palette.surface }}>
-            Yeni Ülke İşaretle
+            {t("placesMap.addCountryCta")}
           </Text>
           <Ionicons name="add" size={18} color={palette.surface} />
         </Pressable>
@@ -520,7 +534,7 @@ export default function PlacesMapScreen() {
             }}
           >
             <Text style={{ fontSize: 17, fontWeight: "700", color: palette.ink }}>
-              Ülke seç
+              {t("placesMap.pickerTitle")}
             </Text>
             <Pressable onPress={() => setPickerVisible(false)}>
               <Ionicons name="close" size={22} color={palette.inkMuted} />
@@ -545,7 +559,7 @@ export default function PlacesMapScreen() {
             <TextInput
               value={pickerSearch}
               onChangeText={setPickerSearch}
-              placeholder="Ülke ara..."
+              placeholder={t("placesMap.pickerSearchPlaceholder")}
               placeholderTextColor={palette.inkFaint}
               style={{ flex: 1, marginLeft: 8, fontSize: 15, color: palette.ink }}
             />
@@ -561,8 +575,8 @@ export default function PlacesMapScreen() {
           >
             {(
               [
-                { id: "all", label: "Tümü" },
-                { id: "visited", label: "Ziyaret ettiklerin" },
+                { id: "all", label: t("placesMap.filterAll") },
+                { id: "visited", label: t("placesMap.filterVisited") },
               ] as const
             ).map((chip) => {
               const active = pickerFilter === chip.id;
@@ -608,8 +622,8 @@ export default function PlacesMapScreen() {
                   }}
                 >
                   {pickerFilter === "visited"
-                    ? "Henüz işaretlediğin ülke yok"
-                    : "Sonuç bulunamadı"}
+                    ? t("placesMap.noVisitedCountries")
+                    : t("placesMap.noResults")}
                 </Text>
               }
               renderItem={({ item }) => (
@@ -632,8 +646,8 @@ export default function PlacesMapScreen() {
               }}
             >
               {pickerFilter === "visited"
-                ? "Henüz işaretlediğin ülke yok"
-                : "Sonuç bulunamadı"}
+                ? t("placesMap.noVisitedCountries")
+                : t("placesMap.noResults")}
             </Text>
           ) : (
             <ScrollView contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 24 }}>
@@ -667,7 +681,7 @@ export default function PlacesMapScreen() {
                       <Text
                         style={{ fontSize: 14, fontWeight: "700", color: palette.ink }}
                       >
-                        {continent.name}
+                        {language === "tr" ? continent.name : continent.nameEn}
                       </Text>
                       <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
                         <Text style={{ fontSize: 12, color: palette.inkMuted }}>
@@ -725,6 +739,7 @@ function PickerCountryRow({
   onPress: () => void;
   inset?: boolean;
 }) {
+  const { language } = useLanguage();
   return (
     <Pressable
       onPress={onPress}
@@ -745,7 +760,7 @@ function PickerCountryRow({
     >
       <CountryFlag id={country.id} iso2={country.iso2} size={24} />
       <Text style={{ flex: 1, fontSize: 16, color: palette.ink }}>
-        {country.name}
+        {localizedNameOf(country, language)}
       </Text>
       <Ionicons
         name={isVisited ? "checkmark-circle" : "ellipse-outline"}

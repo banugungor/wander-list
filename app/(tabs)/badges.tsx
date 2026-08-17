@@ -2,6 +2,7 @@ import { BadgeTile } from "@/components/badge-tile";
 import { BottomTabBar } from "@/components/bottom-tab-bar";
 import type { CategoryId } from "@/constants/categories";
 import { palette } from "@/constants/palette";
+import { useLanguage } from "@/contexts/language-context";
 import { type Badge, type BadgeContext, computeBadges } from "@/data/badges";
 import { fetchCuisines } from "@/data/cuisineApi";
 import { heritageSites } from "@/data/heritageSites";
@@ -11,24 +12,25 @@ import {
   HERITAGE_VISITED_KEY,
   PLACES_VISITED_KEY,
 } from "@/data/storageKeys";
-import { getTitle } from "@/data/titles";
+import { getTitleKey } from "@/data/titles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 
 const SECTIONS: {
-  label: string;
+  labelKey: string;
   idPrefix: string;
   titleCategoryId?: CategoryId;
 }[] = [
-  { label: "Dünya Mirası", idPrefix: "heritage_", titleCategoryId: "heritage" },
-  { label: "Ülkeler", idPrefix: "places_", titleCategoryId: "places" },
-  { label: "Kıtalar", idPrefix: "continent_" },
-  { label: "Mutfaklar", idPrefix: "cuisine_", titleCategoryId: "cuisine" },
+  { labelKey: "category.heritage", idPrefix: "heritage_", titleCategoryId: "heritage" },
+  { labelKey: "category.places", idPrefix: "places_", titleCategoryId: "places" },
+  { labelKey: "badges.continents", idPrefix: "continent_" },
+  { labelKey: "category.cuisine", idPrefix: "cuisine_", titleCategoryId: "cuisine" },
 ];
 
 export default function BadgesScreen() {
+  const { t } = useLanguage();
   const [badges, setBadges] = useState<Badge[]>([]);
   const [ctx, setCtx] = useState<BadgeContext | null>(null);
 
@@ -72,10 +74,10 @@ export default function BadgesScreen() {
         showsVerticalScrollIndicator={false}
       >
         <Text style={{ fontSize: 20, fontWeight: "700", color: palette.ink }}>
-          Rozetler
+          {t("badges.title")}
         </Text>
         <Text style={{ marginTop: 4, fontSize: 13, color: palette.inkMuted }}>
-          Kilometre taşlarını takip et
+          {t("badges.subtitle")}
         </Text>
 
         {SECTIONS.map((section) => {
@@ -84,9 +86,9 @@ export default function BadgesScreen() {
           );
           if (sectionBadges.length === 0) return null;
 
-          const title =
+          const titleKey =
             ctx && section.titleCategoryId
-              ? getTitle(section.titleCategoryId, ctx)
+              ? getTitleKey(section.titleCategoryId, ctx)
               : null;
 
           return (
@@ -102,9 +104,9 @@ export default function BadgesScreen() {
                   textTransform: "uppercase",
                 }}
               >
-                {section.label}
-                {title ? (
-                  <Text style={{ color: palette.brand }}> · {title}</Text>
+                {t(section.labelKey)}
+                {titleKey ? (
+                  <Text style={{ color: palette.brand }}> · {t(titleKey)}</Text>
                 ) : null}
               </Text>
               <View

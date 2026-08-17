@@ -2,6 +2,7 @@ import { BottomTabBar } from "@/components/bottom-tab-bar";
 import { StatCard } from "@/components/stat-card";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
+import { useLanguage } from "@/contexts/language-context";
 import { ActivityEntry, getActivityLog } from "@/data/activityLog";
 import {
   CUISINE_VISITED_KEY,
@@ -33,6 +34,7 @@ function bucketByWeek(entries: ActivityEntry[]): number[] {
 }
 
 export default function StatsScreen() {
+  const { t } = useLanguage();
   const [heritageCount, setHeritageCount] = useState(0);
   const [cuisineCount, setCuisineCount] = useState(0);
   const [placesCount, setPlacesCount] = useState(0);
@@ -76,10 +78,10 @@ export default function StatsScreen() {
         showsVerticalScrollIndicator={false}
       >
         <Text style={{ fontSize: 20, fontWeight: "700", color: palette.ink }}>
-          İstatistikler
+          {t("stats.title")}
         </Text>
         <Text style={{ marginTop: 4, fontSize: 13, color: palette.inkMuted }}>
-          Şimdiye kadar biriktirdiklerin
+          {t("stats.subtitle")}
         </Text>
 
         <View
@@ -91,35 +93,35 @@ export default function StatsScreen() {
           }}
         >
           <StatCard
-            label={heritage.title}
+            label={t(heritage.titleKey)}
             value={heritageCount}
             icon={heritage.icon}
             bg={heritage.bg}
             fg={heritage.fg}
           />
           <StatCard
-            label={cuisine.title}
+            label={t(cuisine.titleKey)}
             value={cuisineCount}
             icon={cuisine.icon}
             bg={cuisine.bg}
             fg={cuisine.fg}
           />
           <StatCard
-            label={places.title}
+            label={t(places.titleKey)}
             value={placesCount}
             icon={places.icon}
             bg={places.bg}
             fg={places.fg}
           />
           <StatCard
-            label={books.title}
+            label={t(books.titleKey)}
             value={0}
             icon={books.icon}
             bg={books.bg}
             fg={books.fg}
           />
           <StatCard
-            label={movies.title}
+            label={t(movies.titleKey)}
             value={0}
             icon={movies.icon}
             bg={movies.bg}
@@ -138,7 +140,7 @@ export default function StatsScreen() {
             textTransform: "uppercase",
           }}
         >
-          Haftalık aktivite
+          {t("stats.weeklyActivity")}
         </Text>
 
         <View
@@ -172,7 +174,7 @@ export default function StatsScreen() {
           ))}
         </View>
         <Text style={{ marginTop: 8, fontSize: 11, color: palette.inkFaint }}>
-          Son {WEEKS} hafta
+          {t("stats.lastNWeeks", { n: WEEKS })}
         </Text>
       </ScrollView>
 

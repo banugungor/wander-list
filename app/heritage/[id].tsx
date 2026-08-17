@@ -2,6 +2,8 @@ import { HeritageThumbnail } from "@/components/heritage-thumbnail";
 import { ScreenHeader } from "@/components/screen-header";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
+import { useLanguage } from "@/contexts/language-context";
+import { getLocalizedCountryField } from "@/data/countryNamesTr";
 import { getHeritageSiteById } from "@/data/heritageSites";
 import { toggleHeritageVisited } from "@/data/heritageStorage";
 import { useAppStore } from "@/store/useAppStore";
@@ -11,6 +13,7 @@ import { useMemo } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 
 export default function HeritageDetailScreen() {
+  const { t, language } = useLanguage();
   const { id } = useLocalSearchParams();
   const siteId = Array.isArray(id) ? id[0] : id;
 
@@ -51,7 +54,7 @@ export default function HeritageDetailScreen() {
           }}
         >
           <Text style={{ fontSize: 15, color: palette.inkMuted }}>
-            Bu miras alanı bulunamadı.
+            {t("heritageDetail.notFound")}
           </Text>
         </View>
       )}
@@ -87,7 +90,7 @@ export default function HeritageDetailScreen() {
                   letterSpacing: 0.5,
                 }}
               >
-                {item.category.toUpperCase()}
+                {t(`heritageCategory.${item.category.toLowerCase()}`).toUpperCase()}
               </Text>
             </View>
           )}
@@ -117,7 +120,7 @@ export default function HeritageDetailScreen() {
               color={palette.inkMuted}
             />
             <Text style={{ fontSize: 14, color: palette.inkMuted }}>
-              {item.country}
+              {getLocalizedCountryField(item.country, language)}
             </Text>
           </View>
 
@@ -129,7 +132,7 @@ export default function HeritageDetailScreen() {
               lineHeight: 20,
             }}
           >
-            {item.description ?? "Bu miras alanı için henüz açıklama yok."}
+            {item.description ?? t("heritageDetail.noDescription")}
           </Text>
 
           <Pressable
@@ -157,7 +160,7 @@ export default function HeritageDetailScreen() {
                 color: isVisited ? palette.surface : palette.ink,
               }}
             >
-              {isVisited ? "Gezildi olarak işaretlendi" : "Gezildi olarak işaretle"}
+              {isVisited ? t("heritageDetail.markedVisited") : t("heritageDetail.markVisited")}
             </Text>
           </Pressable>
         </ScrollView>

@@ -1,16 +1,22 @@
 import { categories } from "@/constants/categories";
 import { palette } from "@/constants/palette";
+import { useLanguage } from "@/contexts/language-context";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { Alert, Pressable, Text, View } from "react-native";
 
 export default function AddScreen() {
+  const { t } = useLanguage();
+
   const handlePress = (id: string, implemented: boolean) => {
     router.back();
 
     if (!implemented) {
       setTimeout(() => {
-        Alert.alert("Yakında", "Bu kategori henüz eklenmedi.");
+        Alert.alert(
+          t("modal.comingSoonAlertTitle"),
+          t("modal.comingSoonAlertMessage"),
+        );
       }, 300);
       return;
     }
@@ -33,7 +39,7 @@ export default function AddScreen() {
       }}
     >
       <Text style={{ fontSize: 20, fontWeight: "700", color: palette.ink }}>
-        Ne eklemek istersin?
+        {t("modal.title")}
       </Text>
       <Text
         style={{
@@ -43,7 +49,7 @@ export default function AddScreen() {
           color: palette.inkMuted,
         }}
       >
-        Bir kategori seç, listeden işaretlemeye başla
+        {t("modal.subtitle")}
       </Text>
 
       {categories.map((cat) => (
@@ -79,11 +85,11 @@ export default function AddScreen() {
             <Text
               style={{ fontSize: 15, fontWeight: "600", color: palette.ink }}
             >
-              {cat.title}
+              {t(cat.titleKey)}
             </Text>
             {!cat.implemented && (
               <Text style={{ marginTop: 2, fontSize: 11, color: cat.fg }}>
-                Yakında
+                {t("common.comingSoon")}
               </Text>
             )}
           </View>

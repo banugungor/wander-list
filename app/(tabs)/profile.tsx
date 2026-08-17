@@ -1,5 +1,7 @@
 import { BottomTabBar } from "@/components/bottom-tab-bar";
+import { LanguageSwitch } from "@/components/language-switch";
 import { palette } from "@/constants/palette";
+import { useLanguage } from "@/contexts/language-context";
 import { ACTIVITY_LOG_KEY } from "@/data/activityLog";
 // import { pushToCloud } from "@/data/cloudSync"; // cloud sync devre dışı
 import {
@@ -66,6 +68,7 @@ function Row({
 }
 
 export default function ProfileScreen() {
+  const { t } = useLanguage();
   // Cloud sync devre dışı — hesap/oturum durumu şimdilik kullanılmıyor.
   // Geri açmak için: yukarıdaki importları kaldır ve aşağıyı aç.
   // const [session, setSession] = useState<Session | null>(null);
@@ -80,12 +83,12 @@ export default function ProfileScreen() {
 
   const resetData = () => {
     Alert.alert(
-      "Verileri sıfırla",
-      "Tüm işaretlediğin yerler, yemekler ve aktivite geçmişi silinecek. Emin misin?",
+      t("profile.resetConfirmTitle"),
+      t("profile.resetConfirmMessage"),
       [
-        { text: "Vazgeç", style: "cancel" },
+        { text: t("common.cancel"), style: "cancel" },
         {
-          text: "Sıfırla",
+          text: t("profile.resetConfirmAction"),
           style: "destructive",
           onPress: async () => {
             await AsyncStorage.multiRemove([
@@ -98,7 +101,7 @@ export default function ProfileScreen() {
             // if (session) {
             //   await pushToCloud();
             // }
-            Alert.alert("Tamam", "Veriler sıfırlandı.");
+            Alert.alert(t("profile.resetDoneTitle"), t("profile.resetDoneMessage"));
           },
         },
       ],
@@ -174,14 +177,36 @@ export default function ProfileScreen() {
             color: palette.ink,
           }}
         >
-          Profil
+          {t("profile.title")}
         </Text>
       </View>
 
-      <Row icon="information-circle-outline" label={`Sürüm ${appVersion}`} />
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 12,
+          paddingVertical: 14,
+          paddingHorizontal: 16,
+          backgroundColor: palette.surface,
+          borderRadius: 14,
+          marginBottom: 10,
+        }}
+      >
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
+          <Ionicons name="language-outline" size={18} color={palette.inkMuted} />
+          <Text style={{ fontSize: 14, fontWeight: "600", color: palette.ink }}>
+            {t("profile.language")}
+          </Text>
+        </View>
+        <LanguageSwitch />
+      </View>
+
+      <Row icon="information-circle-outline" label={t("profile.version", { version: appVersion })} />
       <Row
         icon="refresh-outline"
-        label="Verileri sıfırla"
+        label={t("profile.resetData")}
         danger
         onPress={resetData}
       />

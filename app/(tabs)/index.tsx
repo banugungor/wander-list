@@ -2,9 +2,12 @@ import { BottomTabBar } from "@/components/bottom-tab-bar";
 import { CategoryTile } from "@/components/category-tile";
 import { CircularProgress } from "@/components/circular-progress";
 import { CountryFlag } from "@/components/country-flag";
+import { LanguageSwitch } from "@/components/language-switch";
 import { categories, getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
+import { useLanguage } from "@/contexts/language-context";
 import { ActivityEntry, getActivityLog, timeAgo } from "@/data/activityLog";
+import { getLocalizedCountryName } from "@/data/countryNamesTr";
 import { heritageSites } from "@/data/heritageSites";
 import {
   CUISINE_AREA_TOTALS_KEY,
@@ -38,6 +41,7 @@ const categoryRows = categories.reduce<(typeof categories)[]>((rows, cat, i) => 
 }, []);
 
 export default function HomeScreen() {
+  const { t, language } = useLanguage();
   const [stats, setStats] = useState<Record<string, CategoryStats>>({});
   const [recent, setRecent] = useState<ActivityEntry[]>([]);
 
@@ -135,26 +139,13 @@ export default function HomeScreen() {
         >
           <View>
             <Text style={{ fontSize: 18, fontWeight: "600", color: palette.ink }}>
-              Merhaba 👋
+              {t("home.greeting")}
             </Text>
             <Text style={{ marginTop: 3, fontSize: 13, color: palette.inkMuted }}>
-              Bugün ne biriktirdin?
+              {t("home.greetingSubtitle")}
             </Text>
           </View>
-          <View
-            style={{
-              width: 42,
-              height: 42,
-              borderRadius: 21,
-              backgroundColor: palette.creamDeep,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Text style={{ fontSize: 15, fontWeight: "600", color: palette.brand }}>
-              B
-            </Text>
-          </View>
+          <LanguageSwitch compact />
         </View>
 
         {/* OVERALL PROGRESS */}
@@ -198,7 +189,7 @@ export default function HomeScreen() {
                 position: "absolute",
                 top: 0,
                 bottom: 0,
-                right: 0,
+                right: 40,
                 width: "100%",
               }}
             />
@@ -219,11 +210,11 @@ export default function HomeScreen() {
                   textTransform: "uppercase",
                 }}
               >
-                Genel İlerleme
+                {t("home.overallProgress")}
               </Text>
               {implementedStats.length === 0 ? (
                 <Text style={{ marginTop: 6, fontSize: 12, color: palette.onDarkMuted }}>
-                  Henüz veri yok, keşfetmeye başla
+                  {t("home.noDataYet")}
                 </Text>
               ) : (
                 categories
@@ -240,7 +231,7 @@ export default function HomeScreen() {
                     >
                       <Ionicons name={c.icon} size={16} color={c.fg} />
                       <Text style={{ fontSize: 12, color: palette.onDark }}>
-                        {c.title}{" "}
+                        {t(c.titleKey)}{" "}
                         <Text style={{ fontWeight: "700", color: c.fg }}>
                           {stats[c.id].count}/{stats[c.id].total}
                         </Text>
@@ -283,7 +274,7 @@ export default function HomeScreen() {
               textTransform: "uppercase",
             }}
           >
-            Kategoriler
+            {t("home.categories")}
           </Text>
           <Pressable
             onPress={() => router.push("/explore")}
@@ -293,7 +284,7 @@ export default function HomeScreen() {
             ]}
           >
             <Text style={{ fontSize: 12, color: palette.inkMuted }}>
-              Tümünü Gör
+              {t("home.seeAll")}
             </Text>
             <Ionicons name="chevron-forward" size={14} color={palette.inkMuted} />
           </Pressable>
@@ -340,11 +331,19 @@ export default function HomeScreen() {
                 textTransform: "uppercase",
               }}
             >
-              Son eklenenler
+              {t("home.recentlyAdded")}
             </Text>
             {recent.map((entry, i) => {
               const cat = getCategory(entry.type);
               const hasPhoto = !!entry.imageUrl;
+              const displayTitle =
+                entry.type === "places"
+                  ? getLocalizedCountryName(
+                      worldData.countries.find((c) => c.id === entry.id)?.name ??
+                        entry.title,
+                      language,
+                    )
+                  : entry.title;
               return (
                 <View
                   key={`${entry.type}-${entry.id}-${i}`}
@@ -421,10 +420,10 @@ export default function HomeScreen() {
                       style={{ fontSize: 13, fontWeight: "600", color: palette.ink }}
                       numberOfLines={1}
                     >
-                      {entry.title}
+                      {displayTitle}
                     </Text>
                     <Text style={{ marginTop: 2, fontSize: 11, color: palette.inkMuted }}>
-                      {cat?.title ?? ""} · {timeAgo(entry.timestamp)}
+                      {cat ? t(cat.titleKey) : ""} · {timeAgo(entry.timestamp)}
                     </Text>
                   </View>
                 </View>

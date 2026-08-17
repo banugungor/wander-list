@@ -2,6 +2,7 @@ import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
+import { useLanguage } from "@/contexts/language-context";
 import { logActivity } from "@/data/activityLog";
 import { queueCloudSync } from "@/data/cloudSync";
 import {
@@ -24,12 +25,13 @@ type Meal = {
 };
 
 export default function CuisineMealsScreen() {
+  const { t } = useLanguage();
   const { area } = useLocalSearchParams();
   const cuisine = Array.isArray(area) ? area[0] : area;
   const cuisineTitle =
     typeof cuisine === "string" && cuisine.length > 0
       ? decodeURIComponent(cuisine)
-      : "Cuisine";
+      : t("cuisine.defaultTitle");
 
   const [data, setData] = useState<Meal[]>([]);
   const [visited, setVisited] = useState<string[]>([]);
@@ -134,7 +136,7 @@ export default function CuisineMealsScreen() {
         >
           <ActivityIndicator size="large" color={palette.coral} />
           <Text style={{ marginTop: 10, color: palette.inkMuted }}>
-            Loading meals…
+            {t("cuisine.loadingMeals")}
           </Text>
         </View>
       </View>
@@ -156,8 +158,8 @@ export default function CuisineMealsScreen() {
 
       {data.length > 0 && (
         <ProgressCard
-          label="Tasted"
-          detail={`${triedCount} of ${data.length} tried`}
+          label={t("cuisine.tasted")}
+          detail={t("cuisine.triedOfTotal", { count: triedCount, total: data.length })}
           percent={percent}
           accentBg={getCategory("cuisine")?.bg}
           accentFg={getCategory("cuisine")?.fg}

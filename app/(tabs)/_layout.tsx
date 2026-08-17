@@ -1,12 +1,15 @@
+import { useLanguage } from "@/contexts/language-context";
 import { Stack } from "expo-router";
 
 export default function TabLayout() {
+  const { t } = useLanguage();
+
   return (
     <Stack screenOptions={{ animation: "slide_from_right" }}>
       <Stack.Screen
         name="index"
         options={{
-          title: "Ana Sayfa",
+          title: t("home.title"),
           headerShown: false,
         }}
       />

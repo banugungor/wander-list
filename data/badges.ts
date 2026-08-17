@@ -5,7 +5,8 @@ import worldData from "@/data/worldCountries.json";
 export type Badge = {
   id: string;
   categoryId: CategoryId;
-  title: string;
+  /** Key into translations.ts under `badge.*` — resolve with t(titleKey). */
+  titleKey: string;
   earned: boolean;
   current: number;
   target: number;
@@ -23,7 +24,7 @@ export type BadgeContext = {
 type BadgeDefinition = {
   id: string;
   categoryId: CategoryId;
-  title: string;
+  titleKey: string;
   current: (ctx: BadgeContext) => number;
   target: (ctx: BadgeContext) => number;
 };
@@ -42,28 +43,28 @@ const BADGE_DEFINITIONS: BadgeDefinition[] = [
   {
     id: "heritage_5",
     categoryId: "heritage",
-    title: "5 Dünya Mirası",
+    titleKey: "badge.heritage_5",
     current: (ctx) => ctx.heritageVisitedCount,
     target: () => 5,
   },
   {
     id: "heritage_25",
     categoryId: "heritage",
-    title: "25 Dünya Mirası",
+    titleKey: "badge.heritage_25",
     current: (ctx) => ctx.heritageVisitedCount,
     target: () => 25,
   },
   {
     id: "heritage_100",
     categoryId: "heritage",
-    title: "100 Dünya Mirası",
+    titleKey: "badge.heritage_100",
     current: (ctx) => ctx.heritageVisitedCount,
     target: () => 100,
   },
   {
     id: "heritage_all",
     categoryId: "heritage",
-    title: "Tüm Dünya Mirasları",
+    titleKey: "badge.heritage_all",
     current: (ctx) => ctx.heritageVisitedCount,
     target: (ctx) => ctx.heritageTotal,
   },
@@ -72,28 +73,28 @@ const BADGE_DEFINITIONS: BadgeDefinition[] = [
   {
     id: "places_10",
     categoryId: "places",
-    title: "10 Ülke",
+    titleKey: "badge.places_10",
     current: (ctx) => ctx.countriesVisitedIds.length,
     target: () => 10,
   },
   {
     id: "places_50",
     categoryId: "places",
-    title: "50 Ülke",
+    titleKey: "badge.places_50",
     current: (ctx) => ctx.countriesVisitedIds.length,
     target: () => 50,
   },
   {
     id: "places_100",
     categoryId: "places",
-    title: "100 Ülke",
+    titleKey: "badge.places_100",
     current: (ctx) => ctx.countriesVisitedIds.length,
     target: () => 100,
   },
   {
     id: "places_all",
     categoryId: "places",
-    title: "Tüm Ülkeler",
+    titleKey: "badge.places_all",
     current: (ctx) => ctx.countriesVisitedIds.length,
     target: () => worldData.countries.length,
   },
@@ -102,21 +103,21 @@ const BADGE_DEFINITIONS: BadgeDefinition[] = [
   {
     id: "continent_3",
     categoryId: "places",
-    title: "3 Kıta",
+    titleKey: "badge.continent_3",
     current: (ctx) => getVisitedContinents(ctx.countriesVisitedIds).size,
     target: () => 3,
   },
   {
     id: "continent_5",
     categoryId: "places",
-    title: "5 Kıta",
+    titleKey: "badge.continent_5",
     current: (ctx) => getVisitedContinents(ctx.countriesVisitedIds).size,
     target: () => 5,
   },
   {
     id: "continent_all",
     categoryId: "places",
-    title: "Tüm Kıtalar",
+    titleKey: "badge.continent_all",
     current: (ctx) => getVisitedContinents(ctx.countriesVisitedIds).size,
     target: () => getTotalContinentCount(),
   },
@@ -125,21 +126,21 @@ const BADGE_DEFINITIONS: BadgeDefinition[] = [
   {
     id: "cuisine_5",
     categoryId: "cuisine",
-    title: "5 Mutfak Bölgesi",
+    titleKey: "badge.cuisine_5",
     current: countTriedCuisineAreas,
     target: () => 5,
   },
   {
     id: "cuisine_15",
     categoryId: "cuisine",
-    title: "15 Mutfak Bölgesi",
+    titleKey: "badge.cuisine_15",
     current: countTriedCuisineAreas,
     target: () => 15,
   },
   {
     id: "cuisine_all",
     categoryId: "cuisine",
-    title: "Tüm Mutfak Bölgeleri",
+    titleKey: "badge.cuisine_all",
     current: countTriedCuisineAreas,
     target: (ctx) => ctx.cuisineTotalAreas,
   },
@@ -149,7 +150,7 @@ export function computeBadges(ctx: BadgeContext): Badge[] {
   return BADGE_DEFINITIONS.map((def) => ({
     id: def.id,
     categoryId: def.categoryId,
-    title: def.title,
+    titleKey: def.titleKey,
     current: def.current(ctx),
     target: def.target(ctx),
     earned: def.current(ctx) >= def.target(ctx),

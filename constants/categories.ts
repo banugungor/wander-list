@@ -5,7 +5,8 @@ export type CategoryId = "heritage" | "places" | "cuisine" | "books" | "movies";
 
 export type Category = {
   id: CategoryId;
-  title: string;
+  /** Key into translations.ts under `category.*` — resolve with `t(category.titleKey)`. */
+  titleKey: string;
   icon: keyof typeof Ionicons.glyphMap;
   bg: string;
   bgTo: string;
@@ -16,7 +17,7 @@ export type Category = {
 export const categories: Category[] = [
   {
     id: "heritage",
-    title: "Dünya Mirası",
+    titleKey: "category.heritage",
     icon: "business-outline",
     bg: palette.greenSoft,
     bgTo: palette.greenSoftDeep,
@@ -25,7 +26,7 @@ export const categories: Category[] = [
   },
   {
     id: "places",
-    title: "Gittiğin Ülkeler",
+    titleKey: "category.places",
     icon: "location-outline",
     bg: palette.greenSoft,
     bgTo: palette.greenSoftDeep,
@@ -34,7 +35,7 @@ export const categories: Category[] = [
   },
   {
     id: "cuisine",
-    title: "Mutfaklar",
+    titleKey: "category.cuisine",
     icon: "restaurant-outline",
     bg: palette.coralPale,
     bgTo: palette.coralPaleDeep,
@@ -43,7 +44,7 @@ export const categories: Category[] = [
   },
   {
     id: "books",
-    title: "Kitaplar",
+    titleKey: "category.books",
     icon: "book-outline",
     bg: palette.violetPale,
     bgTo: palette.violetPaleDeep,
@@ -52,7 +53,7 @@ export const categories: Category[] = [
   },
   {
     id: "movies",
-    title: "Filmler",
+    titleKey: "category.movies",
     icon: "film-outline",
     bg: palette.bluePale,
     bgTo: palette.bluePaleDeep,

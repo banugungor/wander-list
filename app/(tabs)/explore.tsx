@@ -3,7 +3,9 @@ import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
+import { useLanguage } from "@/contexts/language-context";
 import { CONTINENTS, ContinentId } from "@/data/continents";
+import { getLocalizedCountryField } from "@/data/countryNamesTr";
 import type { CuisineItem } from "@/data/cuisineApi";
 import { getContinentsForCountryField } from "@/data/heritageContinents";
 import type { HeritageItem } from "@/data/heritageSites";
@@ -27,6 +29,7 @@ type Item = HeritageItem | CuisineItem;
 const EMPTY: Item[] = [];
 
 export default function ExploreScreen() {
+  const { t, language } = useLanguage();
   const { type } = useLocalSearchParams();
   const categoryParam = Array.isArray(type) ? type[0] : type;
   const category =
@@ -36,15 +39,10 @@ export default function ExploreScreen() {
   const isCuisine = category === "cuisine";
   const isComingSoon = !isHeritage && !isCuisine;
 
-  const categoryTitleMap: Record<string, string> = {
-    heritage: "World Heritage",
-    cuisine: "World Cuisines",
-    places: "Places Visited",
-    books: "Books",
-    movies: "Movies",
-  };
-  const categoryTitle = categoryTitleMap[category] ?? "Details";
   const categoryMeta = getCategory(category);
+  const categoryTitle = categoryMeta
+    ? t(categoryMeta.titleKey)
+    : t("explore.detailsTitle");
 
   const heritage = useHeritageExplorer(isHeritage);
   const cuisine = useCuisineExplorer(isCuisine);
@@ -83,7 +81,11 @@ export default function ExploreScreen() {
       if (query) {
         const matchesName = item.name.toLowerCase().includes(query);
         const matchesCountry =
-          "country" in item && item.country.toLowerCase().includes(query);
+          "country" in item &&
+          (item.country.toLowerCase().includes(query) ||
+            getLocalizedCountryField(item.country, language)
+              .toLowerCase()
+              .includes(query));
         if (!matchesName && !matchesCountry) return false;
       }
 
@@ -95,7 +97,7 @@ export default function ExploreScreen() {
 
       return true;
     });
-  }, [data, search, filter, isHeritage, heritage.visited]);
+  }, [data, search, filter, isHeritage, heritage.visited, language]);
 
   const showContinentGroups = isHeritage && search.trim().length === 0;
 
@@ -201,7 +203,7 @@ export default function ExploreScreen() {
                 color={palette.inkMuted}
               />
               <Text style={{ fontSize: 13, color: palette.inkMuted }}>
-                {item.country}
+                {getLocalizedCountryField(item.country, language)}
               </Text>
             </View>
           )}
@@ -225,7 +227,7 @@ export default function ExploreScreen() {
                   letterSpacing: 0.5,
                 }}
               >
-                {item.category.toUpperCase()}
+                {t(`heritageCategory.${item.category.toLowerCase()}`).toUpperCase()}
               </Text>
             </View>
           )}
@@ -282,7 +284,7 @@ export default function ExploreScreen() {
         >
           <ActivityIndicator size="large" color={palette.brand} />
           <Text style={{ marginTop: 12, color: palette.inkMuted }}>
-            Loading…
+            {t("explore.loading")}
           </Text>
         </View>
       )}
@@ -297,7 +299,7 @@ export default function ExploreScreen() {
           }}
         >
           <Text style={{ fontSize: 22, fontWeight: "800", color: palette.ink }}>
-            Coming Soon
+            {t("explore.comingSoonTitle")}
           </Text>
           <Text
             style={{
@@ -308,7 +310,7 @@ export default function ExploreScreen() {
               lineHeight: 22,
             }}
           >
-            {categoryTitle} section will be available in a future update.
+            {t("explore.comingSoonBody", { title: categoryTitle })}
           </Text>
         </View>
       )}
@@ -317,8 +319,11 @@ export default function ExploreScreen() {
         <>
           {isHeritage && (
             <ProgressCard
-              label="Progress"
-              detail={`${heritage.visited.length} of ${heritage.heritageTotal} visited`}
+              label={t("explore.progressLabel")}
+              detail={t("explore.progressDetail", {
+                count: heritage.visited.length,
+                total: heritage.heritageTotal,
+              })}
               percent={heritage.percent}
               accentBg={categoryMeta?.bg}
               accentFg={categoryMeta?.fg}
@@ -347,7 +352,7 @@ export default function ExploreScreen() {
             <TextInput
               value={search}
               onChangeText={setSearch}
-              placeholder="Search..."
+              placeholder={t("explore.searchPlaceholder")}
               placeholderTextColor={palette.inkFaint}
               style={{
                 flex: 1,
@@ -378,9 +383,9 @@ export default function ExploreScreen() {
             >
               {(
                 [
-                  { id: "all", label: "All" },
-                  { id: "visited", label: "Visited" },
-                  { id: "unvisited", label: "Not visited" },
+                  { id: "all", label: t("explore.filterAll") },
+                  { id: "visited", label: t("explore.filterVisited") },
+                  { id: "unvisited", label: t("explore.filterNotVisited") },
                 ] as const
               ).map((chip) => {
                 const active = filter === chip.id;
@@ -430,8 +435,8 @@ export default function ExploreScreen() {
                   }}
                 >
                   {filter === "visited"
-                    ? "No visited sites yet"
-                    : "No results"}
+                    ? t("explore.noVisitedYet")
+                    : t("explore.noResults")}
                 </Text>
               }
               renderSectionHeader={({ section }) => {
@@ -459,7 +464,7 @@ export default function ExploreScreen() {
                     <Text
                       style={{ fontSize: 14, fontWeight: "700", color: palette.ink }}
                     >
-                      {section.continent.nameEn}
+                      {language === "tr" ? section.continent.name : section.continent.nameEn}
                     </Text>
                     <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
                       <Text style={{ fontSize: 12, color: palette.inkMuted }}>
@@ -490,7 +495,7 @@ export default function ExploreScreen() {
                       color: palette.inkMuted,
                     }}
                   >
-                    No results match “{search}”
+                    {t("explore.noResultsFor", { query: search })}
                   </Text>
                 ) : null
               }

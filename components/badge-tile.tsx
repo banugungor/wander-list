@@ -1,10 +1,12 @@
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
+import { useLanguage } from "@/contexts/language-context";
 import type { Badge } from "@/data/badges";
 import { Ionicons } from "@expo/vector-icons";
 import { Text, View } from "react-native";
 
 export function BadgeTile({ badge }: { badge: Badge }) {
+  const { t } = useLanguage();
   const category = getCategory(badge.categoryId);
   const bg = badge.earned ? category?.bg ?? palette.creamDeep : palette.creamDeep;
   const fg = badge.earned ? category?.fg ?? palette.inkFaint : palette.inkFaint;
@@ -47,7 +49,7 @@ export function BadgeTile({ badge }: { badge: Badge }) {
           color: badge.earned ? palette.ink : palette.inkFaint,
         }}
       >
-        {badge.title}
+        {t(badge.titleKey)}
       </Text>
       <Text style={{ marginTop: 2, fontSize: 12, color: fg }}>
         {Math.min(badge.current, badge.target)}/{badge.target}

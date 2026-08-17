@@ -1,5 +1,6 @@
 import type { Category, CategoryId } from "@/constants/categories";
 import { palette } from "@/constants/palette";
+import { useLanguage } from "@/contexts/language-context";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { Image, Pressable, Text, View } from "react-native";
@@ -44,6 +45,7 @@ export function CategoryTile({
   wide = false,
   onPress,
 }: CategoryTileProps) {
+  const { t } = useLanguage();
   const percent =
     total > 0 ? Math.min(100, Math.round((count / total) * 100)) : 0;
   const decoration = DECORATIONS[category.id];
@@ -207,7 +209,7 @@ export function CategoryTile({
                   }}
                   numberOfLines={1}
                 >
-                  {category.title}
+                  {t(category.titleKey)}
                 </Text>
                 <Text
                   style={{
@@ -218,7 +220,7 @@ export function CategoryTile({
                     opacity: category.implemented ? 1 : 0.6,
                   }}
                 >
-                  {category.implemented ? `${count}/${total}` : "Yakında"}
+                  {category.implemented ? `${count}/${total}` : t("common.comingSoon")}
                 </Text>
               </View>
             </View>
@@ -236,7 +238,7 @@ export function CategoryTile({
               }}
               numberOfLines={1}
             >
-              {category.title}
+              {t(category.titleKey)}
             </Text>
             <Text
               style={{
@@ -247,7 +249,7 @@ export function CategoryTile({
                 opacity: category.implemented ? 1 : 0.6,
               }}
             >
-              {category.implemented ? `${count}/${total}` : "Yakında"}
+              {category.implemented ? `${count}/${total}` : t("common.comingSoon")}
             </Text>
             {progressTrack}
           </>
