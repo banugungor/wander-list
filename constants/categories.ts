@@ -8,6 +8,7 @@ export type Category = {
   title: string;
   icon: keyof typeof Ionicons.glyphMap;
   bg: string;
+  bgTo: string;
   fg: string;
   implemented: boolean;
 };
@@ -18,6 +19,7 @@ export const categories: Category[] = [
     title: "Dünya Mirası",
     icon: "business-outline",
     bg: palette.greenSoft,
+    bgTo: palette.greenSoftDeep,
     fg: palette.greenText,
     implemented: true,
   },
@@ -26,6 +28,7 @@ export const categories: Category[] = [
     title: "Gittiğin Ülkeler",
     icon: "location-outline",
     bg: palette.greenSoft,
+    bgTo: palette.greenSoftDeep,
     fg: palette.greenText,
     implemented: true,
   },
@@ -34,6 +37,7 @@ export const categories: Category[] = [
     title: "Mutfaklar",
     icon: "restaurant-outline",
     bg: palette.coralPale,
+    bgTo: palette.coralPaleDeep,
     fg: palette.coralText,
     implemented: true,
   },
@@ -42,6 +46,7 @@ export const categories: Category[] = [
     title: "Kitaplar",
     icon: "book-outline",
     bg: palette.violetPale,
+    bgTo: palette.violetPaleDeep,
     fg: palette.violetText,
     implemented: false,
   },
@@ -50,6 +55,7 @@ export const categories: Category[] = [
     title: "Filmler",
     icon: "film-outline",
     bg: palette.bluePale,
+    bgTo: palette.bluePaleDeep,
     fg: palette.blueText,
     implemented: false,
   },

@@ -25,6 +25,18 @@ type CategoryStats = { count: number; total: number; percent: number };
 
 const emptyStats: CategoryStats = { count: 0, total: 0, percent: 0 };
 
+const categoryRows = categories.reduce<(typeof categories)[]>((rows, cat, i) => {
+  const isLastOdd = i === categories.length - 1 && categories.length % 2 === 1;
+  if (isLastOdd) {
+    rows.push([cat]);
+  } else if (i % 2 === 0) {
+    rows.push([cat]);
+  } else {
+    rows[rows.length - 1].push(cat);
+  }
+  return rows;
+}, []);
+
 export default function HomeScreen() {
   const [stats, setStats] = useState<Record<string, CategoryStats>>({});
   const [recent, setRecent] = useState<ActivityEntry[]>([]);
@@ -123,7 +135,7 @@ export default function HomeScreen() {
         >
           <View>
             <Text style={{ fontSize: 18, fontWeight: "600", color: palette.ink }}>
-              Merhaba, Banu 👋
+              Merhaba 👋
             </Text>
             <Text style={{ marginTop: 3, fontSize: 13, color: palette.inkMuted }}>
               Bugün ne biriktirdin?
@@ -150,17 +162,16 @@ export default function HomeScreen() {
           onPress={() => router.push("/stats")}
           style={({ pressed }) => [{ marginTop: 20 }, pressed && { opacity: 0.9 }]}
         >
-          <LinearGradient
-            colors={[palette.cardDarkFrom, palette.cardDarkTo]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
+          <View
             style={{
               borderRadius: 18,
               padding: 16,
+              minHeight: 140,
               flexDirection: "row",
               alignItems: "center",
               gap: 14,
               overflow: "hidden",
+              backgroundColor: palette.cardDarkTo,
               shadowColor: palette.shadow,
               shadowOpacity: 0.18,
               shadowRadius: 14,
@@ -169,18 +180,27 @@ export default function HomeScreen() {
             }}
           >
             <Image
-              source={{
-                uri: "https://images.unsplash.com/photo-1483347756197-71ef80e95f73?w=400&q=60&auto=format&fit=crop",
-              }}
+              source={require("@/assets/decor/progress-card.png")}
               style={{
                 position: "absolute",
                 top: 0,
                 bottom: 0,
                 right: 0,
-                width: "110%",
-                opacity: 0.4,
+                left: "32%",
               }}
               contentFit="cover"
+            />
+            <LinearGradient
+              colors={[palette.cardDarkFrom, `${palette.cardDarkTo}00`]}
+              start={{ x: 0, y: 0.5 }}
+              end={{ x: 1, y: 0.5 }}
+              style={{
+                position: "absolute",
+                top: 0,
+                bottom: 0,
+                right: 0,
+                width: "100%",
+              }}
             />
             <CircularProgress
               percent={overallPercent}
@@ -192,14 +212,14 @@ export default function HomeScreen() {
             <View style={{ flex: 1 }}>
               <Text
                 style={{
-                  fontSize: 11,
+                  fontSize: 12,
                   fontWeight: "700",
-                  color: palette.onDarkMuted,
+                  color: palette.surface,
                   letterSpacing: 0.6,
                   textTransform: "uppercase",
                 }}
               >
-                Genel ilerleme
+                Genel İlerleme
               </Text>
               {implementedStats.length === 0 ? (
                 <Text style={{ marginTop: 6, fontSize: 12, color: palette.onDarkMuted }}>
@@ -218,55 +238,92 @@ export default function HomeScreen() {
                         marginTop: 6,
                       }}
                     >
-                      <Ionicons name={c.icon} size={18} color={palette.brand} />
+                      <Ionicons name={c.icon} size={16} color={c.fg} />
                       <Text style={{ fontSize: 12, color: palette.onDark }}>
-                        {c.title} {stats[c.id].count}/{stats[c.id].total}
+                        {c.title}{" "}
+                        <Text style={{ fontWeight: "700", color: c.fg }}>
+                          {stats[c.id].count}/{stats[c.id].total}
+                        </Text>
                       </Text>
                     </View>
                   ))
               )}
             </View>
-            <Ionicons name="chevron-forward" size={18} color={palette.onDarkMuted} />
-          </LinearGradient>
+            <View
+              style={{
+                width: 32,
+                height: 32,
+                borderRadius: 16,
+                backgroundColor: "rgba(255,255,255,0.18)",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Ionicons name="chevron-forward" size={16} color={palette.onDark} />
+            </View>
+          </View>
         </Pressable>
 
         {/* CATEGORY GRID */}
-        <Text
+        <View
           style={{
             marginTop: 26,
             marginBottom: 10,
-            fontSize: 11,
-            fontWeight: "700",
-            color: palette.inkMuted,
-            letterSpacing: 0.6,
-            textTransform: "uppercase",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
-          Kategoriler
-        </Text>
-        <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 12 }}>
-          {categories.map((cat, i) => {
-            const s = stats[cat.id] ?? emptyStats;
-            const isLastOdd =
-              i === categories.length - 1 && categories.length % 2 === 1;
-            return (
-              <CategoryTile
-                key={cat.id}
-                category={cat}
-                count={s.count}
-                total={s.total}
-                wide={isLastOdd}
-                onPress={() =>
-                  cat.id === "places"
-                    ? router.push("/places-map")
-                    : router.push({
-                        pathname: "/explore",
-                        params: { type: cat.id },
-                      })
-                }
-              />
-            );
-          })}
+          <Text
+            style={{
+              fontSize: 11,
+              fontWeight: "700",
+              color: palette.inkMuted,
+              letterSpacing: 0.6,
+              textTransform: "uppercase",
+            }}
+          >
+            Kategoriler
+          </Text>
+          <Pressable
+            onPress={() => router.push("/explore")}
+            style={({ pressed }) => [
+              { flexDirection: "row", alignItems: "center", gap: 2 },
+              pressed && { opacity: 0.6 },
+            ]}
+          >
+            <Text style={{ fontSize: 12, color: palette.inkMuted }}>
+              Tümünü Gör
+            </Text>
+            <Ionicons name="chevron-forward" size={14} color={palette.inkMuted} />
+          </Pressable>
+        </View>
+        <View style={{ gap: 8 }}>
+          {categoryRows.map((row, ri) => (
+            <View key={ri} style={{ flexDirection: "row", gap: 8 }}>
+              {row.map((cat) => {
+                const s = stats[cat.id] ?? emptyStats;
+                return (
+                  <View key={cat.id} style={{ flex: 1 }}>
+                    <CategoryTile
+                      category={cat}
+                      count={s.count}
+                      total={s.total}
+                      wide={row.length === 1}
+                      onPress={() =>
+                        cat.id === "places"
+                          ? router.push("/places-map")
+                          : router.push({
+                              pathname: "/explore",
+                              params: { type: cat.id },
+                            })
+                      }
+                    />
+                  </View>
+                );
+              })}
+            </View>
+          ))}
         </View>
 
         {/* RECENT ACTIVITY */}

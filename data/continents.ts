@@ -6,13 +6,13 @@ export type ContinentId =
   | "south_america"
   | "oceania";
 
-export const CONTINENTS: { id: ContinentId; name: string }[] = [
-  { id: "africa", name: "Afrika" },
-  { id: "asia", name: "Asya" },
-  { id: "europe", name: "Avrupa" },
-  { id: "north_america", name: "Kuzey Amerika" },
-  { id: "south_america", name: "Güney Amerika" },
-  { id: "oceania", name: "Okyanusya" },
+export const CONTINENTS: { id: ContinentId; name: string; nameEn: string }[] = [
+  { id: "africa", name: "Afrika", nameEn: "Africa" },
+  { id: "asia", name: "Asya", nameEn: "Asia" },
+  { id: "europe", name: "Avrupa", nameEn: "Europe" },
+  { id: "north_america", name: "Kuzey Amerika", nameEn: "North America" },
+  { id: "south_america", name: "Güney Amerika", nameEn: "South America" },
+  { id: "oceania", name: "Okyanusya", nameEn: "Oceania" },
 ];
 
 // Keyed by worldCountries.json's `id` field (not iso2 — a couple of entries,

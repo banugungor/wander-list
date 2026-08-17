@@ -3,7 +3,9 @@ import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
+import { CONTINENTS, ContinentId } from "@/data/continents";
 import type { CuisineItem } from "@/data/cuisineApi";
+import { getContinentsForCountryField } from "@/data/heritageContinents";
 import type { HeritageItem } from "@/data/heritageSites";
 import { useCuisineExplorer } from "@/hooks/use-cuisine-explorer";
 import { useHeritageExplorer } from "@/hooks/use-heritage-explorer";
@@ -14,6 +16,7 @@ import {
   ActivityIndicator,
   FlatList,
   Pressable,
+  SectionList,
   Text,
   TextInput,
   View,
@@ -51,6 +54,27 @@ export default function ExploreScreen() {
 
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<"all" | "visited" | "unvisited">("all");
+  const [expandedContinents, setExpandedContinents] = useState<Set<ContinentId>>(
+    new Set(),
+  );
+
+  const toggleContinent = (id: ContinentId) => {
+    setExpandedContinents((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const itemContinents = useMemo(() => {
+    const map = new Map<string, ContinentId[]>();
+    if (!isHeritage) return map;
+    for (const item of heritage.data) {
+      map.set(item.id, getContinentsForCountryField(item.country));
+    }
+    return map;
+  }, [isHeritage, heritage.data]);
 
   const filteredData = useMemo(() => {
     const query = search.trim().toLowerCase();
@@ -72,6 +96,175 @@ export default function ExploreScreen() {
       return true;
     });
   }, [data, search, filter, isHeritage, heritage.visited]);
+
+  const showContinentGroups = isHeritage && search.trim().length === 0;
+
+  const heritageSections = useMemo(() => {
+    if (!showContinentGroups) return [];
+
+    return CONTINENTS.map((continent) => {
+      const items = (filteredData as HeritageItem[]).filter((item) =>
+        itemContinents.get(item.id)?.includes(continent.id),
+      );
+      const visitedCount = items.filter((item) =>
+        heritage.visited.includes(item.id),
+      ).length;
+
+      return {
+        continent,
+        total: items.length,
+        visitedCount,
+        data: expandedContinents.has(continent.id) ? items : [],
+      };
+    }).filter((section) => section.total > 0);
+  }, [
+    showContinentGroups,
+    filteredData,
+    itemContinents,
+    expandedContinents,
+    heritage.visited,
+  ]);
+
+  const renderExploreItem = ({ item }: { item: Item }) => {
+    const isVisited = isHeritage && heritage.visited.includes(item.id);
+
+    return (
+      <Pressable
+        onPress={() => {
+          if (isCuisine) {
+            router.push(`/cuisine/${encodeURIComponent(item.id)}`);
+            return;
+          }
+          router.push(`/heritage/${encodeURIComponent(item.id)}`);
+        }}
+        style={({ pressed }) => [
+          {
+            backgroundColor: palette.surface,
+            paddingHorizontal: 16,
+            paddingVertical: 14,
+            borderBottomWidth: 1,
+            borderBottomColor: palette.hairline,
+            flexDirection: "row",
+            alignItems: "center",
+            gap: 14,
+          },
+          pressed && { opacity: 0.85 },
+        ]}
+      >
+        <View>
+          {isHeritage ? (
+            <HeritageThumbnail item={item as HeritageItem} />
+          ) : (
+            <View
+              style={{
+                width: 76,
+                height: 76,
+                borderRadius: 18,
+                backgroundColor: palette.creamDeep,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Ionicons
+                name="restaurant-outline"
+                size={24}
+                color={palette.violet}
+              />
+            </View>
+          )}
+        </View>
+
+        <View style={{ flex: 1 }}>
+          <Text
+            style={{
+              fontSize: 17,
+              fontWeight: "700",
+              color: palette.ink,
+              lineHeight: 22,
+            }}
+          >
+            {item.name}
+          </Text>
+
+          {"country" in item && (
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginTop: 6,
+                gap: 4,
+              }}
+            >
+              <Ionicons
+                name="location-outline"
+                size={13}
+                color={palette.inkMuted}
+              />
+              <Text style={{ fontSize: 13, color: palette.inkMuted }}>
+                {item.country}
+              </Text>
+            </View>
+          )}
+
+          {"category" in item && item.category && (
+            <View
+              style={{
+                alignSelf: "flex-start",
+                marginTop: 8,
+                paddingHorizontal: 10,
+                paddingVertical: 3,
+                borderRadius: 999,
+                backgroundColor: palette.violetSoft,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 11,
+                  fontWeight: "700",
+                  color: palette.violet,
+                  letterSpacing: 0.5,
+                }}
+              >
+                {item.category.toUpperCase()}
+              </Text>
+            </View>
+          )}
+        </View>
+
+        {isCuisine && (
+          <Ionicons name="chevron-forward" size={18} color={palette.inkFaint} />
+        )}
+
+        {isHeritage && (
+          <Pressable
+            onPress={() => heritage.toggle(item.id)}
+            hitSlop={8}
+            style={({ pressed }) => [
+              {
+                width: 34,
+                height: 34,
+                borderRadius: 17,
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: isVisited
+                  ? (categoryMeta?.fg ?? palette.brand)
+                  : palette.cream,
+                borderWidth: isVisited ? 0 : 1,
+                borderColor: palette.hairline,
+              },
+              pressed && { opacity: 0.8 },
+            ]}
+          >
+            <Ionicons
+              name={isVisited ? "checkmark" : "ellipse-outline"}
+              size={17}
+              color={isVisited ? palette.surface : palette.inkFaint}
+            />
+          </Pressable>
+        )}
+      </Pressable>
+    );
+  };
 
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
@@ -222,12 +415,13 @@ export default function ExploreScreen() {
             </View>
           )}
 
-          <FlatList
-            contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
-            data={filteredData}
-            keyExtractor={(item) => item.id}
-            ListEmptyComponent={
-              search.trim().length > 0 ? (
+          {showContinentGroups ? (
+            <SectionList
+              contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
+              sections={heritageSections}
+              keyExtractor={(item, index) => `${item.id}-${index}`}
+              stickySectionHeadersEnabled={false}
+              ListEmptyComponent={
                 <Text
                   style={{
                     textAlign: "center",
@@ -235,155 +429,74 @@ export default function ExploreScreen() {
                     color: palette.inkMuted,
                   }}
                 >
-                  No results match “{search}”
+                  {filter === "visited"
+                    ? "No visited sites yet"
+                    : "No results"}
                 </Text>
-              ) : null
-            }
-            renderItem={({ item }) => {
-              const isVisited = isHeritage && heritage.visited.includes(item.id);
-
-              return (
-                <Pressable
-                  onPress={() => {
-                    if (isCuisine) {
-                      router.push(`/cuisine/${encodeURIComponent(item.id)}`);
-                      return;
-                    }
-                    router.push(`/heritage/${encodeURIComponent(item.id)}`);
-                  }}
-                  style={({ pressed }) => [
-                    {
-                      backgroundColor: palette.surface,
-                      paddingHorizontal: 16,
-                      paddingVertical: 14,
-                      borderBottomWidth: 1,
-                      borderBottomColor: palette.hairline,
-                      flexDirection: "row",
-                      alignItems: "center",
-                      gap: 14,
-                    },
-                    pressed && { opacity: 0.85 },
-                  ]}
-                >
-                  <View>
-                    {isHeritage ? (
-                      <HeritageThumbnail item={item as HeritageItem} />
-                    ) : (
-                      <View
-                        style={{
-                          width: 76,
-                          height: 76,
-                          borderRadius: 18,
-                          backgroundColor: palette.creamDeep,
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <Ionicons
-                          name="restaurant-outline"
-                          size={24}
-                          color={palette.violet}
-                        />
-                      </View>
-                    )}
-                  </View>
-
-                  <View style={{ flex: 1 }}>
+              }
+              renderSectionHeader={({ section }) => {
+                const expanded = expandedContinents.has(section.continent.id);
+                return (
+                  <Pressable
+                    onPress={() => toggleContinent(section.continent.id)}
+                    style={({ pressed }) => [
+                      {
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        marginHorizontal: 16,
+                        marginTop: 12,
+                        paddingVertical: 13,
+                        paddingHorizontal: 14,
+                        borderRadius: 12,
+                        backgroundColor: palette.surface,
+                        borderWidth: 1,
+                        borderColor: palette.hairline,
+                      },
+                      pressed && { opacity: 0.7 },
+                    ]}
+                  >
                     <Text
-                      style={{
-                        fontSize: 17,
-                        fontWeight: "700",
-                        color: palette.ink,
-                        lineHeight: 22,
-                      }}
+                      style={{ fontSize: 14, fontWeight: "700", color: palette.ink }}
                     >
-                      {item.name}
+                      {section.continent.nameEn}
                     </Text>
-
-                    {"country" in item && (
-                      <View
-                        style={{
-                          flexDirection: "row",
-                          alignItems: "center",
-                          marginTop: 6,
-                          gap: 4,
-                        }}
-                      >
-                        <Ionicons
-                          name="location-outline"
-                          size={13}
-                          color={palette.inkMuted}
-                        />
-                        <Text style={{ fontSize: 13, color: palette.inkMuted }}>
-                          {item.country}
-                        </Text>
-                      </View>
-                    )}
-
-                    {"category" in item && item.category && (
-                      <View
-                        style={{
-                          alignSelf: "flex-start",
-                          marginTop: 8,
-                          paddingHorizontal: 10,
-                          paddingVertical: 3,
-                          borderRadius: 999,
-                          backgroundColor: palette.violetSoft,
-                        }}
-                      >
-                        <Text
-                          style={{
-                            fontSize: 11,
-                            fontWeight: "700",
-                            color: palette.violet,
-                            letterSpacing: 0.5,
-                          }}
-                        >
-                          {item.category.toUpperCase()}
-                        </Text>
-                      </View>
-                    )}
-                  </View>
-
-                  {isCuisine && (
-                    <Ionicons
-                      name="chevron-forward"
-                      size={18}
-                      color={palette.inkFaint}
-                    />
-                  )}
-
-                  {isHeritage && (
-                    <Pressable
-                      onPress={() => heritage.toggle(item.id)}
-                      hitSlop={8}
-                      style={({ pressed }) => [
-                        {
-                          width: 34,
-                          height: 34,
-                          borderRadius: 17,
-                          alignItems: "center",
-                          justifyContent: "center",
-                          backgroundColor: isVisited
-                            ? (categoryMeta?.fg ?? palette.brand)
-                            : palette.cream,
-                          borderWidth: isVisited ? 0 : 1,
-                          borderColor: palette.hairline,
-                        },
-                        pressed && { opacity: 0.8 },
-                      ]}
-                    >
+                    <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
+                      <Text style={{ fontSize: 12, color: palette.inkMuted }}>
+                        {section.visitedCount}/{section.total}
+                      </Text>
                       <Ionicons
-                        name={isVisited ? "checkmark" : "ellipse-outline"}
-                        size={17}
-                        color={isVisited ? palette.surface : palette.inkFaint}
+                        name={expanded ? "chevron-up" : "chevron-down"}
+                        size={16}
+                        color={palette.inkMuted}
                       />
-                    </Pressable>
-                  )}
-                </Pressable>
-              );
-            }}
-          />
+                    </View>
+                  </Pressable>
+                );
+              }}
+              renderItem={renderExploreItem}
+            />
+          ) : (
+            <FlatList
+              contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
+              data={filteredData}
+              keyExtractor={(item) => item.id}
+              ListEmptyComponent={
+                search.trim().length > 0 ? (
+                  <Text
+                    style={{
+                      textAlign: "center",
+                      marginTop: 40,
+                      color: palette.inkMuted,
+                    }}
+                  >
+                    No results match “{search}”
+                  </Text>
+                ) : null
+              }
+              renderItem={renderExploreItem}
+            />
+          )}
         </>
       )}
     </View>

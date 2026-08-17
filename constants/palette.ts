@@ -20,17 +20,21 @@ export const palette = {
 
   // Pastel category tokens (clear bg + matching text/icon color)
   greenSoft: "#E1F3E9",
+  greenSoftDeep: "#CDE8D7",
   greenText: "#2F9E6E",
   coralPale: "#FDECD4",
+  coralPaleDeep: "#F8DDB2",
   coralText: "#E8871E",
   violetPale: "#ECE7FB",
+  violetPaleDeep: "#DDD1F4",
   violetText: "#7C5CD1",
   bluePale: "#E2EEFC",
+  bluePaleDeep: "#CFE2F6",
   blueText: "#3D7DD8",
 
   // Dark gradient card (home progress card)
-  cardDarkFrom: "#2d6a4e",
-  cardDarkTo: "#244131",
+  cardDarkFrom: "#335449",
+  cardDarkTo: "#0C2426",
   onDark: "#FFFFFF",
   onDarkMuted: "rgba(255, 255, 255, 0.6)",
   onDarkTrack: "rgba(255, 255, 255, 0.16)",

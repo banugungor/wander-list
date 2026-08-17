@@ -4,6 +4,7 @@ import { ScreenHeader } from "@/components/screen-header";
 import { palette } from "@/constants/palette";
 import { logActivity } from "@/data/activityLog";
 import { queueCloudSync } from "@/data/cloudSync";
+import { CONTINENT_BY_COUNTRY_ID, CONTINENTS, ContinentId } from "@/data/continents";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
 import worldData from "@/data/worldCountries.json";
 import { Ionicons } from "@expo/vector-icons";
@@ -44,6 +45,9 @@ export default function PlacesMapScreen() {
   const [pickerSearch, setPickerSearch] = useState("");
   const [pickerFilter, setPickerFilter] = useState<"all" | "visited">("all");
   const [listFilter, setListFilter] = useState<"all" | "visited">("visited");
+  const [expandedContinents, setExpandedContinents] = useState<Set<ContinentId>>(
+    new Set(),
+  );
   const countries = worldData.countries as CountryPath[];
 
   const scale = useSharedValue(1);
@@ -159,6 +163,27 @@ export default function PlacesMapScreen() {
       return true;
     });
   }, [allSorted, pickerSearch, pickerFilter, visited]);
+
+  const countriesByContinent = useMemo(() => {
+    const map = new Map<ContinentId, CountryPath[]>();
+    for (const continent of CONTINENTS) map.set(continent.id, []);
+    for (const c of allSorted) {
+      const continent = CONTINENT_BY_COUNTRY_ID[c.id];
+      if (!continent) continue;
+      if (pickerFilter === "visited" && !visited.includes(c.id)) continue;
+      map.get(continent)?.push(c);
+    }
+    return map;
+  }, [allSorted, pickerFilter, visited]);
+
+  const toggleContinent = (id: ContinentId) => {
+    setExpandedContinents((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
 
   const percent =
     countries.length > 0
@@ -568,56 +593,165 @@ export default function PlacesMapScreen() {
             })}
           </View>
 
-          <FlatList
-            data={pickerResults}
-            keyExtractor={(item) => item.id}
-            contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 24 }}
-            ListEmptyComponent={
-              <Text
-                style={{
-                  textAlign: "center",
-                  marginTop: 40,
-                  fontSize: 13,
-                  color: palette.inkMuted,
-                }}
-              >
-                {pickerFilter === "visited"
-                  ? "Henüz işaretlediğin ülke yok"
-                  : "Sonuç bulunamadı"}
-              </Text>
-            }
-            renderItem={({ item }) => {
-              const isVisited = visited.includes(item.id);
-              return (
-                <Pressable
-                  onPress={() => toggle(item)}
-                  style={({ pressed }) => [
-                    {
-                      flexDirection: "row",
-                      alignItems: "center",
-                      gap: 12,
-                      paddingVertical: 12,
-                      borderBottomWidth: 1,
-                      borderBottomColor: palette.hairline,
-                    },
-                    pressed && { opacity: 0.7 },
-                  ]}
+          {pickerSearch.trim() ? (
+            <FlatList
+              data={pickerResults}
+              keyExtractor={(item) => item.id}
+              contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 24 }}
+              ListEmptyComponent={
+                <Text
+                  style={{
+                    textAlign: "center",
+                    marginTop: 40,
+                    fontSize: 13,
+                    color: palette.inkMuted,
+                  }}
                 >
-                  <CountryFlag id={item.id} iso2={item.iso2} size={20} />
-                  <Text style={{ flex: 1, fontSize: 15, color: palette.ink }}>
-                    {item.name}
-                  </Text>
-                  <Ionicons
-                    name={isVisited ? "checkmark-circle" : "ellipse-outline"}
-                    size={20}
-                    color={isVisited ? palette.brand : palette.inkFaint}
-                  />
-                </Pressable>
-              );
-            }}
-          />
+                  {pickerFilter === "visited"
+                    ? "Henüz işaretlediğin ülke yok"
+                    : "Sonuç bulunamadı"}
+                </Text>
+              }
+              renderItem={({ item }) => (
+                <PickerCountryRow
+                  country={item}
+                  isVisited={visited.includes(item.id)}
+                  onPress={() => toggle(item)}
+                />
+              )}
+            />
+          ) : Array.from(countriesByContinent.values()).every(
+              (list) => list.length === 0,
+            ) ? (
+            <Text
+              style={{
+                textAlign: "center",
+                marginTop: 40,
+                fontSize: 13,
+                color: palette.inkMuted,
+              }}
+            >
+              {pickerFilter === "visited"
+                ? "Henüz işaretlediğin ülke yok"
+                : "Sonuç bulunamadı"}
+            </Text>
+          ) : (
+            <ScrollView contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 24 }}>
+              {CONTINENTS.map((continent) => {
+                const list = countriesByContinent.get(continent.id) ?? [];
+                if (list.length === 0) return null;
+                const visitedCount = list.filter((c) =>
+                  visited.includes(c.id),
+                ).length;
+                const expanded = expandedContinents.has(continent.id);
+
+                return (
+                  <View key={continent.id} style={{ marginBottom: 10 }}>
+                    <Pressable
+                      onPress={() => toggleContinent(continent.id)}
+                      style={({ pressed }) => [
+                        {
+                          flexDirection: "row",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          paddingVertical: 13,
+                          paddingHorizontal: 14,
+                          borderRadius: 12,
+                          backgroundColor: palette.surface,
+                          borderWidth: 1,
+                          borderColor: palette.hairline,
+                        },
+                        pressed && { opacity: 0.7 },
+                      ]}
+                    >
+                      <Text
+                        style={{ fontSize: 14, fontWeight: "700", color: palette.ink }}
+                      >
+                        {continent.name}
+                      </Text>
+                      <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
+                        <Text style={{ fontSize: 12, color: palette.inkMuted }}>
+                          {visitedCount}/{list.length}
+                        </Text>
+                        <Ionicons
+                          name={expanded ? "chevron-up" : "chevron-down"}
+                          size={16}
+                          color={palette.inkMuted}
+                        />
+                      </View>
+                    </Pressable>
+
+                    {expanded && (
+                      <View
+                        style={{
+                          marginTop: 4,
+                          borderRadius: 12,
+                          overflow: "hidden",
+                          backgroundColor: palette.surface,
+                          borderWidth: 1,
+                          borderColor: palette.hairline,
+                        }}
+                      >
+                        {list.map((item) => (
+                          <PickerCountryRow
+                            key={item.id}
+                            country={item}
+                            isVisited={visited.includes(item.id)}
+                            onPress={() => toggle(item)}
+                            inset
+                          />
+                        ))}
+                      </View>
+                    )}
+                  </View>
+                );
+              })}
+            </ScrollView>
+          )}
         </View>
       </Modal>
     </View>
+  );
+}
+
+function PickerCountryRow({
+  country,
+  isVisited,
+  onPress,
+  inset,
+}: {
+  country: CountryPath;
+  isVisited: boolean;
+  onPress: () => void;
+  inset?: boolean;
+}) {
+  return (
+    <Pressable
+      onPress={onPress}
+      hitSlop={4}
+      style={({ pressed }) => [
+        {
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 14,
+          minHeight: 56,
+          paddingVertical: 16,
+          paddingHorizontal: inset ? 14 : 0,
+          borderBottomWidth: 1,
+          borderBottomColor: palette.hairline,
+        },
+        pressed && { opacity: 0.7 },
+      ]}
+    >
+      <CountryFlag id={country.id} iso2={country.iso2} size={24} />
+      <Text style={{ flex: 1, fontSize: 16, color: palette.ink }}>
+        {country.name}
+      </Text>
+      <Ionicons
+        name={isVisited ? "checkmark-circle" : "ellipse-outline"}
+        size={24}
+        color={isVisited ? palette.brand : palette.inkFaint}
+      />
+    </Pressable>
   );
 }
