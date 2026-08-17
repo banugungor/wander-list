@@ -64,8 +64,8 @@ export default function StatsScreen() {
   const heritage = getCategory("heritage")!;
   const cuisine = getCategory("cuisine")!;
   const places = getCategory("places")!;
-  const books = getCategory("books")!;
-  const movies = getCategory("movies")!;
+  const islands = getCategory("islands")!;
+  const capitals = getCategory("capitals")!;
 
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
@@ -114,18 +114,18 @@ export default function StatsScreen() {
             fg={places.fg}
           />
           <StatCard
-            label={t(books.titleKey)}
+            label={t(islands.titleKey)}
             value={0}
-            icon={books.icon}
-            bg={books.bg}
-            fg={books.fg}
+            icon={islands.icon}
+            bg={islands.bg}
+            fg={islands.fg}
           />
           <StatCard
-            label={t(movies.titleKey)}
+            label={t(capitals.titleKey)}
             value={0}
-            icon={movies.icon}
-            bg={movies.bg}
-            fg={movies.fg}
+            icon={capitals.icon}
+            bg={capitals.bg}
+            fg={capitals.fg}
           />
         </View>
 

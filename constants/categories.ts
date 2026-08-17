@@ -1,7 +1,7 @@
 import { palette } from "@/constants/palette";
 import { Ionicons } from "@expo/vector-icons";
 
-export type CategoryId = "heritage" | "places" | "cuisine" | "books" | "movies";
+export type CategoryId = "heritage" | "places" | "cuisine" | "islands" | "capitals";
 
 export type Category = {
   id: CategoryId;
@@ -43,18 +43,18 @@ export const categories: Category[] = [
     implemented: true,
   },
   {
-    id: "books",
-    titleKey: "category.books",
-    icon: "book-outline",
+    id: "islands",
+    titleKey: "category.islands",
+    icon: "boat-outline",
     bg: palette.violetPale,
     bgTo: palette.violetPaleDeep,
     fg: palette.violetText,
     implemented: false,
   },
   {
-    id: "movies",
-    titleKey: "category.movies",
-    icon: "film-outline",
+    id: "capitals",
+    titleKey: "category.capitals",
+    icon: "flag-outline",
     bg: palette.bluePale,
     bgTo: palette.bluePaleDeep,
     fg: palette.blueText,

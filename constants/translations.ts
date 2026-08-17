@@ -111,8 +111,8 @@ export const translations = {
       heritage: "Dünya Mirası",
       places: "Gittiğin Ülkeler",
       cuisine: "Mutfaklar",
-      books: "Kitaplar",
-      movies: "Filmler",
+      islands: "Adalar",
+      capitals: "Başkentler",
     },
     badge: {
       heritage_5: "5 Dünya Mirası",
@@ -261,8 +261,8 @@ export const translations = {
       heritage: "World Heritage",
       places: "Places Visited",
       cuisine: "World Cuisines",
-      books: "Books",
-      movies: "Movies",
+      islands: "Islands Collected",
+      capitals: "Capital Cities",
     },
     badge: {
       heritage_5: "5 World Heritage Sites",
