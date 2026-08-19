@@ -26,6 +26,11 @@ export default function AddScreen() {
       return;
     }
 
+    if (id === "cuisine") {
+      router.push("/cuisine");
+      return;
+    }
+
     router.push({ pathname: "/explore", params: { type: id } });
   };
 

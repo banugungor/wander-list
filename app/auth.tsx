@@ -175,10 +175,20 @@ export default function AuthScreen() {
 
       <Pressable
         onPress={() => setMode(mode === "signIn" ? "signUp" : "signIn")}
-        style={{ marginTop: 16, alignItems: "center" }}
+        style={{
+          marginTop: 16,
+          flexDirection: "row",
+          justifyContent: "center",
+          gap: 6,
+        }}
       >
-        <Text style={{ fontSize: 13, color: palette.inkMuted }}>
-          {mode === "signIn" ? t("auth.noAccount") : t("auth.hasAccount")}
+        <Text style={{ fontSize: 14, color: palette.inkMuted }}>
+          {mode === "signIn"
+            ? t("auth.noAccountPrefix")
+            : t("auth.hasAccountPrefix")}
+        </Text>
+        <Text style={{ fontSize: 14, color: palette.brand, fontWeight: "700" }}>
+          {mode === "signIn" ? t("auth.signUp") : t("auth.signIn")}
         </Text>
       </Pressable>
 

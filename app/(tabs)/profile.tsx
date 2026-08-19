@@ -3,21 +3,18 @@ import { LanguageSwitch } from "@/components/language-switch";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { ACTIVITY_LOG_KEY } from "@/data/activityLog";
-// import { pushToCloud } from "@/data/cloudSync"; // cloud sync devre dışı
-import {
-  CUISINE_AREA_TOTALS_KEY,
-  CUISINE_VISITED_KEY,
-  HERITAGE_VISITED_KEY,
-} from "@/data/heritageStorage";
+import { pushToCloud } from "@/data/cloudSync";
+import { HERITAGE_VISITED_KEY } from "@/data/heritageStorage";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
-// import { supabase } from "@/lib/supabase"; // cloud sync devre dışı
+import { CUISINE_AREA_TOTALS_KEY, CUISINE_VISITED_KEY } from "@/data/storageKeys";
+import { supabase } from "@/lib/supabase";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
-// import { router } from "expo-router"; // cloud sync devre dışı
-// import { useEffect, useState } from "react"; // cloud sync devre dışı
+import { router } from "expo-router";
+import { useEffect, useState } from "react";
 import { Alert, Pressable, Text, View } from "react-native";
-// import type { Session } from "@supabase/supabase-js"; // cloud sync devre dışı
+import type { Session } from "@supabase/supabase-js";
 
 const appVersion = Constants.expoConfig?.version ?? "1.0.0";
 
@@ -69,17 +66,15 @@ function Row({
 
 export default function ProfileScreen() {
   const { t } = useLanguage();
-  // Cloud sync devre dışı — hesap/oturum durumu şimdilik kullanılmıyor.
-  // Geri açmak için: yukarıdaki importları kaldır ve aşağıyı aç.
-  // const [session, setSession] = useState<Session | null>(null);
-  //
-  // useEffect(() => {
-  //   supabase.auth.getSession().then(({ data }) => setSession(data.session));
-  //   const { data: listener } = supabase.auth.onAuthStateChange(
-  //     (_event, newSession) => setSession(newSession),
-  //   );
-  //   return () => listener.subscription.unsubscribe();
-  // }, []);
+  const [session, setSession] = useState<Session | null>(null);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => setSession(data.session));
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      (_event, newSession) => setSession(newSession),
+    );
+    return () => listener.subscription.unsubscribe();
+  }, []);
 
   const resetData = () => {
     Alert.alert(
@@ -98,9 +93,9 @@ export default function ProfileScreen() {
               PLACES_VISITED_KEY,
               ACTIVITY_LOG_KEY,
             ]);
-            // if (session) {
-            //   await pushToCloud();
-            // }
+            if (session) {
+              await pushToCloud();
+            }
             Alert.alert(t("profile.resetDoneTitle"), t("profile.resetDoneMessage"));
           },
         },
@@ -108,16 +103,20 @@ export default function ProfileScreen() {
     );
   };
 
-  // const signOut = () => {
-  //   Alert.alert("Çıkış yap", "Hesabından çıkış yapmak istiyor musun?", [
-  //     { text: "Vazgeç", style: "cancel" },
-  //     {
-  //       text: "Çıkış yap",
-  //       style: "destructive",
-  //       onPress: () => supabase.auth.signOut(),
-  //     },
-  //   ]);
-  // };
+  const signOut = () => {
+    Alert.alert(
+      t("auth.signOutConfirmTitle"),
+      t("auth.signOutConfirmMessage"),
+      [
+        { text: t("common.cancel"), style: "cancel" },
+        {
+          text: t("auth.signOutAction"),
+          style: "destructive",
+          onPress: () => supabase.auth.signOut(),
+        },
+      ],
+    );
+  };
 
   return (
     <View
@@ -128,7 +127,6 @@ export default function ProfileScreen() {
         paddingTop: 64,
       }}
     >
-      {/* Cloud sync devre dışı — hesap avatarı/e-posta bilgisi şimdilik gizli.
       <View style={{ alignItems: "center", marginBottom: 24 }}>
         <View
           style={{
@@ -152,34 +150,27 @@ export default function ProfileScreen() {
             color: palette.ink,
           }}
         >
-          {session ? "Hesabım" : "Giriş yapılmadı"}
+          {session ? t("profile.account") : t("profile.notSignedIn")}
         </Text>
         <Text style={{ marginTop: 2, fontSize: 12, color: palette.inkMuted }}>
-          {session?.user.email ?? "Verilerini yedeklemek için giriş yap"}
+          {session?.user.email ?? t("profile.emailBackupHint")}
         </Text>
       </View>
 
       {session ? (
-        <Row icon="log-out-outline" label="Çıkış yap" danger onPress={signOut} />
+        <Row
+          icon="log-out-outline"
+          label={t("auth.signOutAction")}
+          danger
+          onPress={signOut}
+        />
       ) : (
         <Row
           icon="log-in-outline"
-          label="Giriş Yap / Kayıt Ol"
+          label={t("profile.signInCta")}
           onPress={() => router.push("/auth")}
         />
       )}
-      */}
-      <View style={{ alignItems: "center", marginBottom: 24 }}>
-        <Text
-          style={{
-            fontSize: 17,
-            fontWeight: "700",
-            color: palette.ink,
-          }}
-        >
-          {t("profile.title")}
-        </Text>
-      </View>
 
       <View
         style={{

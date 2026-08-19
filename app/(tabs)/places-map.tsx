@@ -4,6 +4,7 @@ import { ScreenHeader } from "@/components/screen-header";
 import { palette } from "@/constants/palette";
 import { useLanguage, type Language } from "@/contexts/language-context";
 import { logActivity } from "@/data/activityLog";
+import { maybePromptSignup } from "@/data/authPrompt";
 import { queueCloudSync } from "@/data/cloudSync";
 import { CONTINENT_BY_COUNTRY_ID, CONTINENTS, ContinentId } from "@/data/continents";
 import { getLocalizedCountryName } from "@/data/countryNamesTr";
@@ -137,6 +138,7 @@ export default function PlacesMapScreen() {
     queueCloudSync();
 
     if (!wasVisited) {
+      maybePromptSignup();
       logActivity({
         id: country.id,
         type: "places",

@@ -3644,7 +3644,9 @@
     "description": "Sardis was the capital of the Lydians, a powerful Iron Age civilization (8th-6th centuries BCE) known for its wealth and early coinage production. The city had a unique urban structure with fortified walls, terraces, and distinct zones, including settlements, sanctuaries, and cemeteries. The cemetery of Bin Tepe features some of the largest tumulus tombs in the world. The Lydians developed a distinct language and religious system and were widely mentioned in Greek, Roman, and European texts. After their fall, Sardis remained significant under Persian, Greek, Roman, and Byzantine rule.",
     "latitude": 38.4819444444,
     "longitude": 28.0452777778,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/The_Bath-Gymnasium_complex_at_Sardis%2C_late_2nd_-_early_3rd_century_AD%2C_Sardis%2C_Turkey_%2817098680002%29.jpg/330px-The_Bath-Gymnasium_complex_at_Sardis%2C_late_2nd_-_early_3rd_century_AD%2C_Sardis%2C_Turkey_%2817098680002%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/The_Bath-Gymnasium_complex_at_Sardis%2C_late_2nd_-_early_3rd_century_AD%2C_Sardis%2C_Turkey_%2817098680002%29.jpg/330px-The_Bath-Gymnasium_complex_at_Sardis%2C_late_2nd_-_early_3rd_century_AD%2C_Sardis%2C_Turkey_%2817098680002%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Sardes ve Bin Tepe Lidya Tümülüsleri",
+    "descriptionTr": "Sardes, zenginliği ve erken dönem madeni para üretimiyle tanınan güçlü bir Demir Çağı medeniyeti olan Lidyalıların başkentiydi (MÖ 8-6. yüzyıllar). Kent; surlarla çevrili, teraslı ve yerleşim, kutsal alan ile mezarlık gibi farklı bölgelere ayrılmış özgün bir kent dokusuna sahipti. Bin Tepe mezarlığı, dünyanın en büyük tümülüs mezarlarından bazılarını barındırır. Lidyalılar kendine özgü bir dil ve din sistemi geliştirmiş, Yunan, Roma ve Avrupa kaynaklarında sıkça anılmıştır. Yıkılışlarının ardından Sardes; Pers, Yunan, Roma ve Bizans dönemlerinde de önemini korumaya devam etmiştir."
   },
   {
     "id": "59d9199b-9b0c-5a2f-a8ef-680fd43ffd8b",
@@ -12262,7 +12264,9 @@
     "description": "This is a serial property of three component parts: a distinctive twin-town site, featuring an Inner and Outer Town surrounded by moats; the massive Khao Klang Nok ancient monument; and the Khao Thamorrat Cave ancient monument. Together these sites represent the architecture, artistic traditions and religious diversity of the Dvaravati Empire that thrived in Central Thailand from the 6th to the 10th centuries, demonstrating the influences from India. The local adaptation of these traditions resulted in a distinctive artistic tradition known as the Si Thep School of Art which later influenced other civilizations in Southeast Asia.",
     "latitude": 15.4658166667,
     "longitude": 101.1511138889,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Khao_Khlang_Nok_%28southwest_view%29_July_2025.jpg/330px-Khao_Khlang_Nok_%28southwest_view%29_July_2025.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Khao_Khlang_Nok_%28southwest_view%29_July_2025.jpg/330px-Khao_Khlang_Nok_%28southwest_view%29_July_2025.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Si Thep Antik Kenti ve İlişkili Dvaravati Anıtları",
+    "descriptionTr": "Bu, üç bileşenden oluşan seri bir miras alanıdır: hendeklerle çevrili bir İç ve Dış Şehir'den oluşan kendine özgü ikiz kent alanı; devasa Khao Klang Nok antik anıtı; ve Khao Thamorrat Mağarası antik anıtı. Bu alanlar birlikte, 6. ile 10. yüzyıllar arasında Orta Tayland'da gelişen ve Hindistan etkilerini gözler önüne seren Dvaravati İmparatorluğu'nun mimarisini, sanatsal geleneklerini ve dini çeşitliliğini temsil eder. Bu geleneklerin yerel uyarlanması, daha sonra Güneydoğu Asya'daki diğer medeniyetleri de etkileyen Si Thep Sanat Okulu olarak bilinen kendine özgü bir sanatsal geleneğin doğmasına yol açmıştır."
   },
   {
     "id": "687e61a6-cf36-50a1-8b06-d9e33ac91077",
@@ -12272,7 +12276,9 @@
     "description": "Founded in 670, Kairouan flourished under the Aghlabid dynasty in the 9th century. Despite the transfer of the political capital to Tunis in the 12th century, Kairouan remained the Maghreb's principal holy city. Its rich architectural heritage includes the Great Mosque, with its marble and porphyry columns, and the 9th-century Mosque of the Three Gates.",
     "latitude": 35.68167,
     "longitude": 10.10389,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Montage_ville_de_Kairouan.png/500px-Montage_ville_de_Kairouan.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Montage_ville_de_Kairouan.png/500px-Montage_ville_de_Kairouan.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Kairouan",
+    "descriptionTr": "670 yılında kurulan Kairouan, 9. yüzyılda Ağlebi hanedanı yönetiminde altın çağını yaşamıştır. Siyasi başkentin 12. yüzyılda Tunus'a taşınmasına rağmen Kairouan, Mağrip'in en önemli kutsal şehri olma özelliğini korumuştur. Mermer ve porfir sütunlara sahip Ulu Cami ile 9. yüzyıldan kalma Üç Kapılar Camii, şehrin zengin mimari mirasının bir parçasıdır."
   },
   {
     "id": "98a5d4b3-4bfc-5b7e-af6d-3de7887f0381",
@@ -12282,7 +12288,9 @@
     "description": "Before the Roman annexation of Numidia, the town of Thugga, built on an elevated site overlooking a fertile plain, was the capital of an important Libyco-Punic state. It flourished under Roman and Byzantine rule, but declined in the Islamic period. The impressive ruins that are visible today give some idea of the resources of a small Roman town on the fringes of the empire.",
     "latitude": 36.42361,
     "longitude": 9.22028,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Dougga%2C_Beja.jpg/500px-Dougga%2C_Beja.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Dougga%2C_Beja.jpg/500px-Dougga%2C_Beja.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Dougga / Thugga",
+    "descriptionTr": "Roma'nın Numidia'yı ilhak etmesinden önce, verimli bir düzlüğe bakan yüksek bir alanda kurulmuş Thugga kenti, önemli bir Libyko-Pön devletinin başkentiydi. Roma ve Bizans yönetimi altında gelişmiş, ancak İslami dönemde önemini kaybetmiştir. Günümüzde görülebilen etkileyici kalıntılar, imparatorluğun uç sınırlarındaki küçük bir Roma kentinin sahip olduğu kaynaklar hakkında bir fikir vermektedir."
   },
   {
     "id": "20dc0421-d127-52e1-8411-16b5f46f9d25",
@@ -12292,7 +12300,9 @@
     "description": "Troy, with its 4,000 years of history, is one of the most famous archaeological sites in the world. The first excavations at the site were undertaken by the famous archaeologist Heinrich Schliemann in 1870. In scientific terms, its extensive remains are the most significant demonstration of the first contact between the civilizations of Anatolia and the Mediterranean world. Moreover, the siege of Troy by Spartan and Achaean warriors from Greece in the 13th or 12th century B.C., immortalized by Homer in the Iliad, has inspired great creative artists throughout the world ever since.",
     "latitude": 39.95644,
     "longitude": 26.239,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Walls_of_Troy_%282%29.jpg/500px-Walls_of_Troy_%282%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Walls_of_Troy_%282%29.jpg/500px-Walls_of_Troy_%282%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Troya Arkeolojik Alanı",
+    "descriptionTr": "4.000 yıllık tarihiyle Troya, dünyanın en ünlü arkeolojik alanlarından biridir. Alandaki ilk kazılar, 1870 yılında ünlü arkeolog Heinrich Schliemann tarafından gerçekleştirilmiştir. Bilimsel açıdan, buradaki kapsamlı kalıntılar Anadolu medeniyetleri ile Akdeniz dünyası arasındaki ilk temasın en önemli kanıtıdır. Ayrıca, MÖ 13. ya da 12. yüzyılda Yunanistan'dan gelen Sparta ve Akha savaşçılarının Troya'yı kuşatması ve bu olayın Homeros tarafından İlyada'da ölümsüzleştirilmesi, o zamandan bu yana dünyanın dört bir yanındaki büyük sanatçılara ilham kaynağı olmuştur."
   },
   {
     "id": "2e88cef1-80e8-5484-a23e-8e561156de62",
@@ -12302,7 +12312,9 @@
     "description": "Arslantepe Mound is a 30-metre-tall archaeological tell located in the Malatya plain, 15 km south-west of the Euphrates River. Archaeological evidence from the site testifies to its occupation from at least the 6th millennium BCE up until the Medieval period. The earliest layers belong to the Late Chalcolithic 1-2 periods, contemporary to Early Uruk in Southern Mesopotamia (4300-3900 BCE) and are characterized by adobe houses. The most prominent and flourishing period of the site was in the Late Chalcolithic 5 period, during which the so-called palace complex was constructed. Considerable evidence also testifies to the Early Bronze Age period, most prominently identified by the Royal Tomb complex. The archaeological stratigraphy then extends to the Middle and Late Bronze Ages and Hittite periods, including Neo-Hittite levels. The site illustrates the processes which led to the emergence of a State society in the Near East and a sophisticated bureaucratic system that predates writing. Exceptional metal objects and weapons have been excavated at the site, among them the earliest swords so far known in the world, which suggests the beginning of forms of organized combat as the prerogative of an elite, who -at Arslantepe- exhibited them as instruments of their new political power.",
     "latitude": 38.3822,
     "longitude": 38.3610916667,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Hittite_lions%2C_Arslantepe_01.jpg/330px-Hittite_lions%2C_Arslantepe_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Hittite_lions%2C_Arslantepe_01.jpg/330px-Hittite_lions%2C_Arslantepe_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Arslantepe Höyüğü",
+    "descriptionTr": "Arslantepe Höyüğü, Fırat Nehri'nin 15 km güneybatısında, Malatya ovasında yer alan 30 metre yüksekliğinde arkeolojik bir höyüktür. Alandaki arkeolojik kanıtlar, en az MÖ 6. binyıldan Orta Çağ'a kadar iskân edildiğini göstermektedir. En eski tabakalar, Güney Mezopotamya'daki Erken Uruk dönemiyle (MÖ 4300-3900) eş zamanlı olan Geç Kalkolitik 1-2 dönemlerine aittir ve kerpiç evlerle karakterize edilir. Alanın en önemli ve en gelişkin dönemi, sözde saray kompleksinin inşa edildiği Geç Kalkolitik 5 dönemidir. Kraliyet Mezarı kompleksiyle en açık biçimde belirlenen Erken Tunç Çağı'na dair de önemli kanıtlar bulunmaktadır. Arkeolojik tabakalanma daha sonra Orta ve Son Tunç Çağları ile Neo-Hitit seviyeleri de dahil olmak üzere Hitit dönemlerine kadar uzanır. Alan, Yakın Doğu'da bir devlet toplumunun ve yazıdan önce var olan sofistike bir bürokratik sistemin ortaya çıkışına yol açan süreçleri gözler önüne serer. Alanda, dünyada bugüne kadar bilinen en eski kılıçlar da dahil olmak üzere olağanüstü metal eşyalar ve silahlar ortaya çıkarılmıştır; bu da Arslantepe'de bir elitin ayrıcalığı olarak sergilenen örgütlü savaş biçimlerinin başlangıcına işaret etmektedir."
   },
   {
     "id": "d85ada99-d5e8-51b9-b328-4847213783d9",
@@ -12312,7 +12324,9 @@
     "description": "From the 13th century to the advent of the railway in the early 20th century, Safranbolu was an important caravan station on the main East–West trade route. The Old Mosque, Old Bath and Süleyman Pasha Medrese were built in 1322. During its apogee in the 17th century, Safranbolu's architecture influenced urban development throughout much of the Ottoman Empire.",
     "latitude": 41.26,
     "longitude": 32.68972,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/20180107_Safranbolu_1945_%2839101010504%29.jpg/500px-20180107_Safranbolu_1945_%2839101010504%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/20180107_Safranbolu_1945_%2839101010504%29.jpg/500px-20180107_Safranbolu_1945_%2839101010504%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Safranbolu Şehri",
+    "descriptionTr": "13. yüzyıldan 20. yüzyılın başında demiryolunun gelişine kadar Safranbolu, başlıca Doğu-Batı ticaret yolu üzerinde önemli bir kervan istasyonuydu. Eski Cami, Eski Hamam ve Süleyman Paşa Medresesi 1322 yılında inşa edilmiştir. 17. yüzyıldaki altın çağında Safranbolu'nun mimarisi, Osmanlı İmparatorluğu'nun büyük bir bölümündeki kentsel gelişimi etkilemiştir."
   },
   {
     "id": "2d62bdef-e3a9-53cc-8d0b-dd68546685ee",
@@ -12322,7 +12336,9 @@
     "description": "Located on an escarpment of the Upper Tigris River Basin that is part of the so-called Fertile Crescent, the fortified city of Diyarbakır and the landscape around has been an important centre since the Hellenistic period, through the Roman, Sassanid, Byzantine, Islamic and Ottoman times to the present. The site encompasses the Inner castle, known as İçkale and including the Amida Mound, and the 5.8 km-long city walls of Diyarbakır with their numerous towers, gates, buttresses, and 63 inscriptions. The site also includes the Hevsel Gardens, a green link between the city and the Tigris that supplied the city with food and water, the Anzele water source and the Ten-Eyed Bridge.",
     "latitude": 37.9031,
     "longitude": 40.2393083333,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Tigris_River_At_Diyarbakir.JPG/330px-Tigris_River_At_Diyarbakir.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Tigris_River_At_Diyarbakir.JPG/330px-Tigris_River_At_Diyarbakir.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Diyarbakır Kalesi ve Hevsel Bahçeleri Kültürel Peyzajı",
+    "descriptionTr": "Bereketli Hilal'in bir parçası olan Yukarı Dicle Havzası'nın bir yamacında yer alan surlu Diyarbakır şehri ve çevresindeki peyzaj, Helenistik dönemden Roma, Sasani, Bizans, İslam ve Osmanlı dönemlerine kadar günümüze uzanan önemli bir merkez olmuştur. Alan; Amida Höyüğü'nü de içeren İçkale olarak bilinen iç kaleyi ve sayısız kulesi, kapısı, payandası ve 63 kitabesiyle 5,8 km uzunluğundaki Diyarbakır surlarını kapsar. Alan ayrıca, şehri gıda ve suyla besleyen, şehir ile Dicle Nehri arasında yeşil bir bağlantı oluşturan Hevsel Bahçeleri'ni, Anzele su kaynağını ve On Gözlü Köprü'yü de içerir."
   },
   {
     "id": "5f2f2fbd-aca4-5ecd-9a0f-d6a716fad9ec",
@@ -12332,7 +12348,9 @@
     "description": "Deriving from springs in a cliff almost 200 m high overlooking the plain, calcite-laden waters have created at Pamukkale (Cotton Palace) an unreal landscape, made up of mineral forests, petrified waterfalls and a series of terraced basins. At the end of the 2nd century B.C. the dynasty of the Attalids, the kings of Pergamon, established the thermal spa of Hierapolis. The ruins of the baths, temples and other Greek monuments can be seen at the site.",
     "latitude": 37.92389,
     "longitude": 29.12333,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Pamukkale%2C_Denizli_2026_68.jpg/330px-Pamukkale%2C_Denizli_2026_68.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Pamukkale%2C_Denizli_2026_68.jpg/330px-Pamukkale%2C_Denizli_2026_68.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Hierapolis-Pamukkale",
+    "descriptionTr": "Düzlüğe bakan yaklaşık 200 metre yüksekliğindeki bir uçurumdaki kaynaklardan çıkan kalsit yüklü sular, Pamukkale'de (Pamuk Kale) mineral ormanlarından, taşlaşmış şelalelerden ve teraslı havuzlar dizisinden oluşan gerçeküstü bir manzara yaratmıştır. MÖ 2. yüzyılın sonunda, Bergama kralları Attalos hanedanı, Hierapolis kaplıcasını kurmuştur. Alanda hamamların, tapınakların ve diğer Yunan anıtlarının kalıntıları görülebilir."
   },
   {
     "id": "38d99085-2807-5109-a97a-4cdc8e2a6700",
@@ -12342,7 +12360,9 @@
     "description": "The archaeological site of Hattusha, former capital of the Hittite Empire, is notable for its urban organization, the types of construction that have been preserved (temples, royal residences, fortifications), the rich ornamentation of the Lions' Gate and the Royal Gate, and the ensemble of rock art at Yazilikaya. The city enjoyed considerable influence in Anatolia and northern Syria in the 2nd millennium B.C.",
     "latitude": 40.01389,
     "longitude": 34.62056,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Lion_Gate%2C_Hattusa_13_%28cropped%29.jpg/330px-Lion_Gate%2C_Hattusa_13_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Lion_Gate%2C_Hattusa_13_%28cropped%29.jpg/330px-Lion_Gate%2C_Hattusa_13_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Hattuşa: Hitit Başkenti",
+    "descriptionTr": "Hitit İmparatorluğu'nun eski başkenti olan Hattuşa arkeolojik alanı; kentsel organizasyonu, korunmuş yapı türleri (tapınaklar, kraliyet konutları, surlar), Aslanlı Kapı ile Kral Kapısı'nın zengin süslemesi ve Yazılıkaya'daki kaya sanatı topluluğuyla dikkat çekmektedir. Şehir, MÖ 2. binyılda Anadolu ve kuzey Suriye'de büyük bir etkiye sahipti."
   },
   {
     "id": "6399c474-cae9-5f81-973e-4bab90d45ced",
@@ -12352,7 +12372,9 @@
     "description": "The mausoleum of Antiochus I (69–34 B.C.), who reigned over Commagene, a kingdom founded north of Syria and the Euphrates after the breakup of Alexander's empire, is one of the most ambitious constructions of the Hellenistic period. The syncretism of its pantheon, and the lineage of its kings, which can be traced back through two sets of legends, Greek and Persian, is evidence of the dual origin of this kingdom's culture.",
     "latitude": 38.03661,
     "longitude": 38.76369,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Mount_Nemrut_-_East_Terrace_%284961323529%29.jpg/500px-Mount_Nemrut_-_East_Terrace_%284961323529%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Mount_Nemrut_-_East_Terrace_%284961323529%29.jpg/500px-Mount_Nemrut_-_East_Terrace_%284961323529%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Nemrut Dağı",
+    "descriptionTr": "İskender'in imparatorluğunun parçalanmasının ardından Suriye ve Fırat'ın kuzeyinde kurulan Kommagene Krallığı'na hükmeden I. Antiokhos'un (MÖ 69-34) anıt mezarı, Helenistik dönemin en iddialı yapılarından biridir. Panteonundaki senkretizm ve Yunan ile Pers olmak üzere iki efsane dizisine kadar izlenebilen kral soyu, bu krallığın kültürünün çift kökenli doğasının kanıtıdır."
   },
   {
     "id": "bf6e1b10-4a5c-5994-9d6f-5fd28ffbf695",
@@ -12362,7 +12384,9 @@
     "description": "The square Mosque with its single great dome and four slender minarets, dominates the skyline of the former Ottoman capital of Edirne. Sinan, the most famous of Ottoman architects in the 16th century, considered the complex, which includes madrasas (Islamic schools), a covered market, clock house, outer courtyard and library, to be his best work. The interior decoration using Iznik tiles from the peak period of their production testifies to an art form that remains unsurpassed in this material. The complex is considered to be the most harmonious expression ever achieved of the Ottoman külliye, a group of buildings constructed around a mosque and managed as a single institution.",
     "latitude": 41.6777777778,
     "longitude": 26.5594444444,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Selimiye_Mosque_%2815051985908%29_%28cropped%29.jpg/330px-Selimiye_Mosque_%2815051985908%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Selimiye_Mosque_%2815051985908%29_%28cropped%29.jpg/330px-Selimiye_Mosque_%2815051985908%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Selimiye Camii ve Külliyesi",
+    "descriptionTr": "Tek büyük kubbesi ve dört narin minaresiyle kare planlı cami, eski Osmanlı başkenti Edirne'nin siluetine hâkimdir. 16. yüzyılın en ünlü Osmanlı mimarı Sinan, medreseler, kapalı çarşı, muvakkithane, dış avlu ve kütüphaneyi de içeren bu külliyeyi kendi en iyi eseri olarak görmüştür. Üretimlerinin zirve döneminden İznik çinilerinin kullanıldığı iç mekân süslemesi, bu malzemede hâlâ aşılamamış bir sanat biçimine tanıklık eder. Külliye, bir cami etrafında inşa edilip tek bir kurum olarak yönetilen yapılar grubu olan Osmanlı külliyesinin ulaşabildiği en uyumlu ifade olarak kabul edilir."
   },
   {
     "id": "1b0794dd-c491-5bbb-89b2-44df7f707cd4",
@@ -12372,7 +12396,9 @@
     "description": "This serial property is comprised of five hypostyle mosques built in Anatolia between the late 13th and mid-14th centuries, each located in a different province of present-day Türkiye. The unusual structural system of the mosques combines an exterior building envelope built of masonry with multiple rows of wooden interior columns (“hypostyle”) that support a flat wooden ceiling and the roof. These mosques are known for the skilful woodcarving and handiwork used in their structures, architectural fittings, and furnishings.",
     "latitude": 38.7550361111,
     "longitude": 30.529575,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Afyonkarahisar_Ulu_Cami.jpg/500px-Afyonkarahisar_Ulu_Cami.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Afyonkarahisar_Ulu_Cami.jpg/500px-Afyonkarahisar_Ulu_Cami.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Ortaçağ Anadolusu'nun Ahşap Direkli (Hypostyle) Camileri",
+    "descriptionTr": "Bu seri miras alanı, 13. yüzyılın sonu ile 14. yüzyılın ortası arasında Anadolu'da inşa edilmiş, her biri günümüz Türkiye'sinin farklı bir ilinde bulunan beş direkli camiden oluşur. Camilerin alışılmadık yapısal sistemi, taş yığma dış cephe kabuğunu, düz ahşap tavanı ve çatıyı destekleyen çok sıralı ahşap iç sütunlarla (\"hypostyle\") birleştirir. Bu camiler; yapılarında, mimari donanımlarında ve mobilyalarında kullanılan ustaca ahşap oymacılığı ve el işçiliğiyle tanınır."
   },
   {
     "id": "e81227aa-49ad-530c-a8f3-4ac006dd6379",
@@ -12382,7 +12408,9 @@
     "description": "Kunya-Urgench is situated in north-western Turkmenistan, on the left bank of the Amu Daria River. Urgench was the capital of the Khorezm region, part of the Achaemenid Empire. The old town contains a series of monuments mainly from the 11th to 16th centuries, including a mosque, the gates of a caravanserai, fortresses, mausoleums and a 60-m high minaret. The monuments testify to outstanding achievements in architecture and craftsmanship whose influence reached Iran and Afghanistan, and later the architecture of the Mogul Empire of 16th-century India.",
     "latitude": 42.18318,
     "longitude": 59.08494,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/Urgench.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/Urgench.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "nameTr": "Köhne Ürgenç",
+    "descriptionTr": "Köhne Ürgenç, kuzeybatı Türkmenistan'da, Amu Derya Nehri'nin sol kıyısında yer alır. Ürgenç, Ahameniş İmparatorluğu'nun bir parçası olan Harezm bölgesinin başkentiydi. Eski şehir, ağırlıklı olarak 11. ile 16. yüzyıllar arasından kalma; bir cami, bir kervansarayın kapıları, kaleler, türbeler ve 60 metre yüksekliğinde bir minareyi içeren bir dizi anıt barındırır. Bu anıtlar, etkisi İran ve Afganistan'a, daha sonra da 16. yüzyıl Hindistan'ındaki Babür İmparatorluğu mimarisine kadar ulaşan olağanüstü mimari ve zanaat başarılarına tanıklık eder."
   },
   {
     "id": "b125472d-09cb-587d-bd61-93a8c18f3046",
@@ -12392,7 +12420,9 @@
     "description": "The Parthian Fortresses of Nisa consist of two tells of Old and New Nisa, indicating the site of one of the earliest and most important cities of the Parthian Empire, a major power from the mid 3rd century BC to the 3rd century AD. They conserve the unexcavated remains of an ancient civilization which skilfully combined its own traditional cultural elements with those of the Hellenistic and Roman west. Archaeological excavations in two parts of the site have revealed richly decorated architecture, illustrative of domestic, state and religious functions. Situated at the crossroads of important commercial and strategic axes, this powerful empire formed a barrier to Roman expansion while serving as an important communication and trading centre between east and west, north and south.",
     "latitude": 37.9997222222,
     "longitude": 58.1986111111,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Nisa-Entrance-2015.JPG/500px-Nisa-Entrance-2015.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Nisa-Entrance-2015.JPG/500px-Nisa-Entrance-2015.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Nisa Part Kaleleri",
+    "descriptionTr": "Nisa Part Kaleleri, MÖ 3. yüzyılın ortasından MS 3. yüzyıla kadar büyük bir güç olan Part İmparatorluğu'nun en eski ve en önemli şehirlerinden birinin yerini gösteren Eski ve Yeni Nisa höyüklerinden oluşur. Bu alan, kendi geleneksel kültürel unsurlarını Helenistik ve Roma batısının unsurlarıyla ustaca birleştiren antik bir medeniyetin henüz kazılmamış kalıntılarını korumaktadır. Alanın iki bölümünde yapılan arkeolojik kazılar, konut, devlet ve dini işlevleri yansıtan zengin süslemeli mimariyi gözler önüne sermiştir. Önemli ticari ve stratejik eksenlerin kesişim noktasında yer alan bu güçlü imparatorluk, Roma'nın genişlemesine bir engel oluştururken doğu ile batı, kuzey ile güney arasında önemli bir iletişim ve ticaret merkezi olarak hizmet vermiştir."
   },
   {
     "id": "206ca384-c15b-5788-b8cb-e47eab8d3e8f",
@@ -12400,7 +12430,9 @@
     "country": "United Arab Emirates",
     "category": "Natural",
     "description": "The property is located entirely within the Hajar mountain range in the Emirate of Fujairah. Geologically, the Hajar Mountains represent extensive and well-preserved exposures of ophiolite sequences, formed during Late Cretaceous tectonic processes. Ecologically, the property is situated within the Al Hajar Foothill Xeric Woodlands and Shrublands, recognised for its ecological distinctiveness, high species richness, and significant levels of endemism. Wadi Wurayah hosts 1,099 recorded species (883 fauna and 216 flora), including at least ten globally threatened species. These represent approximately half of the terrestrial mammal species and nearly half of the terrestrial reptile species recorded in the country.",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Wadi_Wurayah_Dam_-_panoramio_%284%29.jpg/500px-Wadi_Wurayah_Dam_-_panoramio_%284%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Wadi_Wurayah_Dam_-_panoramio_%284%29.jpg/500px-Wadi_Wurayah_Dam_-_panoramio_%284%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Wadi Wurayah",
+    "descriptionTr": "Bu miras alanı, tamamen Fücayre Emirliği'ndeki Hacer Dağları içinde yer alır. Jeolojik olarak Hacer Dağları, Geç Kretase dönemindeki tektonik süreçler sırasında oluşmuş, kapsamlı ve iyi korunmuş ofiyolit dizilerini temsil eder. Ekolojik olarak alan, ekolojik özgünlüğü, yüksek tür çeşitliliği ve önemli düzeyde endemizmiyle tanınan Al Hajar Eteği Kurakçıl Ormanlık ve Çalılık Alanları içinde yer alır. Wadi Wurayah, en az on küresel ölçekte tehdit altındaki tür de dahil olmak üzere kayıtlı 1.099 türe (883 fauna ve 216 flora) ev sahipliği yapar. Bunlar, ülkede kayıtlı karasal memeli türlerinin yaklaşık yarısını ve karasal sürüngen türlerinin de yaklaşık yarısını oluşturmaktadır."
   },
   {
     "id": "5629aa3b-4e2f-5a1e-8b1f-41e89b12391a",
@@ -12410,7 +12442,9 @@
     "description": "The area around Blaenavon is evidence of the pre-eminence of South Wales as the world's major producer of iron and coal in the 19th century. All the necessary elements can still be seen - coal and ore mines, quarries, a primitive railway system, furnaces, workers' homes, and the social infrastructure of their community.",
     "latitude": 51.77638889,
     "longitude": -3.088055556,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Big_Pit_Mining_Museum.jpg/500px-Big_Pit_Mining_Museum.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Big_Pit_Mining_Museum.jpg/500px-Big_Pit_Mining_Museum.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Blaenavon Endüstriyel Peyzajı",
+    "descriptionTr": "Blaenavon çevresindeki bölge, Güney Galler'in 19. yüzyılda dünyanın başlıca demir ve kömür üreticisi olarak sahip olduğu üstünlüğün kanıtıdır. Kömür ve maden ocakları, taş ocakları, ilkel bir demiryolu sistemi, ocak fırınları, işçi evleri ve topluluklarının sosyal altyapısı gibi gerekli unsurların tümü hâlâ görülebilmektedir."
   },
   {
     "id": "593d4052-85b6-522f-b77f-9cf37bf92894",
@@ -12420,7 +12454,9 @@
     "description": "Canterbury, in Kent, has been the seat of the spiritual head of the Church of England for nearly five centuries. Canterbury's other important monuments are the modest Church of St Martin, the oldest church in England; the ruins of the Abbey of St Augustine, a reminder of the saint's evangelizing role in the Heptarchy from 597; and Christ Church Cathedral, a breathtaking mixture of Romanesque and Perpendicular Gothic, where Archbishop Thomas Becket was murdered in 1170.",
     "latitude": 51.28,
     "longitude": 1.083333333,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Canterbury_St_Martin_close.jpg/330px-Canterbury_St_Martin_close.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Canterbury_St_Martin_close.jpg/330px-Canterbury_St_Martin_close.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Canterbury Katedrali, St Augustine Manastırı ve St Martin Kilisesi",
+    "descriptionTr": "Kent bölgesindeki Canterbury, yaklaşık beş yüzyıldır İngiltere Kilisesi'nin ruhani liderinin makam merkezi olmuştur. Canterbury'nin diğer önemli anıtları arasında İngiltere'nin en eski kilisesi olan mütevazı St Martin Kilisesi; 597 yılından beri Heptarşi'deki İncilleştirme rolünün bir hatırlatıcısı olan St Augustine Manastırı kalıntıları; ve Başpiskopos Thomas Becket'in 1170'te öldürüldüğü, Romanesk ile Perpendicular Gotik'in nefes kesici bir karışımı olan Christ Church Katedrali bulunur."
   },
   {
     "id": "ee40a150-2cb2-57ec-bc1e-967f16289c2a",
@@ -12430,7 +12466,9 @@
     "description": "Durham Cathedral was built in the late 11th and early 12th centuries to house the relics of St Cuthbert (evangelizer of Northumbria) and the Venerable Bede. It attests to the importance of the early Benedictine monastic community and is the largest and finest example of Norman architecture in England. The innovative audacity of its vaulting foreshadowed Gothic architecture. Behind the cathedral stands the castle, an ancient Norman fortress which was the residence of the prince-bishops of Durham.",
     "latitude": 54.77472222,
     "longitude": -1.576111111,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Durham_Cathedral_and_Castle.jpg/500px-Durham_Cathedral_and_Castle.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Durham_Cathedral_and_Castle.jpg/500px-Durham_Cathedral_and_Castle.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Durham Kalesi ve Katedrali",
+    "descriptionTr": "Durham Katedrali, Northumbria'yı Hristiyanlaştıran St Cuthbert'in ve Saygıdeğer Bede'nin kutsal emanetlerini barındırmak için 11. yüzyılın sonu ile 12. yüzyılın başında inşa edilmiştir. Erken Benediktin manastır topluluğunun önemine tanıklık eder ve İngiltere'deki en büyük ve en güzel Norman mimarisi örneğidir. Tonozlarındaki yenilikçi cesaret, Gotik mimarinin habercisi olmuştur. Katedralin ardında, Durham prens-piskoposlarının ikametgahı olan antik bir Norman kalesi yükselir."
   },
   {
     "id": "908ac082-cf95-5b80-8b51-962171051c12",
@@ -12440,7 +12478,9 @@
     "description": "The Giant's Causeway lies at the foot of the basalt cliffs along the sea coast on the edge of the Antrim plateau in Northern Ireland. It is made up of some 40,000 massive black basalt columns sticking out of the sea. The dramatic sight has inspired legends of giants striding over the sea to Scotland. Geological studies of these formations over the last 300 years have greatly contributed to the development of the earth sciences, and show that this striking landscape was caused by volcanic activity during the Tertiary, some 50–60 million years ago.",
     "latitude": 55.2408333333,
     "longitude": -6.5116666667,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Causeway-code_poet-4.jpg/500px-Causeway-code_poet-4.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Causeway-code_poet-4.jpg/500px-Causeway-code_poet-4.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Devler Yolu ve Causeway Kıyısı",
+    "descriptionTr": "Devler Yolu, Kuzey İrlanda'daki Antrim platosunun kenarında, deniz kıyısı boyunca uzanan bazalt uçurumların eteğinde yer alır. Denizden çıkan yaklaşık 40.000 devasa siyah bazalt sütundan oluşur. Bu çarpıcı görünüm, devlerin İskoçya'ya denizin üzerinden yürüdüğüne dair efsanelere ilham vermiştir. Bu oluşumlar üzerinde son 300 yılda yapılan jeolojik çalışmalar, yer bilimlerinin gelişimine büyük katkı sağlamış ve bu çarpıcı manzaranın Tersiyer dönemde, yaklaşık 50-60 milyon yıl önceki volkanik faaliyetlerden kaynaklandığını göstermiştir."
   },
   {
     "id": "2024d5dc-a1d8-52b9-ba00-1918878d7ccd",
@@ -12450,7 +12490,9 @@
     "description": "The steep limestone cliffs on the eastern side of the Rock of Gibraltar contain four caves with archaeological and paleontological deposits that provide evidence of Neanderthal occupation over a span of more than 100,000 years. This exceptional testimony to the cultural traditions of the Neanderthals is seen notably in evidence of the hunting of birds and marine animals for food, the use of feathers for ornamentation and the presence of abstract rock engravings. Scientific research on these sites has already contributed substantially to debates about Neanderthal and human evolution.",
     "latitude": 36.1226694444,
     "longitude": -5.3420611111,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/View_from_Gorham%27s_Cave%2C_Gibraltar.JPG/330px-View_from_Gorham%27s_Cave%2C_Gibraltar.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/View_from_Gorham%27s_Cave%2C_Gibraltar.JPG/330px-View_from_Gorham%27s_Cave%2C_Gibraltar.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Gorham Mağarası Kompleksi",
+    "descriptionTr": "Cebelitarık Kayası'nın doğu tarafındaki dik kireçtaşı uçurumları, 100.000 yıldan uzun bir süre boyunca Neandertal varlığına dair kanıtlar sunan arkeolojik ve paleontolojik tortulara sahip dört mağara içerir. Neandertallerin kültürel geleneklerine dair bu istisnai tanıklık, özellikle besin için kuş ve deniz hayvanlarının avlanmasına, süs amaçlı tüy kullanımına ve soyut kaya oyma işlerinin varlığına ilişkin kanıtlarda görülür. Bu alanlarda yapılan bilimsel araştırmalar, Neandertal ve insan evrimine dair tartışmalara önemli ölçüde katkıda bulunmuştur."
   },
   {
     "id": "dcdd5423-b540-590f-9d32-cc635022e1d0",
@@ -12460,7 +12502,9 @@
     "description": "The group of Neolithic monuments on Orkney consists of a large chambered tomb (Maes Howe), two ceremonial stone circles (the Stones of Stenness and the Ring of Brodgar) and a settlement (Skara Brae), together with a number of unexcavated burial, ceremonial and settlement sites. The group constitutes a major prehistoric cultural landscape which gives a graphic depiction of life in this remote archipelago in the far north of Scotland some 5,000 years ago.",
     "latitude": 58.99605556,
     "longitude": -3.188666667,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Skara_Brae_-_panoramio.jpg/500px-Skara_Brae_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Skara_Brae_-_panoramio.jpg/500px-Skara_Brae_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Neolitik Orkney'nin Kalbi",
+    "descriptionTr": "Orkney'deki Neolitik anıtlar grubu; büyük bir odalı mezar (Maes Howe), iki tören amaçlı taş çemberi (Stenness Taşları ve Brodgar Halkası) ve bir yerleşim (Skara Brae) ile birlikte henüz kazılmamış birçok mezar, tören ve yerleşim alanından oluşur. Bu grup, İskoçya'nın uzak kuzeyindeki bu ıssız takımadada yaklaşık 5.000 yıl önceki yaşamı çarpıcı biçimde yansıtan, önemli bir tarih öncesi kültürel peyzaj oluşturur."
   },
   {
     "id": "d9443939-5eaa-58c5-a69b-ea765cbd009e",
@@ -12470,7 +12514,9 @@
     "description": "Located in a rural area of northwest England, free from radio interference, Jodrell Bank is one of the world's leading radio astronomy observatories. At the beginning of its use, in 1945, the property housed research on cosmic rays detected by radar echoes. This observatory, which is still in operation, includes several radio telescopes and working buildings, including engineering sheds and the Control Building. Jodrell Bank has had substantial scientific impact in fields such as the study of meteors and the moon, the discovery of quasars, quantum optics, and the tracking of spacecraft. This exceptional technological ensemble illustrates the transition from traditional optical astronomy to radio astronomy (1940s to 1960s), which led to radical changes in the understanding of the universe.",
     "latitude": 53.2339166667,
     "longitude": -2.3038611111,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Lovell_Telescope.jpg/500px-Lovell_Telescope.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Lovell_Telescope.jpg/500px-Lovell_Telescope.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Jodrell Bank Gözlemevi",
+    "descriptionTr": "İngiltere'nin kuzeybatısında, radyo girişiminden uzak kırsal bir bölgede yer alan Jodrell Bank, dünyanın önde gelen radyo astronomisi gözlemevlerinden biridir. 1945'te kullanıma açıldığında, tesis radar yankılarıyla tespit edilen kozmik ışınlar üzerine araştırmalara ev sahipliği yapıyordu. Hâlâ faal olan bu gözlemevi, birkaç radyo teleskobu ile mühendislik atölyeleri ve Kontrol Binası dahil çalışma binalarını içerir. Jodrell Bank, meteor ve ay araştırmaları, kuasarların keşfi, kuantum optiği ve uzay araçlarının takibi gibi alanlarda büyük bilimsel etki yaratmıştır. Bu istisnai teknolojik bütün, geleneksel optik astronomiden radyo astronomisine geçişi (1940'lardan 1960'lara) ve bunun evrenin anlaşılmasında yol açtığı köklü değişimleri yansıtır."
   },
   {
     "id": "590a814c-9194-546d-b61d-4b2b63400da5",
@@ -12480,7 +12526,9 @@
     "description": "New Lanark is a small 18th- century village set in a sublime Scottish landscape where the philanthropist and Utopian idealist Robert Owen moulded a model industrial community in the early 19th century. The imposing cotton mill buildings, the spacious and well-designed workers' housing, and the dignified educational institute and school still testify to Owen's humanism.",
     "latitude": 55.66333333,
     "longitude": -3.783055556,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/New_Lanark_buildings_2009.jpg/500px-New_Lanark_buildings_2009.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/New_Lanark_buildings_2009.jpg/500px-New_Lanark_buildings_2009.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "New Lanark",
+    "descriptionTr": "New Lanark, hayırsever ve ütopyacı düşünür Robert Owen'ın 19. yüzyılın başlarında model bir sanayi topluluğu inşa ettiği, muhteşem bir İskoç manzarası içindeki küçük bir 18. yüzyıl köyüdür. Etkileyici pamuklu dokuma fabrikası binaları, geniş ve iyi tasarlanmış işçi konutları ve saygın eğitim enstitüsü ile okul, Owen'ın insancıl yaklaşımına hâlâ tanıklık etmektedir."
   },
   {
     "id": "c10e06fa-398b-5812-a83c-3874efa6f809",
@@ -12490,7 +12538,9 @@
     "description": "Edinburgh has been the Scottish capital since the 15th century. It has two distinct areas: the Old Town, dominated by a medieval fortress; and the neoclassical New Town, whose development from the 18th century onwards had a far-reaching influence on European urban planning. The harmonious juxtaposition of these two contrasting historic areas, each with many important buildings, is what gives the city its unique character.",
     "latitude": 55.95,
     "longitude": -3.216666667,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Skyline_of_Edinburgh.jpg/500px-Skyline_of_Edinburgh.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Skyline_of_Edinburgh.jpg/500px-Skyline_of_Edinburgh.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Edinburgh'un Eski ve Yeni Şehirleri",
+    "descriptionTr": "Edinburgh, 15. yüzyıldan bu yana İskoçya'nın başkentidir. Şehir, ortaçağ kalesinin hâkim olduğu Eski Şehir ile 18. yüzyıldan itibaren gelişimi Avrupa kentsel planlamasına derin etkiler bırakan neoklasik Yeni Şehir olmak üzere iki farklı bölgeden oluşur. Her biri pek çok önemli yapıya sahip bu iki zıt tarihi bölgenin uyumlu bir arada bulunuşu, şehre kendine özgü karakterini vermektedir."
   },
   {
     "id": "ea02a532-35bc-5c72-a4fc-4782273dbb35",
@@ -12500,7 +12550,9 @@
     "description": "Saltaire, West Yorkshire, is a complete and well-preserved industrial village of the second half of the 19th century. Its textile mills, public buildings and workers' housing are built in a harmonious style of high architectural standards and the urban plan survives intact, giving a vivid impression of Victorian philanthropic paternalism.",
     "latitude": 53.83916667,
     "longitude": -1.788333333,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Saltaire_Salts_Mill_1.jpg/500px-Saltaire_Salts_Mill_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Saltaire_Salts_Mill_1.jpg/500px-Saltaire_Salts_Mill_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Saltaire",
+    "descriptionTr": "Batı Yorkshire'da yer alan Saltaire, 19. yüzyılın ikinci yarısından kalma, tam ve iyi korunmuş bir sanayi köyüdür. Dokuma fabrikaları, kamu binaları ve işçi konutları, yüksek mimari standartlara sahip uyumlu bir üslupla inşa edilmiştir ve kent planı bozulmadan varlığını sürdürerek Viktorya dönemi hayırsever paternalizminin canlı bir izlenimini sunar."
   },
   {
     "id": "ce557bec-9f20-5381-8ce2-53d522821e4c",
@@ -12510,7 +12562,9 @@
     "description": "Westminster Palace, rebuilt from the year 1840 on the site of important medieval remains, is a fine example of neo-Gothic architecture. The site – which also comprises the small medieval Church of Saint Margaret, built in Perpendicular Gothic style, and Westminster Abbey, where all the sovereigns since the 11th century have been crowned – is of great historic and symbolic significance.",
     "latitude": 51.499,
     "longitude": -0.127,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Westminster_Abbey%2C_Westminster.jpg/330px-Westminster_Abbey%2C_Westminster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Westminster_Abbey%2C_Westminster.jpg/330px-Westminster_Abbey%2C_Westminster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Westminster Sarayı ve Saint Margaret Kilisesi'ni de içeren Westminster Manastırı",
+    "descriptionTr": "Önemli ortaçağ kalıntılarının bulunduğu bir alanda 1840 yılından itibaren yeniden inşa edilen Westminster Sarayı, neo-Gotik mimarinin güzel bir örneğidir. Perpendicular Gotik üslupta inşa edilmiş küçük ortaçağ yapısı Saint Margaret Kilisesi'ni ve 11. yüzyıldan bu yana tüm hükümdarların taç giydiği Westminster Manastırı'nı da içeren bu alan, büyük bir tarihi ve sembolik öneme sahiptir."
   },
   {
     "id": "b1995279-c5b3-5a41-bfc1-b5ccbfd27138",
@@ -12520,7 +12574,9 @@
     "description": "This railway bridge, crossing the Forth estuary in Scotland, had the world’s longest spans (541 m) when it opened in 1890. It remains one of the greatest cantilever trussed bridges and continues to carry passengers and freight. Its distinctive industrial aesthetic is the result of a forthright and unadorned display of its structural components. Innovative in style, materials and scale, the Forth Bridge marks an important milestone in bridge design and construction during the period when railways came to dominate long-distance land travel.",
     "latitude": 56.0011111111,
     "longitude": -3.3888888889,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Forth_Bridge_2022.jpg/330px-Forth_Bridge_2022.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Forth_Bridge_2022.jpg/330px-Forth_Bridge_2022.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Forth Köprüsü",
+    "descriptionTr": "İskoçya'da Forth haliçini geçen bu demiryolu köprüsü, 1890'da açıldığında dünyanın en uzun açıklıklarına (541 m) sahipti. Hâlâ en büyük konsol kafes köprülerden biri olma özelliğini sürdürmekte ve yolcu ile yük taşımacılığına devam etmektedir. Kendine özgü endüstriyel estetiği, yapısal bileşenlerinin dürüst ve sade bir şekilde sergilenmesinden kaynaklanır. Üslup, malzeme ve ölçek açısından yenilikçi olan Forth Köprüsü, demiryollarının uzun mesafeli kara ulaşımına hâkim olduğu dönemde köprü tasarımı ve inşasında önemli bir kilometre taşıdır."
   },
   {
     "id": "a718f3a4-507f-567e-b355-c67d66b14cfe",
@@ -12530,7 +12586,9 @@
     "description": "At 5,895 m, Kilimanjaro is the highest point in Africa. This volcanic massif stands in splendid isolation above the surrounding plains, with its snowy peak looming over the savannah. The mountain is encircled by mountain forest. Numerous mammals, many of them endangered species, live in the park.",
     "latitude": -3.06667,
     "longitude": 37.36667,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Entrance_to_Kilimanjaro_National_Park.JPG/500px-Entrance_to_Kilimanjaro_National_Park.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Entrance_to_Kilimanjaro_National_Park.JPG/500px-Entrance_to_Kilimanjaro_National_Park.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Kilimanjaro Milli Parkı",
+    "descriptionTr": "5.895 metreyle Kilimanjaro, Afrika'nın en yüksek noktasıdır. Bu volkanik kütle, çevresindeki düzlüklerin üzerinde göz alıcı bir yalnızlıkla yükselir ve karlı zirvesi savananın üzerinde belirir. Dağ, dağ ormanlarıyla çevrilidir. Parkta çoğu nesli tehlike altında olan sayısız memeli türü yaşamaktadır."
   },
   {
     "id": "f3ae722e-d0b7-5932-a70e-54bd71c2cd16",
@@ -12540,7 +12598,9 @@
     "description": "On the eastern slopes of the Masai escarpment bordering the Great Rift Valley are natural rock shelters, overhanging slabs of sedimentary rocks fragmented by rift faults, whose vertical planes have been used for rock paintings for at least two millennia. The spectacular collection of images from over 150 shelters over 2,336 km2 , many with high artistic value, displays sequences that provide a unique testimony to the changing socio-economic base of the area from hunter-gatherer to agro-pastoralist, and the beliefs and ideas associated with the different societies. Some of the shelters are still considered to have ritual associations with the people who live nearby, reflecting their beliefs, rituals and cosmological traditions.",
     "latitude": -4.7244444444,
     "longitude": 35.8338888888,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Kondoa_mchoro_mwambani_2012_Tamino.jpg/500px-Kondoa_mchoro_mwambani_2012_Tamino.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Kondoa_mchoro_mwambani_2012_Tamino.jpg/500px-Kondoa_mchoro_mwambani_2012_Tamino.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Kondoa Kaya Sanatı Alanları",
+    "descriptionTr": "Büyük Rift Vadisi'ne sınır olan Masai yamacının doğu yamaçlarında, rift fayları tarafından parçalanmış tortul kaya bloklarının oluşturduğu doğal kaya sığınakları bulunur; bu sığınakların düşey yüzeyleri en az iki bin yıldır kaya resimleri için kullanılmıştır. 2.336 km²'lik alana yayılan 150'den fazla sığınaktaki, çoğu yüksek sanatsal değere sahip bu çarpıcı görüntü koleksiyonu, bölgenin avcı-toplayıcıdan tarım-hayvancılığa geçen değişen sosyo-ekonomik yapısına ve farklı toplumlara ait inanç ve düşüncelere eşsiz bir tanıklık sunan diziler sergiler. Sığınaklardan bazıları, yakınlarda yaşayan halkın inançlarını, ritüellerini ve kozmolojik geleneklerini yansıtacak şekilde hâlâ ritüel bağlantıları olduğu düşünülmektedir."
   },
   {
     "id": "96efe622-74f0-52a8-80c6-8b9acc398466",
@@ -12550,7 +12610,9 @@
     "description": "The Slate Landscape of Northwest Wales illustrates the transformation that industrial slate quarrying and mining brought about in the traditional rural environment of the mountains and valleys of the Snowdon massif. The territory, extending from mountain-top to sea-coast, presented opportunities and constraints that were used and challenged by the large-scale industrial processes undertaken by landowners and capital investors, which reshaped the agricultural landscape into an industrial centre for slate production during the Industrial Revolution (1780-1914). The serial property comprises six components each encompassing relict quarries and mines, archaeological sites related to slate industrial processing, historical settlements, both living and relict, historic gardens and grand country houses, ports, harbours and quays, and railway and road systems illustrating the functional and social linkages of the relict slate industrial landscape. The property was internationally significant not only for the export of slates, but also for the export of technology and skilled workers from the 1780s to the early 20th century. It played a leading role in the field and constituted a model for other slate quarries in different parts of the world. It offers an important and remarkable example of interchange of materials, technology and human values.",
     "latitude": 53.1208333333,
     "longitude": -4.115,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Chwareli-RZ.jpg/500px-Chwareli-RZ.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Chwareli-RZ.jpg/500px-Chwareli-RZ.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Kuzeybatı Galler'in Arduvaz Peyzajı",
+    "descriptionTr": "Kuzeybatı Galler'in Arduvaz Peyzajı, Snowdon kütlesinin dağları ve vadilerindeki geleneksel kırsal çevrede endüstriyel arduvaz ocakçılığı ve madenciliğinin yarattığı dönüşümü gözler önüne serer. Dağ tepesinden deniz kıyısına uzanan bölge, toprak sahipleri ve yatırımcıların yürüttüğü büyük ölçekli endüstriyel süreçler tarafından kullanılan ve zorlanan fırsat ve kısıtlar sunmuş, bu da tarımsal peyzajı Sanayi Devrimi (1780-1914) sırasında bir arduvaz üretim merkezine dönüştürmüştür. Seri miras alanı; terk edilmiş veya hâlâ kullanılan ocak ve maden kalıntılarını, arduvaz işleme süreçleriyle ilgili arkeolojik alanları, yaşayan ve terk edilmiş tarihi yerleşimleri, tarihi bahçeleri ve büyük kır evlerini, limanları, iskeleleri ve rıhtımları ile terk edilmiş arduvaz endüstri peyzajının işlevsel ve toplumsal bağlantılarını gösteren demiryolu ve yol sistemlerini kapsayan altı bileşenden oluşur. Bölge, sadece arduvaz ihracatı açısından değil, 1780'lerden 20. yüzyılın başına kadar teknoloji ve uzman işçi ihracatı açısından da uluslararası önem taşımıştır. Bu alan, dünyanın farklı bölgelerindeki diğer arduvaz ocakları için bir model oluşturarak alanında öncü bir rol üstlenmiştir. Malzeme, teknoloji ve insani değerlerin karşılıklı etkileşiminin önemli ve dikkat çekici bir örneğini sunar."
   },
   {
     "id": "d614efad-fdee-55bf-800c-ed782f3f21f3",
@@ -12560,7 +12622,9 @@
     "description": "The property consists of eight buildings in the United States designed by the architect during the first half of the 20th century. These include well known designs such as Fallingwater (Mill Run, Pennsylvania) and the Guggenheim Museum (New York). All the buildings reflect the ‘organic architecture’ developed by Wright, which includes an open plan, a blurring of the boundaries between exterior and interior and the unprecedented use of materials such as steel and concrete. Each of these buildings offers innovative solutions to the needs for housing, worship, work or leisure. Wright's work from this period had a strong impact on the development of modern architecture in Europe.",
     "latitude": 39.9055708333,
     "longitude": -79.4664755556,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Frank_Lloyd_Wright_portrait.jpg/500px-Frank_Lloyd_Wright_portrait.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Frank_Lloyd_Wright_portrait.jpg/500px-Frank_Lloyd_Wright_portrait.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Frank Lloyd Wright'ın 20. Yüzyıl Mimarisi",
+    "descriptionTr": "Bu miras alanı, mimarın 20. yüzyılın ilk yarısında Amerika Birleşik Devletleri'nde tasarladığı sekiz binadan oluşur. Bunlar arasında Fallingwater (Mill Run, Pennsylvania) ve Guggenheim Müzesi (New York) gibi tanınmış tasarımlar bulunur. Tüm yapılar, Wright'ın geliştirdiği; açık plan, dış ve iç mekân arasındaki sınırların bulanıklaştırılması ve çelik ile beton gibi malzemelerin o döneme kadar görülmemiş kullanımını içeren 'organik mimari' anlayışını yansıtır. Bu yapıların her biri, barınma, ibadet, çalışma veya eğlence ihtiyaçlarına yenilikçi çözümler sunar. Wright'ın bu dönemdeki eserleri, Avrupa'da modern mimarinin gelişimi üzerinde güçlü bir etki yaratmıştır."
   },
   {
     "id": "0aa26a35-1b6b-5879-976e-8c55cf5eeae2",
@@ -12570,7 +12634,9 @@
     "description": "The massive White Tower is a typical example of Norman military architecture, whose influence was felt throughout the kingdom. It was built on the Thames by William the Conqueror to protect London and assert his power. The Tower of London – an imposing fortress with many layers of history, which has become one of the symbols of royalty – was built around the White Tower.",
     "latitude": 51.50805556,
     "longitude": -0.076111111,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Tower_of_London_from_the_Shard_%288515883950%29.jpg/500px-Tower_of_London_from_the_Shard_%288515883950%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Tower_of_London_from_the_Shard_%288515883950%29.jpg/500px-Tower_of_London_from_the_Shard_%288515883950%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Londra Kulesi",
+    "descriptionTr": "Devasa Beyaz Kule, etkisi krallığın her yerinde hissedilen Norman askeri mimarisinin tipik bir örneğidir. Thames Nehri kıyısında, Fatih William tarafından Londra'yı korumak ve gücünü ilan etmek amacıyla inşa edilmiştir. Krallığın simgelerinden biri haline gelmiş, çok katmanlı tarihiyle etkileyici bir kale olan Londra Kulesi, Beyaz Kule'nin çevresinde inşa edilmiştir."
   },
   {
     "id": "ca0ef446-b44e-586d-bf1b-f8ef8013761e",
@@ -12580,7 +12646,9 @@
     "description": "Cahokia Mounds, some 13 km north-east of St Louis, Missouri, is the largest pre-Columbian settlement north of Mexico. It was occupied primarily during the Mississippian period (800–1400), when it covered nearly 1,600 ha and included some 120 mounds. It is a striking example of a complex chiefdom society, with many satellite mound centres and numerous outlying hamlets and villages. This agricultural society may have had a population of 10–20,000 at its peak between 1050 and 1150. Primary features at the site include Monks Mound, the largest prehistoric earthwork in the Americas, covering over 5 ha and standing 30 m high.",
     "latitude": 38.65861111,
     "longitude": -90.06138889,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Monks_Mound_-_Summer_2024.jpg/500px-Monks_Mound_-_Summer_2024.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Monks_Mound_-_Summer_2024.jpg/500px-Monks_Mound_-_Summer_2024.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Cahokia Höyükleri Devlet Tarihi Alanı",
+    "descriptionTr": "Missouri eyaletindeki St Louis'in kuzeydoğusunda yaklaşık 13 km'de yer alan Cahokia Höyükleri, Meksika'nın kuzeyindeki en büyük Kolomb öncesi yerleşimdir. Alan, yaklaşık 1.600 hektar alana yayıldığı ve 120 kadar höyük içerdiği Mississippi dönemi (800-1400) boyunca esas olarak kullanılmıştır. Çok sayıda uydu höyük merkezi ile çevresinde pek çok küçük yerleşim ve köyü barındıran karmaşık bir şeflik toplumunun çarpıcı bir örneğidir. Bu tarım toplumu, 1050-1150 yılları arasındaki zirve döneminde 10.000-20.000 nüfusa sahip olabilir. Alandaki başlıca özellikler arasında, 5 hektardan fazla alanı kaplayan ve 30 metre yüksekliğindeki, Amerika kıtasının en büyük tarih öncesi toprak yapısı olan Monks Höyüğü bulunur."
   },
   {
     "id": "6df400bc-6232-523e-ba1b-2dc139b5dfee",
@@ -12590,7 +12658,9 @@
     "description": "The Declaration of Independence (1776) and the Constitution of the United States (1787) were both signed in this building in Philadelphia. The universal principles of freedom and democracy set forth in these documents are of fundamental importance to American history and have also had a profound impact on law-makers around the world.",
     "latitude": 39.94861111,
     "longitude": -75.15,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Independence_Hall.jpg/500px-Independence_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Independence_Hall.jpg/500px-Independence_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Bağımsızlık Salonu",
+    "descriptionTr": "Bağımsızlık Bildirgesi (1776) ve Amerika Birleşik Devletleri Anayasası (1787), Philadelphia'daki bu binada imzalanmıştır. Bu belgelerde ortaya konan özgürlük ve demokrasinin evrensel ilkeleri, Amerikan tarihi için temel bir öneme sahiptir ve dünya çapındaki yasa koyucular üzerinde de derin bir etki yaratmıştır."
   },
   {
     "id": "392379ca-5ccf-5283-a086-5d99bca4109c",
@@ -12600,7 +12670,9 @@
     "description": "Monumental Earthworks of Poverty Point owes its name to a 19th-century plantation close to the site, which is in the Lower Mississippi Valley on a slightly elevated and narrow landform. The complex comprises five mounds, six concentric semi-elliptical ridges separated by shallow depressions and a central plaza. It was created and used for residential and ceremonial purposes by a society of hunter fisher-gatherers between 3700 and 3100 BP. It is a remarkable achievement in earthen construction in North America that was unsurpassed for at least 2,000 years.",
     "latitude": 32.6369444444,
     "longitude": -91.4063888889,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Louisiana_-_Poverty_Point_-_Karte_%28English_version%29.png/330px-Louisiana_-_Poverty_Point_-_Karte_%28English_version%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Louisiana_-_Poverty_Point_-_Karte_%28English_version%29.png/330px-Louisiana_-_Poverty_Point_-_Karte_%28English_version%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Poverty Point Anıtsal Toprak Yapıları",
+    "descriptionTr": "Poverty Point Anıtsal Toprak Yapıları, adını alanın yakınındaki 19. yüzyıldan kalma bir çiftlikten alır ve Aşağı Mississippi Vadisi'nde hafifçe yükseltilmiş, dar bir arazi biçiminde yer alır. Kompleks, beş höyük, sığ çöküntülerle birbirinden ayrılan altı eşmerkezli yarı eliptik sırt ve merkezi bir meydandan oluşur. Günümüzden yaklaşık 3700-3100 yıl önce avcı, balıkçı ve toplayıcılardan oluşan bir toplum tarafından hem yerleşim hem tören amacıyla oluşturulmuş ve kullanılmıştır. Kuzey Amerika'da toprak yapı inşasında, en az 2.000 yıl boyunca aşılamamış olağanüstü bir başarıdır."
   },
   {
     "id": "03d9f986-f7d7-5dce-97cc-cdeea79eb143",
@@ -12608,7 +12680,9 @@
     "country": "United States of America",
     "category": "Natural",
     "description": "The property, located in southeastern Georgia and northeastern Florida, protects the Okefenokee Swamp, the largest lowland freshwater peatland in the subtropical zone worldwide and one of the largest and most intact ecosystems within the North American Coastal Plain global biodiversity hotspot. The property comprises a diverse mosaic of wetlands, savannas, and forests shaped by the ongoing interaction of water, fire, vegetation, and wildlife, with alternating fire and rainfall processes driving peat formation, vegetation structure, and biodiversity. The site also contains significant areas of endangered Longleaf Pine (Pinus palustris) savanna, of which less than 3% remains, supporting high concentrations of plant species endemic to the region. Its extensive peat deposits provide an important archive of palaeo-environmental history and critical carbon storage. The property supports exceptional biodiversity, including at least 856 plant species, 48 mammal species, 238 bird species, 39 fish species, and 90 reptile and amphibian species, and provides important habitat for migratory birds, threatened species, and a significant population of American alligators.",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/OkefenokeeNWR1.jpg/500px-OkefenokeeNWR1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/OkefenokeeNWR1.jpg/500px-OkefenokeeNWR1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Okefenokee Ulusal Yaban Hayatı Koruma Alanı",
+    "descriptionTr": "Güneydoğu Georgia ve kuzeydoğu Florida'da yer alan bu miras alanı, dünya çapında subtropikal bölgedeki en büyük alçak arazi tatlı su turbalığı olan Okefenokee Bataklığı'nı ve Kuzey Amerika Kıyı Ovası küresel biyoçeşitlilik sıcak noktası içindeki en büyük ve en bozulmamış ekosistemlerden birini korur. Alan; su, yangın, bitki örtüsü ve yaban hayatının sürekli etkileşimiyle şekillenen, birbirini takip eden yangın ve yağış süreçlerinin turba oluşumunu, bitki örtüsü yapısını ve biyoçeşitliliği yönlendirdiği çok çeşitli sulak alan, savan ve orman mozaiğinden oluşur. Alan, ayrıca yüzde üçten azı kalmış olan nesli tehlikedeki Uzun Yapraklı Çam (Pinus palustris) savanının önemli bölümlerini de içererek bölgeye özgü bitki türlerinin yüksek yoğunluğunu barındırır. Kapsamlı turba yatakları, paleo-çevresel tarihe önemli bir arşiv ve kritik bir karbon depolama alanı sunar. Alan; en az 856 bitki türü, 48 memeli türü, 238 kuş türü, 39 balık türü ve 90 sürüngen ve amfibi türü dahil olağanüstü bir biyoçeşitliliği desteklemekte, göçmen kuşlar, tehdit altındaki türler ve önemli bir Amerikan aligatörü popülasyonu için kritik bir habitat sağlamaktadır."
   },
   {
     "id": "c7a080ca-8540-58f2-9d08-84a4fa2408be",
@@ -12618,7 +12692,9 @@
     "description": "The site encompasses a group of five frontier mission complexes situated along a stretch of the San Antonio River basin in southern Texas, as well as a ranch located 37 kilometres to the south. It includes architectural and archaeological structures, farmlands, residencies, churches and granaries, as well as water distribution systems. The complexes were built by Franciscan missionaries in the 18th century and illustrate the Spanish Crown’s efforts to colonize, evangelize and defend the northern frontier of New Spain. The San Antonio Missions are also an example of the interweaving of Spanish and Coahuiltecan cultures, illustrated by a variety of features, including the decorative elements of churches, which combine Catholic symbols with indigenous designs inspired by nature.",
     "latitude": 29.3280555556,
     "longitude": -98.46,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a8/SanAntonioMissions.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a8/SanAntonioMissions.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "nameTr": "San Antonio Misyonları",
+    "descriptionTr": "Bu alan, güney Texas'ta San Antonio Nehri havzası boyunca uzanan beş sınır misyon kompleksi ile 37 kilometre güneyde yer alan bir çiftliği kapsar. Mimari ve arkeolojik yapılar, tarım arazileri, konutlar, kiliseler ve tahıl ambarları ile su dağıtım sistemlerini içerir. Kompleksler, 18. yüzyılda Fransisken misyonerler tarafından inşa edilmiş olup, İspanyol Krallığı'nın Yeni İspanya'nın kuzey sınırını kolonileştirme, Hristiyanlaştırma ve savunma çabalarını yansıtır. San Antonio Misyonları, kiliselerin Katolik sembollerini doğadan esinlenen yerli tasarımlarla birleştiren süsleme unsurları gibi pek çok özellikte görüldüğü üzere, İspanyol ve Coahuiltec kültürlerinin iç içe geçmesinin de bir örneğidir."
   },
   {
     "id": "7ef0ac0f-801f-5b35-9286-9da62089c648",
@@ -12628,7 +12704,9 @@
     "description": "The historic centre of Shakhrisyabz contains a collection of exceptional monuments and ancient quarters which bear witness to the city's secular development, and particularly to the period of its apogee, under the rule of Amir Temur and the Temurids, in the 15th-16th century.",
     "latitude": 39.05,
     "longitude": 66.83333,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Amir_Temur_Statue_and_Ak-Saray_Monument_in_Shahrisabz.jpg/500px-Amir_Temur_Statue_and_Ak-Saray_Monument_in_Shahrisabz.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Amir_Temur_Statue_and_Ak-Saray_Monument_in_Shahrisabz.jpg/500px-Amir_Temur_Statue_and_Ak-Saray_Monument_in_Shahrisabz.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Shakhrisyabz Tarihi Merkezi",
+    "descriptionTr": "Shakhrisyabz'ın tarihi merkezi, şehrin laik gelişimine ve özellikle 15-16. yüzyılda Emir Timur ve Timuriler yönetimindeki en parlak dönemine tanıklık eden, olağanüstü anıtlar ve eski mahallelerden oluşan bir koleksiyonu içerir."
   },
   {
     "id": "840ad8f4-8247-531d-8d86-56751d16c2b4",
@@ -12638,7 +12716,9 @@
     "description": "Established as the capital of unified Viet Nam in 1802, Hué was not only the political but also the cultural and religious centre under the Nguyen dynasty until 1945. The Perfume River winds its way through the Capital City, the Imperial City, the Forbidden Purple City and the Inner City, giving this unique feudal capital a setting of great natural beauty.",
     "latitude": 16.46944,
     "longitude": 107.57778,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Hu%E1%BA%BF_%282024%29_-_Meridian_Gate_-_Ng%E1%BB%8D_M%C3%B4n_%28Ho%C3%A0ng_th%C3%A0nh_Hu%E1%BA%BF%29_-_img_02.jpg/500px-Hu%E1%BA%BF_%282024%29_-_Meridian_Gate_-_Ng%E1%BB%8D_M%C3%B4n_%28Ho%C3%A0ng_th%C3%A0nh_Hu%E1%BA%BF%29_-_img_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Hu%E1%BA%BF_%282024%29_-_Meridian_Gate_-_Ng%E1%BB%8D_M%C3%B4n_%28Ho%C3%A0ng_th%C3%A0nh_Hu%E1%BA%BF%29_-_img_02.jpg/500px-Hu%E1%BA%BF_%282024%29_-_Meridian_Gate_-_Ng%E1%BB%8D_M%C3%B4n_%28Ho%C3%A0ng_th%C3%A0nh_Hu%E1%BA%BF%29_-_img_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Huế Anıtları Kompleksi",
+    "descriptionTr": "1802'de birleşik Vietnam'ın başkenti olarak kurulan Huế, 1945'e kadar Nguyen hanedanı yönetiminde sadece siyasi değil, aynı zamanda kültürel ve dini bir merkez olmuştur. Parfüm Nehri, Başkent Şehri, İmparatorluk Şehri, Yasak Mor Şehir ve İç Şehir arasından kıvrılarak akar ve bu eşsiz feodal başkente büyük bir doğal güzellik sunar."
   },
   {
     "id": "f45edea7-9023-5b13-a4f2-fb65ca21b4b6",
@@ -12648,7 +12728,9 @@
     "description": "The property comprises 12 sites across forested mountains, lowlands, and river valleys. Centred on the Yen Tu Mountain Range, it was home to the Tran Dynasty during the 13th and 14th centuries and the birthplace of Truc Lam Buddhism, a uniquely Vietnamese Zen tradition that shaped the Dai Viet kingdom. The complex includes pagodas, temples, shrines, and archaeological remains tied to religious and historical figures. Strategically located in geologically favourable settings, it remains a vibrant pilgrimage destination.",
     "latitude": 21.1192555556,
     "longitude": 106.5353972222,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/N%C3%BAi_Y%C3%AAn_T%E1%BB%AD.jpg/330px-N%C3%BAi_Y%C3%AAn_T%E1%BB%AD.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/N%C3%BAi_Y%C3%AAn_T%E1%BB%AD.jpg/330px-N%C3%BAi_Y%C3%AAn_T%E1%BB%AD.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Yen Tu-Vinh Nghiem-Con Son, Kiep Bac Anıtlar ve Peyzajlar Kompleksi",
+    "descriptionTr": "Bu miras alanı, ormanlık dağlar, ovalar ve nehir vadileri boyunca yayılan 12 alandan oluşur. Yen Tu Dağ Sırası'nın merkezinde yer alan bölge, 13. ve 14. yüzyıllarda Tran Hanedanı'na ev sahipliği yapmış ve Dai Viet krallığını şekillendiren, Vietnam'a özgü bir Zen geleneği olan Truc Lam Budizmi'nin doğduğu yer olmuştur. Kompleks, dini ve tarihi figürlerle bağlantılı pagodalar, tapınaklar, türbeler ve arkeolojik kalıntıları içerir. Jeolojik olarak uygun konumlarda stratejik biçimde yer alan alan, hâlâ canlı bir hac merkezi olma özelliğini sürdürmektedir."
   },
   {
     "id": "d12c4382-16df-565b-af55-b4d4a1f22a2e",
@@ -12658,7 +12740,9 @@
     "description": "The Landmarks of the Ancient Kingdom of Saba, Marib, is a serial property comprising seven archaeological sites that bear witness to the rich Kingdom of Saba and its architectural, aesthetic and technological achievements from the 1st millennium BCE to the arrival of Islam around 630 CE. They bear witness to the complex centralized administration of the Kingdom when it controlled much of the incense route across the Arabian Peninsula, playing a key role in the wider network of cultural exchange fostered by trade with the Mediterranean and East Africa. Located in a semi-arid landscape of valleys, mountains and deserts, the property encompasses the remains of large urban settlements with monumental temples, ramparts and other buildings. The irrigation system of ancient Ma'rib reflects technological prowess in hydrological engineering and agriculture on a scale unparalleled in ancient South Arabia, resulting in the creation of the largest ancient man-made oasis.",
     "latitude": 15.4268777778,
     "longitude": 45.3352277778,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Barran_Temple.jpg/500px-Barran_Temple.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Barran_Temple.jpg/500px-Barran_Temple.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Antik Saba Krallığı'nın Simgeleri, Marib",
+    "descriptionTr": "Antik Saba Krallığı'nın Simgeleri, Marib; MÖ 1. binyıldan İslam'ın gelişine (yaklaşık MS 630) kadar zengin Saba Krallığı'nın mimari, estetik ve teknolojik başarılarına tanıklık eden yedi arkeolojik alandan oluşan seri bir mirastır. Bu alanlar, Krallığın Arap Yarımadası boyunca tütsü yolunun büyük bir kısmını kontrol ettiği dönemdeki karmaşık merkezi yönetimine ve Akdeniz ile Doğu Afrika ile yapılan ticaretin beslediği daha geniş kültürel etkileşim ağındaki kilit rolüne tanıklık eder. Vadiler, dağlar ve çöllerden oluşan yarı kurak bir arazide yer alan miras alanı, anıtsal tapınaklar, surlar ve diğer yapılara sahip büyük kentsel yerleşimlerin kalıntılarını kapsar. Antik Marib'in sulama sistemi, antik Güney Arabistan'da eşi benzeri görülmemiş ölçekte bir hidrolik mühendislik ve tarım ustalığını yansıtır ve bu da tarihin en büyük insan yapımı antik vahasının oluşmasını sağlamıştır."
   },
   {
     "id": "b4033863-5af9-5432-97cc-dbc7b5713a6a",
@@ -12668,6 +12752,8 @@
     "description": "Surrounded by a fortified wall, the 16th-century city of Shibam is one of the oldest and best examples of urban planning based on the principle of vertical construction. Its impressive tower-like structures rise out of the cliff and have given the city the nickname of ‘the Manhattan of the desert’.",
     "latitude": 15.92694,
     "longitude": 48.62667,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/%D9%85%D8%AF%D9%8A%D9%86%D8%A9_%D8%B4%D8%A8%D8%A7%D9%85_%D8%AD%D8%B6%D8%B1%D9%85%D9%88%D8%AA.jpg/500px-%D9%85%D8%AF%D9%8A%D9%86%D8%A9_%D8%B4%D8%A8%D8%A7%D9%85_%D8%AD%D8%B6%D8%B1%D9%85%D9%88%D8%AA.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/%D9%85%D8%AF%D9%8A%D9%86%D8%A9_%D8%B4%D8%A8%D8%A7%D9%85_%D8%AD%D8%B6%D8%B1%D9%85%D9%88%D8%AA.jpg/500px-%D9%85%D8%AF%D9%8A%D9%86%D8%A9_%D8%B4%D8%A8%D8%A7%D9%85_%D8%AD%D8%B6%D8%B1%D9%85%D9%88%D8%AA.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Şibam'ın Eski Surlu Şehri",
+    "descriptionTr": "Surlarla çevrili 16. yüzyıldan kalma Şibam şehri, dikey inşa ilkesine dayanan kentsel planlamanın en eski ve en iyi örneklerinden biridir. Kayalıklardan yükselen etkileyici kule benzeri yapılar, şehre 'çölün Manhattan'ı' lakabını kazandırmıştır."
   }
 ]

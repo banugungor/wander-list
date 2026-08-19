@@ -16,9 +16,6 @@ export type BadgeContext = {
   heritageVisitedCount: number;
   heritageTotal: number;
   countriesVisitedIds: string[];
-  cuisineVisitedMealIds: string[];
-  cuisineMealAreas: Record<string, string>;
-  cuisineTotalAreas: number;
 };
 
 type BadgeDefinition = {
@@ -28,15 +25,6 @@ type BadgeDefinition = {
   current: (ctx: BadgeContext) => number;
   target: (ctx: BadgeContext) => number;
 };
-
-export function countTriedCuisineAreas(ctx: BadgeContext): number {
-  const areas = new Set<string>();
-  for (const mealId of ctx.cuisineVisitedMealIds) {
-    const area = ctx.cuisineMealAreas[mealId];
-    if (area) areas.add(area);
-  }
-  return areas.size;
-}
 
 const BADGE_DEFINITIONS: BadgeDefinition[] = [
   // Dünya Mirası
@@ -120,29 +108,6 @@ const BADGE_DEFINITIONS: BadgeDefinition[] = [
     titleKey: "badge.continent_all",
     current: (ctx) => getVisitedContinents(ctx.countriesVisitedIds).size,
     target: () => getTotalContinentCount(),
-  },
-
-  // Mutfaklar
-  {
-    id: "cuisine_5",
-    categoryId: "cuisine",
-    titleKey: "badge.cuisine_5",
-    current: countTriedCuisineAreas,
-    target: () => 5,
-  },
-  {
-    id: "cuisine_15",
-    categoryId: "cuisine",
-    titleKey: "badge.cuisine_15",
-    current: countTriedCuisineAreas,
-    target: () => 15,
-  },
-  {
-    id: "cuisine_all",
-    categoryId: "cuisine",
-    titleKey: "badge.cuisine_all",
-    current: countTriedCuisineAreas,
-    target: (ctx) => ctx.cuisineTotalAreas,
   },
 ];
 

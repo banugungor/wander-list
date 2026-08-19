@@ -8,13 +8,11 @@ import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { ActivityEntry, getActivityLog, timeAgo } from "@/data/activityLog";
 import { getLocalizedCountryName } from "@/data/countryNamesTr";
+import { getCachedMealIndex } from "@/data/cuisineMeals";
 import { heritageSites } from "@/data/heritageSites";
-import {
-  CUISINE_AREA_TOTALS_KEY,
-  CUISINE_VISITED_KEY,
-  HERITAGE_VISITED_KEY,
-} from "@/data/heritageStorage";
+import { HERITAGE_VISITED_KEY } from "@/data/heritageStorage";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
+import { CUISINE_VISITED_KEY } from "@/data/storageKeys";
 import worldData from "@/data/worldCountries.json";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -58,23 +56,6 @@ export default function HomeScreen() {
               ? Math.min(100, Math.round((visited.length / heritageTotal) * 100))
               : 0;
 
-          const [visitedMealsData, areaTotalsData] = await Promise.all([
-            AsyncStorage.getItem(CUISINE_VISITED_KEY),
-            AsyncStorage.getItem(CUISINE_AREA_TOTALS_KEY),
-          ]);
-          const visitedMeals: string[] = visitedMealsData
-            ? JSON.parse(visitedMealsData)
-            : [];
-          const areaTotals = areaTotalsData ? JSON.parse(areaTotalsData) : {};
-          const totalMeals = Object.values(areaTotals).reduce(
-            (sum: number, c: any) => sum + c,
-            0,
-          );
-          const cuisinePercent =
-            totalMeals > 0
-              ? Math.min(100, Math.round((visitedMeals.length / totalMeals) * 100))
-              : 0;
-
           const placesVisitedData = await AsyncStorage.getItem(PLACES_VISITED_KEY);
           const visitedCountries: string[] = placesVisitedData
             ? JSON.parse(placesVisitedData)
@@ -85,21 +66,34 @@ export default function HomeScreen() {
               ? Math.min(100, Math.round((visitedCountries.length / placesTotal) * 100))
               : 0;
 
+          const cuisineVisitedData = await AsyncStorage.getItem(CUISINE_VISITED_KEY);
+          const visitedMeals: string[] = cuisineVisitedData
+            ? JSON.parse(cuisineVisitedData)
+            : [];
+          const mealIndex = await getCachedMealIndex();
+          const cuisineTotal = mealIndex
+            ? Object.values(mealIndex.counts).reduce((sum, c) => sum + c, 0)
+            : 0;
+          const cuisinePercent =
+            cuisineTotal > 0
+              ? Math.min(100, Math.round((visitedMeals.length / cuisineTotal) * 100))
+              : 0;
+
           setStats({
             heritage: {
               count: visited.length,
               total: heritageTotal,
               percent: heritagePercent,
             },
-            cuisine: {
-              count: visitedMeals.length,
-              total: totalMeals,
-              percent: cuisinePercent,
-            },
             places: {
               count: visitedCountries.length,
               total: placesTotal,
               percent: placesPercent,
+            },
+            cuisine: {
+              count: visitedMeals.length,
+              total: cuisineTotal,
+              percent: cuisinePercent,
             },
           });
 
@@ -304,10 +298,12 @@ export default function HomeScreen() {
                       onPress={() =>
                         cat.id === "places"
                           ? router.push("/places-map")
-                          : router.push({
-                              pathname: "/explore",
-                              params: { type: cat.id },
-                            })
+                          : cat.id === "cuisine"
+                            ? router.push("/cuisine")
+                            : router.push({
+                                pathname: "/explore",
+                                params: { type: cat.id },
+                              })
                       }
                     />
                   </View>

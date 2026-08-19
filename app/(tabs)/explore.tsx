@@ -6,11 +6,9 @@ import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { CONTINENTS, ContinentId } from "@/data/continents";
 import { getLocalizedCountryField } from "@/data/countryNamesTr";
-import type { CuisineItem } from "@/data/cuisineApi";
 import { getContinentsForCountryField } from "@/data/heritageContinents";
 import type { HeritageItem } from "@/data/heritageSites";
 import { getLocalizedHeritageItem } from "@/data/heritageTranslations";
-import { useCuisineExplorer } from "@/hooks/use-cuisine-explorer";
 import { useHeritageExplorer } from "@/hooks/use-heritage-explorer";
 import { Ionicons } from "@expo/vector-icons";
 import { Stack, router, useLocalSearchParams } from "expo-router";
@@ -25,7 +23,7 @@ import {
   View,
 } from "react-native";
 
-type Item = HeritageItem | CuisineItem;
+type Item = HeritageItem;
 
 const EMPTY: Item[] = [];
 
@@ -37,8 +35,7 @@ export default function ExploreScreen() {
     typeof categoryParam === "string" ? categoryParam : "heritage";
 
   const isHeritage = category === "heritage";
-  const isCuisine = category === "cuisine";
-  const isComingSoon = !isHeritage && !isCuisine;
+  const isComingSoon = !isHeritage;
 
   const categoryMeta = getCategory(category);
   const categoryTitle = categoryMeta
@@ -46,10 +43,9 @@ export default function ExploreScreen() {
     : t("explore.detailsTitle");
 
   const heritage = useHeritageExplorer(isHeritage);
-  const cuisine = useCuisineExplorer(isCuisine);
 
-  const data: Item[] = isHeritage ? heritage.data : isCuisine ? cuisine.data : EMPTY;
-  const loading = isCuisine ? cuisine.loading : false;
+  const data: Item[] = isHeritage ? heritage.data : EMPTY;
+  const loading = false;
 
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<"all" | "visited" | "unvisited">("all");
@@ -129,20 +125,12 @@ export default function ExploreScreen() {
   ]);
 
   const renderExploreItem = ({ item }: { item: Item }) => {
-    const isVisited = isHeritage && heritage.visited.includes(item.id);
-    const displayItem = isHeritage
-      ? getLocalizedHeritageItem(item as HeritageItem, language)
-      : item;
+    const isVisited = heritage.visited.includes(item.id);
+    const displayItem = getLocalizedHeritageItem(item, language);
 
     return (
       <Pressable
-        onPress={() => {
-          if (isCuisine) {
-            router.push(`/cuisine/${encodeURIComponent(item.id)}`);
-            return;
-          }
-          router.push(`/heritage/${encodeURIComponent(item.id)}`);
-        }}
+        onPress={() => router.push(`/heritage/${encodeURIComponent(item.id)}`)}
         style={({ pressed }) => [
           {
             backgroundColor: palette.surface,
@@ -158,26 +146,7 @@ export default function ExploreScreen() {
         ]}
       >
         <View>
-          {isHeritage ? (
-            <HeritageThumbnail item={item as HeritageItem} />
-          ) : (
-            <View
-              style={{
-                width: 76,
-                height: 76,
-                borderRadius: 18,
-                backgroundColor: palette.creamDeep,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Ionicons
-                name="restaurant-outline"
-                size={24}
-                color={palette.violet}
-              />
-            </View>
-          )}
+          <HeritageThumbnail item={item} />
         </View>
 
         <View style={{ flex: 1 }}>
@@ -236,10 +205,6 @@ export default function ExploreScreen() {
             </View>
           )}
         </View>
-
-        {isCuisine && (
-          <Ionicons name="chevron-forward" size={18} color={palette.inkFaint} />
-        )}
 
         {isHeritage && (
           <Pressable

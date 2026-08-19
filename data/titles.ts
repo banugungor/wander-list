@@ -1,5 +1,5 @@
 import type { CategoryId } from "@/constants/categories";
-import { countTriedCuisineAreas, type BadgeContext } from "@/data/badges";
+import type { BadgeContext } from "@/data/badges";
 import { getVisitedContinents } from "@/data/continents";
 
 type Tier = { threshold: number; titleKey: string };
@@ -12,11 +12,6 @@ const TIERS_BY_CATEGORY: Partial<Record<CategoryId, Tier[]>> = {
     { threshold: 10, titleKey: "title.places.traveler" },
     { threshold: 50, titleKey: "title.places.adventurer" },
     { threshold: 100, titleKey: "title.places.globetrotter" },
-  ],
-  cuisine: [
-    { threshold: 1, titleKey: "title.cuisine.curious" },
-    { threshold: 5, titleKey: "title.cuisine.gourmet" },
-    { threshold: 15, titleKey: "title.cuisine.chef" },
   ],
   heritage: [
     { threshold: 1, titleKey: "title.heritage.curious" },
@@ -34,8 +29,6 @@ function currentCountFor(categoryId: CategoryId, ctx: BadgeContext): number {
         ctx.countriesVisitedIds.length,
         getVisitedContinents(ctx.countriesVisitedIds).size,
       );
-    case "cuisine":
-      return countTriedCuisineAreas(ctx);
     case "heritage":
       return ctx.heritageVisitedCount;
     default:

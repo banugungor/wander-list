@@ -145,7 +145,7 @@ export default function HeritageDetailScreen() {
             style={({ pressed }) => [
               {
                 marginTop: 24,
-                marginBottom: 18,
+                marginBottom: 24,
                 paddingVertical: 14,
                 borderRadius: 14,
                 alignItems: "center",

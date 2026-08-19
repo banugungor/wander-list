@@ -4,11 +4,9 @@ import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { ActivityEntry, getActivityLog } from "@/data/activityLog";
-import {
-  CUISINE_VISITED_KEY,
-  HERITAGE_VISITED_KEY,
-} from "@/data/heritageStorage";
+import { HERITAGE_VISITED_KEY } from "@/data/heritageStorage";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
+import { CUISINE_VISITED_KEY } from "@/data/storageKeys";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "expo-router";
 import { useCallback, useMemo, useState } from "react";
@@ -36,22 +34,22 @@ function bucketByWeek(entries: ActivityEntry[]): number[] {
 export default function StatsScreen() {
   const { t } = useLanguage();
   const [heritageCount, setHeritageCount] = useState(0);
-  const [cuisineCount, setCuisineCount] = useState(0);
   const [placesCount, setPlacesCount] = useState(0);
+  const [cuisineCount, setCuisineCount] = useState(0);
   const [activity, setActivity] = useState<ActivityEntry[]>([]);
 
   useFocusEffect(
     useCallback(() => {
       const load = async () => {
-        const [heritageRaw, cuisineRaw, placesRaw, log] = await Promise.all([
+        const [heritageRaw, placesRaw, cuisineRaw, log] = await Promise.all([
           AsyncStorage.getItem(HERITAGE_VISITED_KEY),
-          AsyncStorage.getItem(CUISINE_VISITED_KEY),
           AsyncStorage.getItem(PLACES_VISITED_KEY),
+          AsyncStorage.getItem(CUISINE_VISITED_KEY),
           getActivityLog(),
         ]);
         setHeritageCount(heritageRaw ? JSON.parse(heritageRaw).length : 0);
-        setCuisineCount(cuisineRaw ? JSON.parse(cuisineRaw).length : 0);
         setPlacesCount(placesRaw ? JSON.parse(placesRaw).length : 0);
+        setCuisineCount(cuisineRaw ? JSON.parse(cuisineRaw).length : 0);
         setActivity(log);
       };
       load();

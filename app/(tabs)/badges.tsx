@@ -4,14 +4,8 @@ import type { CategoryId } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { type Badge, type BadgeContext, computeBadges } from "@/data/badges";
-import { fetchCuisines } from "@/data/cuisineApi";
 import { heritageSites } from "@/data/heritageSites";
-import {
-  CUISINE_MEAL_AREAS_KEY,
-  CUISINE_VISITED_KEY,
-  HERITAGE_VISITED_KEY,
-  PLACES_VISITED_KEY,
-} from "@/data/storageKeys";
+import { HERITAGE_VISITED_KEY, PLACES_VISITED_KEY } from "@/data/storageKeys";
 import { getTitleKey } from "@/data/titles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "expo-router";
@@ -26,7 +20,6 @@ const SECTIONS: {
   { labelKey: "category.heritage", idPrefix: "heritage_", titleCategoryId: "heritage" },
   { labelKey: "category.places", idPrefix: "places_", titleCategoryId: "places" },
   { labelKey: "badges.continents", idPrefix: "continent_" },
-  { labelKey: "category.cuisine", idPrefix: "cuisine_", titleCategoryId: "cuisine" },
 ];
 
 export default function BadgesScreen() {
@@ -37,24 +30,15 @@ export default function BadgesScreen() {
   useFocusEffect(
     useCallback(() => {
       const load = async () => {
-        const [heritageRaw, placesRaw, cuisineRaw, cuisineMealAreasRaw, cuisines] =
-          await Promise.all([
-            AsyncStorage.getItem(HERITAGE_VISITED_KEY),
-            AsyncStorage.getItem(PLACES_VISITED_KEY),
-            AsyncStorage.getItem(CUISINE_VISITED_KEY),
-            AsyncStorage.getItem(CUISINE_MEAL_AREAS_KEY),
-            fetchCuisines().catch(() => []),
-          ]);
+        const [heritageRaw, placesRaw] = await Promise.all([
+          AsyncStorage.getItem(HERITAGE_VISITED_KEY),
+          AsyncStorage.getItem(PLACES_VISITED_KEY),
+        ]);
 
         const nextCtx: BadgeContext = {
           heritageVisitedCount: heritageRaw ? JSON.parse(heritageRaw).length : 0,
           heritageTotal: heritageSites.length,
           countriesVisitedIds: placesRaw ? JSON.parse(placesRaw) : [],
-          cuisineVisitedMealIds: cuisineRaw ? JSON.parse(cuisineRaw) : [],
-          cuisineMealAreas: cuisineMealAreasRaw
-            ? JSON.parse(cuisineMealAreasRaw)
-            : {},
-          cuisineTotalAreas: cuisines.length,
         };
         setCtx(nextCtx);
         setBadges(computeBadges(nextCtx));

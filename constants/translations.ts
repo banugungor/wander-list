@@ -48,7 +48,6 @@ export const translations = {
       continents: "Kıtalar",
     },
     profile: {
-      title: "Profil",
       version: "Sürüm {{version}}",
       language: "Dil",
       resetData: "Verileri sıfırla",
@@ -58,6 +57,10 @@ export const translations = {
       resetConfirmAction: "Sıfırla",
       resetDoneTitle: "Tamam",
       resetDoneMessage: "Veriler sıfırlandı.",
+      account: "Hesabım",
+      notSignedIn: "Giriş yapılmadı",
+      signInCta: "Giriş Yap / Kayıt Ol",
+      emailBackupHint: "Verilerini yedeklemek için giriş yap",
     },
     placesMap: {
       title: "Gittiğin Ülkeler",
@@ -79,18 +82,25 @@ export const translations = {
       markVisited: "Gezildi olarak işaretle",
       markedVisited: "Gezildi olarak işaretlendi",
     },
-    cuisine: {
-      defaultTitle: "Mutfak",
-      loadingMeals: "Yemekler yükleniyor…",
-      tasted: "Tadıldı",
-      triedOfTotal: "{{total}} içinden {{count}} tadıldı",
-    },
     modal: {
       headerTitle: "Ekle",
       title: "Ne eklemek istersin?",
       subtitle: "Bir kategori seç, listeden işaretlemeye başla",
       comingSoonAlertTitle: "Yakında",
       comingSoonAlertMessage: "Bu kategori henüz eklenmedi.",
+    },
+    cuisinePicker: {
+      progressLabel: "İlerleme",
+      progressDetail: "{{total}} içinden {{count}} tadıldı",
+      continentLabel: "{{continent}} Mutfağı",
+      filterTasted: "Yediklerim",
+      filterUntasted: "Yemediklerim",
+      noMealsYet: "Henüz yok",
+    },
+    cuisineCountry: {
+      loading: "Yemekler yükleniyor…",
+      empty: "Bu ülke için henüz yemek eklenmedi.",
+      tasted: "Tadıldı",
     },
     auth: {
       signIn: "Giriş Yap",
@@ -103,9 +113,16 @@ export const translations = {
       confirmEmailTitle: "E-postanı onayla",
       confirmEmailMessage:
         "Hesabını aktifleştirmek için email adresine gönderilen bağlantıya tıkla, sonra giriş yap.",
-      noAccount: "Hesabın yok mu? Kayıt ol",
-      hasAccount: "Zaten hesabın var mı? Giriş yap",
+      noAccountPrefix: "Hesabın yok mu?",
+      hasAccountPrefix: "Zaten hesabın var mı?",
       appleSignInFailed: "Apple girişi tamamlanamadı.",
+      notNow: "Şimdi değil",
+      firstMarkTitle: "Verilerini kaybetme",
+      firstMarkMessage:
+        "İşaretlediklerin şu an sadece bu cihazda saklanıyor. Kayıt olursan telefon değiştirsen bile verilerin güvende olur.",
+      signOutConfirmTitle: "Çıkış yap",
+      signOutConfirmMessage: "Hesabından çıkış yapmak istiyor musun?",
+      signOutAction: "Çıkış yap",
     },
     category: {
       heritage: "Dünya Mirası",
@@ -126,9 +143,6 @@ export const translations = {
       continent_3: "3 Kıta",
       continent_5: "5 Kıta",
       continent_all: "Tüm Kıtalar",
-      cuisine_5: "5 Mutfak Bölgesi",
-      cuisine_15: "15 Mutfak Bölgesi",
-      cuisine_all: "Tüm Mutfak Bölgeleri",
     },
     title: {
       places: {
@@ -136,11 +150,6 @@ export const translations = {
         traveler: "Gezgin",
         adventurer: "Maceraperest",
         globetrotter: "Dünya Gezgini",
-      },
-      cuisine: {
-        curious: "Meraklı",
-        gourmet: "Gurme",
-        chef: "Şef",
       },
       heritage: {
         curious: "Meraklı",
@@ -198,7 +207,6 @@ export const translations = {
       continents: "Continents",
     },
     profile: {
-      title: "Profile",
       version: "Version {{version}}",
       language: "Language",
       resetData: "Reset data",
@@ -208,6 +216,10 @@ export const translations = {
       resetConfirmAction: "Reset",
       resetDoneTitle: "Done",
       resetDoneMessage: "Data has been reset.",
+      account: "My Account",
+      notSignedIn: "Not signed in",
+      signInCta: "Sign In / Sign Up",
+      emailBackupHint: "Sign in to back up your data",
     },
     placesMap: {
       title: "Places Visited",
@@ -229,18 +241,25 @@ export const translations = {
       markVisited: "Mark as visited",
       markedVisited: "Marked as visited",
     },
-    cuisine: {
-      defaultTitle: "Cuisine",
-      loadingMeals: "Loading meals…",
-      tasted: "Tasted",
-      triedOfTotal: "{{count}} of {{total}} tried",
-    },
     modal: {
       headerTitle: "Add",
       title: "What do you want to add?",
       subtitle: "Pick a category and start marking your list",
       comingSoonAlertTitle: "Coming soon",
       comingSoonAlertMessage: "This category hasn't been added yet.",
+    },
+    cuisinePicker: {
+      progressLabel: "Progress",
+      progressDetail: "{{count}} of {{total}} tasted",
+      continentLabel: "{{continent}} Cuisine",
+      filterTasted: "Tasted",
+      filterUntasted: "Not tasted",
+      noMealsYet: "Not added yet",
+    },
+    cuisineCountry: {
+      loading: "Loading dishes…",
+      empty: "No dishes have been added for this country yet.",
+      tasted: "Tasted",
     },
     auth: {
       signIn: "Sign In",
@@ -253,9 +272,16 @@ export const translations = {
       confirmEmailTitle: "Confirm your email",
       confirmEmailMessage:
         "Tap the link sent to your email to activate your account, then sign in.",
-      noAccount: "Don't have an account? Sign up",
-      hasAccount: "Already have an account? Sign in",
+      noAccountPrefix: "Don't have an account?",
+      hasAccountPrefix: "Already have an account?",
       appleSignInFailed: "Apple sign-in could not be completed.",
+      notNow: "Not now",
+      firstMarkTitle: "Don't lose your data",
+      firstMarkMessage:
+        "What you mark is currently stored only on this device. Sign up and your data stays safe even if you switch phones.",
+      signOutConfirmTitle: "Sign out",
+      signOutConfirmMessage: "Do you want to sign out of your account?",
+      signOutAction: "Sign out",
     },
     category: {
       heritage: "World Heritage",
@@ -276,9 +302,6 @@ export const translations = {
       continent_3: "3 Continents",
       continent_5: "5 Continents",
       continent_all: "All Continents",
-      cuisine_5: "5 Cuisine Regions",
-      cuisine_15: "15 Cuisine Regions",
-      cuisine_all: "All Cuisine Regions",
     },
     title: {
       places: {
@@ -286,11 +309,6 @@ export const translations = {
         traveler: "Traveler",
         adventurer: "Adventurer",
         globetrotter: "Globetrotter",
-      },
-      cuisine: {
-        curious: "Curious",
-        gourmet: "Gourmet",
-        chef: "Chef",
       },
       heritage: {
         curious: "Curious",

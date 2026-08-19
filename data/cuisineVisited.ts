@@ -1,23 +1,20 @@
 import { logActivity } from "@/data/activityLog";
 import { maybePromptSignup } from "@/data/authPrompt";
 import { queueCloudSync } from "@/data/cloudSync";
+import { CUISINE_VISITED_KEY } from "@/data/storageKeys";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { HERITAGE_VISITED_KEY } from "@/data/storageKeys";
 
-export { HERITAGE_VISITED_KEY } from "@/data/storageKeys";
-
-export type HeritageVisitInfo = {
+export type CuisineVisitInfo = {
   name: string;
   country: string;
   imageUrl?: string | null;
 };
 
-/** Flips a heritage site's visited state, persists it, syncs to the cloud,
- * and logs an activity entry when it's freshly marked visited. Shared by the
- * explore list and the site detail screen so both stay in sync. */
-export async function toggleHeritageVisited(
+/** Flips a meal's tasted state, persists it, syncs to the cloud, and logs an
+ * activity entry when it's freshly marked tasted. */
+export async function toggleCuisineVisited(
   id: string,
-  item: HeritageVisitInfo | undefined,
+  item: CuisineVisitInfo | undefined,
   visited: string[],
 ): Promise<string[]> {
   const wasVisited = visited.includes(id);
@@ -25,7 +22,7 @@ export async function toggleHeritageVisited(
     ? visited.filter((v) => v !== id)
     : [...visited, id];
 
-  await AsyncStorage.setItem(HERITAGE_VISITED_KEY, JSON.stringify(updated));
+  await AsyncStorage.setItem(CUISINE_VISITED_KEY, JSON.stringify(updated));
   queueCloudSync();
 
   if (!wasVisited) {
@@ -33,7 +30,7 @@ export async function toggleHeritageVisited(
     if (item) {
       logActivity({
         id,
-        type: "heritage",
+        type: "cuisine",
         title: item.name,
         subtitle: item.country,
         imageUrl: item.imageUrl,

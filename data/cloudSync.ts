@@ -1,116 +1,91 @@
-// Supabase senkronizasyonu şimdilik devre dışı — kullanıcı sayısı azken
-// telefon hafızası (AsyncStorage) tek veri kaynağı olarak kullanılıyor.
-// Kullanıcı sayısı arttığında aşağıdaki implementasyon geri açılacak.
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { supabase } from "@/lib/supabase";
+import {
+  ACTIVITY_LOG_KEY,
+  CUISINE_VISITED_KEY,
+  HERITAGE_VISITED_KEY,
+  PLACES_VISITED_KEY,
+} from "@/data/storageKeys";
 
-// import AsyncStorage from "@react-native-async-storage/async-storage";
-// import { supabase } from "@/lib/supabase";
-// import {
-//   ACTIVITY_LOG_KEY,
-//   CUISINE_AREA_TOTALS_KEY,
-//   CUISINE_MEAL_AREAS_KEY,
-//   CUISINE_VISITED_KEY,
-//   HERITAGE_VISITED_KEY,
-//   PLACES_VISITED_KEY,
-// } from "@/data/storageKeys";
-//
-// const SYNCED_KEYS = [
-//   HERITAGE_VISITED_KEY,
-//   CUISINE_VISITED_KEY,
-//   CUISINE_AREA_TOTALS_KEY,
-//   CUISINE_MEAL_AREAS_KEY,
-//   PLACES_VISITED_KEY,
-//   ACTIVITY_LOG_KEY,
-// ] as const;
-//
-// async function readLocalBackup() {
-//   const entries = await AsyncStorage.multiGet(SYNCED_KEYS);
-//   const raw = Object.fromEntries(entries);
-//   return {
-//     heritage_visited: JSON.parse(raw[HERITAGE_VISITED_KEY] ?? "[]"),
-//     cuisine_visited: JSON.parse(raw[CUISINE_VISITED_KEY] ?? "[]"),
-//     cuisine_area_totals: JSON.parse(raw[CUISINE_AREA_TOTALS_KEY] ?? "{}"),
-//     cuisine_meal_areas: JSON.parse(raw[CUISINE_MEAL_AREAS_KEY] ?? "{}"),
-//     countries_visited: JSON.parse(raw[PLACES_VISITED_KEY] ?? "[]"),
-//     activity_log: JSON.parse(raw[ACTIVITY_LOG_KEY] ?? "[]"),
-//   };
-// }
-//
-// export async function pushToCloud(): Promise<void> {
-//   const {
-//     data: { user },
-//   } = await supabase.auth.getUser();
-//   if (!user) return;
-//
-//   const backup = await readLocalBackup();
-//
-//   try {
-//     await supabase.from("user_backups").upsert({
-//       user_id: user.id,
-//       ...backup,
-//       updated_at: new Date().toISOString(),
-//     });
-//   } catch (e) {
-//     console.log("CLOUD PUSH ERROR", e);
-//   }
-// }
-//
-// export async function pullFromCloud(): Promise<boolean> {
-//   const {
-//     data: { user },
-//   } = await supabase.auth.getUser();
-//   if (!user) return false;
-//
-//   try {
-//     const { data, error } = await supabase
-//       .from("user_backups")
-//       .select("*")
-//       .eq("user_id", user.id)
-//       .maybeSingle();
-//
-//     if (error || !data) return false;
-//
-//     await AsyncStorage.multiSet([
-//       [HERITAGE_VISITED_KEY, JSON.stringify(data.heritage_visited ?? [])],
-//       [CUISINE_VISITED_KEY, JSON.stringify(data.cuisine_visited ?? [])],
-//       [
-//         CUISINE_AREA_TOTALS_KEY,
-//         JSON.stringify(data.cuisine_area_totals ?? {}),
-//       ],
-//       [
-//         CUISINE_MEAL_AREAS_KEY,
-//         JSON.stringify(data.cuisine_meal_areas ?? {}),
-//       ],
-//       [PLACES_VISITED_KEY, JSON.stringify(data.countries_visited ?? [])],
-//       [ACTIVITY_LOG_KEY, JSON.stringify(data.activity_log ?? [])],
-//     ]);
-//     return true;
-//   } catch (e) {
-//     console.log("CLOUD PULL ERROR", e);
-//     return false;
-//   }
-// }
-//
-// /** Called right after a successful sign-in/sign-up: restores existing cloud
-//  * data if there is any, otherwise seeds the cloud with what's on the device. */
-// export async function syncAfterAuth(): Promise<void> {
-//   const pulled = await pullFromCloud();
-//   if (!pulled) {
-//     await pushToCloud();
-//   }
-// }
-//
-// let syncTimeout: ReturnType<typeof setTimeout> | null = null;
+const SYNCED_KEYS = [
+  HERITAGE_VISITED_KEY,
+  PLACES_VISITED_KEY,
+  CUISINE_VISITED_KEY,
+  ACTIVITY_LOG_KEY,
+] as const;
 
-/** Cloud sync devre dışı — no-op. Geri açmak için yukarıdaki yorumları kaldır. */
-export async function pushToCloud(): Promise<void> {}
-
-/** Cloud sync devre dışı — no-op. Geri açmak için yukarıdaki yorumları kaldır. */
-export async function pullFromCloud(): Promise<boolean> {
-  return false;
+async function readLocalBackup() {
+  const entries = await AsyncStorage.multiGet(SYNCED_KEYS);
+  const raw = Object.fromEntries(entries);
+  return {
+    heritage_visited: JSON.parse(raw[HERITAGE_VISITED_KEY] ?? "[]"),
+    countries_visited: JSON.parse(raw[PLACES_VISITED_KEY] ?? "[]"),
+    cuisine_visited: JSON.parse(raw[CUISINE_VISITED_KEY] ?? "[]"),
+    activity_log: JSON.parse(raw[ACTIVITY_LOG_KEY] ?? "[]"),
+  };
 }
 
-/** Cloud sync devre dışı — no-op. Geri açmak için yukarıdaki yorumları kaldır. */
-export async function syncAfterAuth(): Promise<void> {}
+export async function pushToCloud(): Promise<void> {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return;
 
-/** Cloud sync devre dışı — no-op. Geri açmak için yukarıdaki yorumları kaldır. */
-export function queueCloudSync(): void {}
+  const backup = await readLocalBackup();
+
+  try {
+    await supabase.from("user_backups").upsert({
+      user_id: user.id,
+      ...backup,
+      updated_at: new Date().toISOString(),
+    });
+  } catch (e) {
+    console.log("CLOUD PUSH ERROR", e);
+  }
+}
+
+export async function pullFromCloud(): Promise<boolean> {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return false;
+
+  try {
+    const { data, error } = await supabase
+      .from("user_backups")
+      .select("*")
+      .eq("user_id", user.id)
+      .maybeSingle();
+
+    if (error || !data) return false;
+
+    await AsyncStorage.multiSet([
+      [HERITAGE_VISITED_KEY, JSON.stringify(data.heritage_visited ?? [])],
+      [PLACES_VISITED_KEY, JSON.stringify(data.countries_visited ?? [])],
+      [CUISINE_VISITED_KEY, JSON.stringify(data.cuisine_visited ?? [])],
+      [ACTIVITY_LOG_KEY, JSON.stringify(data.activity_log ?? [])],
+    ]);
+    return true;
+  } catch (e) {
+    console.log("CLOUD PULL ERROR", e);
+    return false;
+  }
+}
+
+/** Called right after a successful sign-in/sign-up: restores existing cloud
+ * data if there is any, otherwise seeds the cloud with what's on the device. */
+export async function syncAfterAuth(): Promise<void> {
+  const pulled = await pullFromCloud();
+  if (!pulled) {
+    await pushToCloud();
+  }
+}
+
+let syncTimeout: ReturnType<typeof setTimeout> | null = null;
+
+/** Debounces rapid successive local writes (e.g. toggling several sites in a
+ * row) into a single cloud push. */
+export function queueCloudSync(): void {
+  if (syncTimeout) clearTimeout(syncTimeout);
+  syncTimeout = setTimeout(pushToCloud, 1500);
+}
