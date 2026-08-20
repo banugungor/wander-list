@@ -7,7 +7,9 @@
     "description": "The 65m-tall Minaret of Jam is a graceful, soaring structure, dating back to the 12th century. Covered in elaborate brickwork with a blue tile inscription at the top, it is noteworthy for the quality of its architecture and decoration, which represent the culmination of an architectural and artistic tradition in this region. Its impact is heightened by its dramatic setting, a deep river valley between towering mountains in the heart of the Ghur province.",
     "latitude": 34.3964166667,
     "longitude": 64.5158888889,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Jam_afghan_architecture_harirud_brick.jpg/330px-Jam_afghan_architecture_harirud_brick.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Jam_afghan_architecture_harirud_brick.jpg/330px-Jam_afghan_architecture_harirud_brick.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Cam Minaresi ve Arkeolojik Kalıntıları",
+    "descriptionTr": "65 metre yüksekliğindeki Cam Minaresi, 12. yüzyıla uzanan zarif ve göğe yükselen bir yapıdır. Tepesinde mavi çinili bir kitabe bulunan işlemeli tuğla işçiliğiyle kaplı minare, bu bölgedeki bir mimari ve sanatsal geleneğin doruk noktasını temsil eden mimarisi ve süslemesinin niteliğiyle dikkat çekicidir. Etkisi, yükselen dağlar arasındaki derin bir nehir vadisinde, Gur eyaletinin kalbinde yer alan dramatik konumuyla daha da güçlenmektedir."
   },
   {
     "id": "6b11e1fb-6a48-5811-b45b-8a0fe1906601",
@@ -17,7 +19,9 @@
     "description": "Berat and Gjirokastra are inscribed as rare examples of an architectural character typical of the Ottoman period. Located in central Albania, Berat bears witness to the coexistence of various religious and cultural communities down the centuries. It features a castle, locally known as the Kala, most of which was built in the 13th century, although its origins date back to the 4th century BC. The citadel area numbers many Byzantine churches, mainly from the 13th century, as well as several mosques built under the Ottoman era which began in 1417. Gjirokastra, in the Drinos river valley in southern Albania, features a series of outstanding two-story houses which were developed in the 17th century. The town also retains a bazaar, an 18th-century mosque and two churches of the same period.",
     "latitude": 40.0741666667,
     "longitude": 20.1408333333,
-    "imageUrl": null
+    "imageUrl": null,
+    "nameTr": "Berat ve Gjirokastra Tarihi Merkezleri",
+    "descriptionTr": "Berat ve Gjirokastra, Osmanlı dönemine özgü mimari karakterin nadir örnekleri olarak listeye alınmıştır. Orta Arnavutluk'ta yer alan Berat, yüzyıllar boyunca çeşitli dinî ve kültürel toplulukların bir arada yaşamasına tanıklık etmiştir. Kökeni MÖ 4. yüzyıla dayansa da büyük kısmı 13. yüzyılda inşa edilen ve yerel olarak Kala adıyla bilinen bir kaleye sahiptir. Kale bölgesi, çoğunluğu 13. yüzyıldan kalma çok sayıda Bizans kilisesinin yanı sıra 1417'de başlayan Osmanlı döneminde inşa edilmiş çeşitli camileri de barındırır. Güney Arnavutluk'ta Drinos nehir vadisinde yer alan Gjirokastra ise 17. yüzyılda gelişen bir dizi olağanüstü iki katlı eve sahiptir. Kent ayrıca bir çarşıyı, 18. yüzyıldan kalma bir camiyi ve aynı döneme ait iki kiliseyi de korumaktadır."
   },
   {
     "id": "a1d7e93d-f865-53f4-a76b-0c7895273013",
@@ -27,7 +31,9 @@
     "description": "The cultural landscape and archaeological remains of the Bamiyan Valley represent the artistic and religious developments which from the 1st to the 13th centuries characterized ancient Bakhtria, integrating various cultural influences into the Gandhara school of Buddhist art. The area contains numerous Buddhist monastic ensembles and sanctuaries, as well as fortified edifices from the Islamic period. The site is also testimony to the tragic destruction by the Taliban of the two standing Buddha statues, which shook the world in March 2001.",
     "latitude": 34.84694,
     "longitude": 67.82525,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Buddha_of_Bamiyan.jpg/330px-Buddha_of_Bamiyan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Buddha_of_Bamiyan.jpg/330px-Buddha_of_Bamiyan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Bamiyan Vadisi Kültürel Peyzajı ve Arkeolojik Kalıntıları",
+    "descriptionTr": "Bamiyan Vadisi'nin kültürel peyzajı ve arkeolojik kalıntıları, 1. yüzyıldan 13. yüzyıla kadar antik Baktriya'yı karakterize eden ve çeşitli kültürel etkileri Gandhara Budist sanat okuluna entegre eden sanatsal ve dinî gelişmeleri temsil eder. Alan, çok sayıda Budist manastır topluluğu ve kutsal alanın yanı sıra İslami dönemden kalma tahkimatlı yapılara da sahiptir. Alan aynı zamanda, Mart 2001'de dünyayı sarsan olayda Taliban tarafından iki ayakta duran Buda heykelinin trajik biçimde yıkılmasına da tanıklık etmiştir."
   },
   {
     "id": "a3e04083-f693-5147-bc20-4f6dbcbff76e",
@@ -37,7 +43,9 @@
     "description": "This transnational property includes 93 component parts in 18 countries. Since the end of the last Ice Age, European Beech spread from a few isolated refuge areas in the Alps, Carpathians, Dinarides, Mediterranean and Pyrenees over a short period of a few thousand years in a process that is still ongoing. The successful expansion across a whole continent is related to the tree’s adaptability and tolerance of different climatic, geographical and physical conditions.",
     "latitude": 48.9,
     "longitude": 22.1833333333,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Beu%C8%99ni%C8%9Ba_%28Beu%29_valley_42.jpg/330px-Beu%C8%99ni%C8%9Ba_%28Beu%29_valley_42.jpg"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Beu%C8%99ni%C8%9Ba_%28Beu%29_valley_42.jpg/330px-Beu%C8%99ni%C8%9Ba_%28Beu%29_valley_42.jpg",
+    "nameTr": "Karpatlar ve Avrupa'nın Diğer Bölgelerindeki Kadim ve El Değmemiş Kayın Ormanları",
+    "descriptionTr": "Bu transkontinental miras alanı, 18 ülkede 93 bileşenden oluşur. Son Buzul Çağı'nın sona ermesinden bu yana Avrupa kayını, Alpler, Karpatlar, Dinar Alpleri, Akdeniz ve Pirene'deki birkaç izole sığınak alanından, hâlâ devam etmekte olan bir süreçle, birkaç bin yıllık kısa bir sürede yayılmıştır. Tüm bir kıtaya yayılan bu başarılı genişleme, ağacın farklı iklimsel, coğrafi ve fiziksel koşullara uyum sağlama ve tolerans gösterme yeteneğiyle ilişkilidir."
   },
   {
     "id": "1f50265a-630f-5001-9526-87a494301aa4",
@@ -67,7 +75,9 @@
     "description": "The cultural landscape of Madriu-Perafita-Claror Valley offers a microcosmic perspective of the way people have harvested the resources of the high Pyrenees over millennia. Its dramatic glacial landscapes of craggy cliffs and glaciers, with high open pastures and steep wooded valleys, covers an area of 4,247 ha, 9% of the total area of the principality. It reflects past changes in climate, economic fortune and social systems, as well as the persistence of pastoralism and a strong mountain culture, notably the survival of a communal land-ownership system dating back to the 13th century. The site features houses, notably summer settlements, terraced fields, stone tracks and evidence of iron smelting.",
     "latitude": 42.49472222,
     "longitude": 1.595555556,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Refuge_perafita_andorra.jpg/330px-Refuge_perafita_andorra.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Refuge_perafita_andorra.jpg/330px-Refuge_perafita_andorra.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Madriu-Perafita-Claror Vadisi",
+    "descriptionTr": "Madriu-Perafita-Claror Vadisi'nin kültürel peyzajı, insanların binlerce yıl boyunca yüksek Pirene'nin kaynaklarını nasıl kullandığına dair mikrokozmik bir bakış açısı sunar. Sarp uçurumlar ve buzullardan oluşan, yüksek açık otlaklar ve dik ormanlık vadilere sahip çarpıcı buzul peyzajları, prensliğin toplam alanının %9'unu oluşturan 4.247 hektarlık bir alanı kaplar. Alan; iklim, ekonomik refah ve toplumsal sistemlerdeki geçmiş değişimleri, hayvancılığın sürekliliğini ve özellikle 13. yüzyıla uzanan ortak toprak mülkiyeti sisteminin günümüze kadar hayatta kalmasıyla güçlü bir dağ kültürünü yansıtır. Alan, özellikle yazlık yerleşimler olmak üzere evleri, taraçalı tarlaları, taş patikaları ve demir eritme izlerini barındırır."
   },
   {
     "id": "e88f62a9-ed08-5689-9291-fdf9e3fd4930",
@@ -197,7 +207,9 @@
     "description": "It covers almost 600km of the whole Roman Empire’s Danube frontier. The property formed part of the much large frontier of the Roman Empire that encircled the Mediterranean Sea. The Danube Limes (Western Segment) reflects the specificities of this part of the Roman Frontier through the selection of sites that represent key elements from roads, legionary fortresses and their associated settlements to small forts and temporary camps, and the way these structures relate to local topography.",
     "latitude": 48.1151944444,
     "longitude": 16.8613888889,
-    "imageUrl": null
+    "imageUrl": null,
+    "nameTr": "Roma İmparatorluğu Sınırları – Tuna Limesi (Batı Kesimi)",
+    "descriptionTr": "Bu alan, Roma İmparatorluğu'nun Tuna sınırının neredeyse 600 km'lik kısmını kapsar. Miras alanı, Akdeniz'i çevreleyen Roma İmparatorluğu'nun çok daha büyük sınırının bir parçasını oluşturmaktaydı. Tuna Limesi (Batı Kesimi), yollardan lejyon kalelerine ve bunlarla ilişkili yerleşimlerden küçük kalelere ve geçici kamplara kadar temel unsurları temsil eden alanların seçimiyle bu Roma Sınırı kesiminin kendine özgü niteliklerini ve bu yapıların yerel topografyayla ilişkisini yansıtır."
   },
   {
     "id": "f3e252ff-ed31-5b98-a8a9-d5419db94093",
@@ -207,7 +219,9 @@
     "description": "From the 18th century to 1918, Schönbrunn was the residence of the Habsburg emperors. It was designed by the architects Johann Bernhard Fischer von Erlach and Nicolaus Pacassi and is full of outstanding examples of decorative art. Together with its gardens, the site of the world’s first zoo in 1752, it is a remarkable Baroque ensemble and a perfect example of Gesamtkunstwerk.",
     "latitude": 48.18666667,
     "longitude": 16.31333333,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wien_-_Schloss_Sch%C3%B6nbrunn.JPG/500px-Wien_-_Schloss_Sch%C3%B6nbrunn.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wien_-_Schloss_Sch%C3%B6nbrunn.JPG/500px-Wien_-_Schloss_Sch%C3%B6nbrunn.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Schönbrunn Sarayı ve Bahçeleri",
+    "descriptionTr": "18. yüzyıldan 1918'e kadar Schönbrunn, Habsburg imparatorlarının ikametgâhı olmuştur. Mimarlar Johann Bernhard Fischer von Erlach ve Nicolaus Pacassi tarafından tasarlanan saray, olağanüstü dekoratif sanat örnekleriyle doludur. Bahçeleriyle birlikte -1752'de dünyanın ilk hayvanat bahçesinin kurulduğu yer- olağanüstü bir Barok topluluk ve kusursuz bir Gesamtkunstwerk (bütünsel sanat eseri) örneğidir."
   },
   {
     "id": "16fa57f4-fbcc-5b28-b50b-2bc2083c19e8",
@@ -217,7 +231,9 @@
     "description": "Vienna developed from early Celtic and Roman settlements into a Medieval and Baroque city, the capital of the Austro-Hungarian Empire. It played an essential role as a leading European music centre, from the great age of Viennese Classicism through the early part of the 20th century. The historic centre of Vienna is rich in architectural ensembles, including Baroque castles and gardens, as well as the late-19th-century Ringstrasse lined with grand buildings, monuments and parks.",
     "latitude": 48.2094,
     "longitude": 16.3699,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Kartewien1.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Kartewien1.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "nameTr": "Viyana Tarihi Merkezi",
+    "descriptionTr": "Viyana, erken dönem Kelt ve Roma yerleşimlerinden ortaçağ ve Barok bir kente, Avusturya-Macaristan İmparatorluğu'nun başkentine dönüşerek gelişmiştir. Büyük Viyana Klasisizm çağından 20. yüzyılın ilk döneminine kadar önde gelen bir Avrupa müzik merkezi olarak temel bir rol oynamıştır. Viyana'nın tarihi merkezi; Barok kaleler ve bahçelerin yanı sıra görkemli binalar, anıtlar ve parklarla çevrili 19. yüzyılın sonlarından kalma Ringstrasse dahil olmak üzere zengin mimari topluluklara sahiptir."
   },
   {
     "id": "37b22511-2326-5605-9e44-eb5dbca3b4f4",
@@ -227,7 +243,9 @@
     "description": "Gobustan Rock Art Cultural Landscape covers three areas of a plateau of rocky boulders rising out of the semi-desert of central Azerbaijan, with an outstanding collection of more than 6,000 rock engravings bearing testimony to 40,000 years of rock art. The site also features the remains of inhabited caves, settlements and burials, all reflecting an intensive human use by the inhabitants of the area during the wet period that followed the last Ice Age, from the Upper Paleolithic to the Middle Ages. The site, which covers an area of 537 ha, is part of the larger protected Gobustan Reservation.",
     "latitude": 40.125,
     "longitude": 49.375,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Petroglyphs_of_Qobustan_2.jpg/500px-Petroglyphs_of_Qobustan_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Petroglyphs_of_Qobustan_2.jpg/500px-Petroglyphs_of_Qobustan_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Gobustan Kaya Resimleri Kültürel Peyzajı",
+    "descriptionTr": "Gobustan Kaya Resimleri Kültürel Peyzajı, Azerbaycan'ın orta kesimindeki yarı çölden yükselen kayalık bir platoda üç alanı kapsar ve 40.000 yıllık kaya sanatına tanıklık eden 6.000'den fazla kaya kazımasından oluşan olağanüstü bir koleksiyona sahiptir. Alan aynı zamanda, son Buzul Çağı'nı takip eden nemli dönemde, Üst Paleolitik'ten Orta Çağ'a kadar bölge sakinlerinin yoğun insan kullanımını yansıtan yerleşim mağaraları, köyler ve mezar kalıntılarını da barındırır. 537 hektarlık bir alanı kaplayan bölge, daha geniş korunan Gobustan Rezervasyonu'nun bir parçasıdır."
   },
   {
     "id": "4959584f-01c2-5ea1-8981-d2e42fcc1505",
@@ -237,7 +255,9 @@
     "description": "The Hyrcanian Forests form a unique forested massif that stretches along the Caspian Sea in Azerbaijan and Iran. The history of these broad-leaved forests dates back 25 to 50 million years, when they covered most of this Northern Temperate region. Their floristic biodiversity is remarkable with over 3,200 vascular plant species documented. To date, 180 species of birds typical of broad-leaved temperate forests and 58 mammal species have been recorded. Elements of the property comprise full ecosystems including top predators such as leopard, wolf and brown bear, and the forest has a high degree of rare and endemic tree species. The oldest trees seen here are 300-400 years old, with some possibly up to 500 years old.",
     "latitude": 37.4214722222,
     "longitude": 55.7242777778,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/3615554_%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1_%D9%87%D9%88%D8%A7%DB%8C%DB%8C_%D8%AC%D8%A7%D8%AF%D9%87_%D9%87%D8%A7%DB%8C_%D9%BE%D8%A7%DB%8C%DB%8C%D8%B2%DB%8C_%D8%AC%D9%86%DA%AF%D9%84_%D9%87%D8%A7%DB%8C_%D9%87%DB%8C%D8%B1%DA%A9%D8%A7%D9%86%DB%8C.jpg/330px-3615554_%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1_%D9%87%D9%88%D8%A7%DB%8C%DB%8C_%D8%AC%D8%A7%D8%AF%D9%87_%D9%87%D8%A7%DB%8C_%D9%BE%D8%A7%DB%8C%DB%8C%D8%B2%DB%8C_%D8%AC%D9%86%DA%AF%D9%84_%D9%87%D8%A7%DB%8C_%D9%87%DB%8C%D8%B1%DA%A9%D8%A7%D9%86%DB%8C.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/3615554_%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1_%D9%87%D9%88%D8%A7%DB%8C%DB%8C_%D8%AC%D8%A7%D8%AF%D9%87_%D9%87%D8%A7%DB%8C_%D9%BE%D8%A7%DB%8C%DB%8C%D8%B2%DB%8C_%D8%AC%D9%86%DA%AF%D9%84_%D9%87%D8%A7%DB%8C_%D9%87%DB%8C%D8%B1%DA%A9%D8%A7%D9%86%DB%8C.jpg/330px-3615554_%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1_%D9%87%D9%88%D8%A7%DB%8C%DB%8C_%D8%AC%D8%A7%D8%AF%D9%87_%D9%87%D8%A7%DB%8C_%D9%BE%D8%A7%DB%8C%DB%8C%D8%B2%DB%8C_%D8%AC%D9%86%DA%AF%D9%84_%D9%87%D8%A7%DB%8C_%D9%87%DB%8C%D8%B1%DA%A9%D8%A7%D9%86%DB%8C.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Hirkan Ormanları",
+    "descriptionTr": "Hirkan Ormanları, Azerbaycan ve İran'da Hazar Denizi boyunca uzanan eşsiz bir orman kütlesi oluşturur. Bu geniş yapraklı ormanların tarihi, bu Kuzey Ilıman bölgenin büyük bölümünü kapladıkları 25 ila 50 milyon yıl öncesine dayanmaktadır. 3.200'den fazla damarlı bitki türünün belgelendiği floristik çeşitliliği dikkat çekicidir. Bugüne kadar, geniş yapraklı ılıman ormanlara özgü 180 kuş türü ve 58 memeli türü kayıt altına alınmıştır. Alanın unsurları arasında leopar, kurt ve boz ayı gibi üst düzey yırtıcıları da içeren eksiksiz ekosistemler bulunur ve orman, nadir ve endemik ağaç türleri açısından yüksek bir çeşitliliğe sahiptir. Burada görülen en yaşlı ağaçlar 300-400, hatta bazıları muhtemelen 500 yaşındadır."
   },
   {
     "id": "6e0d4d36-6756-588c-8732-a3639b5e555d",
@@ -247,7 +267,9 @@
     "description": "The Architectural, Residential and Cultural Complex of the Radziwill Family at Nesvizh is located in central Belarus. The Radziwill dynasty, who built and kept the ensemble from the 16th century until 1939, gave birth to some of the most important personalities in European history and culture. Due to their efforts, the town of Nesvizh came to exercise great influence in the sciences, arts, crafts and architecture. The complex consists of the residential castle and the mausoleum Church of Corpus Christi with their setting. The castle has ten interconnected buildings, which developed as an architectural whole around a six-sided courtyard. The palaces and church became important prototypes marking the development of architecture throughout Central Europe and Russia.",
     "latitude": 53.22278,
     "longitude": 26.69139,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/%D0%9D%D1%8F%D1%81%D0%B2%D1%96%D0%B6_%D1%96_%D0%9D%D1%8F%D1%81%D0%B2%D1%96%D0%B6%D1%81%D0%BA%D1%96_%D0%B7%D0%B0%D0%BC%D0%B0%D0%BA_12.jpg/500px-%D0%9D%D1%8F%D1%81%D0%B2%D1%96%D0%B6_%D1%96_%D0%9D%D1%8F%D1%81%D0%B2%D1%96%D0%B6%D1%81%D0%BA%D1%96_%D0%B7%D0%B0%D0%BC%D0%B0%D0%BA_12.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/%D0%9D%D1%8F%D1%81%D0%B2%D1%96%D0%B6_%D1%96_%D0%9D%D1%8F%D1%81%D0%B2%D1%96%D0%B6%D1%81%D0%BA%D1%96_%D0%B7%D0%B0%D0%BC%D0%B0%D0%BA_12.jpg/500px-%D0%9D%D1%8F%D1%81%D0%B2%D1%96%D0%B6_%D1%96_%D0%9D%D1%8F%D1%81%D0%B2%D1%96%D0%B6%D1%81%D0%BA%D1%96_%D0%B7%D0%B0%D0%BC%D0%B0%D0%BA_12.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Nesvizh'teki Radziwill Ailesi Mimari, Konut ve Kültürel Kompleksi",
+    "descriptionTr": "Nesvizh'teki Radziwill Ailesi Mimari, Konut ve Kültürel Kompleksi, orta Belarus'ta yer almaktadır. 16. yüzyıldan 1939'a kadar bu topluluğu inşa eden ve koruyan Radziwill hanedanı, Avrupa tarihi ve kültüründeki en önemli kişiliklerden bazılarını yetiştirmiştir. Bu çabalar sayesinde Nesvizh kenti, bilim, sanat, el sanatları ve mimaride büyük etki sahibi olmuştur. Kompleks, ikametgâh kalesi ile Corpus Christi Anıt Mezar Kilisesi'nden ve çevrelerinden oluşur. Kale, altı köşeli bir avlu etrafında mimari bir bütün olarak gelişen, birbirine bağlı on binadan oluşur. Saraylar ve kilise, Orta Avrupa ve Rusya genelinde mimarinin gelişimini işaret eden önemli prototipler hâline gelmiştir."
   },
   {
     "id": "337768f8-9087-5e7b-b244-68c7da6c10ec",
@@ -257,7 +279,9 @@
     "description": "The construction of this castle began at the end of the 15th century, in Gothic style. It was subsequently extended and reconstructed, first in the Renaissance and then in the Baroque style. After being abandoned for nearly a century and suffering severe damage during the Napoleonic period, the castle was restored at the end of the 19th century, with the addition of a number of other elements and the landscaping of the surrounding area as a park. Its present form is graphic testimony to its often turbulent history.",
     "latitude": 53.45108333,
     "longitude": 26.47272222,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/%D0%9A%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81_%D0%9C%D0%B8%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%B7%D0%B0%D0%BC%D0%BA%D0%B0.JPG/500px-%D0%9A%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81_%D0%9C%D0%B8%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%B7%D0%B0%D0%BC%D0%BA%D0%B0.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/%D0%9A%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81_%D0%9C%D0%B8%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%B7%D0%B0%D0%BC%D0%BA%D0%B0.JPG/500px-%D0%9A%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81_%D0%9C%D0%B8%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%B7%D0%B0%D0%BC%D0%BA%D0%B0.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Mir Kalesi Kompleksi",
+    "descriptionTr": "Bu kalenin inşasına 15. yüzyılın sonunda Gotik üslupta başlanmıştır. Daha sonra önce Rönesans, ardından Barok üslupta genişletilip yeniden inşa edilmiştir. Yaklaşık bir yüzyıl terk edilmiş hâlde kalıp Napolyon döneminde ağır hasar gördükten sonra, 19. yüzyılın sonunda çeşitli yeni unsurların eklenmesi ve çevresinin bir park olarak peyzaj düzenlemesiyle restore edilmiştir. Bugünkü hâli, çoğu zaman çalkantılı olan tarihinin canlı bir kanıtıdır."
   },
   {
     "id": "3cfce339-99f3-55b0-a9eb-c04e33a7ee9f",
@@ -267,7 +291,9 @@
     "description": "La Grand-Place in Brussels is a remarkably homogeneous body of public and private buildings, dating mainly from the late 17th century. The architecture provides a vivid illustration of the level of social and cultural life of the period in this important political and commercial centre.",
     "latitude": 50.84668,
     "longitude": 4.35242,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg/500px-Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg/500px-Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Brüksel Büyük Meydanı (La Grand-Place)",
+    "descriptionTr": "Brüksel'deki Grand-Place, büyük ölçüde 17. yüzyılın sonlarına tarihlenen, dikkat çekici derecede uyumlu bir kamu ve özel binalar topluluğudur. Mimarisi, bu önemli siyasi ve ticari merkezde dönemin toplumsal ve kültürel yaşam düzeyinin canlı bir tasvirini sunar."
   },
   {
     "id": "30d549d3-260b-556c-94ee-34d66953f7fd",
@@ -275,7 +301,9 @@
     "country": "France, Belgium",
     "category": "Cultural",
     "description": "All along the Western Front of the First World War, which stretched for some 700 km from the North Sea to the Franco-Swiss border, a series of 139 funerary and memorial sites bear witness to the common desire of the various parties involved in the conflict to honour their children who fell in battle. This objective takes the form of individual graves and/or memorials listing the names of the missing. Places dedicated to meditation, remembrance and tributes are specially created. Beyond the diversity in size, location and design, there is a clear desire to create spaces that are worthy of the sacrifice made. This is reflected in the choice of noble materials, as well as in calls for renowned architects, botanists, landscape architects and artists to design sites of exceptional architectural, artistic and landscape quality. These sites are visited daily by pilgrims, individual visitors, official delegations, school groups, local community representatives and descendants. They bear witness to funerary and memorial practices that are still relevant today, as remains discovered by chance or during archaeological excavations are still buried there with all honours. These commemorative sites represent a heritage that almost literally belongs to the whole world, spreading a message of reconciliation that is still very topical.",
-    "imageUrl": null
+    "imageUrl": null,
+    "nameTr": "Birinci Dünya Savaşı Cenaze ve Anma Alanları (Batı Cephesi)",
+    "descriptionTr": "Kuzey Denizi'nden Fransa-İsviçre sınırına kadar yaklaşık 700 km uzanan Birinci Dünya Savaşı Batı Cephesi boyunca, 139 cenaze ve anma alanından oluşan bir dizi, çatışmaya taraf olan farklı tarafların savaşta düşen evlatlarını onurlandırma konusundaki ortak arzularına tanıklık etmektedir. Bu amaç, bireysel mezarlar ve/veya kayıp kişilerin isimlerini listeleyen anıtlar şeklinde somutlaşır. Meditasyon, anma ve saygı için özel olarak yaratılmış alanlar bulunmaktadır. Boyut, konum ve tasarımdaki çeşitliliğin ötesinde, yapılan fedakârlığa layık alanlar yaratma konusunda net bir arzu görülmektedir. Bu durum, hem seçilen soylu malzemelerde hem de olağanüstü mimari, sanatsal ve peyzaj niteliğine sahip alanları tasarlamak üzere tanınmış mimarlar, botanikçiler, peyzaj mimarları ve sanatçılara yapılan çağrılarda yansımasını bulur. Bu alanlar; hacılar, bireysel ziyaretçiler, resmî heyetler, okul grupları, yerel topluluk temsilcileri ve torunlar tarafından her gün ziyaret edilmektedir. Alanlar, tesadüfen veya arkeolojik kazılar sırasında keşfedilen kalıntıların hâlâ tüm onurlarıyla oraya gömüldüğü, günümüzde de geçerliliğini koruyan cenaze ve anma uygulamalarına tanıklık etmektedir. Bu anma alanları, hâlâ son derece güncel bir uzlaşma mesajı yayarak neredeyse tam anlamıyla tüm dünyaya ait bir mirası temsil etmektedir."
   },
   {
     "id": "d967b65e-a118-526b-84a7-ab12ac28af35",
@@ -285,7 +313,9 @@
     "description": "The four sites of the property form a strip 170 km long by 3–15 km wide, crossing Belgium from east to west, consisting of the best-preserved 19th- and 20th-century coal-mining sites of the country. It features examples of the utopian architecture from the early periods of the industrial era in Europe within a highly integrated, industrial and urban ensemble, notably the Grand-Hornu colliery and workers’ city designed by Bruno Renard in the first half of the 19th century. Bois-du-Luc includes numerous buildings erected from 1838 to 1909 and one of Europe’s oldest collieries dating back to the late 17th century. While Wallonia had hundreds of collieries, most have lost their infrastructure, while the four components of the listed site retain a high measure of integrity.",
     "latitude": 50.4352777778,
     "longitude": 3.8383333333,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Bois_du_Cazier_2.jpg/500px-Bois_du_Cazier_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Bois_du_Cazier_2.jpg/500px-Bois_du_Cazier_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Valonya'nın Önemli Maden Alanları",
+    "descriptionTr": "Miras alanının dört bölgesi, Belçika'yı doğudan batıya kat eden, 170 km uzunluğunda ve 3-15 km genişliğinde bir şerit oluşturur ve ülkenin en iyi korunmuş 19. ve 20. yüzyıl kömür madenciliği alanlarından oluşur. Alan, özellikle Bruno Renard tarafından 19. yüzyılın ilk yarısında tasarlanan Grand-Hornu kömür ocağı ve işçi kenti başta olmak üzere, son derece bütünleşik, endüstriyel ve kentsel bir topluluk içinde Avrupa'nın sanayi çağının erken dönemlerine ait ütopik mimari örnekleri barındırır. Bois-du-Luc, 1838'den 1909'a kadar inşa edilen çok sayıda binayı ve Avrupa'nın 17. yüzyılın sonlarına uzanan en eski kömür ocaklarından birini içerir. Valonya'da yüzlerce kömür ocağı bulunmasına rağmen çoğu altyapısını kaybetmişken, listelenen alanın dört bileşeni yüksek düzeyde bütünlüğünü korumaktadır."
   },
   {
     "id": "607913c6-7c3d-51c5-af42-6d40417f6d1e",
@@ -295,7 +325,9 @@
     "description": "The Plantin-Moretus Museum is a printing plant and publishing house dating from the Renaissance and Baroque periods. Situated in Antwerp, one of the three leading cities of early European printing along with Paris and Venice, it is associated with the history of the invention and spread of typography. Its name refers to the greatest printer-publisher of the second half of the 16th century: Christophe Plantin (c. 1520–89). The monument is of outstanding architectural value. It contains exhaustive evidence of the life and work of what was the most prolific printing and publishing house in Europe in the late 16th century. The building of the company, which remained in activity until 1867, contains a large collection of old printing equipment, an extensive library, invaluable archives and works of art, among them a painting by Rubens.",
     "latitude": 51.21833,
     "longitude": 4.39778,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Plantin_antwerp_07.jpg/500px-Plantin_antwerp_07.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Plantin_antwerp_07.jpg/500px-Plantin_antwerp_07.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Plantin-Moretus Ev-Atölye-Müze Kompleksi",
+    "descriptionTr": "Plantin-Moretus Müzesi, Rönesans ve Barok dönemlerine tarihlenen bir matbaa ve yayınevidir. Paris ve Venedik ile birlikte erken dönem Avrupa matbaacılığının üç önde gelen kentinden biri olan Antwerp'te yer alan müze, matbaacılığın icadı ve yayılmasının tarihiyle ilişkilendirilir. Adını, 16. yüzyılın ikinci yarısının en büyük matbaacı-yayıncısı Christophe Plantin'den (yaklaşık 1520-89) almaktadır. Anıt, olağanüstü mimari değere sahiptir. 16. yüzyılın sonlarında Avrupa'nın en üretken matbaa ve yayınevinin yaşamı ve çalışmalarına dair kapsamlı kanıtlar içerir. 1867 yılına kadar faaliyetini sürdüren şirketin binası, geniş bir eski matbaa ekipmanı koleksiyonunu, kapsamlı bir kütüphaneyi, paha biçilmez arşivleri ve aralarında bir Rubens tablosunun da bulunduğu sanat eserlerini barındırmaktadır."
   },
   {
     "id": "840ac650-8d6b-54e2-b105-49aeaeffa16a",
@@ -305,7 +337,9 @@
     "description": "The Cathedral of Notre-Dame in Tournai was built in the first half of the 12th century. It is especially distinguished by a Romanesque nave of extraordinary dimensions, a wealth of sculpture on its capitals and a transept topped by five towers, all precursors of the Gothic style. The choir, rebuilt in the 13th century, is in the pure Gothic style.",
     "latitude": 50.60603,
     "longitude": 3.38926,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Tournai_pan.jpg/500px-Tournai_pan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Tournai_pan.jpg/500px-Tournai_pan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Tournai Notre-Dame Katedrali",
+    "descriptionTr": "Tournai'deki Notre-Dame Katedrali, 12. yüzyılın ilk yarısında inşa edilmiştir. Özellikle olağanüstü boyutlardaki Romanesk nefiyle, başlıklarındaki zengin heykel işçiliğiyle ve hepsi Gotik üslubun öncüleri olan beş kuleyle taçlandırılmış transepti ile ayırt edilir. 13. yüzyılda yeniden inşa edilen koro bölümü ise saf Gotik üsluptadır."
   },
   {
     "id": "a6cecf09-a463-5b02-b546-5934d49e5868",
@@ -315,7 +349,9 @@
     "description": "The four major town houses - Hôtel Tassel, Hôtel Solvay, Hôtel van Eetvelde, and Maison & Atelier Horta - located in Brussels and designed by the architect Victor Horta, one of the earliest initiators of Art Nouveau, are some of the most remarkable pioneering works of architecture of the end of the 19th century. The stylistic revolution represented by these works is characterised by their open plan, the diffusion of light, and the brilliant joining of the curved lines of decoration with the structure of the building.",
     "latitude": 50.82806,
     "longitude": 4.36223,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Tassel_House_stairway.JPG/500px-Tassel_House_stairway.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Tassel_House_stairway.JPG/500px-Tassel_House_stairway.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Mimar Victor Horta'nın Önemli Konakları (Brüksel)",
+    "descriptionTr": "Art Nouveau'nun en erken öncülerinden biri olan mimar Victor Horta tarafından tasarlanan ve Brüksel'de bulunan dört önemli konak -Hôtel Tassel, Hôtel Solvay, Hôtel van Eetvelde ve Maison & Atelier Horta- 19. yüzyılın sonundaki en dikkat çekici öncü mimari eserlerden bazılarıdır. Bu eserlerin temsil ettiği üslupsal devrim; açık plan, ışığın yayılması ve süslemenin kıvrımlı çizgileriyle binanın yapısının ustaca birleştirilmesiyle karakterize edilir."
   },
   {
     "id": "db8b540d-b4f9-56cf-ab79-8b6c17562a26",
@@ -355,7 +391,9 @@
     "description": "The historic town of Mostar, spanning a deep valley of the Neretva River, developed in the 15th and 16th centuries as an Ottoman frontier town and during the Austro-Hungarian period in the 19th and 20th centuries. Mostar has long been known for its old Turkish houses and Old Bridge, Stari Most, after which it is named. In the 1990s conflict, however, most of the historic town and the Old Bridge, designed by the renowned architect Sinan, was destroyed. The Old Bridge was recently rebuilt and many of the edifices in the Old Town have been restored or rebuilt with the contribution of an international scientific committee established by UNESCO. The Old Bridge area, with its pre-Ottoman, eastern Ottoman, Mediterranean and western European architectural features, is an outstanding example of a multicultural urban settlement. The reconstructed Old Bridge and Old City of Mostar is a symbol of reconciliation, international co-operation and of the coexistence of diverse cultural, ethnic and religious communities.",
     "latitude": 43.3373055556,
     "longitude": 17.815,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/500px-Mostar_Old_Town_Panorama_2007.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/500px-Mostar_Old_Town_Panorama_2007.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Mostar Eski Şehri Eski Köprü Bölgesi",
+    "descriptionTr": "Neretva Nehri'nin derin bir vadisinde uzanan tarihi Mostar kenti, 15. ve 16. yüzyıllarda bir Osmanlı sınır kenti olarak ve 19. ile 20. yüzyıllarda Avusturya-Macaristan döneminde gelişmiştir. Mostar, uzun zamandır eski Türk evleriyle ve adını aldığı Eski Köprüsü, Stari Most ile tanınmaktadır. Ancak 1990'lardaki çatışmada, tarihi kentin büyük bölümü ve ünlü mimar Sinan tarafından tasarlanan Eski Köprü yıkılmıştır. Eski Köprü kısa süre önce yeniden inşa edilmiş ve Eski Şehir'deki birçok yapı, UNESCO tarafından kurulan uluslararası bir bilim kurulunun katkısıyla restore edilmiş veya yeniden inşa edilmiştir. Osmanlı öncesi, doğu Osmanlı, Akdeniz ve batı Avrupa mimari özelliklere sahip Eski Köprü bölgesi, çok kültürlü bir kentsel yerleşimin olağanüstü bir örneğidir. Yeniden inşa edilen Eski Köprü ve Mostar Eski Şehri, uzlaşmanın, uluslararası iş birliğinin ve çeşitli kültürel, etnik ve dinî toplulukların bir arada yaşamasının bir simgesidir."
   },
   {
     "id": "1f656663-7435-5ead-919c-29de20752885",
@@ -425,7 +463,9 @@
     "description": "Situated on a rocky peninsula on the Black Sea, the more than 3,000-year-old site of Nessebar was originally a Thracian settlement (Menebria). At the beginning of the 6th century BC, the city became a Greek colony. The city’s remains, which date mostly from the Hellenistic period, include the acropolis, a temple of Apollo, an agora and a wall from the Thracian fortifications. Among other monuments, the Stara Mitropolia Basilica and the fortress date from the Middle Ages, when this was one of the most important Byzantine towns on the west coast of the Black Sea. Wooden houses built in the 19th century are typical of the Black Sea architecture of the period.",
     "latitude": 42.6591111111,
     "longitude": 27.7360277778,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Nessebar_lead_collage.jpg/500px-Nessebar_lead_collage.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Nessebar_lead_collage.jpg/500px-Nessebar_lead_collage.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Nessebar Antik Kenti",
+    "descriptionTr": "Karadeniz'de kayalık bir yarımadada yer alan, 3.000 yılı aşkın geçmişe sahip Nessebar, başlangıçta bir Trak yerleşimiydi (Menebria). MÖ 6. yüzyılın başında kent bir Yunan kolonisi hâline geldi. Çoğunlukla Helenistik döneme tarihlenen kentin kalıntıları arasında akropol, bir Apollon tapınağı, bir agora ve Trak tahkimatlarından kalma bir sur bulunmaktadır. Diğer anıtlar arasında, kentin Karadeniz'in batı kıyısındaki en önemli Bizans kentlerinden biri olduğu Orta Çağ'a tarihlenen Stara Mitropolia Bazilikası ve kale yer almaktadır. 19. yüzyılda inşa edilen ahşap evler, dönemin tipik Karadeniz mimarisini yansıtmaktadır."
   },
   {
     "id": "4a25c3a2-c196-5e67-860d-7ef42cc0af58",
@@ -435,7 +475,9 @@
     "description": "The Srebarna Nature Reserve is a freshwater lake adjacent to the Danube and extending over 600 ha. It is the breeding ground of almost 100 species of birds, many of which are rare or endangered. Some 80 other bird species migrate and seek refuge there every winter. Among the most interesting bird species are the Dalmatian pelican, great egret, night heron, purple heron, glossy ibis and white spoonbill.",
     "latitude": 44.11444,
     "longitude": 27.07806,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Dalmatian_Pelican_and_Great_Cormorant_in_danube_delta.jpg/500px-Dalmatian_Pelican_and_Great_Cormorant_in_danube_delta.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Dalmatian_Pelican_and_Great_Cormorant_in_danube_delta.jpg/500px-Dalmatian_Pelican_and_Great_Cormorant_in_danube_delta.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Srebarna Doğa Rezervi",
+    "descriptionTr": "Srebarna Doğa Rezervi, Tuna Nehri'ne bitişik, 600 hektarı aşan bir tatlı su gölüdür. Çoğu nadir veya nesli tükenmekte olan yaklaşık 100 kuş türünün üreme alanıdır. Yaklaşık 80 farklı kuş türü ise her kış buraya göç ederek sığınmaktadır. En ilginç kuş türleri arasında Dalmaçya pelikanı, büyük ak balıkçıl, gece balıkçılı, mor balıkçıl, akbaş ibis ve kaşıkçı balıkçıl bulunmaktadır."
   },
   {
     "id": "9c1bf7fe-196c-5fb1-ada4-2cf50bfa87a1",
@@ -445,7 +487,9 @@
     "description": "In the valley of the Roussenski Lom River, in north east Bulgaria, a complex of rock-hewn churches, chapels, monasteries and cells developed in the vicinity of the village of Ivanovo. This is where the first hermits had dug out their cells and churches during the 12th century. The 14th-century murals testify to the exceptional skill of the artists belonging to the Tarnovo School of painting.",
     "latitude": 43.694858,
     "longitude": 25.987893,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Ivanovski_skalni_tsarkvi_20110714-61.JPG/500px-Ivanovski_skalni_tsarkvi_20110714-61.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Ivanovski_skalni_tsarkvi_20110714-61.JPG/500px-Ivanovski_skalni_tsarkvi_20110714-61.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "İvanovo Kaya Kiliseleri",
+    "descriptionTr": "Kuzeydoğu Bulgaristan'daki Rusenski Lom Nehri vadisinde, İvanovo köyü yakınlarında kayaya oyulmuş kiliseler, şapeller, manastırlar ve hücrelerden oluşan bir kompleks gelişmiştir. İlk keşişler hücrelerini ve kiliselerini 12. yüzyılda burada oymuştur. 14. yüzyıldan kalma duvar resimleri, Tırnovo resim okuluna mensup sanatçıların olağanüstü ustalığına tanıklık etmektedir."
   },
   {
     "id": "6b0e3cc7-bce8-5465-9a68-57e5fc1b03f5",
@@ -455,7 +499,9 @@
     "description": "Discovered in 1944, this tomb dates from the Hellenistic period, around the end of the 4th century BC. It is located near Seutopolis, the capital city of the Thracian king Seutes III, and is part of a large Thracian necropolis. The tholos has a narrow corridor and a round burial chamber, both decorated with murals representing Thracian burial rituals and culture. These paintings are Bulgaria’s best-preserved artistic masterpieces from the Hellenistic period.",
     "latitude": 42.625774,
     "longitude": 25.399172,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kazanluk_1.jpg/500px-Kazanluk_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kazanluk_1.jpg/500px-Kazanluk_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Kazanlık Trak Mezarı",
+    "descriptionTr": "1944'te keşfedilen bu mezar, Helenistik döneme, yaklaşık MÖ 4. yüzyılın sonuna tarihlenmektedir. Trak kralı III. Seutes'in başkenti Seutopolis'e yakın konumda olup büyük bir Trak nekropolünün parçasıdır. Tholos, dar bir koridora ve Trak defin ritüellerini ile kültürünü tasvir eden duvar resimleriyle süslenmiş yuvarlak bir mezar odasına sahiptir. Bu resimler, Bulgaristan'ın Helenistik dönemden kalma en iyi korunmuş sanat başyapıtlarıdır."
   },
   {
     "id": "d396875b-c9e0-5c28-aed7-3d1c64fe3269",
@@ -465,7 +511,9 @@
     "description": "Situated on the edge of a plateau that dominates the plain of Cambodia, the Temple of Preah Vihear is dedicated to Shiva. The Temple is composed of a series of sanctuaries linked by a system of pavements and staircases over an 800 metre long axis and dates back to the first half of the 11th century AD. Nevertheless, its complex history can be traced to the 9th century, when the hermitage was founded. This site is particularly well preserved, mainly due to its remote location. The site is exceptional for the quality of its architecture, which is adapted to the natural environment and the religious function of the temple, as well as for the exceptional quality of its carved stone ornamentation.",
     "latitude": 14.390841,
     "longitude": 104.680325,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/03_Prasat_Preah_Vihear-nX-06478.jpg/500px-03_Prasat_Preah_Vihear-nX-06478.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/03_Prasat_Preah_Vihear-nX-06478.jpg/500px-03_Prasat_Preah_Vihear-nX-06478.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Preah Vihear Tapınağı",
+    "descriptionTr": "Kamboçya ovasına hakim bir platonun kenarında yer alan Preah Vihear Tapınağı, Şiva'ya adanmıştır. Tapınak, 800 metre uzunluğundaki bir eksen boyunca kaldırım ve merdiven sistemiyle birbirine bağlanan bir dizi kutsal alandan oluşur ve MS 11. yüzyılın ilk yarısına tarihlenmektedir. Yine de karmaşık tarihi, keşişhanenin kurulduğu 9. yüzyıla kadar izlenebilir. Alan, büyük ölçüde uzak konumu sayesinde son derece iyi korunmuştur. Doğal çevreye ve tapınağın dinî işlevine uyarlanmış mimarisinin niteliği ile oyma taş süslemelerinin olağanüstü kalitesiyle öne çıkmaktadır."
   },
   {
     "id": "72604761-7096-51f9-8665-2fe2c47569a9",
@@ -519,7 +567,7 @@
   },
   {
     "id": "0f79bdad-c9b2-5e51-89bb-82f3e012c51c",
-    "name": "S<U>G</U>ang Gwaay",
+    "name": "SGang Gwaay",
     "country": "Canada",
     "category": "Cultural",
     "description": "The village of Ninstints (Nans Dins) is located on a small island off the west coast of the Queen Charlotte Islands (Haida Gwaii). Remains of houses, together with carved mortuary and memorial poles, illustrate the Haida people's art and way of life. The site commemorates the living culture of the Haida people and their relationship to the land and sea, and offers a visual key to their oral traditions.",
@@ -565,7 +613,9 @@
     "description": "The palaces and temples which form the nucleus of this group of secular and religious buildings exemplify the architectural and artistic achievements of China's Yuan, Ming and Qing dynasties. Situated in the scenic valleys and on the slopes of the Wudang mountains in Hubei Province, the site, which was built as an organized complex during the Ming dynasty (14th–17th centuries), contains Taoist buildings from as early as the 7th century. It represents the highest standards of Chinese art and architecture over a period of nearly 1,000 years.",
     "latitude": 32.46667,
     "longitude": 111,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Wudang_Mountain_%2854131425234%29.jpg/500px-Wudang_Mountain_%2854131425234%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Wudang_Mountain_%2854131425234%29.jpg/500px-Wudang_Mountain_%2854131425234%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Wudang Dağları'ndaki Antik Yapı Kompleksi",
+    "descriptionTr": "Bu laik ve dinî yapılar grubunun çekirdeğini oluşturan saraylar ve tapınaklar, Çin'in Yuan, Ming ve Qing hanedanlarının mimari ve sanatsal başarılarını örnekler. Hubei eyaletindeki Wudang dağlarının pitoresk vadilerinde ve yamaçlarında yer alan alan, Ming hanedanı döneminde (14.-17. yüzyıllar) düzenli bir kompleks olarak inşa edilmiş olup 7. yüzyıla kadar uzanan Taoist yapıları da içermektedir. Neredeyse 1.000 yıllık bir dönem boyunca Çin sanatının ve mimarisinin en yüksek standartlarını temsil eder."
   },
   {
     "id": "d1523aba-77ab-553b-9244-e961bd44f808",
@@ -575,7 +625,9 @@
     "description": "Classical Chinese garden design, which seeks to recreate natural landscapes in miniature, is nowhere better illustrated than in the nine gardens in the historic city of Suzhou. They are generally acknowledged to be masterpieces of the genre. Dating from the 11th-19th century, the gardens reflect the profound metaphysical importance of natural beauty in Chinese culture in their meticulous design.",
     "latitude": 31.31666667,
     "longitude": 120.45,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/20240203_Lingering_Garden_09.jpg/500px-20240203_Lingering_Garden_09.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/20240203_Lingering_Garden_09.jpg/500px-20240203_Lingering_Garden_09.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Suzhou Klasik Bahçeleri",
+    "descriptionTr": "Doğal peyzajları minyatür ölçekte yeniden yaratmayı amaçlayan klasik Çin bahçe tasarımı, hiçbir yerde tarihi Suzhou kentindeki dokuz bahçede olduğu kadar iyi örneklenmez. Bu bahçeler genel olarak türün başyapıtları kabul edilir. 11. ile 19. yüzyıllar arasına tarihlenen bahçeler, titiz tasarımlarıyla doğal güzelliğin Çin kültüründeki derin metafizik önemini yansıtır."
   },
   {
     "id": "ad591338-ec9e-5bee-851b-5c7ccdb14e60",
@@ -585,7 +637,9 @@
     "description": "The steep hillsides of the Dazu area contain an exceptional series of rock carvings dating from the 9th to the 13th century. They are remarkable for their aesthetic quality, their rich diversity of subject matter, both secular and religious, and the light that they shed on everyday life in China during this period. They provide outstanding evidence of the harmonious synthesis of Buddhism, Taoism and Confucianism.",
     "latitude": 29.70111,
     "longitude": 105.705,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Dazu_2007_685_full_view.jpg/500px-Dazu_2007_685_full_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Dazu_2007_685_full_view.jpg/500px-Dazu_2007_685_full_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Dazu Kaya Oymaları",
+    "descriptionTr": "Dazu bölgesinin sarp yamaçları, 9. ile 13. yüzyıllar arasına tarihlenen olağanüstü bir kaya oyması dizisini barındırır. Bu oymalar, estetik nitelikleri, hem laik hem dinî konulardaki zengin çeşitlilikleri ve bu dönemde Çin'deki gündelik yaşama tuttukları ışıkla dikkat çekicidir. Budizm, Taoizm ve Konfüçyüsçülüğün uyumlu bir sentezine dair olağanüstü kanıtlar sunarlar."
   },
   {
     "id": "f6d55e14-8488-5a76-8e09-46112bac0256",
@@ -595,7 +649,9 @@
     "description": "Located on Jingmai Mountain in southwestern China, this cultural landscape was developed over a thousand years by the Blang and Dai peoples following practices that began in the 10th century. The property is a tea production area comprised of traditional villages within old tea groves surrounded by forests and tea plantations. The traditional understorey cultivation of old tea trees is a method that responds to the specific conditions of the mountain’s ecosystem and subtropical monsoon climate, combined with a governance system maintained by the local Indigenous communities. Traditional ceremonies and festivities relate to the Tea Ancestor belief that spirits live in the tea plantations and in the local fauna and flora, a belief that is at the core of this cultural tradition.",
     "latitude": 22.1841666667,
     "longitude": 100.0075,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/%22Da_Yi_Gong_Tuo%22_Pu-erh_shou_cha%2C_2010.jpg/330px-%22Da_Yi_Gong_Tuo%22_Pu-erh_shou_cha%2C_2010.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/%22Da_Yi_Gong_Tuo%22_Pu-erh_shou_cha%2C_2010.jpg/330px-%22Da_Yi_Gong_Tuo%22_Pu-erh_shou_cha%2C_2010.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Pu'er'deki Jingmai Dağı Eski Çay Ormanları Kültürel Peyzajı",
+    "descriptionTr": "Güneybatı Çin'de Jingmai Dağı üzerinde yer alan bu kültürel peyzaj, 10. yüzyılda başlayan uygulamaları izleyen Blang ve Dai halkları tarafından bin yıl boyunca geliştirilmiştir. Alan, ormanlar ve çay plantasyonlarıyla çevrili eski çay korularının içindeki geleneksel köylerden oluşan bir çay üretim bölgesidir. Eski çay ağaçlarının geleneksel alt katman yetiştiriciliği, dağın ekosistemine ve subtropikal muson iklimine özgü koşullara yanıt veren, yerli toplulukların sürdürdüğü bir yönetişim sistemiyle birleşen bir yöntemdir. Geleneksel törenler ve şenlikler, ruhların çay plantasyonlarında ve yerel fauna ile florada yaşadığına dair Çay Ata inancıyla ilişkilidir; bu inanç, bu kültürel geleneğin özünü oluşturur."
   },
   {
     "id": "78b7d48a-8cae-5cb5-a98a-4c565dc07ecf",
@@ -605,7 +661,9 @@
     "description": "It represents the addition of three Imperial Tombs of the Qing Dynasty in Liaoning to the Ming tombs inscribed in 2000 and 2003. The Three Imperial Tombs of the Qing Dynasty in Liaoning Province include the Yongling Tomb, the Fuling Tomb, and the Zhaoling Tomb, all built in the 17th century. Constructed for the founding emperors of the Qing Dynasty and their ancestors, the tombs follow the precepts of traditional Chinese geomancy and fengshui theory. They feature rich decoration of stone statues and carvings and tiles with dragon motifs, illustrating the development of the funerary architecture of the Qing Dynasty. The three tomb complexes, and their numerous edifices, combine traditions inherited from previous dynasties and new features of Manchu civilization.",
     "latitude": 41.70722222,
     "longitude": 124.7938889,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Beiling_Park_24617-Shenyang_%2849052226601%29.jpg/500px-Beiling_Park_24617-Shenyang_%2849052226601%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Beiling_Park_24617-Shenyang_%2849052226601%29.jpg/500px-Beiling_Park_24617-Shenyang_%2849052226601%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Ming ve Qing Hanedanları İmparatorluk Mezarları",
+    "descriptionTr": "Bu alan, 2000 ve 2003 yıllarında listeye eklenen Ming mezarlarına, Liaoning'deki Qing Hanedanlığı'na ait üç imparatorluk mezarının eklenmesini temsil eder. Liaoning eyaletindeki Qing Hanedanlığı'na ait üç imparatorluk mezarı; 17. yüzyılda inşa edilen Yongling, Fuling ve Zhaoling mezarlarını kapsar. Qing Hanedanlığı'nın kurucu imparatorları ve ataları için inşa edilen mezarlar, geleneksel Çin feng şui ve geomansi ilkelerini takip eder. Ejderha motifli taş heykel ve oymalarla, çinilerle zengin bir süslemeye sahip olan mezarlar, Qing Hanedanlığı'nın cenaze mimarisinin gelişimini gözler önüne serer. Üç mezar kompleksi ve çok sayıdaki yapısı, önceki hanedanlardan devralınan gelenekleri Mançu medeniyetinin yeni özellikleriyle birleştirir."
   },
   {
     "id": "c9992450-157d-5975-9556-6e89a3514399",
@@ -615,7 +673,9 @@
     "description": "Stretching over 72,000 ha in the northern part of Sichuan Province, the jagged Jiuzhaigou valley reaches a height of more than 4,800 m, thus comprising a series of diverse forest ecosystems. Its superb landscapes are particularly interesting for their series of narrow conic karst land forms and spectacular waterfalls. Some 140 bird species also inhabit the valley, as well as a number of endangered plant and animal species, including the giant panda and the Sichuan takin.",
     "latitude": 33.08333,
     "longitude": 103.91667,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg/500px-1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg/500px-1_jiuzhaigou_valley_wu_hua_hai_2011b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Jiuzhaigou Vadisi Manzara ve Tarihi İlgi Alanı",
+    "descriptionTr": "Sichuan eyaletinin kuzeyinde 72.000 hektarlık bir alana yayılan sarp Jiuzhaigou vadisi, 4.800 metreyi aşan bir yüksekliğe ulaşarak çeşitli orman ekosistemlerinden oluşan bir dizi barındırır. Muhteşem peyzajları, özellikle dar konik karst arazi biçimleri ve etkileyici şelaleleriyle dikkat çekicidir. Vadide dev panda ve Sichuan takini de dahil olmak üzere tehlike altındaki bazı bitki ve hayvan türlerinin yanı sıra yaklaşık 140 kuş türü de yaşamaktadır."
   },
   {
     "id": "95fa0f45-4a35-56f5-9547-480a940f3ade",
@@ -625,7 +685,9 @@
     "description": "The grottoes and niches of Longmen contain the largest and most impressive collection of Chinese art of the late Northern Wei and Tang Dynasties (316-907). These works, entirely devoted to the Buddhist religion, represent the high point of Chinese stone carving.",
     "latitude": 34.46666667,
     "longitude": 112.4666667,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/27427-Luoyang_%2849067744628%29.jpg/500px-27427-Luoyang_%2849067744628%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Longmen Mağaraları",
+    "descriptionTr": "Longmen'in mağaraları ve nişleri, geç Kuzey Wei ve Tang Hanedanları (316-907) dönemine ait en büyük ve en etkileyici Çin sanatı koleksiyonunu barındırır. Tamamen Budist dinine adanmış bu eserler, Çin taş oymacılığının doruk noktasını temsil eder."
   },
   {
     "id": "d7ee19b5-2247-55b0-9fa8-a0b3672bba70",
@@ -635,7 +697,9 @@
     "description": "Mount Sanqingshan National Park, a 22,950 ha property located in the west of the Huyaiyu mountain range in the northeast of Jiangxi Province (in the east of central China) has been inscribed for its exceptional scenic quality, marked by the concentration of fantastically shaped pillars and peaks: 48 granite peaks and 89 granite pillars, many of which resemble human or animal silhouettes. The natural beauty of the 1,817 metre high Mount Huaiyu is further enhanced by the juxtaposition of granite features with the vegetation and particular meteorological conditions which make for an ever-changing and arresting landscape with bright halos on clouds and white rainbows. The area is subject to a combination of subtropical monsoonal and maritime influences and forms an island of temperate forest above the surrounding subtropical landscape. It also features forests and numerous waterfalls, some of them 60 metres in height, lakes and springs.",
     "latitude": 28.9158333333,
     "longitude": 118.0644444444,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/19194-SanQingShan_%2846786622272%29.jpg/500px-19194-SanQingShan_%2846786622272%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/19194-SanQingShan_%2846786622272%29.jpg/500px-19194-SanQingShan_%2846786622272%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Sanqingshan Dağı Millî Parkı",
+    "descriptionTr": "Jiangxi eyaletinin kuzeydoğusunda (orta Çin'in doğusunda) Huaiyu dağ silsilesinin batısında yer alan 22.950 hektarlık Sanqingshan Dağı Millî Parkı, çoğu insan veya hayvan siluetine benzeyen 48 granit zirve ve 89 granit sütunun yoğunlaştığı olağanüstü manzara niteliğiyle listeye alınmıştır. 1.817 metre yüksekliğindeki Huaiyu Dağı'nın doğal güzelliği, granit oluşumların bitki örtüsü ve kendine özgü meteorolojik koşullarla yan yana gelmesiyle daha da artmakta, bulutların üzerinde parlak halolar ve beyaz gökkuşaklarıyla sürekli değişen etkileyici bir peyzaj oluşturmaktadır. Alan, subtropikal muson ve deniz etkilerinin bir bileşimine maruz kalmakta ve çevresindeki subtropikal peyzajın üzerinde ılıman bir orman adası oluşturmaktadır. Ayrıca ormanlara, bazıları 60 metre yüksekliğinde sayısız şelaleye, göllere ve kaynaklara sahiptir."
   },
   {
     "id": "a2965ff4-5778-531a-9ce4-f3c3c59fbb46",
@@ -645,7 +709,9 @@
     "description": "Construction of the Dujiangyan irrigation system began in the 3rd century B.C. This system still controls the waters of the Minjiang River and distributes it to the fertile farmland of the Chengdu plains. Mount Qingcheng was the birthplace of Taoism, which is celebrated in a series of ancient temples.",
     "latitude": 31.00167,
     "longitude": 103.60528,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/%E5%9B%9B%E5%B7%9D_%E9%9D%92%E5%9F%8E%E5%B1%B1-%E7%B4%A2%E9%81%93%E4%B8%8B%E5%8F%A3%E7%AB%99_-_panoramio.jpg/330px-%E5%9B%9B%E5%B7%9D_%E9%9D%92%E5%9F%8E%E5%B1%B1-%E7%B4%A2%E9%81%93%E4%B8%8B%E5%8F%A3%E7%AB%99_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/%E5%9B%9B%E5%B7%9D_%E9%9D%92%E5%9F%8E%E5%B1%B1-%E7%B4%A2%E9%81%93%E4%B8%8B%E5%8F%A3%E7%AB%99_-_panoramio.jpg/330px-%E5%9B%9B%E5%B7%9D_%E9%9D%92%E5%9F%8E%E5%B1%B1-%E7%B4%A2%E9%81%93%E4%B8%8B%E5%8F%A3%E7%AB%99_-_panoramio.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Qingcheng Dağı ve Dujiangyan Sulama Sistemi",
+    "descriptionTr": "Dujiangyan sulama sisteminin inşasına MÖ 3. yüzyılda başlanmıştır. Bu sistem, Minjiang Nehri'nin sularını hâlâ kontrol etmekte ve Chengdu ovalarının verimli tarım arazilerine dağıtmaktadır. Qingcheng Dağı, bir dizi antik tapınakta kutlanan Taoizm'in doğduğu yerdir."
   },
   {
     "id": "f8eff109-91b9-5ccd-bd3a-205347955644",
@@ -655,7 +721,9 @@
     "description": "Mount Wuyi is the most outstanding area for biodiversity conservation in south-east China and a refuge for a large number of ancient, relict species, many of them endemic to China. The serene beauty of the dramatic gorges of the Nine Bend River, with its numerous temples and monasteries, many now in ruins, provided the setting for the development and spread of neo-Confucianism, which has been influential in the cultures of East Asia since the 11th century. In the 1st century B.C. a large administrative capital was built at nearby Chengcun by the Han dynasty rulers. Its massive walls enclose an archaeological site of great significance.",
     "latitude": 27.7263888889,
     "longitude": 117.7252777778,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wuyi_Mountains_Sea_of_clouds_4.jpg/500px-Wuyi_Mountains_Sea_of_clouds_4.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Wuyi_Mountains_Sea_of_clouds_4.jpg/500px-Wuyi_Mountains_Sea_of_clouds_4.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Wuyi Dağı",
+    "descriptionTr": "Wuyi Dağı, güneydoğu Çin'de biyoçeşitliliğin korunması açısından en önemli alandır ve çoğu Çin'e özgü olan çok sayıda kadim, kalıntı türe sığınak sağlamaktadır. Çoğu artık harabe hâlindeki sayısız tapınak ve manastıra sahip Dokuz Kıvrım Nehri'nin çarpıcı kanyonlarının sakin güzelliği, 11. yüzyıldan bu yana Doğu Asya kültürlerinde etkili olan Yeni-Konfüçyüsçülüğün gelişimi ve yayılması için bir zemin sağlamıştır. MÖ 1. yüzyılda, yakındaki Chengcun'da Han hanedanı hükümdarları tarafından büyük bir idari başkent inşa edilmiştir. Devasa surları, büyük öneme sahip bir arkeolojik alanı çevrelemektedir."
   },
   {
     "id": "d16f1268-7910-5021-bbf8-e7d027521f89",
@@ -665,7 +733,9 @@
     "description": "The Old Town of Lijiang, which is perfectly adapted to the uneven topography of this key commercial and strategic site, has retained a historic townscape of high quality and authenticity. Its architecture is noteworthy for the blending of elements from several cultures that have come together over many centuries. Lijiang also possesses an ancient water-supply system of great complexity and ingenuity that still functions effectively today.",
     "latitude": 26.86667,
     "longitude": 100.23333,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Lijiang_-_panoramio_%286%29.jpg/500px-Lijiang_-_panoramio_%286%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Lijiang_-_panoramio_%286%29.jpg/500px-Lijiang_-_panoramio_%286%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Lijiang Eski Kenti",
+    "descriptionTr": "Bu önemli ticaret ve stratejik alanın engebeli topografyasına mükemmel biçimde uyarlanmış Lijiang Eski Kenti, yüksek nitelikte ve özgün bir tarihi kent dokusunu korumuştur. Mimarisi, yüzyıllar boyunca bir araya gelen çeşitli kültürlerin unsurlarının kaynaşmasıyla dikkat çekicidir. Lijiang ayrıca, bugün hâlâ etkin biçimde çalışan büyük karmaşıklık ve ustalık içeren antik bir su temin sistemine de sahiptir."
   },
   {
     "id": "70e0c421-1409-5d13-b31f-15621aaceca2",
@@ -675,7 +745,9 @@
     "description": "The Mountain Resort (the Qing dynasty's summer palace), in Hebei Province, was built between 1703 and 1792. It is a vast complex of palaces and administrative and ceremonial buildings. Temples of various architectural styles and imperial gardens blend harmoniously into a landscape of lakes, pastureland and forests. In addition to its aesthetic interest, the Mountain Resort is a rare historic vestige of the final development of feudal society in China.",
     "latitude": 40.98694,
     "longitude": 117.93833,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Chengde_Mountain_Resort_22944-Chengde_%2844830038471%29.jpg/500px-Chengde_Mountain_Resort_22944-Chengde_%2844830038471%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Chengde_Mountain_Resort_22944-Chengde_%2844830038471%29.jpg/500px-Chengde_Mountain_Resort_22944-Chengde_%2844830038471%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Dağ Tatil Sarayı ve Chengde'deki Çevre Tapınakları",
+    "descriptionTr": "Hebei eyaletindeki Dağ Tatil Sarayı (Qing hanedanının yazlık sarayı), 1703 ile 1792 yılları arasında inşa edilmiştir. Saraylardan, idari ve törensel binalardan oluşan devasa bir kompleks olan yapı, farklı mimari üsluplardaki tapınaklar ve imparatorluk bahçeleriyle göller, otlaklar ve ormanlardan oluşan bir peyzajla uyum içinde harmanlanmaktadır. Estetik ilgisinin yanı sıra, Dağ Tatil Sarayı, Çin'de feodal toplumun son gelişim evresinin nadir bir tarihi izidir."
   },
   {
     "id": "60158775-3624-5ede-bb0e-162620a5fb56",
@@ -685,7 +757,9 @@
     "description": "Located in the mountainous areas of south-west China, this property encompasses remains of several tribal domains whose chiefs were appointed by the central government as ‘Tusi’, hereditary rulers from the 13th to the early 20thcentury. The Tusi system arose from the ethnic minorities’ dynastic systems of government dating back to the 3rd century BCE. Its purpose was to unify national administration, while allowing ethnic minorities to retain their customs and way of life. The sites of Laosicheng, Tangya and Hailongtun Fortress that make up the site bear exceptional testimony to this form of governance, which derived from the Chinese civilization of the Yuan and Ming periods.",
     "latitude": 28.9986111111,
     "longitude": 109.9669444444,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/%E6%B5%B7%E9%BE%99%E5%B1%AF_%E6%9C%9D%E5%A4%A9%E5%85%B3.jpg/500px-%E6%B5%B7%E9%BE%99%E5%B1%AF_%E6%9C%9D%E5%A4%A9%E5%85%B3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/%E6%B5%B7%E9%BE%99%E5%B1%AF_%E6%9C%9D%E5%A4%A9%E5%85%B3.jpg/500px-%E6%B5%B7%E9%BE%99%E5%B1%AF_%E6%9C%9D%E5%A4%A9%E5%85%B3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Tusi Alanları",
+    "descriptionTr": "Güneybatı Çin'in dağlık bölgelerinde yer alan bu alan, önderleri merkezi hükümet tarafından 13. yüzyıldan 20. yüzyılın başlarına kadar 'Tusi' olarak atanan kalıtsal yöneticiler olan çeşitli kabile bölgelerinin kalıntılarını kapsar. Tusi sistemi, MÖ 3. yüzyıla uzanan etnik azınlıkların hanedan yönetim sistemlerinden doğmuştur. Amacı, etnik azınlıkların gelenek ve yaşam biçimlerini korumalarına izin verirken ulusal yönetimi birleştirmekti. Alanı oluşturan Laosicheng, Tangya ve Hailongtun Kalesi alanları, Yuan ve Ming dönemleri Çin medeniyetinden türeyen bu yönetim biçimine olağanüstü tanıklık etmektedir."
   },
   {
     "id": "92103e21-4569-5f17-812b-d55b1e26b0eb",
@@ -695,7 +769,9 @@
     "description": "Consisting of eight geographical clusters of protected areas within the boundaries of the Three Parallel Rivers National Park, in the mountainous north-west of Yunnan Province, the 1.7 million hectare site features sections of the upper reaches of three of the great rivers of Asia: the Yangtze (Jinsha), Mekong and Salween run roughly parallel, north to south, through steep gorges which, in places, are 3,000 m deep and are bordered by glaciated peaks more than 6,000 m high. The site is an epicentre of Chinese biodiversity. It is also one of the richest temperate regions of the world in terms of biodiversity.",
     "latitude": 27.895,
     "longitude": 98.40638889,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/56762-Yunnan%2C_Three_Parallel_Rivers_02.jpg/500px-56762-Yunnan%2C_Three_Parallel_Rivers_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/56762-Yunnan%2C_Three_Parallel_Rivers_02.jpg/500px-56762-Yunnan%2C_Three_Parallel_Rivers_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Yunnan Üç Paralel Nehir Korunan Alanları",
+    "descriptionTr": "Yunnan eyaletinin dağlık kuzeybatısındaki Üç Paralel Nehir Millî Parkı sınırları içinde sekiz coğrafi korunan alan kümesinden oluşan 1,7 milyon hektarlık bu alan, Asya'nın büyük nehirlerinden üçünün -Yangtze (Jinsha), Mekong ve Salween- yukarı kesimlerini barındırır; bu nehirler kuzeyden güneye kabaca paralel biçimde, yer yer 3.000 metre derinliğe ulaşan sarp kanyonlardan geçer ve 6.000 metreyi aşan buzullu zirvelerle çevrilidir. Alan, Çin biyoçeşitliliğinin bir merkez üssüdür. Aynı zamanda dünyanın biyoçeşitlilik açısından en zengin ılıman bölgelerinden biridir."
   },
   {
     "id": "f5cc4733-18c2-55e2-95b5-94c07f5f7e8a",
@@ -705,7 +781,9 @@
     "description": "The West Lake Cultural Landscape of Hangzhou, comprising the West Lake and the hills surrounding its three sides, has inspired famous poets, scholars and artists since the 9th century. It comprises numerous temples, pagodas, pavilions, gardens and ornamental trees, as well as causeways and artificial islands. These additions have been made to improve the landscape west of the city of Hangzhou to the south of the Yangtze river. The West Lake has influenced garden design in the rest of China as well as Japan and Korea over the centuries and bears an exceptional testimony to the cultural tradition of improving landscapes to create a series of vistas reflecting an idealised fusion between humans and nature.",
     "latitude": 30.2375,
     "longitude": 120.1408333333,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Neckertal_20150527-6384.jpg/330px-Neckertal_20150527-6384.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Neckertal_20150527-6384.jpg/330px-Neckertal_20150527-6384.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Hangzhou Batı Göl Kültürel Peyzajı",
+    "descriptionTr": "Batı Göl'ü ve onun üç yanını çevreleyen tepeleri kapsayan Hangzhou Batı Göl Kültürel Peyzajı, 9. yüzyıldan bu yana ünlü şairlere, bilginlere ve sanatçılara ilham vermiştir. Çok sayıda tapınak, pagoda, köşk, bahçe ve süs ağacının yanı sıra setler ve yapay adalar da içerir. Bu eklemeler, Yangtze nehrinin güneyindeki Hangzhou kentinin batısındaki peyzajı iyileştirmek amacıyla yapılmıştır. Batı Göl, yüzyıllar boyunca Çin'in geri kalanında olduğu kadar Japonya ve Kore'de de bahçe tasarımını etkilemiş olup, insan ile doğa arasında idealize edilmiş bir kaynaşmayı yansıtan bir dizi manzara yaratmak amacıyla peyzajı iyileştirme kültürel geleneğine olağanüstü tanıklık etmektedir."
   },
   {
     "id": "57922af1-e23a-5526-a80f-23203617c46a",
@@ -725,7 +803,9 @@
     "description": "The archaeological site of Yin Xu, close to Anyang City, some 500 km south of Beijing, is an ancient capital city of the late Shang Dynasty (1300 - 1046 BC). It testifies to the golden age of early Chinese culture, crafts and sciences, a time of great prosperity of the Chinese Bronze Age. A number of royal tombs and palaces, prototypes of later Chinese architecture, have been unearthed on the site, including the Palace and Royal Ancestral Shrines Area, with more than 80 house foundations, and the only tomb of a member of the royal family of the Shang Dynasty to have remained intact, the Tomb of Fu Hao. The large number and superb craftsmanship of the burial accessories found there bear testimony to the advanced level of Shang crafts industry. Inscriptions on oracle bones found in Yin Xu bear invaluable testimony to the development of one of the world’s oldest writing systems, ancient beliefs and social systems.",
     "latitude": 36.1266666666,
     "longitude": 114.3138888888,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Exterior%2C_Yinxu_Museum_20241002-B.jpg/500px-Exterior%2C_Yinxu_Museum_20241002-B.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Exterior%2C_Yinxu_Museum_20241002-B.jpg/500px-Exterior%2C_Yinxu_Museum_20241002-B.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Yin Xu",
+    "descriptionTr": "Pekin'in yaklaşık 500 km güneyinde, Anyang kentine yakın konumdaki Yin Xu arkeolojik alanı, geç Shang Hanedanlığı'nın (MÖ 1300-1046) antik bir başkentidir. Çin Bronz Çağı'nın büyük refah dönemine, erken Çin kültürünün, el sanatlarının ve bilimlerinin altın çağına tanıklık eder. Alanda, Shang Hanedanlığı'na ait bozulmamış hâliyle kalan tek kraliyet ailesi mezarı olan Fu Hao Mezarı ve 80'den fazla ev temeli barındıran Saray ve Kraliyet Ata Tapınakları Alanı dahil olmak üzere, sonraki Çin mimarisinin prototipleri niteliğindeki bir dizi kraliyet mezarı ve sarayı gün ışığına çıkarılmıştır. Burada bulunan çok sayıdaki cenaze eşyasının olağanüstü işçiliği, Shang el sanatları endüstrisinin gelişmiş düzeyine tanıklık etmektedir. Yin Xu'da bulunan kehanet kemikleri üzerindeki yazıtlar, dünyanın en eski yazı sistemlerinden birinin gelişimine, antik inançlara ve toplumsal sistemlere paha biçilmez bir tanıklık sunmaktadır."
   },
   {
     "id": "64a4467e-39ce-5302-abcb-e154a825713b",
@@ -805,7 +885,9 @@
     "description": "The waters flowing over the limestone and chalk have, over thousands of years, deposited travertine barriers, creating natural dams which in turn have created a series of beautiful lakes, caves and waterfalls. These geological processes continue today. The forests in the park are home to bears, wolves and many rare bird species.",
     "latitude": 44.87778,
     "longitude": 15.61444,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/View_in_Plitvice_Lakes_National_Park.jpg/330px-View_in_Plitvice_Lakes_National_Park.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/View_in_Plitvice_Lakes_National_Park.jpg/330px-View_in_Plitvice_Lakes_National_Park.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Plitvice Gölleri Millî Parkı",
+    "descriptionTr": "Kireçtaşı ve tebeşir üzerinden akan sular, binlerce yıl boyunca traverten bariyerleri biriktirerek bir dizi güzel göl, mağara ve şelale oluşturan doğal setler yaratmıştır. Bu jeolojik süreçler bugün de devam etmektedir. Parktaki ormanlar, ayılara, kurtlara ve birçok nadir kuş türüne ev sahipliği yapmaktadır."
   },
   {
     "id": "00698bd8-044f-57d6-b05b-e847bfe46db9",
@@ -825,7 +907,9 @@
     "description": "This property consists of 6 components of defence works in Italy, Croatia and Montenegro, spanning more than 1,000 km between the Lombard region of Italy and the eastern Adriatic Coast. The fortifications throughout the Stato da Terra protected the Republic of Venice from other European powers to the northwest and those of the Stato da Mar protected the sea routes and ports in the Adriatic Sea to the Levant. They were necessary to support the expansion and authority of the Serenissima. The introduction of gunpowder led to significant shifts in military techniques and architecture that are reflected in the design of so-called alla moderna / bastioned, fortifications, which were to spread throughout Europe.",
     "latitude": 45.7033333333,
     "longitude": 9.6636111111,
-    "imageUrl": null
+    "imageUrl": null,
+    "nameTr": "16. ve 17. Yüzyıllar Arasında Venedik Savunma Yapıları: Stato da Terra – Batı Stato da Mar",
+    "descriptionTr": "Bu miras alanı, İtalya'nın Lombardiya bölgesi ile doğu Adriyatik kıyısı arasında 1.000 km'den fazla uzanan İtalya, Hırvatistan ve Karadağ'daki 6 savunma yapısı bileşeninden oluşur. Stato da Terra boyunca uzanan tahkimatlar, Venedik Cumhuriyeti'ni kuzeybatıdaki diğer Avrupa güçlerinden korurken, Stato da Mar'ınkiler Adriyatik Denizi'nden Levant'a uzanan deniz yollarını ve limanları korumaktaydı. Bu yapılar, Serenissima'nın (Venedik Cumhuriyeti'nin) genişlemesini ve otoritesini desteklemek için gerekliydi. Barutun kullanıma girmesi, askerî tekniklerde ve mimaride önemli değişimlere yol açmış ve bu değişimler, sonradan tüm Avrupa'ya yayılacak olan 'alla moderna' / tabyalı tahkimatların tasarımına yansımıştır."
   },
   {
     "id": "965f388e-a54b-5d5c-9efc-2dd210b4a74e",
@@ -845,7 +929,9 @@
     "description": "This region is characterized by one of the largest groups of churches and monasteries of the former Byzantine Empire. The complex of 10 monuments included on the World Heritage List, all richly decorated with murals, provides an overview of Byzantine and post-Byzantine painting in Cyprus. They range from small churches whose rural architectural style is in stark contrast to their highly refined decoration, to monasteries such as that of St John Lampadistis.",
     "latitude": 34.92027778,
     "longitude": 33.09583333,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Asinou_-_Kirche_Narthex_4_Kuppel.jpg/500px-Asinou_-_Kirche_Narthex_4_Kuppel.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Asinou_-_Kirche_Narthex_4_Kuppel.jpg/500px-Asinou_-_Kirche_Narthex_4_Kuppel.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Troodos Bölgesi'ndeki Resimli Kiliseler",
+    "descriptionTr": "Bu bölge, eski Bizans İmparatorluğu'na ait en büyük kilise ve manastır gruplarından biriyle karakterize edilir. Dünya Miras Listesi'ne dahil edilen, hepsi zengin duvar resimleriyle süslenmiş 10 anıttan oluşan kompleks, Kıbrıs'taki Bizans ve Bizans sonrası resim sanatına ilişkin genel bir bakış sunar. Kırsal mimari üslubu son derece rafine süslemeleriyle keskin bir tezat oluşturan küçük kiliselerden, Aziz Ioannis Lampadistis Manastırı gibi manastırlara kadar geniş bir yelpazeyi kapsar."
   },
   {
     "id": "81d954cf-aca7-59e6-8d91-ab3374bb06d0",
@@ -855,7 +941,9 @@
     "description": "Holašovice is an exceptionally complete and well-preserved example of a traditional central European village. It has a large number of outstanding 18th- and 19th-century vernacular buildings in a style known as 'South Bohemian folk Baroque', and preserves a ground plan dating from the Middle Ages.",
     "latitude": 48.9696388889,
     "longitude": 14.2726111111,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Holasovice1.jpg/330px-Holasovice1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Holasovice1.jpg/330px-Holasovice1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Holašovice Tarihi Köyü",
+    "descriptionTr": "Holašovice, geleneksel bir orta Avrupa köyünün son derece eksiksiz ve iyi korunmuş bir örneğidir. 'Güney Bohemya halk Barok'u' olarak bilinen üslupta, çok sayıda olağanüstü 18. ve 19. yüzyıl yerel mimari yapıya sahip olup Orta Çağ'a uzanan bir yerleşim planını korumaktadır."
   },
   {
     "id": "d72edce7-47c4-5c07-b100-a08a2b7e0f6d",
@@ -865,7 +953,9 @@
     "description": "This memorial column, erected in the early years of the 18th century, is the most outstanding example of a type of monument specific to central Europe. In the characteristic regional style known as Olomouc Baroque and rising to a height of 35 m, it is decorated with many fine religious sculptures, the work of the distinguished Moravian artist Ondrej Zahner.",
     "latitude": 49.5939361111,
     "longitude": 17.2504583333,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Sloup_Nejsv%C4%9Bt%C4%9Bj%C5%A1%C3%AD_Trojice%2C_Olomouc.jpg/500px-Sloup_Nejsv%C4%9Bt%C4%9Bj%C5%A1%C3%AD_Trojice%2C_Olomouc.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Sloup_Nejsv%C4%9Bt%C4%9Bj%C5%A1%C3%AD_Trojice%2C_Olomouc.jpg/500px-Sloup_Nejsv%C4%9Bt%C4%9Bj%C5%A1%C3%AD_Trojice%2C_Olomouc.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Olomouc Kutsal Üçleme Sütunu",
+    "descriptionTr": "18. yüzyılın ilk yıllarında dikilen bu anıt sütun, orta Avrupa'ya özgü bir anıt türünün en dikkat çekici örneğidir. Olomouc Barok'u olarak bilinen bölgeye özgü üslupta, 35 metre yüksekliğe ulaşan sütun, seçkin Moravyalı sanatçı Ondřej Zahner'in eseri olan pek çok kaliteli dinî heykelle süslenmiştir."
   },
   {
     "id": "96cbfcbb-7240-57a7-973e-c600370d2510",
@@ -875,7 +965,9 @@
     "description": "Kutná Hora developed as a result of the exploitation of the silver mines. In the 14th century it became a royal city endowed with monuments that symbolized its prosperity. The Church of St Barbara, a jewel of the late Gothic period, and the Cathedral of Our Lady at Sedlec, which was restored in line with the Baroque taste of the early 18th century, were to influence the architecture of central Europe. These masterpieces today form part of a well-preserved medieval urban fabric with some particularly fine private dwellings.",
     "latitude": 49.95,
     "longitude": 15.2666666667,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Kutn%C3%A1_Hora_%28003%29.jpg/500px-Kutn%C3%A1_Hora_%28003%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Kutn%C3%A1_Hora_%28003%29.jpg/500px-Kutn%C3%A1_Hora_%28003%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Kutná Hora: Aziz Barbara Kilisesi ve Sedlec'teki Meryem Ana Katedrali'yle Tarihi Kent Merkezi",
+    "descriptionTr": "Kutná Hora, gümüş madenlerinin işletilmesinin bir sonucu olarak gelişmiştir. 14. yüzyılda, refahını simgeleyen anıtlarla donatılmış kraliyet kenti hâline gelmiştir. Geç Gotik dönemin bir mücevheri olan Aziz Barbara Kilisesi ile 18. yüzyılın başlarındaki Barok zevke uygun olarak restore edilen Sedlec'teki Meryem Ana Katedrali, orta Avrupa mimarisini etkilemiştir. Bu başyapıtlar, bugün özellikle güzel bazı özel konutlarıyla iyi korunmuş bir ortaçağ kent dokusunun parçasını oluşturmaktadır."
   },
   {
     "id": "05950598-5f2d-585d-ad5b-ccd608710f1f",
@@ -893,7 +985,9 @@
     "country": "Denmark",
     "category": "Natural",
     "description": "The serial property, located in the Western Limfjord sea of northern Jutland, Denmark, comprise the coastal cliffs of Hanklit and Knudeklint, which contain some of the world’s best-preserved fossil fishes. The property represents the oldest and most important site for understanding the early evolution and diversification of modern bony fishes (teleosts) following the end-Cretaceous mass extinction. Preserved within diatomite-rich deposits and volcanic ash layers, the exceptional fossil record spans the Paleocene–Eocene Thermal Maximum (PETM) and the subsequent cooling period, providing unique evidence of biotic responses to major climatic change. The property contains abundant and exceptionally well-preserved marine and terrestrial fossils, including fishes, sea turtles, birds, insects, plants, and microfossils, offering an unparalleled insight into the earliest Eocene biosphere. It preserves between 25 and 29 fish orders and more than 80 fish species, documenting the evolution and adaptation of early modern fish lineages during a period of rapid environmental change.",
-    "imageUrl": null
+    "imageUrl": null,
+    "nameTr": "Batı Limfjord'un Kemikli Balık Fosilleri – En Erken Eosen'de Evrim ve İklim Adaptasyonu",
+    "descriptionTr": "Danimarka'nın kuzey Jutland bölgesindeki Batı Limfjord denizinde yer alan bu seri miras alanı, dünyanın en iyi korunmuş fosil balıklarından bazılarını barındıran Hanklit ve Knudeklint kıyı uçurumlarından oluşur. Alan, Kretase sonu kitlesel yok oluşunun ardından modern kemikli balıkların (teleost) erken evrimini ve çeşitlenmesini anlamak açısından en eski ve en önemli alanı temsil eder. Diyatomit açısından zengin tortullar ve volkanik kül katmanları içinde korunan olağanüstü fosil kaydı, Paleosen-Eosen Termal Maksimumu (PETM) ve onu izleyen soğuma dönemini kapsamakta olup büyük iklim değişikliğine karşı biyolojik tepkilere dair eşsiz kanıtlar sunmaktadır. Alan; balıklar, deniz kaplumbağaları, kuşlar, böcekler, bitkiler ve mikrofosiller de dahil olmak üzere bol miktarda ve olağanüstü iyi korunmuş deniz ve kara fosili içererek en erken Eosen biyosferine eşsiz bir bakış sunmaktadır. Alan, hızlı çevresel değişim döneminde erken modern balık soylarının evrimini ve adaptasyonunu belgeleyen 25 ila 29 balık takımı ve 80'den fazla balık türü barındırmaktadır."
   },
   {
     "id": "da9f6630-417f-52b6-b45a-5671470b0d0f",
@@ -903,7 +997,9 @@
     "description": "Built in the 12th and 13th centuries, this was Scandinavia's first Gothic cathedral to be built of brick and it encouraged the spread of this style throughout northern Europe. It has been the mausoleum of the Danish royal family since the 15th century. Porches and side chapels were added up to the end of the 19th century. Thus it provides a clear overview of the development of European religious architecture.",
     "latitude": 55.6426654094,
     "longitude": 12.0798998457,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Roskilde_Cathedral_aerial_crop.jpg/500px-Roskilde_Cathedral_aerial_crop.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Roskilde_Cathedral_aerial_crop.jpg/500px-Roskilde_Cathedral_aerial_crop.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Roskilde Katedrali",
+    "descriptionTr": "12. ve 13. yüzyıllarda inşa edilen bu katedral, İskandinavya'nın tuğladan inşa edilen ilk Gotik katedraliydi ve bu üslubun kuzey Avrupa'ya yayılmasını teşvik etti. 15. yüzyıldan bu yana Danimarka kraliyet ailesinin anıt mezarı olmuştur. Girişler ve yan şapeller 19. yüzyılın sonuna kadar eklenmeye devam etmiştir. Böylece katedral, Avrupa dinî mimarisinin gelişimine dair net bir genel bakış sunmaktadır."
   },
   {
     "id": "6cb00875-6d49-55d2-b08c-557fa7710422",
@@ -923,7 +1019,9 @@
     "description": "The Wadden Sea is the largest unbroken system of intertidal sand and mud flats in the world. The site covers the Dutch Wadden Sea Conservation Area, the German Wadden Sea National Parks of Lower Saxony and Schleswig-Holstein, and most of the Danish Wadden Sea maritime conservation area. It is a large, temperate, relatively flat coastal wetland environment, formed by the intricate interactions between physical and biological factors that have given rise to a multitude of transitional habitats with tidal channels, sandy shoals, sea-grass meadows, mussel beds, sandbars, mudflats, salt marshes, estuaries, beaches and dunes. The area is home to numerous plant and animal species, including marine mammals such as the harbour seal, grey seal and harbour porpoise. Wadden Sea is one of the last remaining large-scale, intertidal ecosystems where natural processes continue to function largely undisturbed.",
     "latitude": 53.5286111111,
     "longitude": 8.5561111111,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/13-09-29-nordfriesisches-wattenmeer-RalfR-19.jpg/500px-13-09-29-nordfriesisches-wattenmeer-RalfR-19.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/13-09-29-nordfriesisches-wattenmeer-RalfR-19.jpg/500px-13-09-29-nordfriesisches-wattenmeer-RalfR-19.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Wadden Denizi",
+    "descriptionTr": "Wadden Denizi, dünyadaki en büyük kesintisiz gelgit kumu ve çamur düzlükleri sistemidir. Alan; Hollanda Wadden Denizi Koruma Alanı'nı, Almanya'nın Aşağı Saksonya ve Schleswig-Holstein Wadden Denizi Millî Parklarını ve Danimarka Wadden Denizi deniz koruma alanının büyük bölümünü kapsamaktadır. Fiziksel ve biyolojik faktörler arasındaki karmaşık etkileşimlerle oluşan, gelgit kanalları, kumlu sığlıklar, deniz çayırı çayırlıkları, midye yatakları, kum bankaları, çamur düzlükleri, tuz bataklıkları, haliçler, plajlar ve kum tepeleriyle çok sayıda geçiş habitatı yaratan geniş, ılıman ve nispeten düz bir kıyı sulak alan ortamıdır. Bölge; liman foku, gri fok ve dar burunlu yunus gibi deniz memelileri de dahil olmak üzere sayısız bitki ve hayvan türüne ev sahipliği yapmaktadır. Wadden Denizi, doğal süreçlerin büyük ölçüde bozulmadan işlemeye devam ettiği, geriye kalan son büyük ölçekli gelgit ekosistemlerinden biridir."
   },
   {
     "id": "b44f3220-b545-5e0e-a0ed-14b52ad4b5b0",
@@ -983,7 +1081,9 @@
     "description": "The origins of Tallinn date back to the 13th century, when a castle was built there by the crusading knights of the Teutonic Order. It developed as a major centre of the Hanseatic League, and its wealth is demonstrated by the opulence of the public buildings (the churches in particular) and the domestic architecture of the merchants' houses, which have survived to a remarkable degree despite the ravages of fire and war in the intervening centuries.",
     "latitude": 59.437,
     "longitude": 24.74,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Tallinn_vanalinna_asum.png/500px-Tallinn_vanalinna_asum.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Tallinn_vanalinna_asum.png/500px-Tallinn_vanalinna_asum.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Tallinn Tarihi Merkezi (Eski Şehir)",
+    "descriptionTr": "Tallinn'in kökenleri, Töton Tarikatı'nın haçlı şövalyeleri tarafından burada bir kale inşa edildiği 13. yüzyıla uzanmaktadır. Kent, Hansa Birliği'nin önemli bir merkezi olarak gelişmiş; zenginliği, kamusal binaların (özellikle kiliselerin) görkeminde ve tüccar evlerinin, aradan geçen yüzyıllardaki yangın ve savaş yıkımlarına rağmen dikkat çekici ölçüde günümüze ulaşan konut mimarisinde kendini göstermiştir."
   },
   {
     "id": "8e76ce23-8093-5cde-bed4-d022ac4bd421",
@@ -1053,7 +1153,9 @@
     "description": "Situated on the Gulf of Botnia, Rauma is one of the oldest harbours in Finland. Built around a Franciscan monastery, where the mid-15th-century Holy Cross Church still stands, it is an outstanding example of an old Nordic city constructed in wood. Although ravaged by fire in the late 17th century, it has preserved its ancient vernacular architectural heritage.",
     "latitude": 61.12806,
     "longitude": 21.51167,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Hauenguano.jpg/500px-Hauenguano.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Hauenguano.jpg/500px-Hauenguano.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Eski Rauma",
+    "descriptionTr": "Botni Körfezi'nde yer alan Rauma, Finlandiya'nın en eski limanlarından biridir. 15. yüzyılın ortalarından kalma Kutsal Haç Kilisesi'nin hâlâ ayakta olduğu bir Fransisken manastırı etrafında kurulan kent, ahşaptan inşa edilmiş eski bir İskandinav kentinin olağanüstü bir örneğidir. 17. yüzyılın sonlarında bir yangınla tahrip olmasına rağmen, kadim yerel mimari mirasını korumuştur."
   },
   {
     "id": "3320b4ba-1318-590c-b86d-0379c7ca5e04",
@@ -1063,7 +1165,9 @@
     "description": "Built in the second half of the 18th century by Sweden on a group of islands located at the entrance of Helsinki's harbour, this fortress is an especially interesting example of European military architecture of the time.",
     "latitude": 60.14722,
     "longitude": 24.98722,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Suomenlinna_aerial.JPG/500px-Suomenlinna_aerial.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Suomenlinna_aerial.JPG/500px-Suomenlinna_aerial.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Suomenlinna Kalesi",
+    "descriptionTr": "18. yüzyılın ikinci yarısında İsveç tarafından Helsinki limanının girişinde yer alan bir grup adada inşa edilen bu kale, dönemin Avrupa askerî mimarisinin özellikle ilgi çekici bir örneğidir."
   },
   {
     "id": "e2418061-ddd0-5e1c-8126-49db263f1e2c",
@@ -1229,7 +1333,9 @@
     "description": "Preserved by its long isolation, the Upper Svaneti region of the Caucasus is an exceptional example of mountain scenery with medieval-type villages and tower-houses. The village of Chazhashi still has more than 200 of these very unusual houses, which were used both as dwellings and as defence posts against the invaders who plagued the region.",
     "latitude": 42.914,
     "longitude": 43.009,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Historical_Svaneti_in_modern_international_borders_of_Georgia.svg/500px-Historical_Svaneti_in_modern_international_borders_of_Georgia.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Historical_Svaneti_in_modern_international_borders_of_Georgia.svg/500px-Historical_Svaneti_in_modern_international_borders_of_Georgia.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Yukarı Svaneti",
+    "descriptionTr": "Uzun süreli tecrit sayesinde korunmuş olan Kafkasya'daki Yukarı Svaneti bölgesi, ortaçağ tarzı köyleri ve kule-evleriyle olağanüstü bir dağ manzarası örneğidir. Chazhashi köyü, hem konut hem de bölgeyi rahatsız eden istilacılara karşı savunma karakolu olarak kullanılan bu son derece sıra dışı evlerden 200'den fazlasını hâlâ barındırmaktadır."
   },
   {
     "id": "793230ff-b7be-523a-9a90-a51d261e9ef6",
@@ -1239,7 +1345,9 @@
     "description": "Founded in 1106 in the west of Georgia, the Monastery of Gelati is a masterpiece of the Golden Age of medieval Georgia, a period of political strength and economic growth between the 11th and 13th centuries. It is characterized by the facades of smoothly hewn large blocks, balanced proportions and blind arches for exterior decoration. The Gelati monastery, one of the largest medieval Orthodox monasteries, was also a centre of science and education and the Academy it housed was one of the most important centres of culture in ancient Georgia.",
     "latitude": 42.2947222222,
     "longitude": 42.7683333333,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Gelati_Monastery_1.jpg/500px-Gelati_Monastery_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Gelati_Monastery_1.jpg/500px-Gelati_Monastery_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Gelati Manastırı",
+    "descriptionTr": "1106 yılında Gürcistan'ın batısında kurulan Gelati Manastırı, 11. ile 13. yüzyıllar arasındaki siyasi güç ve ekonomik büyüme dönemi olan ortaçağ Gürcistan'ının Altın Çağı'nın bir başyapıtıdır. Düzgün yontulmuş büyük bloklardan oluşan cepheleri, dengeli oranları ve dış süslemede kullanılan kör kemerleriyle karakterize edilir. En büyük ortaçağ Ortodoks manastırlarından biri olan Gelati Manastırı, aynı zamanda bir bilim ve eğitim merkeziydi; barındırdığı Akademi, antik Gürcistan'ın en önemli kültür merkezlerinden biriydi."
   },
   {
     "id": "91d24ef1-756e-53a2-84ac-ab4279ce7a3b",
@@ -1249,7 +1357,9 @@
     "description": "The property comprises seven component parts, within an 80km long corridor along the warm-temperate and extremely humid eastern coast of the Black Sea. They provide a series of the most typical Colchic ecosystems at altitudes ranging from sea level to more than 2,500 metres above it. The main ecosystems are ancient deciduous Colchic rainforests and wetlands, percolation bogs and other mire types of the distinct Colchic mire region. The extremely humid broad-leaved rainforests comprise a highly diverse flora and fauna, with very high densities of endemic and relict species, with significant numbers of globally threatened species and relict species, which survived the glacial cycles of the Tertiary. The site is home to approximately 1,100 species of vascular and non-vascular plants, including 44 threatened vascular plan species, and almost 500 species of vertebrates, and a high number of invertebrate species. The site also harbours 19 threatened animal species including sturgeon, notably the critically endangered Colchic Sturgeon. It is a key stopover for many globally threatened birds that migrate through the Batumi bottleneck.",
     "latitude": 41.7022777778,
     "longitude": 41.9512,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Kolkheti_National_Park%2C_Western_Georgia%2C_Sept._2017.jpg/500px-Kolkheti_National_Park%2C_Western_Georgia%2C_Sept._2017.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Kolkheti_National_Park%2C_Western_Georgia%2C_Sept._2017.jpg/500px-Kolkheti_National_Park%2C_Western_Georgia%2C_Sept._2017.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Kolhis Yağmur Ormanları ve Sulak Alanları",
+    "descriptionTr": "Alan, Karadeniz'in ılıman-sıcak ve son derece nemli doğu kıyısı boyunca uzanan 80 km'lik bir koridor içinde yedi bileşenden oluşur. Deniz seviyesinden 2.500 metrenin üzerine kadar değişen yüksekliklerde, en tipik Kolhis ekosistemlerinden bir dizi sunarlar. Ana ekosistemler; kadim yaprak döken Kolhis yağmur ormanları ve sulak alanlar, süzülme bataklıkları ve kendine özgü Kolhis turba bölgesinin diğer bataklık türleridir. Son derece nemli geniş yapraklı yağmur ormanları, endemik ve kalıntı türlerin çok yüksek yoğunluğuyla, Tersiyer dönemin buzul döngülerinden sağ kurtulan önemli sayıda küresel ölçekte tehdit altındaki ve kalıntı türle birlikte son derece çeşitli bir flora ve faunaya sahiptir. Alan, 44 tehdit altındaki damarlı bitki türü de dahil olmak üzere yaklaşık 1.100 damarlı ve damarsız bitki türüne, neredeyse 500 omurgalı türüne ve çok sayıda omurgasız türüne ev sahipliği yapmaktadır. Alan ayrıca, kritik tehlike altındaki Kolhis mersin balığı da dahil olmak üzere mersin balığı gibi 19 tehdit altındaki hayvan türünü barındırmaktadır. Batum darboğazından geçerek göç eden küresel ölçekte tehdit altındaki birçok kuş için önemli bir konaklama noktasıdır."
   },
   {
     "id": "69e6230c-bcda-585c-9393-3b9be71f077a",
@@ -1553,7 +1663,7 @@
   },
   {
     "id": "f9d3c010-8cd7-5dcd-bde3-01b97f357c29",
-    "name": "Hortobágy National Park - the <i>Puszta</i>",
+    "name": "Hortobágy National Park - the Puszta",
     "country": "Hungary",
     "category": "Cultural",
     "description": "The cultural landscape of the Hortobágy Puszta consists of a vast area of plains and wetlands in eastern Hungary. Traditional forms of land use, such as the grazing of domestic animals, have been present in this pastoral society for more than two millennia.",
@@ -1607,7 +1717,9 @@
     "country": "India",
     "category": "Cultural",
     "description": "The serial property contains the architectural and archaeological remains of Sarnath, the sacred site where the Buddha is believed to have delivered his first sermon in the 6th century BCE and met his earliest disciples. Identified by the Buddha himself as one of the four principal Buddhist pilgrimage sites, Sarnath grew over many centuries through royal, monastic, and lay patronage, resulting in the construction of numerous stupas, temples, and viharas. After flourishing as a major Buddhist centre, Sarnath declined in the 12th century CE and fell into obscurity until its rediscovery in the 18th century. Today preserved as two archaeological zones, it remains both an important tourist destination and a revived pilgrimage site for Buddhists worldwide.",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Ancient_Buddhist_monasteries_near_Dhamekh_Stupa_Monument_Site%2C_Sarnath.jpg/330px-Ancient_Buddhist_monasteries_near_Dhamekh_Stupa_Monument_Site%2C_Sarnath.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Ancient_Buddhist_monasteries_near_Dhamekh_Stupa_Monument_Site%2C_Sarnath.jpg/330px-Ancient_Buddhist_monasteries_near_Dhamekh_Stupa_Monument_Site%2C_Sarnath.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Antik Budist Alanı Sarnath",
+    "descriptionTr": "Bu seri miras alanı, Buda'nın MÖ 6. yüzyılda ilk vaazını verdiğine ve ilk müritleriyle tanıştığına inanılan kutsal alan olan Sarnath'ın mimari ve arkeolojik kalıntılarını içerir. Buda tarafından bizzat dört ana Budist hac merkezinden biri olarak belirlenen Sarnath, yüzyıllar boyunca kraliyet, manastır ve halk himayesiyle büyümüş ve çok sayıda stupa, tapınak ve viharanın inşasına yol açmıştır. Önemli bir Budist merkez olarak yükselişinin ardından Sarnath, 12. yüzyılda gerilemiş ve 18. yüzyılda yeniden keşfedilene kadar unutulmuşluğa gömülmüştür. Bugün iki arkeolojik bölge olarak korunan alan, hem önemli bir turizm noktası hem de dünya çapındaki Budistler için yeniden canlanan bir hac yeri olmayı sürdürmektedir."
   },
   {
     "id": "c4db6f95-dcdf-5f0a-afd1-1614a8c21bc7",
@@ -1617,7 +1729,9 @@
     "description": "The first Buddhist cave monuments at Ajanta date from the 2nd and 1st centuries B.C. During the Gupta period (5th and 6th centuries A.D.), many more richly decorated caves were added to the original group. The paintings and sculptures of Ajanta, considered masterpieces of Buddhist religious art, have had a considerable artistic influence.",
     "latitude": 20.553111,
     "longitude": 75.70025,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Ajanta_%2863%29.jpg/500px-Ajanta_%2863%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Ajanta_%2863%29.jpg/500px-Ajanta_%2863%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Ajanta Mağaraları",
+    "descriptionTr": "Ajanta'daki ilk Budist mağara anıtları, MÖ 2. ve 1. yüzyıllara tarihlenir. Gupta döneminde (MS 5. ve 6. yüzyıllar), özgün gruba çok daha fazla zengin süslemeli mağara eklenmiştir. Budist dinî sanatının başyapıtları kabul edilen Ajanta'nın resim ve heykelleri, önemli bir sanatsal etki yaratmıştır."
   },
   {
     "id": "50e3b512-fb71-59a2-bc17-4047742c2664",
@@ -1627,7 +1741,9 @@
     "description": "The Nalanda Mahavihara site is in the State of Bihar, in north-eastern India. It comprises the archaeological remains of a monastic and scholastic institution dating from the 3rd century BCE to the 13th century CE. It includes stupas, shrines, viharas (residential and educational buildings) and important art works in stucco, stone and metal. Nalanda stands out as the most ancient university of the Indian Subcontinent. It engaged in the organized transmission of knowledge over an uninterrupted period of 800 years. The historical development of the site testifies to the development of Buddhism into a religion and the flourishing of monastic and educational traditions.",
     "latitude": 25.1366666667,
     "longitude": 85.4438888889,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Temple_No.-_3%2C_Nalanda_Archaeological_Site.jpg/330px-Temple_No.-_3%2C_Nalanda_Archaeological_Site.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Temple_No.-_3%2C_Nalanda_Archaeological_Site.jpg/330px-Temple_No.-_3%2C_Nalanda_Archaeological_Site.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Bihar, Nalanda'daki Nalanda Mahavihara Arkeolojik Alanı",
+    "descriptionTr": "Nalanda Mahavihara alanı, kuzeydoğu Hindistan'ın Bihar eyaletinde yer alır. MÖ 3. yüzyıldan MS 13. yüzyıla uzanan bir manastır ve akademik kurumun arkeolojik kalıntılarını kapsar. Stupalar, tapınaklar, viharalar (konut ve eğitim binaları) ile alçı, taş ve metalden önemli sanat eserlerini içerir. Nalanda, Hint Yarımadası'nın en eski üniversitesi olarak öne çıkar. Kesintisiz 800 yıl boyunca organize bir bilgi aktarımı gerçekleştirmiştir. Alanın tarihsel gelişimi, Budizm'in bir dine dönüşmesine ve manastır ile eğitim geleneklerinin gelişmesine tanıklık etmektedir."
   },
   {
     "id": "0d73d84a-3e52-5dca-9bae-ae70619acf0b",
@@ -1637,7 +1753,9 @@
     "description": "On a hill overlooking the plain and about 40 km from Bhopal, the site of Sanchi comprises a group of Buddhist monuments (monolithic pillars, palaces, temples and monasteries) all in different states of conservation most of which date back to the 2nd and 1st centuries B.C. It is the oldest Buddhist sanctuary in existence and was a major Buddhist centre in India until the 12th century A.D.",
     "latitude": 23.47944,
     "longitude": 77.73972,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/East_Gateway_-_Stupa_1_-_Sanchi_Hill_2013-02-21_4398.JPG/500px-East_Gateway_-_Stupa_1_-_Sanchi_Hill_2013-02-21_4398.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/East_Gateway_-_Stupa_1_-_Sanchi_Hill_2013-02-21_4398.JPG/500px-East_Gateway_-_Stupa_1_-_Sanchi_Hill_2013-02-21_4398.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Sanchi Budist Anıtları",
+    "descriptionTr": "Bhopal'a yaklaşık 40 km uzaklıkta, ovaya hakim bir tepede yer alan Sanchi alanı, çoğu MÖ 2. ve 1. yüzyıllara tarihlenen, farklı koruma durumlarında bir Budist anıtları grubunu (monolitik sütunlar, saraylar, tapınaklar ve manastırlar) kapsar. Mevcut en eski Budist kutsal alanı olup MS 12. yüzyıla kadar Hindistan'da önemli bir Budist merkez olmuştur."
   },
   {
     "id": "f60b48cc-4228-513b-9182-7cc2be0093a3",
@@ -1647,7 +1765,9 @@
     "description": "The ancient city of Dholavira, the southern centre of the Harappan Civilization, is sited on the arid island of Khadir in the State of Gujarat. Occupied between ca. 3000-1500 BCE, the archaeological site, one of the best preserved urban settlements from the period in Southeast Asia, comprises a fortified city and a cemetery. Two seasonal streams provided water, a scarce resource in the region, to the walled city which comprises a heavily fortified castle and ceremonial ground as well as streets and houses of different proportion quality which testify to a stratified social order. A sophisticated water management system demonstrates the ingenuity of the Dholavira people in their struggle to survive and thrive in a harsh environment. The site includes a large cemetery with cenotaphs of six types testifying to the Harappan’s unique view of death. Bead processing workshops and artifacts of various kinds such as copper, shell, stone, jewellery of semi-precious stones, terracotta, gold, ivory and other materials have been found during archaeological excavations of the site, exhibiting the culture’s artistic and technological achievements. Evidence for inter-regional trade with other Harappan cities, as well as with cities in the Mesopotamia region and the Oman peninsula have also been discovered.",
     "latitude": 23.8884083333,
     "longitude": 70.2133027778,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/DHOLAVIRA_SITE_%2824%29.jpg/330px-DHOLAVIRA_SITE_%2824%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/DHOLAVIRA_SITE_%2824%29.jpg/330px-DHOLAVIRA_SITE_%2824%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Dholavira: Bir Harappa Kenti",
+    "descriptionTr": "Harappa Medeniyeti'nin güney merkezi olan antik Dholavira kenti, Gujarat eyaletindeki kurak Khadir adasında yer almaktadır. MÖ yaklaşık 3000-1500 yılları arasında iskân edilen bu arkeolojik alan, dönemin Güneydoğu Asya'daki en iyi korunmuş kentsel yerleşimlerinden biri olup surlu bir kent ve bir mezarlığı kapsar. İki mevsimsel akarsu, bölgede kıt bir kaynak olan suyu; ağır tahkimatlı bir kale ve tören alanının yanı sıra farklı oran ve niteliklerde sokak ve evlerden oluşan, katmanlı bir toplumsal düzene tanıklık eden surlu kente sağlamıştır. Gelişmiş bir su yönetimi sistemi, Dholavira halkının zorlu bir çevrede hayatta kalma ve gelişme mücadelesindeki ustalığını göstermektedir. Alan, Harappa halkının ölüme dair özgün bakış açısına tanıklık eden altı farklı türde kenotafın bulunduğu geniş bir mezarlığı da içerir. Arkeolojik kazılar sırasında boncuk işleme atölyeleri; bakır, deniz kabuğu, taş, yarı değerli taşlardan mücevherler, terakota, altın, fildişi ve diğer malzemelerden çeşitli eserler bulunmuş olup bunlar kültürün sanatsal ve teknolojik başarılarını sergilemektedir. Diğer Harappa kentleriyle olduğu kadar Mezopotamya bölgesi ve Umman yarımadasındaki kentlerle bölgeler arası ticarete dair kanıtlar da keşfedilmiştir."
   },
   {
     "id": "69a34f98-d76c-5629-8f11-a6df4b47a72e",
@@ -3584,7 +3704,9 @@
     "description": "Located in southwestern Turkey, in the upper valley of the Morsynus River, the site consists of two components: the archaeological site of Aphrodisias and the marble quarries northeast of the city. The temple of Aphrodite dates from the 3rd century BC and the city was built one century later. The wealth of Aphrodisias came from the marble quarries and the art produced by its sculptors. The city streets are arranged around several large civic structures, which include temples, a theatre, an agora and two bath complexes.",
     "latitude": 37.7083333333,
     "longitude": 28.7236111111,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/The_Temple_of_Aphrodite%2C_built_in_the_Ionic_order_in_stages_during_the_Roman_period_%28from_1st_century_BC_to_2nd_century_AD%29_and_later_converted_into_a_Christian_basilica%2C_Aphrodisias%2C_Caria%2C_Turkey_%2820300922019%29.jpg/500px-thumbnail.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/The_Temple_of_Aphrodite%2C_built_in_the_Ionic_order_in_stages_during_the_Roman_period_%28from_1st_century_BC_to_2nd_century_AD%29_and_later_converted_into_a_Christian_basilica%2C_Aphrodisias%2C_Caria%2C_Turkey_%2820300922019%29.jpg/500px-thumbnail.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Afrodisias",
+    "descriptionTr": "Türkiye'nin güneybatısında, Morsynus (Dandalas) Nehri'nin yukarı vadisinde yer alan alan, iki bileşenden oluşur: Afrodisias arkeolojik alanı ve kentin kuzeydoğusundaki mermer ocakları. Afrodit Tapınağı MÖ 3. yüzyıla tarihlenirken kent bir yüzyıl sonra inşa edilmiştir. Afrodisias'ın zenginliği mermer ocaklarından ve heykeltıraşlarının ürettiği sanattan gelmekteydi. Kentin sokakları; tapınaklar, bir tiyatro, bir agora ve iki hamam kompleksi de dahil olmak üzere birkaç büyük kamusal yapının etrafında düzenlenmiştir."
   },
   {
     "id": "d24442ee-8faf-518a-a478-4509a75db294",
@@ -3594,7 +3716,9 @@
     "description": "This site is located on a secluded plateau of northeast Turkey overlooking a ravine that forms a natural border with Armenia. This medieval city combines residential, religious and military structures, characteristic of a medieval urbanism built up over the centuries by Christian and then Muslim dynasties. The city flourished in the 10th and 11th centuries CE when it became the capital of the medieval Armenian kingdom of the Bagratides and profited from control of one branch of the Silk Road. Later, under Byzantine, Seljuk and Georgian sovereignty, it maintained its status as an important crossroads for merchant caravans. The Mongol invasion and a devastating earthquake in 1319 marked the beginning of the city’s decline. The site presents a comprehensive overview of the evolution of medieval architecture through examples of almost all the different architectural innovations of the region between the 7th and 13th centuries CE.",
     "latitude": 40.5,
     "longitude": 43.5666666667,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Ani_Harabeleri_2.jpg/330px-Ani_Harabeleri_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Ani_Harabeleri_2.jpg/330px-Ani_Harabeleri_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Ani Arkeolojik Alanı",
+    "descriptionTr": "Bu alan, Türkiye'nin kuzeydoğusunda, Ermenistan ile doğal bir sınır oluşturan bir kanyona hakim, tenha bir platoda yer almaktadır. Bu ortaçağ kenti, önce Hristiyan sonra Müslüman hanedanlar tarafından yüzyıllar içinde inşa edilen ortaçağ kentleşmesine özgü konut, dinî ve askerî yapıları bir araya getirir. Kent, Bagratlı Ermeni Krallığı'nın başkenti hâline geldiği ve İpek Yolu'nun bir kolunu kontrol etmenin sağladığı avantajlardan yararlandığı 10. ve 11. yüzyıllarda altın çağını yaşamıştır. Daha sonra Bizans, Selçuklu ve Gürcü egemenliği altında, tüccar kervanları için önemli bir kavşak noktası statüsünü korumuştur. Moğol istilası ve 1319'daki yıkıcı deprem, kentin gerileme döneminin başlangıcını işaret etmiştir. Alan, MS 7. ile 13. yüzyıllar arasında bölgenin neredeyse tüm farklı mimari yeniliklerine dair örneklerle ortaçağ mimarisinin evrimine dair kapsamlı bir genel bakış sunmaktadır."
   },
   {
     "id": "f1f68271-e04b-56aa-ab72-a5fcdc385afc",
@@ -3604,7 +3728,9 @@
     "description": "This property is a serial nomination of eight component sites in the City of Bursa and the nearby village of Cumalıkızık, in the southern Marmara region. The site illustrates the creation of an urban and rural system establishing the Ottoman Empire in the early 14th century. The property embodies the key functions of the social and economic organization of the new capital which evolved around a civic centre. These include commercial districts of khans, kulliyes (religious institutions) integrating mosques, religious schools, public baths and a kitchen for the poor, as well as the tomb of Orhan Ghazi, founder of the Ottoman dynasty. One component outside the historic centre of Bursa is the village of Cumalıkızık, the only rural village of this system to show the provision of hinterland support for the capital.",
     "latitude": 40.1847305556,
     "longitude": 29.0623361111,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Bursa_Cumal%C4%B1k%C4%B1z%C4%B1k_in_the_spring_2014_0116.jpg/330px-Bursa_Cumal%C4%B1k%C4%B1z%C4%B1k_in_the_spring_2014_0116.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Bursa_Cumal%C4%B1k%C4%B1z%C4%B1k_in_the_spring_2014_0116.jpg/330px-Bursa_Cumal%C4%B1k%C4%B1z%C4%B1k_in_the_spring_2014_0116.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Bursa ve Cumalıkızık: Osmanlı İmparatorluğu'nun Doğuşu",
+    "descriptionTr": "Bu miras alanı, güney Marmara bölgesinde Bursa kenti ve yakınındaki Cumalıkızık köyünde bulunan sekiz bileşenden oluşan seri bir adaylıktır. Alan, 14. yüzyılın başlarında Osmanlı İmparatorluğu'nu kuran kentsel ve kırsal bir sistemin oluşumunu gözler önüne serer. Miras alanı, bir kent merkezi etrafında gelişen yeni başkentin toplumsal ve ekonomik örgütlenmesinin temel işlevlerini somutlaştırır. Bunlar arasında hanlardan oluşan ticari mahalleler, camileri, medreseleri, hamamları ve fakirler için bir imarethaneyi bir araya getiren külliyeler ile Osmanlı hanedanının kurucusu Orhan Gazi'nin türbesi bulunmaktadır. Bursa'nın tarihi merkezi dışındaki tek bileşen olan Cumalıkızık köyü, bu sistemde başkente kırsal destek sağlanmasını gösteren tek kırsal köydür."
   },
   {
     "id": "e821f311-245c-5af2-97fc-b6b961d23d4e",
@@ -3614,7 +3740,9 @@
     "description": "Located in an open rural landscape, the archaeological site of Gordion is a multi-layered ancient settlement, encompassing the remains of the ancient capital of Phrygia, an Iron Age independent kingdom. The key elements of this archaeological site include the Citadel Mound, the Lower Town, the Outer Town and Fortifications, and several burial mounds and tumuli with their surrounding landscape. Archaeological excavations and research have revealed a wealth of remains that document construction techniques, spatial arrangements, defensive structures, and inhumation practices that shed light on Phrygian culture and economy.",
     "latitude": 39.6433333333,
     "longitude": 31.9861111111,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Gordion_Early_Phrygian_East_Gate.jpg/500px-Gordion_Early_Phrygian_East_Gate.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Gordion_Early_Phrygian_East_Gate.jpg/500px-Gordion_Early_Phrygian_East_Gate.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Gordion",
+    "descriptionTr": "Açık bir kırsal peyzajda yer alan Gordion arkeolojik alanı, bağımsız bir Demir Çağı krallığı olan Frigya'nın antik başkentinin kalıntılarını içeren çok katmanlı bir antik yerleşimdir. Bu arkeolojik alanın temel unsurları arasında Kale Höyüğü, Aşağı Şehir, Dış Şehir ve tahkimatlar ile çevresindeki peyzajıyla birlikte çok sayıda mezar höyüğü ve tümülüs yer almaktadır. Arkeolojik kazılar ve araştırmalar, Frig kültürü ve ekonomisine ışık tutan yapı tekniklerini, mekânsal düzenlemeleri, savunma yapılarını ve defin uygulamalarını belgeleyen zengin kalıntılar ortaya çıkarmıştır."
   },
   {
     "id": "bfd6da2f-7ffe-59e4-a6e6-99aada22185a",
@@ -3624,7 +3752,9 @@
     "description": "Located within what was once the estuary of the River Kaystros, Ephesus comprises successive Hellenistic and Roman settlements founded on new locations, which followed the coastline as it retreated westward. Excavations have revealed grand monuments of the Roman Imperial period including the Library of Celsus and the Great Theatre. Little remains of the famous Temple of Artemis, one of the “Seven Wonders of the World,” which drew pilgrims from all around the Mediterranean. Since the 5th century, the House of the Virgin Mary, a domed cruciform chapel seven kilometres from Ephesus, became a major place of Christian pilgrimage. The Ancient City of Ephesus is an outstanding example of a Roman port city, with sea channel and harbour basin.",
     "latitude": 37.9291666667,
     "longitude": 27.3594444444,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Ephesus_Celsus_Library_Fa%C3%A7ade.jpg/500px-Ephesus_Celsus_Library_Fa%C3%A7ade.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Ephesus_Celsus_Library_Fa%C3%A7ade.jpg/500px-Ephesus_Celsus_Library_Fa%C3%A7ade.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Efes",
+    "descriptionTr": "Bir zamanlar Kaystros (Küçük Menderes) Nehri'nin halici olan bölgede yer alan Efes, kıyı çizgisinin batıya doğru gerilemesini izleyerek yeni konumlarda kurulmuş ardışık Helenistik ve Roma yerleşimlerinden oluşur. Kazılar, Celsus Kütüphanesi ve Büyük Tiyatro da dahil olmak üzere Roma İmparatorluk dönemine ait görkemli anıtları gün ışığına çıkarmıştır. Akdeniz'in her yerinden hacılar çeken 'Dünyanın Yedi Harikası'ndan biri olan ünlü Artemis Tapınağı'ndan ise çok az kalıntı kalmıştır. 5. yüzyıldan bu yana, Efes'ten yedi kilometre uzaklıktaki kubbeli haç planlı bir şapel olan Meryem Ana Evi, önemli bir Hristiyan hac merkezi hâline gelmiştir. Efes Antik Kenti, deniz kanalı ve liman havzasıyla bir Roma liman kentinin olağanüstü bir örneğidir."
   },
   {
     "id": "27226653-5716-50e5-acaa-e8c305a175b3",
@@ -3634,7 +3764,9 @@
     "description": "In a spectacular landscape, entirely sculpted by erosion, the Göreme valley and its surroundings contain rock-hewn sanctuaries that provide unique evidence of Byzantine art in the post-Iconoclastic period. Dwellings, troglodyte villages and underground towns – the remains of a traditional human habitat dating back to the 4th century – can also be seen there.",
     "latitude": 38.66667,
     "longitude": 34.85,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Autumn_in_G%C3%B6reme_Valley.jpg/330px-Autumn_in_G%C3%B6reme_Valley.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Autumn_in_G%C3%B6reme_Valley.jpg/330px-Autumn_in_G%C3%B6reme_Valley.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Göreme Millî Parkı ve Kapadokya Kaya Alanları",
+    "descriptionTr": "Tamamen erozyonla yontulmuş çarpıcı bir peyzajda yer alan Göreme vadisi ve çevresi, İkonoklazm sonrası dönemdeki Bizans sanatına dair eşsiz kanıtlar sunan kayaya oyulmuş kutsal alanları barındırır. Burada ayrıca, 4. yüzyıla kadar uzanan geleneksel bir insan yerleşiminin kalıntıları olan konutlar, mağara köyleri ve yeraltı şehirleri de görülebilir."
   },
   {
     "id": "48ddf9d1-dafe-50c3-a793-c22d11ce77a7",
@@ -3656,7 +3788,9 @@
     "description": "This site, which was the capital of Lycia, illustrates the blending of Lycian traditions and Hellenic influence, especially in its funerary art. The epigraphic inscriptions are crucial for our understanding of the history of the Lycian people and their Indo-European language.",
     "latitude": 36.335,
     "longitude": 29.32028,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Leotoon_Hellenistic_Theatre_5304.jpg/330px-Leotoon_Hellenistic_Theatre_5304.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Leotoon_Hellenistic_Theatre_5304.jpg/330px-Leotoon_Hellenistic_Theatre_5304.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Ksantos-Letoon",
+    "descriptionTr": "Likya'nın başkenti olan bu alan, özellikle mezar sanatında Likya geleneklerinin Helen etkisiyle harmanlanmasını gözler önüne serer. Buradaki epigrafik yazıtlar, Likya halkının tarihini ve Hint-Avrupa dillerinden olan dillerini anlamamız açısından büyük önem taşımaktadır."
   },
   {
     "id": "58c7dc86-f45e-5518-aacd-6bc09db740cd",
@@ -6084,7 +6218,7 @@
   },
   {
     "id": "ab09d02d-bbcf-55b4-8523-2a8343de1532",
-    "name": "<I>Sacri Monti</I> of Piedmont and Lombardy",
+    "name": "Sacri Monti of Piedmont and Lombardy",
     "country": "Italy",
     "category": "Cultural",
     "description": "The nine Sacri Monti (Sacred Mountains) of northern Italy are groups of chapels and other architectural features created in the late 16th and 17th centuries and dedicated to different aspects of the Christian faith. In addition to their symbolic spiritual meaning, they are of great beauty by virtue of the skill with which they have been integrated into the surrounding natural landscape of hills, forests and lakes. They also house much important artistic material in the form of wall paintings and statuary.",
@@ -6154,7 +6288,7 @@
   },
   {
     "id": "ea4767eb-69d9-51b6-bd7a-46c8a009e238",
-    "name": "Genoa: <i>Le Strade Nuove</i> and the system of the<i> Palazzi dei Rolli</i>",
+    "name": "Genoa: Le Strade Nuove and the system of the Palazzi dei Rolli",
     "country": "Italy",
     "category": "Cultural",
     "description": "The Strade Nuove and the system of the Palazzi dei Rolli in Genoa’s historic centre date from the late 16th and early 17th centuries when the Republic of Genoa was at the height of its financial and seafaring power. The site represents the first example in Europe of an urban development project parcelled out by a public authority within a unitary framework and associated to a particular system of ‘public lodging’ in private residences, as decreed by the Senate in 1576. The site includes an ensemble of Renaissance and Baroque palaces along the so-called ‘new streets’ (Strade Nuove). The Palazzi dei Rolli offer an extraordinary variety of different solutions, achieving universal value in adapting to the particular characteristics of the site and to the requirements of a specific social and economic organization. They also offer an original example of a public network of private residences designated to host state visits.",
@@ -6272,7 +6406,7 @@
   },
   {
     "id": "a58d7836-1228-5b66-a809-581465ec7f08",
-    "name": "The <I>Trulli</I> of Alberobello",
+    "name": "The Trulli of Alberobello",
     "country": "Italy",
     "category": "Cultural",
     "description": "The trulli , limestone dwellings found in the southern region of Puglia, are remarkable examples of drywall (mortarless) construction, a prehistoric building technique still in use in this region. The trulli are made of roughly worked limestone boulders collected from neighbouring fields. Characteristically, they feature pyramidal, domed or conical roofs built up of corbelled limestone slabs.",
@@ -7290,7 +7424,7 @@
   },
   {
     "id": "698792ba-14e3-59ef-a59e-0b48eab8ba58",
-    "name": "Haeinsa Temple Janggyeong Panjeon, the Depositories for the <I>Tripitaka Koreana</I> Woodblocks",
+    "name": "Haeinsa Temple Janggyeong Panjeon, the Depositories for the Tripitaka Koreana Woodblocks",
     "country": "Republic of Korea",
     "category": "Cultural",
     "description": "The Temple of Haeinsa, on Mount Gaya, is home to the Tripitaka Koreana , the most complete collection of Buddhist texts, engraved on 80,000 woodblocks between 1237 and 1248. The buildings of Janggyeong Panjeon, which date from the 15th century, were constructed to house the woodblocks, which are also revered as exceptional works of art. As the oldest depository of the Tripitaka , they reveal an astonishing mastery of the invention and implementation of the conservation techniques used to preserve these woodblocks.",
@@ -7688,7 +7822,7 @@
   },
   {
     "id": "0359dae8-4b38-5ca1-9e91-1dc0fbfed793",
-    "name": "Routes of Santiago de Compostela: <i>Camino Francés</i> and Routes of Northern Spain",
+    "name": "Routes of Santiago de Compostela: Camino Francés and Routes of Northern Spain",
     "country": "Spain",
     "category": "Cultural",
     "description": "A network of four Christian pilgrimage routes in northern Spain, the site is an extension of the Route of Santiago de Compostela, a serial site inscribed on the World Heritage List in 1993. The extension represents a network of almost 1,500 km: coastal, interior of the Basque Country–La Rioja, Liébana and primitive routes. It includes a built heritage of historical importance created to meet the needs of pilgrims, including cathedrals, churches, hospitals, hostels and even bridges. The extension encompasses some of the earliest pilgrimage routes to Santiago de Compostela, following the discovery in the 9thcentury of a tomb believed to be that of St. James the Greater.",
@@ -7972,7 +8106,9 @@
     "description": "Located in the Germuş mountains of south-eastern Anatolia, this property presents monumental round-oval and rectangular megalithic structures erected by hunter-gatherers in the Pre-Pottery Neolithic age between 9,600 and 8,200 BCE. These monuments were probably used in connection with rituals, most likely of a funerary nature. Distinctive T-shaped pillars are carved with images of wild animals, providing insight into the way of life and beliefs of people living in Upper Mesopotamia about 11,500 years ago.",
     "latitude": 37.2232419444,
     "longitude": 38.9223638889,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/G%C3%B6bekli_Tepe%2C_Urfa.jpg/500px-G%C3%B6bekli_Tepe%2C_Urfa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/G%C3%B6bekli_Tepe%2C_Urfa.jpg/500px-G%C3%B6bekli_Tepe%2C_Urfa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Göbeklitepe",
+    "descriptionTr": "Türklerin Anadoluda'ki mevcudiyetinin ilk kanıdıtır. Güneydoğu Anadolu'daki Germuş dağlarında yer alan bu miras alanı, avcı-toplayıcılar tarafından Çanak Çömleksiz Neolitik Çağ'da, MÖ 9.600 ile 8.200 yılları arasında inşa edilmiş anıtsal yuvarlak-oval ve dikdörtgen megalitik yapıları barındırır. Bu anıtların, büyük olasılıkla cenaze törenleriyle ilişkili ritüellerde kullanıldığı düşünülmektedir. Vahşi hayvan tasvirleriyle oyulmuş kendine özgü T biçimli dikilitaşlar, yaklaşık 11.500 yıl önce Yukarı Mezopotamya'da yaşayan insanların yaşam biçimine ve inançlarına dair önemli ipuçları sunmaktadır. Göbeklitepe'deki bazı hayvan figürleri, sembolik motifler ve özellikle bozkır-Türk kültüründe de görülen kimi işaretlerle benzerlikleri nedeniyle Türk tarihi ve kültürü açısından dikkat çekmektedir."
   },
   {
     "id": "fd30f9b4-e75e-5a6e-8db9-82e38f06c855",
@@ -7982,7 +8118,9 @@
     "description": "This region of Anatolia was conquered by the Turks at the beginning of the 11th century. In 1228–29 Emir Ahmet Shah founded a mosque, with its adjoining hospital, at Divrigi. The mosque has a single prayer room and is crowned by two cupolas. The highly sophisticated technique of vault construction, and a creative, exuberant type of decorative sculpture – particularly on the three doorways, in contrast to the unadorned walls of the interior – are the unique features of this masterpiece of Islamic architecture.",
     "latitude": 39.371271,
     "longitude": 38.121826,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Divrigi_Darussifa.JPG/500px-Divrigi_Darussifa.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Divrigi_Darussifa.JPG/500px-Divrigi_Darussifa.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Divriği Ulu Camii ve Darüşşifası",
+    "descriptionTr": "Anadolu'nun bu bölgesi, 11. yüzyılın başlarında Türkler tarafından fethedilmiştir. 1228-29 yıllarında Emir Ahmet Şah, Divriği'de bitişiğinde bir darüşşifa da bulunan bir cami inşa ettirmiştir. Cami tek bir mescitten oluşur ve iki kubbeyle taçlandırılmıştır. İç mekânın sade duvarlarının aksine, özellikle üç kapıda görülen son derece gelişmiş kubbe inşa tekniği ve yaratıcı, coşkulu süsleme heykelciliği, bu İslam mimarisi başyapıtının eşsiz özellikleridir."
   },
   {
     "id": "26d40007-9f93-5cab-b5e4-a77331bde11c",
@@ -7992,7 +8130,9 @@
     "description": "With its strategic location on the Bosphorus peninsula between the Balkans and Anatolia, the Black Sea and the Mediterranean, Istanbul has been associated with major political, religious and artistic events for more than 2,000 years. Its masterpieces include the ancient Hippodrome of Constantine, the 6th-century Hagia Sophia and the 16th-century Süleymaniye Mosque, all now under threat from population pressure, industrial pollution and uncontrolled urbanization.",
     "latitude": 41.00847,
     "longitude": 28.97993,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Istanbul2010.jpg/500px-Istanbul2010.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Istanbul2010.jpg/500px-Istanbul2010.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "İstanbul'un Tarihi Alanları",
+    "descriptionTr": "Balkanlar ile Anadolu, Karadeniz ile Akdeniz arasında Boğaziçi yarımadasındaki stratejik konumuyla İstanbul, 2.000 yılı aşkın bir süredir önemli siyasi, dinî ve sanatsal olaylarla ilişkilendirilmiştir. Başyapıtları arasında Konstantin'in antik Hipodromu, 6. yüzyıldan kalma Ayasofya ve 16. yüzyıldan kalma Süleymaniye Camii bulunmakta olup bunların tümü nüfus baskısı, endüstriyel kirlilik ve kontrolsüz kentleşme tehdidi altındadır."
   },
   {
     "id": "158fe075-1409-58b7-aa71-8a921497de7a",
@@ -8002,7 +8142,9 @@
     "description": "This site rises high above the Bakirçay Plain in Turkey’s Aegean region. The acropolis of Pergamon was the capital of the Hellenistic Attalid dynasty, a major centre of learning in the ancient world. Monumental temples, theatres, stoa or porticoes, gymnasium, altar and library were set into the sloping terrain surrounded by an extensive city wall. The rock-cut Kybele Sanctuary lies to the north-west on another hill visually linked to the acropolis. Later the city became capital of the Roman province of Asia known for its Asclepieion healing centre. The acropolis crowns a landscape containing burial mounds and remains of the Roman, Byzantine and Ottoman empires in and around the modern town of Bergama on the lower slopes.",
     "latitude": 39.1258333333,
     "longitude": 27.18,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Acropolis_-_Bergama_%28Pergamon%29_-_Turkey_-_10_%285747249729%29.jpg/330px-Acropolis_-_Bergama_%28Pergamon%29_-_Turkey_-_10_%285747249729%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Acropolis_-_Bergama_%28Pergamon%29_-_Turkey_-_10_%285747249729%29.jpg/330px-Acropolis_-_Bergama_%28Pergamon%29_-_Turkey_-_10_%285747249729%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Bergama ve Çok Katmanlı Kültürel Peyzajı",
+    "descriptionTr": "Bu alan, Türkiye'nin Ege bölgesindeki Bakırçay Ovası'nın üzerinde yükselmektedir. Bergama akropolü, antik dünyanın önemli bir bilim merkezi olan Helenistik Attalos hanedanının başkentiydi. Anıtsal tapınaklar, tiyatrolar, stoa veya portikolar, gymnasion, sunak ve kütüphane, geniş bir kent surlarıyla çevrili eğimli arazide konumlandırılmıştır. Kayaya oyulmuş Kybele Kutsal Alanı, akropole görsel olarak bağlı başka bir tepede, kuzeybatıda yer alır. Daha sonra kent, Asklepion şifa merkeziyle tanınan Roma'nın Asya eyaletinin başkenti olmuştur. Akropol, alçak yamaçlardaki modern Bergama kasabası içinde ve çevresinde Roma, Bizans ve Osmanlı imparatorluklarından kalma mezar höyükleri ile kalıntıları barındıran bir peyzajı taçlandırmaktadır."
   },
   {
     "id": "7afad623-4e4c-5ea0-bb8c-75cc95a93d2a",
@@ -8476,7 +8618,7 @@
   },
   {
     "id": "ddbb6359-3531-5d1a-bc7b-3202a9cff2df",
-    "name": "Ulu<U>r</U>u-Kata Tju<U>t</U>a National Park",
+    "name": "Uluru-Kata Tjuta National Park",
     "country": "Australia",
     "category": "Mixed",
     "description": "This park, formerly called Uluru (Ayers Rock – Mount Olga) National Park, features spectacular geological formations that dominate the vast red sandy plain of central Australia. Uluru, an immense monolith, and Kata Tjuta, the rock domes located west of Uluru, form part of the traditional belief system of one of the oldest human societies in the world. The traditional owners of Uluru-Kata Tjuta are the Anangu Aboriginal people.",
@@ -10908,7 +11050,9 @@
     "description": "Two hills form the 37 ha site on the Southern Anatolian Plateau. The taller eastern mound contains eighteen levels of Neolithic occupation between 7400 bc and 6200 bc, including wall paintings, reliefs, sculptures and other symbolic and artistic features. Together they testify to the evolution of social organization and cultural practices as humans adapted to a sedentary life. The western mound shows the evolution of cultural practices in the Chalcolithic period, from 6200 bc to 5200 bc. Çatalhöyük provides important evidence of the transition from settled villages to urban agglomeration, which was maintained in the same location for over 2,000 years. It features a unique streetless settlement of houses clustered back to back with roof access into the buildings.",
     "latitude": 37.6666666667,
     "longitude": 32.8280555556,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/%C3%87atalh%C3%B6y%C3%BCk%2C_7400_BC%2C_Konya%2C_Turkey_-_UNESCO_World_Heritage_Site%2C_08.jpg/330px-%C3%87atalh%C3%B6y%C3%BCk%2C_7400_BC%2C_Konya%2C_Turkey_-_UNESCO_World_Heritage_Site%2C_08.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/%C3%87atalh%C3%B6y%C3%BCk%2C_7400_BC%2C_Konya%2C_Turkey_-_UNESCO_World_Heritage_Site%2C_08.jpg/330px-%C3%87atalh%C3%B6y%C3%BCk%2C_7400_BC%2C_Konya%2C_Turkey_-_UNESCO_World_Heritage_Site%2C_08.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Çatalhöyük Neolitik Alanı",
+    "descriptionTr": "Güney Anadolu Platosu'ndaki 37 hektarlık alanı iki höyük oluşturur. Daha yüksek olan doğu höyüğü, MÖ 7400 ile 6200 yılları arasında on sekiz Neolitik yerleşim katmanı içermekte olup duvar resimleri, kabartmalar, heykeller ve diğer sembolik ve sanatsal öğeleri barındırır. Bu katmanlar birlikte, insanların yerleşik bir yaşama uyum sağlarken toplumsal örgütlenme ve kültürel uygulamaların nasıl evrildiğine tanıklık eder. Batı höyüğü ise MÖ 6200'den 5200'e kadar Kalkolitik dönemdeki kültürel uygulamaların evrimini göstermektedir. Çatalhöyük, aynı konumda 2.000 yılı aşkın süre korunan, yerleşik köylerden kentsel topluluğa geçişe dair önemli kanıtlar sunmaktadır. Alan, çatıdan girişli, sırt sırta kümelenmiş evlerden oluşan, sokaksız eşsiz bir yerleşimi barındırır."
   },
   {
     "id": "0c16e5be-ccc5-516a-b6af-a61c2908a137",
@@ -10932,7 +11076,7 @@
   },
   {
     "id": "1893d3fe-c072-5da6-8b57-3df686fe9457",
-    "name": "Ancient <I>Ksour</I> of Ouadane, Chinguetti, Tichitt and Oualata",
+    "name": "Ancient Ksour of Ouadane, Chinguetti, Tichitt and Oualata",
     "country": "Mauritania",
     "category": "Cultural",
     "description": "Founded in the 11th and 12th centuries to serve the caravans crossing the Sahara, these trading and religious centres became focal points of Islamic culture. They have managed to preserve an urban fabric that evolved between the 12th and 16th centuries. Typically, houses with patios crowd along narrow streets around a mosque with a square minaret. They illustrate a traditional way of life centred on the nomadic culture of the people of the western Sahara.",
@@ -10962,7 +11106,7 @@
   },
   {
     "id": "1120bad4-b54a-584e-8fe5-d342035c6af2",
-    "name": "Central University City Campus of the <i>Universidad Nacional Autónoma de México</i> (UNAM)",
+    "name": "Central University City Campus of the Universidad Nacional Autónoma de México (UNAM)",
     "country": "Mexico",
     "category": "Cultural",
     "description": "The ensemble of buildings, sports facilities and open spaces of the Central University City Campus of the Universidad Nacional Autónoma de México (UNAM), was built from 1949 to 1952 by more than 60 architects, engineers and artists who were involved in the project. As a result, the campus constitutes a unique example of 20th-century modernism integrating urbanism, architecture, engineering, landscape design and fine arts with references to local traditions, especially to Mexico’s pre-Hispanic past. The ensemble embodies social and cultural values of universal significance and is one of the most significant icons of modernity in Latin America.",
@@ -11342,7 +11486,7 @@
   },
   {
     "id": "6e87510c-449c-5d46-a959-9bb3d31970ec",
-    "name": "<i>Aflaj</i> Irrigation Systems of Oman",
+    "name": "Aflaj Irrigation Systems of Oman",
     "country": "Oman",
     "category": "Cultural",
     "description": "The property includes five aflaj irrigation systems and is representative of some 3,000 such systems still in use in Oman. The origins of this system of irrigation may date back to AD 500, but archaeological evidence suggests that irrigation systems existed in this extremely arid area as early as 2500 BC. Using gravity, water is channelled from underground sources or springs to support agriculture and domestic use. The fair and effective management and sharing of water in villages and towns is still underpinned by mutual dependence and communal values and guided by astronomical observations. Numerous watchtowers built to defend the water systems form part of the site reflecting the historic dependence of communities on the aflaj system. Threatened by falling level of the underground water table, the aflaj represent an exceptionally well-preserved form of land use.",
@@ -11462,7 +11606,7 @@
   },
   {
     "id": "38d28313-9570-50d5-acb4-7e6f2824ff5b",
-    "name": "Auschwitz Birkenau <br /><small>German Nazi Concentration and Extermination Camp (1940-1945)</small>",
+    "name": "Auschwitz Birkenau German Nazi Concentration and Extermination Camp (1940-1945)",
     "country": "Poland",
     "category": "Cultural",
     "description": "The fortified walls, barbed wire, platforms, barracks, gallows, gas chambers and cremation ovens show the conditions within which the Nazi genocide took place in the former concentration and extermination camp of Auschwitz-Birkenau, the largest in the Third Reich. According to historical investigations, 1.5 million people, among them a great number of Jews, were systematically starved, tortured and murdered in this camp, the symbol of humanity's cruelty to its fellow human beings in the 20th century.",
@@ -11522,7 +11666,7 @@
   },
   {
     "id": "ef708809-ed5b-5ba7-90c4-bbaa39fa4c8c",
-    "name": "Royal Building of <i>Mafra</i> – Palace, Basilica, Convent, <i>Cerco</i> Garden and Hunting Park (<i>Tapada</i>)",
+    "name": "Royal Building of Mafra – Palace, Basilica, Convent, Cerco Garden and Hunting Park (Tapada)",
     "country": "Portugal",
     "category": "Cultural",
     "description": "Located 30 km northwest of Lisbon, the property was conceived by King João V in 1711 as a tangible representation of his conception of the monarchy and the State. This imposing quadrangular building houses the king’s and queen's palaces, the royal chapel, shaped like a Roman baroque basilica, a Franciscan monastery and a library containing 36,000 volumes. The complex is completed by the Cerco garden, with its geometric layout, and the royal hunting park (Tapada). The Royal Mafra Building is one of the most remarkable works undertaken by King João V, which illustrates the power and reach of the Portuguese Empire. João V adopted Roman and Italian baroque architectural and artistic models and commissioned works of art that make Mafra an exceptional example of Italian Baroque.",
@@ -11964,7 +12108,9 @@
     "description": "Cordoba's period of greatest glory began in the 8th century after the Moorish conquest, when some 300 mosques and innumerable palaces and public buildings were built to rival the splendours of Constantinople, Damascus and Baghdad. In the 13th century, under Ferdinand III, the Saint, Cordoba's Great Mosque was turned into a cathedral and new defensive structures, particularly the Alcázar de los Reyes Cristianos and the Torre Fortaleza de la Calahorra, were erected.",
     "latitude": 37.87919444,
     "longitude": -4.779722222,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Centro_Hist%C3%B3rico%2C_16.9_--_2023_--_C%C3%B3rdoba%2C_Espa%C3%B1a.jpg/500px-Centro_Hist%C3%B3rico%2C_16.9_--_2023_--_C%C3%B3rdoba%2C_Espa%C3%B1a.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Centro_Hist%C3%B3rico%2C_16.9_--_2023_--_C%C3%B3rdoba%2C_Espa%C3%B1a.jpg/500px-Centro_Hist%C3%B3rico%2C_16.9_--_2023_--_C%C3%B3rdoba%2C_Espa%C3%B1a.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Kurtuba Tarihi Merkezi",
+    "descriptionTr": "Kurtuba'nın en görkemli dönemi, Mağribi fethinin ardından 8. yüzyılda başladı; bu dönemde Konstantinopolis, Şam ve Bağdat'ın ihtişamıyla yarışmak üzere yaklaşık 300 cami ve sayısız saray ile kamu binası inşa edildi. 13. yüzyılda, Aziz Ferdinand III döneminde Kurtuba Ulu Camii katedrale dönüştürüldü ve başta Alcázar de los Reyes Cristianos ile Torre Fortaleza de la Calahorra olmak üzere yeni savunma yapıları inşa edildi."
   },
   {
     "id": "c1d3da73-2a33-5c81-9b4c-b9737ab52466",
@@ -11974,7 +12120,9 @@
     "description": "Built between 1482 and 1533, this group of buildings was originally used for trading in silk (hence its name, the Silk Exchange) and it has always been a centre for commerce. It is a masterpiece of late Gothic architecture. The grandiose Sala de Contratación (Contract or Trading Hall), in particular, illustrates the power and wealth of a major Mediterranean mercantile city in the 15th and 16th centuries.",
     "latitude": 39.47441667,
     "longitude": -0.378444444,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Llonja.jpg/500px-Llonja.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Llonja.jpg/500px-Llonja.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Valensiya İpek Borsası (La Lonja de la Seda)",
+    "descriptionTr": "1482-1533 yılları arasında inşa edilen bu yapı topluluğu, başlangıçta ipek ticareti için kullanılmış (adını da buradan almıştır) ve her zaman bir ticaret merkezi olmuştur. Geç Gotik mimarisinin bir başyapıtıdır. Özellikle görkemli Sala de Contratación (Ticaret Salonu), 15. ve 16. yüzyıllarda önemli bir Akdeniz ticaret kentinin gücünü ve zenginliğini gözler önüne sermektedir."
   },
   {
     "id": "0a2a8ff4-c336-5b18-9253-69162d1d9dd5",
@@ -11984,7 +12132,9 @@
     "description": "Built at the end of the 16th century on a plan in the form of a grill, the instrument of the martyrdom of St Lawrence, the Escurial Monastery stands in an exceptionally beautiful site in Castile. Its austere architecture, a break with previous styles, had a considerable influence on Spanish architecture for more than half a century. It was the retreat of a mystic king and became, in the last years of Philip II's reign, the centre of the greatest political power of the time.",
     "latitude": 40.5891111111,
     "longitude": -4.14775,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monasterio_de_El_Escorial_en_Madrid.jpg/330px-Monasterio_de_El_Escorial_en_Madrid.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monasterio_de_El_Escorial_en_Madrid.jpg/330px-Monasterio_de_El_Escorial_en_Madrid.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Escurial Manastırı ve Alanı, Madrid",
+    "descriptionTr": "16. yüzyılın sonlarında, Aziz Lorenzo'nun şehit edilişinde kullanılan araç olan ızgara biçiminde bir plana göre inşa edilen Escurial Manastırı, Kastilya'da olağanüstü güzellikte bir alanda yer alır. Önceki üsluplardan kopuşu simgeleyen sade mimarisi, yarım yüzyılı aşkın süre İspanyol mimarisini derinden etkilemiştir. Mistik bir kralın sığınağı olan yapı, II. Felipe'nin saltanatının son yıllarında dönemin en büyük siyasi gücünün merkezi hâline gelmiştir."
   },
   {
     "id": "f59bcd03-b975-51f0-80c4-3af94ab78200",
@@ -11994,7 +12144,9 @@
     "description": "In the 9th century the flame of Christianity was kept alive in the Iberian peninsula in the tiny Kingdom of the Asturias. Here an innovative pre-Romanesque architectural style was created that was to play a significant role in the development of the religious architecture of the peninsula. Its highest achievements can be seen in the churches of Santa María del Naranco, San Miguel de Lillo, Santa Cristina de Lena, the Cámara Santa and San Julián de los Prados, in and around the ancient capital city of Oviedo. Associated with them is the remarkable contemporary hydraulic engineering structure known as La Foncalada.",
     "latitude": 43.36262,
     "longitude": -5.84303,
-    "imageUrl": null
+    "imageUrl": null,
+    "nameTr": "Oviedo Anıtları ve Asturias Krallığı",
+    "descriptionTr": "9. yüzyılda Hristiyanlığın ateşi, İber Yarımadası'nın küçük Asturias Krallığı'nda canlı tutuldu. Burada, yarımadanın dinî mimarisinin gelişiminde önemli bir rol oynayacak yenilikçi bir Ön-Romanesk mimari üslup ortaya çıktı. Bu üslubun en üst düzey örnekleri, eski başkent Oviedo'nun içinde ve çevresinde yer alan Santa María del Naranco, San Miguel de Lillo, Santa Cristina de Lena, Cámara Santa ve San Julián de los Prados kiliselerinde görülebilir. Bunlarla ilişkili olarak, dikkat çekici bir hidrolik mühendislik yapısı olan La Foncalada da bu döneme aittir."
   },
   {
     "id": "4a979863-8059-55b7-97ff-1e30bd809a73",
@@ -12004,7 +12156,9 @@
     "description": "The Roman aqueduct of Segovia, probably built c. A.D. 50, is remarkably well preserved. This impressive construction, with its two tiers of arches, forms part of the setting of the magnificent historic city of Segovia. Other important monuments include the Alcázar, begun around the 11th century, and the 16th-century Gothic cathedral.",
     "latitude": 40.94847222,
     "longitude": -4.11675,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Aqueduct_of_Segovia_08.jpg/330px-Aqueduct_of_Segovia_08.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Aqueduct_of_Segovia_08.jpg/330px-Aqueduct_of_Segovia_08.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Segovia Eski Şehri ve Su Kemeri",
+    "descriptionTr": "Muhtemelen MS 50 yılı civarında inşa edilen Segovia Roma su kemeri, dikkat çekici biçimde iyi korunmuştur. Çift katlı kemerleriyle etkileyici bu yapı, Segovia'nın görkemli tarihi kentinin dokusunun bir parçasını oluşturur. Diğer önemli anıtlar arasında 11. yüzyıl civarında yapımına başlanan Alcázar ile 16. yüzyıla ait Gotik katedral bulunmaktadır."
   },
   {
     "id": "8cde1ea8-b12d-5807-b756-0ab1b253803f",
@@ -12014,7 +12168,9 @@
     "description": "The Palmeral of Elche, a landscape of groves of date palms, was formally laid out, with elaborate irrigation systems, at the time the Muslim city of Elche was erected, towards the end of the tenth century A.C., when much of the Iberian peninsula was Arab. The Palmeral is an oasis, a system for agrarian production in arid areas. It is also a unique example of Arab agricultural practices on the European continent. Cultivation of date palms in Elche is known at least since the Iberian times, dating around the fifth century B.C.",
     "latitude": 38.26666667,
     "longitude": -0.716666667,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Arcoiris_en_el_Palmeral_de_Elche.jpg/500px-Arcoiris_en_el_Palmeral_de_Elche.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Arcoiris_en_el_Palmeral_de_Elche.jpg/500px-Arcoiris_en_el_Palmeral_de_Elche.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Elche Hurma Ağacı Bahçeleri (Palmeral)",
+    "descriptionTr": "Hurma ağacı korularından oluşan bir peyzaj olan Elche Hurma Ağacı Bahçeleri, İber Yarımadası'nın büyük ölçüde Arap egemenliğinde olduğu 10. yüzyılın sonlarına doğru, Müslüman Elche şehrinin kuruluşuyla birlikte gelişmiş sulama sistemleriyle birlikte biçimlendirilmiştir. Bu bahçe, kurak bölgelerde tarımsal üretim için kullanılan bir vaha sistemidir. Aynı zamanda Avrupa kıtasındaki Arap tarım uygulamalarının eşsiz bir örneğidir. Elche'de hurma yetiştiriciliğinin, MÖ beşinci yüzyıla kadar uzanan İber dönemine dayandığı bilinmektedir."
   },
   {
     "id": "8fac7672-a3d6-5197-b1de-02a84a1da83c",
@@ -12024,7 +12180,9 @@
     "description": "This Cistercian abbey in Catalonia is one of the largest in Spain. At its centre is a 12th-century church. The austere, majestic monastery, which has a fortified royal residence and contains the pantheon of the kings of Catalonia and Aragon, is an impressive sight.",
     "latitude": 41.38083,
     "longitude": 1.0825,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Monestir_de_Poblet.JPG/500px-Monestir_de_Poblet.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Monestir_de_Poblet.JPG/500px-Monestir_de_Poblet.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Poblet Manastırı",
+    "descriptionTr": "Katalonya'daki bu Sistersiyen manastırı, İspanya'nın en büyüklerinden biridir. Merkezinde 12. yüzyıldan kalma bir kilise yer alır. Kalesi andıran bir kraliyet konutuna sahip olan ve Katalonya ile Aragon krallarının mezarlarını barındıran sade ve görkemli manastır, etkileyici bir görünüme sahiptir."
   },
   {
     "id": "4b8bd609-0da5-52b9-8324-488e7bbad123",
@@ -12034,7 +12192,9 @@
     "description": "The walls of Lugo were built in the later part of the 3rd century to defend the Roman town of Lucus. The entire circuit survives intact and is the finest example of late Roman fortifications in western Europe.",
     "latitude": 43.0106407944,
     "longitude": -7.5530699413,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Muralla_de_Lugo_-_03.jpg/500px-Muralla_de_Lugo_-_03.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Muralla_de_Lugo_-_03.jpg/500px-Muralla_de_Lugo_-_03.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Lugo Roma Surları",
+    "descriptionTr": "Lugo surları, Roma kenti Lucus'u savunmak amacıyla 3. yüzyılın sonlarına doğru inşa edilmiştir. Sur hattının tamamı bozulmadan günümüze ulaşmıştır ve Batı Avrupa'daki geç dönem Roma tahkimatlarının en güzel örneğidir."
   },
   {
     "id": "2b3f1b64-8dcd-554c-acd7-b31c99a58518",
@@ -12044,7 +12204,9 @@
     "description": "The late prehistoric rock-art sites of the Mediterranean seaboard of the Iberian peninsula form an exceptionally large group. Here the way of life during a critical phase of human development is vividly and graphically depicted in paintings whose style and subject matter are unique.",
     "latitude": 39.78995,
     "longitude": -1.03331,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Arte_rupestre_arco_mediterraneo.png/500px-Arte_rupestre_arco_mediterraneo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Arte_rupestre_arco_mediterraneo.png/500px-Arte_rupestre_arco_mediterraneo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "İber Yarımadası Akdeniz Havzası Kaya Resimleri",
+    "descriptionTr": "İber Yarımadası'nın Akdeniz kıyısındaki geç tarih öncesi dönem kaya resmi alanları, olağanüstü büyüklükte bir grup oluşturur. Burada, insanlık gelişiminin kritik bir evresindeki yaşam biçimi, üslubu ve konusu eşsiz olan resimlerle canlı ve etkileyici biçimde tasvir edilmiştir."
   },
   {
     "id": "f5cc2721-7eef-5039-a193-e865a4eb33fb",
@@ -12054,7 +12216,9 @@
     "description": "The monastic community founded by St Millán in the mid-6th century became a place of pilgrimage. A fine Romanesque church built in honour of the holy man still stands at the site of Suso. It was here that the first literature was produced in Castilian, from which one of the most widely spoken languages in the world today is derived. In the early 16th century the community was housed in the fine new monastery of Yuso, below the older complex; it is still a thriving community today.",
     "latitude": 42.32586,
     "longitude": -2.86496,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Monasterio_de_Suso_%282%29.jpg/330px-Monasterio_de_Suso_%282%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Monasterio_de_Suso_%282%29.jpg/330px-Monasterio_de_Suso_%282%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "San Millán Yuso ve Suso Manastırları",
+    "descriptionTr": "6. yüzyılın ortalarında Aziz Millán tarafından kurulan manastır topluluğu, zamanla bir hac merkezine dönüşmüştür. Bu kutsal kişi anısına inşa edilen güzel bir Romanesk kilise, hâlâ Suso alanında ayakta durmaktadır. İlk Kastilya dilinde eserler, bugün dünyada en yaygın konuşulan dillerden birinin köklerini oluşturan bu yerde üretilmiştir. 16. yüzyılın başında topluluk, eski yapının aşağısında inşa edilen yeni ve güzel Yuso manastırına taşınmıştır; bu manastır bugün hâlâ faaliyetini sürdüren canlı bir topluluğa ev sahipliği yapmaktadır."
   },
   {
     "id": "653abc81-87a9-57f1-a0b8-67c4a63ede98",
@@ -12064,7 +12228,9 @@
     "description": "Founded in the 16th century by the Portuguese, Galle reached the height of its development in the 18th century, before the arrival of the British. It is the best example of a fortified city built by Europeans in South and South-East Asia, showing the interaction between European architectural styles and South Asian traditions.",
     "latitude": 6.028051,
     "longitude": 80.216346,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Galle_Fort.jpg/500px-Galle_Fort.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Galle_Fort.jpg/500px-Galle_Fort.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Galle Eski Şehri ve Tahkimatları",
+    "descriptionTr": "16. yüzyılda Portekizliler tarafından kurulan Galle, İngilizlerin gelişinden önce 18. yüzyılda gelişiminin doruğuna ulaşmıştır. Avrupa mimari üslupları ile Güney Asya geleneklerinin etkileşimini yansıtan, Avrupalılar tarafından Güney ve Güneydoğu Asya'da inşa edilmiş en iyi tahkimatlı şehir örneğidir."
   },
   {
     "id": "b58f0175-1cda-593c-b625-5cb59ce04d0c",
@@ -12074,7 +12240,9 @@
     "description": "Located in south-west Sri Lanka, Sinharaja is the country's last viable area of primary tropical rainforest. More than 60% of the trees are endemic and many of them are considered rare. There is much endemic wildlife, especially birds, but the reserve is also home to over 50% of Sri Lanka's endemic species of mammals and butterflies, as well as many kinds of insects, reptiles and rare amphibians.",
     "latitude": 6.416666667,
     "longitude": 80.5,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/20160128_Sri_Lanka_4132_Sinharaja_Forest_Preserve_sRGB_%2825674474901%29.jpg/500px-20160128_Sri_Lanka_4132_Sinharaja_Forest_Preserve_sRGB_%2825674474901%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/20160128_Sri_Lanka_4132_Sinharaja_Forest_Preserve_sRGB_%2825674474901%29.jpg/500px-20160128_Sri_Lanka_4132_Sinharaja_Forest_Preserve_sRGB_%2825674474901%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Sinharaja Orman Rezervi",
+    "descriptionTr": "Sri Lanka'nın güneybatısında yer alan Sinharaja, ülkenin ayakta kalabilen son birincil tropik yağmur ormanı alanıdır. Ağaçların %60'ından fazlası endemiktir ve bunların çoğu nadir kabul edilir. Özellikle kuş türleri açısından zengin bir endemik yaban hayata sahip olan rezerv, aynı zamanda Sri Lanka'nın endemik memeli ve kelebek türlerinin yarısından fazlasına ile birçok böcek, sürüngen ve nadir amfibi türüne ev sahipliği yapmaktadır."
   },
   {
     "id": "7a1cdf43-7cbe-51f3-b29d-e1d7939ee4d3",
@@ -12084,7 +12252,9 @@
     "description": "The Central Suriname Nature Reserve comprises 1.6 million ha of primary tropical forest of west-central Suriname. It protects the upper watershed of the Coppename River and the headwaters of the Lucie, Oost, Zuid, Saramaccz, and Gran Rio rivers and covers a range of topography and ecosystems of notable conservation value due to its pristine state. Its montane and lowland forests contain a high diversity of plant life with more than 5,000 vascular plant species collected to date. The Reserve's animals are typical of the region and include the jaguar, giant armadillo, giant river otter, tapir, sloths, eight species of primates and 400 bird species such as harpy eagle, Guiana cock-of-the-rock, and scarlet macaw.",
     "latitude": 4,
     "longitude": -56.5,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Amazon_jungle_from_above.jpg/500px-Amazon_jungle_from_above.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Amazon_jungle_from_above.jpg/500px-Amazon_jungle_from_above.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Orta Surinam Doğa Rezervi",
+    "descriptionTr": "Orta Surinam Doğa Rezervi, Surinam'ın orta-batı kesiminde 1,6 milyon hektarlık birincil tropik ormanı kapsar. Coppename Nehri'nin üst havzasını ve Lucie, Oost, Zuid, Saramaccz ile Gran Rio nehirlerinin kaynaklarını koruma altına alır ve el değmemiş doğal yapısı nedeniyle önemli koruma değeri taşıyan geniş bir topografya ve ekosistem yelpazesini içerir. Dağlık ve alçak bölge ormanları, bugüne kadar tespit edilen 5.000'den fazla damarlı bitki türüyle yüksek bir bitki çeşitliliğine sahiptir. Rezervde yaşayan hayvanlar bölgeye özgüdür ve jaguar, dev armadillo, dev su samuru, tapir, tembel hayvanlar, sekiz primat türü ile harpi kartalı, Guyana kaya horozu ve al makao gibi 400 kuş türünü kapsar."
   },
   {
     "id": "79138e24-15af-5248-a69b-d631bd010a71",
@@ -12094,7 +12264,9 @@
     "description": "These five archaeological sites, stretching over more than 60 km in the Nile valley, are testimony to the Napatan (900 to 270 BC) and Meroitic (270 BC to 350 AD) cultures, of the second kingdom of Kush. Tombs, with and without pyramids, temples, living complexes and palaces, are to be found on the site. Since Antiquity, the hill of Gebel Barkal has been strongly associated with religious traditions and folklore. The largest temples are still considered by the local people as sacred places.",
     "latitude": 18.537,
     "longitude": 31.8280277778,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Gebel_Barkal.jpg/500px-Gebel_Barkal.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Gebel_Barkal.jpg/500px-Gebel_Barkal.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Gebel Barkal ve Napata Bölgesi Alanları",
+    "descriptionTr": "Nil vadisinde 60 km'den uzun bir alana yayılan bu beş arkeolojik alan, Kuş Krallığı'nın ikinci döneminde ortaya çıkan Napata (MÖ 900-270) ve Meroe (MÖ 270 - MS 350) kültürlerinin tanığıdır. Alanda piramitli ve piramitsiz mezarlar, tapınaklar, yaşam alanları ve saraylar bulunmaktadır. Gebel Barkal tepesi, antik çağlardan bu yana dinî gelenekler ve halk inanışlarıyla güçlü biçimde ilişkilendirilmiştir. Bölgedeki en büyük tapınaklar, yerel halk tarafından hâlâ kutsal mekânlar olarak kabul edilmektedir."
   },
   {
     "id": "c190d39a-2ed6-56db-8157-070701e46e3e",
@@ -12104,7 +12276,9 @@
     "description": "Paramaribo is a former Dutch colonial town from the 17th and 18th centuries planted on the northern coast of tropical South America. The original and highly characteristic street plan of the historic centre remains intact. Its buildings illustrate the gradual fusion of Dutch architectural influence with traditional local techniques and materials.",
     "latitude": 5.82611,
     "longitude": -55.15,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Paramaribo_city_collage.png/330px-Paramaribo_city_collage.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Paramaribo_city_collage.png/330px-Paramaribo_city_collage.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Paramaribo Tarihi İç Şehri",
+    "descriptionTr": "Paramaribo, tropik Güney Amerika'nın kuzey kıyısında kurulmuş, 17. ve 18. yüzyıllardan kalma eski bir Hollanda sömürge şehridir. Tarihi merkezin özgün ve son derece karakteristik sokak planı bugün de olduğu gibi korunmaktadır. Şehrin binaları, Hollanda mimari etkisinin yerel geleneksel teknik ve malzemelerle giderek kaynaşmasını gözler önüne sermektedir."
   },
   {
     "id": "3a4bd7f1-2739-5a74-a20a-9a14fa429db3",
@@ -12114,7 +12288,9 @@
     "description": "Sweden's production of superior grades of iron made it a leader in this field in the 17th and 18th centuries. This site is the best-preserved and most complete example of this type of Swedish ironworks.",
     "latitude": 59.97,
     "longitude": 16.01,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Engelsberg-Huettenwerk-01.jpg/500px-Engelsberg-Huettenwerk-01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Engelsberg-Huettenwerk-01.jpg/500px-Engelsberg-Huettenwerk-01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Engelsberg Demir Fabrikası",
+    "descriptionTr": "İsveç'in üstün kalitede demir üretimi, ülkeyi 17. ve 18. yüzyıllarda bu alanda lider konuma taşımıştır. Bu alan, bu tür İsveç demir fabrikalarının en iyi korunmuş ve en eksiksiz örneğidir."
   },
   {
     "id": "eba639e0-7d9b-50c1-9fcf-95a9445de682",
@@ -12124,7 +12300,9 @@
     "description": "A former Viking site on the island of Gotland, Visby was the main centre of the Hanseatic League in the Baltic from the 12th to the 14th century. Its 13th-century ramparts and more than 200 warehouses and wealthy merchants' dwellings from the same period make it the best-preserved fortified commercial city in northern Europe.",
     "latitude": 57.64167,
     "longitude": 18.29583,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/0522Visby_domkyrka.jpg/330px-0522Visby_domkyrka.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/0522Visby_domkyrka.jpg/330px-0522Visby_domkyrka.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Hansa Kenti Visby",
+    "descriptionTr": "Gotland adasında eski bir Viking yerleşimi olan Visby, 12. ile 14. yüzyıllar arasında Baltık'taki Hansa Birliği'nin ana merkeziydi. 13. yüzyıldan kalma sur duvarları ile aynı döneme ait 200'den fazla depo ve zengin tüccar konutu, kenti kuzey Avrupa'nın en iyi korunmuş surlu ticaret şehri hâline getirmektedir."
   },
   {
     "id": "dba03160-3a50-5b2f-a06e-d31236d4a192",
@@ -12134,7 +12312,9 @@
     "description": "The Arctic Circle region of northern Sweden is the home of the Saami people. It is the largest area in the world (and one of the last) with an ancestral way of life based on the seasonal movement of livestock. Every summer, the Saami lead their huge herds of reindeer towards the mountains through a natural landscape hitherto preserved, but now threatened by the advent of motor vehicles. Historical and ongoing geological processes can be seen in the glacial moraines and changing water courses.",
     "latitude": 67.33333,
     "longitude": 17.58333,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Sarek_Skierffe_Rapadelta.jpg/330px-Sarek_Skierffe_Rapadelta.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Sarek_Skierffe_Rapadelta.jpg/330px-Sarek_Skierffe_Rapadelta.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Laponya Bölgesi",
+    "descriptionTr": "Kuzey İsveç'in Kuzey Kutup Dairesi bölgesi, Sami halkının yurdudur. Dünyada, hayvanların mevsimsel göçüne dayalı atalardan kalma bir yaşam biçiminin sürdürüldüğü en büyük (ve son) alanlardan biridir. Sami halkı her yaz, o zamana kadar korunmuş olan doğal peyzajın içinden geçirerek büyük ren geyiği sürülerini dağlara doğru götürür; ancak bu peyzaj artık motorlu araçların gelişiyle tehdit altındadır. Buzul morenlerinde ve değişen su yataklarında hem tarihsel hem de devam eden jeolojik süreçler gözlemlenebilir."
   },
   {
     "id": "c9ab59cc-76e1-599c-be86-a46aaee00950",
@@ -12144,7 +12324,9 @@
     "description": "The enormous mining excavation known as the Great Pit at Falun is the most striking feature of a landscape that illustrates the activity of copper production in this region since at least the 13th century. The 17th-century planned town of Falun with its many fine historic buildings, together with the industrial and domestic remains of a number of settlements spread over a wide area of the Dalarna region, provide a vivid picture of what was for centuries one of the world's most important mining areas.",
     "latitude": 60.60472,
     "longitude": 15.63083,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Falu_koppargruva_July_2017_01.jpg/330px-Falu_koppargruva_July_2017_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Falu_koppargruva_July_2017_01.jpg/330px-Falu_koppargruva_July_2017_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Falun Büyük Bakır Dağı Maden Alanı",
+    "descriptionTr": "Falun'daki devasa maden çukuru olan Büyük Çukur, en azından 13. yüzyıldan bu yana bölgede süregelen bakır üretim faaliyetini yansıtan bir peyzajın en çarpıcı unsurudur. Birçok güzel tarihi binaya sahip 17. yüzyılda planlanmış Falun kenti, Dalarna bölgesinin geniş bir alanına yayılan çok sayıda yerleşimin sanayi ve gündelik yaşam kalıntılarıyla birlikte, yüzyıllar boyunca dünyanın en önemli maden bölgelerinden birinin canlı bir tablosunu sunar."
   },
   {
     "id": "d6d3cc67-0f6a-597d-bdb7-a602c141e0ee",
@@ -12154,7 +12336,9 @@
     "description": "The rock carvings in Tanum, in the north of Bohuslän, are a unique artistic achievement not only for their rich and varied motifs (depictions of humans and animals, weapons, boats and other subjects) but also for their cultural and chronological unity. They reveal the life and beliefs of people in Europe during the Bronze Age and are remarkable for their large numbers and outstanding quality.",
     "latitude": 58.70111,
     "longitude": 11.34111,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Tanumshede_2005_rock_carvings_5.jpg/500px-Tanumshede_2005_rock_carvings_5.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Tanumshede_2005_rock_carvings_5.jpg/500px-Tanumshede_2005_rock_carvings_5.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Tanum Kaya Resimleri",
+    "descriptionTr": "Bohuslän'ın kuzeyinde yer alan Tanum kaya resimleri, yalnızca zengin ve çeşitli motifleri (insan ve hayvan tasvirleri, silahlar, tekneler ve başka konular) açısından değil, aynı zamanda kültürel ve kronolojik bütünlüğü açısından da eşsiz bir sanatsal başarıdır. Bu resimler, Tunç Çağı'nda Avrupa'daki insanların yaşamını ve inançlarını gözler önüne serer; sayılarının çokluğu ve niteliklerinin üstünlüğüyle dikkat çekerler."
   },
   {
     "id": "fc2e2100-7a41-5d22-a054-107269bc0ab5",
@@ -12164,7 +12348,9 @@
     "description": "The Convent of Müstair, which stands in a valley in the Grisons, is a good example of Christian monastic renovation during the Carolingian period. It has Switzerland's greatest series of figurative murals, painted c. A.D. 800, along with Romanesque frescoes and stuccoes.",
     "latitude": 46.62945,
     "longitude": 10.44765,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Benediktinerkloster_St._Johann.JPG/330px-Benediktinerkloster_St._Johann.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Benediktinerkloster_St._Johann.JPG/330px-Benediktinerkloster_St._Johann.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Müstair'deki Aziz Yohannes Benedikten Manastırı",
+    "descriptionTr": "Grisons bölgesinde bir vadide yer alan Müstair Manastırı, Karolenj döneminde gerçekleştirilen Hristiyan manastır yenilenmesinin güzel bir örneğidir. MS 800 civarında yapılmış figüratif duvar resimlerinin İsviçre'deki en büyük dizisine, Romanesk fresk ve stukolarla birlikte ev sahipliği yapar."
   },
   {
     "id": "17955637-56b1-50bd-8c23-5223692be2ba",
@@ -12174,7 +12360,9 @@
     "description": "The site of La Chaux-de-Fonds / Le Locle watchmaking town-planning consists of two towns situated close to one another in a remote environment in the Swiss Jura mountains, on land ill-suited to farming. Their planning and buildings reflect watchmakers’ need of rational organization. Planned in the early 19th century, after extensive fires, the towns owed their existence to this single industry. Their layout along an open-ended scheme of parallel strips on which residential housing and workshops are intermingled reflects the needs of the local watchmaking culture that dates to the 17th century and is still alive today. The site presents outstanding examples of mono-industrial manufacturing-towns which are well preserved and still active. The urban planning of both towns has accommodated the transition from the artisanal production of a cottage industry to the more concentrated factory production of the late 19th and 20th centuries. The town of La Chaux-de-Fonds was described by Karl Marx as a “huge factory-town” in Das Kapital where he analyzed the division of labour in the watchmaking industry of the Jura.",
     "latitude": 47.1038888889,
     "longitude": 6.8327777778,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Le_Locle_Kath_Kirche.jpg/330px-Le_Locle_Kath_Kirche.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Le_Locle_Kath_Kirche.jpg/330px-Le_Locle_Kath_Kirche.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "La Chaux-de-Fonds / Le Locle, Saat Yapımcılığı Kent Planlaması",
+    "descriptionTr": "La Chaux-de-Fonds / Le Locle saat yapımcılığı kent planlaması alanı, İsviçre Jura dağlarında tarıma pek elverişli olmayan ücra bir çevrede, birbirine yakın konumlanmış iki kentten oluşur. Planlamaları ve yapıları, saat yapımcılarının rasyonel bir düzen ihtiyacını yansıtır. Büyük yangınların ardından 19. yüzyılın başlarında planlanan bu kentler, varlıklarını tek bir sanayi dalına borçludur. Konut ve atölyelerin iç içe geçtiği, açık uçlu paralel şeritler biçimindeki yerleşim düzeni, 17. yüzyıla uzanan ve bugün hâlâ canlılığını koruyan yerel saat yapımcılığı kültürünün gereksinimlerini yansıtır. Alan, iyi korunmuş ve hâlâ faal, tek sanayiye dayalı üretim kentlerinin seçkin örneklerini sunar. Her iki kentin de kentsel planlaması, ev eksenli zanaat üretiminden 19. yüzyılın sonu ve 20. yüzyılın daha yoğunlaşmış fabrika üretimine geçişe uyum sağlamıştır. La Chaux-de-Fonds kenti, Karl Marx tarafından Das Kapital'de, Jura'nın saat yapımcılığı sektöründeki iş bölümünü incelediği bölümde 'devasa bir fabrika-kent' olarak tanımlanmıştır."
   },
   {
     "id": "11d4d70c-42fe-5774-9767-ad0fa0bc580f",
@@ -12184,7 +12372,9 @@
     "description": "Bosra, once the capital of the Roman province of Arabia, was an important stopover on the ancient caravan route to Mecca. A magnificent 2nd-century Roman theatre, early Christian ruins and several mosques are found within its great walls.",
     "latitude": 32.5191666667,
     "longitude": 36.4841666667,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bosra%2C_Daraa%2C_Syria%2C_Ancient_City%2C_Columns.jpg/500px-Bosra%2C_Daraa%2C_Syria%2C_Ancient_City%2C_Columns.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Bosra%2C_Daraa%2C_Syria%2C_Ancient_City%2C_Columns.jpg/500px-Bosra%2C_Daraa%2C_Syria%2C_Ancient_City%2C_Columns.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Antik Bosra Kenti",
+    "descriptionTr": "Bir zamanlar Roma'nın Arabistan eyaletinin başkenti olan Bosra, Mekke'ye giden kadim kervan yolu üzerinde önemli bir durak noktasıydı. Büyük surlarının içinde, görkemli bir 2. yüzyıl Roma tiyatrosu, erken Hristiyanlık dönemine ait kalıntılar ve çok sayıda cami bulunmaktadır."
   },
   {
     "id": "477994ed-510b-5004-91b5-dc3691e96526",
@@ -12194,7 +12384,9 @@
     "description": "Some 40 villages grouped in eight parks situated in north-western Syria provide remarkable testimony to rural life in late Antiquity and during the Byzantine period. Abandoned in the 8th to 10th centuries, the villages, which date from the 1st to 7th centuries, feature a remarkably well preserved landscape and the architectural remains of dwellings, pagan temples, churches, cisterns, bathhouses etc. The relict cultural landscape of the villages also constitutes an important illustration of the transition from the ancient pagan world of the Roman Empire to Byzantine Christianity. Vestiges illustrating hydraulic techniques, protective walls and Roman agricultural plot plans furthermore offer testimony to the inhabitants' mastery of agricultural production.",
     "latitude": 36.3341666667,
     "longitude": 36.8441666667,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Serjilla_01.jpg/500px-Serjilla_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Serjilla_01.jpg/500px-Serjilla_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Kuzey Suriye'nin Antik Köyleri",
+    "descriptionTr": "Kuzeybatı Suriye'de sekiz park içinde toplanmış yaklaşık 40 köy, geç Antik Çağ ve Bizans dönemindeki kırsal yaşama ilişkin dikkat çekici bir tanıklık sunar. 8. ile 10. yüzyıllar arasında terk edilen ve 1. ile 7. yüzyıllar arasına tarihlenen bu köyler, olağanüstü iyi korunmuş bir peyzaja ve konutlar, pagan tapınakları, kiliseler, sarnıçlar, hamamlar gibi mimari kalıntılara sahiptir. Köylerin oluşturduğu kalıntı kültürel peyzaj, aynı zamanda Roma İmparatorluğu'nun antik pagan dünyasından Bizans Hristiyanlığına geçişin önemli bir göstergesidir. Hidrolik teknikleri, koruyucu surları ve Roma tarım parselleme planlarını gösteren izler, sakinlerin tarımsal üretimdeki ustalığına dair kanıtlar sunmaktadır."
   },
   {
     "id": "f0e5cf9c-0ae7-5ab4-8e1d-7e91119f5b40",
@@ -12204,7 +12396,9 @@
     "description": "This property is located between the Vakhsh and Panj rivers in southwestern Tajikistan. The Reserve includes extensive riparian tugay ecosystems, the sandy Kashka-Kum desert, the Buritau peak, as well as the Hodja-Kaziyon mountains. The property is composed of a series of floodplain terraces covered by alluvial soils, comprising tugay riverine forests with very specific biodiversity in the valley. The tugay forests in the reserve represent the largest and most intact tugay forest of this type in Central Asia, and this is the only place in the world where the Asiatic poplar tugay ecosystem has been preserved in its original state over an area of this size.",
     "latitude": 37.2047222222,
     "longitude": 68.3413888889,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Tigrovaya_Balka_State_Nature_Reserve_122.webm/330px--Tigrovaya_Balka_State_Nature_Reserve_122.webm.jpg"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Tigrovaya_Balka_State_Nature_Reserve_122.webm/330px--Tigrovaya_Balka_State_Nature_Reserve_122.webm.jpg",
+    "nameTr": "Tigrovaya Balka Doğa Rezervi Tugay Ormanları",
+    "descriptionTr": "Bu alan, güneybatı Tacikistan'da Vahş ve Penç nehirleri arasında yer almaktadır. Rezerv, geniş nehir kenarı (tugay) ekosistemlerini, kumlu Kaşka-Kum çölünü, Buritau zirvesini ve Hoca-Kaziyon dağlarını içerir. Alan, alüvyal topraklarla kaplı bir dizi taşkın yatağı terasından oluşur ve vadide çok özel bir biyoçeşitliliğe sahip tugay nehir ormanlarını barındırır. Rezervdeki tugay ormanları, Orta Asya'daki bu türden en büyük ve en bütün tugay ormanını temsil eder; dünyada Asya kavağı tugay ekosisteminin bu büyüklükte bir alanda özgün hâliyle korunduğu tek yerdir."
   },
   {
     "id": "8e970be3-e7c3-5eae-9d7b-c5f11171ed1a",
@@ -12214,7 +12408,9 @@
     "description": "Tajikistan National Park covers more than 2.5 million hectares in the east of the country, at the centre of the so-called “Pamir Knot”, a meeting point of the highest mountain ranges on the Eurasian continent. It consists of high plateaux in the east and, to the west, rugged peaks, some of them over 7,000 meters high, and features extreme seasonal variations of temperature. The longest valley glacier outside the Polar region is located among the 1,085 glaciers inventoried in the site, which also numbers 170 rivers and more than 400 lakes. Rich flora species of both the south-western and central Asian floristic regions grow in the Park which shelters nationally rare and threatened birds and mammals (Marco Polo Argali sheep, Snow Leopards and Siberian Ibex and more). Subject to frequent strong earthquakes, the Park is sparsely inhabited, and virtually unaffected by agriculture and permanent human settlements. It offers a unique opportunity for the study of plate tectonics and subduction phenomena.",
     "latitude": 38.765,
     "longitude": 72.3052777778,
-    "imageUrl": null
+    "imageUrl": null,
+    "nameTr": "Tacikistan Millî Parkı (Pamir Dağları)",
+    "descriptionTr": "Tacikistan Millî Parkı, ülkenin doğusunda, Avrasya kıtasının en yüksek dağ sıralarının buluştuğu 'Pamir Düğümü'nün merkezinde 2,5 milyon hektardan fazla alan kaplar. Doğuda yüksek platolardan, batıda ise bazıları 7.000 metreyi aşan sarp zirvelerden oluşur ve aşırı mevsimsel sıcaklık değişimleriyle karakterizedir. Kutup bölgeleri dışındaki en uzun vadi buzulu, alanda kayıtlı 1.085 buzuldan biri olarak burada yer alır; alanda ayrıca 170 nehir ve 400'den fazla göl bulunmaktadır. Parkta hem güneybatı hem de orta Asya florasına ait zengin bitki türleri yetişir ve ülke çapında nadir ve tehdit altındaki kuş ile memeli türlerine (Marco Polo argali koyunu, kar leoparları, Sibirya dağ keçisi ve daha fazlası) ev sahipliği yapar. Sık ve şiddetli depremlere maruz kalan park, seyrek nüfuslu olup tarım ve kalıcı yerleşimlerden neredeyse hiç etkilenmemiştir. Levha tektoniği ve yitim (subdüksiyon) olaylarının incelenmesi için eşsiz bir fırsat sunar."
   },
   {
     "id": "1c0974a1-b53f-5c48-87dc-4399f8fd91a3",
@@ -12224,7 +12420,9 @@
     "description": "Ban Chiang is considered the most important prehistoric settlement so far discovered in South-East Asia. It marks an important stage in human cultural, social and technological evolution. The site presents the earliest evidence of farming in the region and of the manufacture and use of metals.",
     "latitude": 17.407772,
     "longitude": 103.237589,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Ban_Chiang_Museum_Excavation.JPG/500px-Ban_Chiang_Museum_Excavation.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Ban_Chiang_Museum_Excavation.JPG/500px-Ban_Chiang_Museum_Excavation.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Ban Chiang Arkeolojik Alanı",
+    "descriptionTr": "Ban Chiang, Güneydoğu Asya'da bugüne kadar keşfedilen en önemli tarih öncesi yerleşim olarak kabul edilir. İnsanlığın kültürel, toplumsal ve teknolojik gelişiminde önemli bir aşamayı işaret eder. Alan, bölgedeki en eski tarım kanıtlarını ve metallerin üretilip kullanılmasına dair en eski izleri sunar."
   },
   {
     "id": "05d91955-09e1-5605-a3f6-59ba823b88ad",
@@ -12234,7 +12432,9 @@
     "description": "The Dong Phayayen-Khao Yai Forest Complex spans 230 km between Ta Phraya National Park on the Cambodian border in the east, and Khao Yai National Park in the west. The site is home to more than 800 species of fauna, including 112 mammal species (among them two species of gibbon), 392 bird species and 200 reptile and amphibian species. It is internationally important for the conservation of globally threatened and endangered mammal, bird and reptile species, among them 19 that are vulnerable, four that are endangered, and one that is critically endangered. The area contains substantial and important tropical forest ecosystems, which can provide a viable habitat for the long-term survival of these species.",
     "latitude": 14.33,
     "longitude": 102.05,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/KHAOYAI.JPG/500px-KHAOYAI.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/KHAOYAI.JPG/500px-KHAOYAI.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Dong Phayayen-Khao Yai Orman Kompleksi",
+    "descriptionTr": "Dong Phayayen-Khao Yai Orman Kompleksi, doğuda Kamboçya sınırındaki Ta Phraya Millî Parkı'ndan batıda Khao Yai Millî Parkı'na kadar 230 km'ye yayılır. Alan, biri gibbon olmak üzere 112 memeli türü, 392 kuş türü ve 200 sürüngen ve amfibi türü de dahil olmak üzere 800'den fazla fauna türüne ev sahipliği yapar. Bunlar arasında 19'u savunmasız, dördü tehlikede ve biri kritik tehlikede olmak üzere küresel ölçekte tehdit altındaki ve nesli tükenmekte olan memeli, kuş ve sürüngen türlerinin korunması açısından uluslararası öneme sahiptir. Alan, bu türlerin uzun vadeli hayatta kalması için uygun bir yaşam alanı sağlayabilecek geniş ve önemli tropikal orman ekosistemlerini barındırır."
   },
   {
     "id": "5a2d2d2b-3b84-5e03-a3e9-5f2d5d3f06c7",
@@ -12244,7 +12444,9 @@
     "description": "Sukhothai was the capital of the first Kingdom of Siam in the 13th and 14th centuries. It has a number of fine monuments, illustrating the beginnings of Thai architecture. The great civilization which evolved in the Kingdom of Sukhothai absorbed numerous influences and ancient local traditions; the rapid assimilation of all these elements forged what is known as the 'Sukhothai style'.",
     "latitude": 17.00722,
     "longitude": 99.78972,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Sukhothai_historical_park1.jpg/500px-Sukhothai_historical_park1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Sukhothai_historical_park1.jpg/500px-Sukhothai_historical_park1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Sukhothai Tarihi Kenti ve İlişkili Tarihi Kentler",
+    "descriptionTr": "Sukhothai, 13. ve 14. yüzyıllarda ilk Siyam Krallığı'nın başkentiydi. Tayland mimarisinin başlangıcını yansıtan pek çok güzel anıta sahiptir. Sukhothai Krallığı'nda gelişen büyük uygarlık, sayısız etkiyi ve kadim yerel gelenekleri kendi bünyesinde barındırmış; tüm bu unsurların hızlı biçimde kaynaşması 'Sukhothai üslubu' olarak bilinen tarzı ortaya çıkarmıştır."
   },
   {
     "id": "67999814-f0bf-5656-9559-aa79d303af59",
@@ -12254,7 +12456,9 @@
     "description": "Founded c. 1350, Ayutthaya became the second Siamese capital after Sukhothai. It was destroyed by the Burmese in the 18th century. Its remains, characterized by the prang (reliquary towers) and gigantic monasteries, give an idea of its past splendour.",
     "latitude": 14.34778,
     "longitude": 100.56056,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Ayutthaya_World_Heritage_sign.jpg/500px-Ayutthaya_World_Heritage_sign.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Ayutthaya_World_Heritage_sign.jpg/500px-Ayutthaya_World_Heritage_sign.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "nameTr": "Ayutthaya Tarihi Kenti",
+    "descriptionTr": "Yaklaşık 1350 yılında kurulan Ayutthaya, Sukhothai'nin ardından ikinci Siyam başkenti olmuştur. 18. yüzyılda Birmanyalılar tarafından yıkıma uğratılmıştır. Prang (kutsal emanet kuleleri) ve devasa manastırlarla belirginleşen kalıntıları, geçmişteki görkeminin izlerini taşımaktadır."
   },
   {
     "id": "a7e6f385-14ff-58e9-8a5e-fd0b9b3d6304",

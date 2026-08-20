@@ -178,13 +178,14 @@ export default function HomeScreen() {
             <LinearGradient
               colors={[palette.cardDarkFrom, `${palette.cardDarkTo}00`]}
               start={{ x: 0, y: 0.5 }}
-              end={{ x: 1, y: 0.5 }}
+              end={{ x: 1.5, y: 0.5 }}
               style={{
                 position: "absolute",
                 top: 0,
                 bottom: 0,
-                right: 40,
-                width: "100%",
+                right: 0,
+                left: 0,
+                width: "110%",
               }}
             />
             <CircularProgress

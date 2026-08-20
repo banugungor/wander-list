@@ -8,6 +8,7 @@ import { HERITAGE_VISITED_KEY } from "@/data/heritageStorage";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
 import { CUISINE_AREA_TOTALS_KEY, CUISINE_VISITED_KEY } from "@/data/storageKeys";
 import { supabase } from "@/lib/supabase";
+import { useAppStore } from "@/store/useAppStore";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
@@ -93,6 +94,7 @@ export default function ProfileScreen() {
               PLACES_VISITED_KEY,
               ACTIVITY_LOG_KEY,
             ]);
+            useAppStore.getState().setVisitedHeritage([]);
             if (session) {
               await pushToCloud();
             }

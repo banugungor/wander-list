@@ -107,8 +107,15 @@ export const translations = {
       signUp: "Kayıt Ol",
       email: "Email",
       password: "Şifre",
+      firstName: "Ad",
+      lastName: "Soyad",
+      country: "Ülke",
+      countryRequired: "Ülke seç",
+      city: "Şehir",
       missingInfoTitle: "Eksik bilgi",
       missingInfoMessage: "Email ve şifre gerekli.",
+      missingCountryTitle: "Ülke seçimi gerekli",
+      missingCountryMessage: "Kayıt olmak için ülkeni seçmen gerekiyor.",
       errorTitle: "Hata",
       confirmEmailTitle: "E-postanı onayla",
       confirmEmailMessage:
@@ -123,6 +130,9 @@ export const translations = {
       signOutConfirmTitle: "Çıkış yap",
       signOutConfirmMessage: "Hesabından çıkış yapmak istiyor musun?",
       signOutAction: "Çıkış yap",
+    },
+    countryPicker: {
+      title: "Ülke Seç",
     },
     category: {
       heritage: "Dünya Mirası",
@@ -266,8 +276,15 @@ export const translations = {
       signUp: "Sign Up",
       email: "Email",
       password: "Password",
+      firstName: "First name",
+      lastName: "Last name",
+      country: "Country",
+      countryRequired: "Select country",
+      city: "City",
       missingInfoTitle: "Missing info",
       missingInfoMessage: "Email and password are required.",
+      missingCountryTitle: "Country required",
+      missingCountryMessage: "You need to select your country to sign up.",
       errorTitle: "Error",
       confirmEmailTitle: "Confirm your email",
       confirmEmailMessage:
@@ -282,6 +299,9 @@ export const translations = {
       signOutConfirmTitle: "Sign out",
       signOutConfirmMessage: "Do you want to sign out of your account?",
       signOutAction: "Sign out",
+    },
+    countryPicker: {
+      title: "Select Country",
     },
     category: {
       heritage: "World Heritage",

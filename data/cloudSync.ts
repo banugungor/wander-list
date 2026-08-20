@@ -6,6 +6,7 @@ import {
   HERITAGE_VISITED_KEY,
   PLACES_VISITED_KEY,
 } from "@/data/storageKeys";
+import { useAppStore } from "@/store/useAppStore";
 
 const SYNCED_KEYS = [
   HERITAGE_VISITED_KEY,
@@ -65,6 +66,11 @@ export async function pullFromCloud(): Promise<boolean> {
       [CUISINE_VISITED_KEY, JSON.stringify(data.cuisine_visited ?? [])],
       [ACTIVITY_LOG_KEY, JSON.stringify(data.activity_log ?? [])],
     ]);
+    // heritage-visited state also lives in a zustand store (see
+    // store/useAppStore.ts) that isn't re-read from AsyncStorage on its
+    // own — push the pulled value in directly so the UI reflects it right
+    // after sign-in instead of only after an app restart.
+    useAppStore.getState().setVisitedHeritage(data.heritage_visited ?? []);
     return true;
   } catch (e) {
     console.log("CLOUD PULL ERROR", e);

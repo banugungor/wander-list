@@ -17,6 +17,7 @@
     "web": "expo start --web",
     "lint": "expo lint",
     "compress-heritage": "node scripts/compress-heritage-data.mjs",
+    "heritage-status": "node --no-warnings scripts/heritage-translation-status.mjs",
     "postinstall": "patch-package"
   },
   "dependencies": {

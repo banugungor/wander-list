@@ -8,6 +8,7 @@ import "react-native-reanimated";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { LanguageProvider, useLanguage } from "@/contexts/language-context";
 import { loadHeritageSites } from "@/data/heritageSites";
+import { hydrateVisitedHeritage } from "@/store/useAppStore";
 
 export const unstable_settings = {
   anchor: "(tabs)",
@@ -42,7 +43,7 @@ export default function RootLayout() {
   const [heritageReady, setHeritageReady] = useState(false);
 
   useEffect(() => {
-    loadHeritageSites()
+    Promise.all([loadHeritageSites(), hydrateVisitedHeritage()])
       .catch((error) => console.log("HERITAGE LOAD ERROR", error))
       .finally(() => setHeritageReady(true));
   }, []);
