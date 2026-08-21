@@ -79,14 +79,13 @@ export function BottomTabBar() {
           width: 46,
           height: 46,
           borderRadius: 23,
-          marginTop: -22,
           alignItems: "center",
           justifyContent: "center",
           backgroundColor: palette.brand,
           shadowColor: palette.brand,
-          shadowOpacity: 0.3,
-          shadowRadius: 8,
-          shadowOffset: { width: 0, height: 4 },
+          shadowOpacity: 0.2,
+          shadowRadius: 4,
+          shadowOffset: { width: 0, height: 2 },
           elevation: 3,
         }}
       >

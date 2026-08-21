@@ -28,6 +28,13 @@ const DECORATIONS: Partial<
     topOffset: -25,
     rightOffset: 4,
   },
+  cuisine: {
+    source: require("../assets/decor/cuisine.png"),
+    resizeMode: "cover",
+    heightScale: 0.9,
+    topOffset: -5,
+    rightOffset: -14,
+  },
 };
 
 type CategoryTileProps = {
@@ -94,7 +101,8 @@ export function CategoryTile({
   const baseDecorationTop = wide ? -6 : 70;
   const baseDecorationHeight = wide ? 118 : 100;
   const decorationTop = baseDecorationTop + (decoration?.topOffset ?? 0);
-  const decorationHeight = baseDecorationHeight * (decoration?.heightScale ?? 1);
+  const decorationHeight =
+    baseDecorationHeight * (decoration?.heightScale ?? 1);
   const decorationRight = decoration?.rightOffset ?? 0;
 
   const decorationLayer = decoration && (
@@ -220,7 +228,9 @@ export function CategoryTile({
                     opacity: category.implemented ? 1 : 0.6,
                   }}
                 >
-                  {category.implemented ? `${count}/${total}` : t("common.comingSoon")}
+                  {category.implemented
+                    ? `${count}/${total}`
+                    : t("common.comingSoon")}
                 </Text>
               </View>
             </View>
@@ -249,7 +259,9 @@ export function CategoryTile({
                 opacity: category.implemented ? 1 : 0.6,
               }}
             >
-              {category.implemented ? `${count}/${total}` : t("common.comingSoon")}
+              {category.implemented
+                ? `${count}/${total}`
+                : t("common.comingSoon")}
             </Text>
             {progressTrack}
           </>

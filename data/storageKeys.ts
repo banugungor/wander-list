@@ -7,4 +7,6 @@ export const PLACES_VISITED_KEY = "visited_countries";
 
 export const ACTIVITY_LOG_KEY = "activity_log_v1";
 
+export const CATALOG_HIGHLIGHTS_KEY = "catalog_highlights_v1";
+
 export const APP_LANGUAGE_KEY = "app_language";

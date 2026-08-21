@@ -1,3 +1,4 @@
+import { ChipPicker } from "@/components/chip-picker";
 import { CountryPickerModal } from "@/components/country-picker-modal";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -12,6 +13,7 @@ import {
   ActivityIndicator,
   Alert,
   KeyboardAvoidingView,
+  Linking,
   Platform,
   Pressable,
   ScrollView,
@@ -21,6 +23,10 @@ import {
 } from "react-native";
 
 type SelectedCountry = { id: string; name: string };
+
+const AGE_GROUPS = ["13-17", "18-24", "25-34", "35-44", "45-54", "55+"];
+const GENDERS = ["female", "male", "other"] as const;
+const PRIVACY_POLICY_URL = "https://banugungor.github.io/wander-list/privacy-policy.html";
 
 export default function AuthScreen() {
   const { t, language } = useLanguage();
@@ -32,6 +38,9 @@ export default function AuthScreen() {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState<SelectedCountry | null>(null);
   const [countryPickerVisible, setCountryPickerVisible] = useState(false);
+  const [ageGroup, setAgeGroup] = useState<string | null>(null);
+  const [gender, setGender] = useState<string | null>(null);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [appleAvailable, setAppleAvailable] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -53,6 +62,11 @@ export default function AuthScreen() {
       return;
     }
 
+    if (mode === "signUp" && !privacyAccepted) {
+      Alert.alert(t("auth.missingPrivacyTitle"), t("auth.missingPrivacyMessage"));
+      return;
+    }
+
     setLoading(true);
     try {
       const { data, error } =
@@ -68,6 +82,8 @@ export default function AuthScreen() {
                   country_id: country?.id,
                   country: country?.name,
                   city: city.trim(),
+                  age_group: ageGroup,
+                  gender: gender,
                 },
               },
             });
@@ -246,6 +262,51 @@ export default function AuthScreen() {
               onChangeText={setCity}
               style={inputStyle}
             />
+
+            <ChipPicker
+              label={t("auth.ageGroup")}
+              options={AGE_GROUPS.map((value) => ({ value, label: value }))}
+              selected={ageGroup}
+              onSelect={(value) => setAgeGroup(value === ageGroup ? null : value)}
+            />
+
+            <ChipPicker
+              label={t("auth.gender")}
+              options={GENDERS.map((value) => ({
+                value,
+                label: t(`auth.genderOptions.${value}`),
+              }))}
+              selected={gender}
+              onSelect={(value) => setGender(value === gender ? null : value)}
+            />
+
+            <Pressable
+              onPress={() => setPrivacyAccepted((prev) => !prev)}
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginTop: 16,
+                gap: 10,
+              }}
+            >
+              <Ionicons
+                name={privacyAccepted ? "checkbox" : "square-outline"}
+                size={20}
+                color={privacyAccepted ? palette.brand : palette.inkMuted}
+              />
+              <Text style={{ flex: 1, fontSize: 13, color: palette.inkMuted }}>
+                <Text
+                  style={{ color: palette.brand, fontWeight: "700" }}
+                  onPress={(e) => {
+                    e.stopPropagation();
+                    Linking.openURL(PRIVACY_POLICY_URL);
+                  }}
+                >
+                  {t("auth.privacyLinkText")}
+                </Text>
+                {" " + t("auth.privacySuffix")}
+              </Text>
+            </Pressable>
           </>
         )}
 

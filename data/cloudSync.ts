@@ -45,6 +45,33 @@ export async function pushToCloud(): Promise<void> {
   }
 }
 
+/** The demographic fields collected at sign-up (age_group, gender,
+ * country_id) are stashed in auth.users' user_metadata at signUp time,
+ * since that survives the email-confirmation gap before a session exists.
+ * Once a session is available, materialize them into the queryable
+ * `profiles` table (metadata itself can't be joined/aggregated). */
+async function syncProfileFromMetadata(): Promise<void> {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return;
+
+  const metadata = user.user_metadata ?? {};
+  if (!metadata.age_group && !metadata.gender && !metadata.country_id) return;
+
+  try {
+    await supabase.from("profiles").upsert({
+      user_id: user.id,
+      age_group: metadata.age_group ?? null,
+      gender: metadata.gender ?? null,
+      home_country_id: metadata.country_id ?? null,
+      updated_at: new Date().toISOString(),
+    });
+  } catch (e) {
+    console.log("PROFILE SYNC ERROR", e);
+  }
+}
+
 export async function pullFromCloud(): Promise<boolean> {
   const {
     data: { user },
@@ -81,6 +108,7 @@ export async function pullFromCloud(): Promise<boolean> {
 /** Called right after a successful sign-in/sign-up: restores existing cloud
  * data if there is any, otherwise seeds the cloud with what's on the device. */
 export async function syncAfterAuth(): Promise<void> {
+  await syncProfileFromMetadata();
   const pulled = await pullFromCloud();
   if (!pulled) {
     await pushToCloud();

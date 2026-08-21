@@ -22,6 +22,7 @@ export const palette = {
   greenSoft: "#E1F3E9",
   greenSoftDeep: "#CDE8D7",
   greenText: "#2F9E6E",
+  greenShineText: "#3ecf90",
   coralPale: "#FDECD4",
   coralPaleDeep: "#F8DDB2",
   coralText: "#E8871E",

@@ -9,17 +9,73 @@
   h1 { font-size: 1.6rem; }
   h2 { font-size: 1.15rem; margin-top: 2rem; }
   code { background: #f2f2f2; padding: 2px 5px; border-radius: 4px; }
+  .lang-toggle { display: flex; gap: 8px; margin-bottom: 24px; }
+  .lang-toggle button { font-size: 0.9rem; padding: 6px 14px; border-radius: 999px; border: 1px solid #ccc; background: #fff; color: #222; cursor: pointer; }
+  .lang-toggle button.active { background: #222; color: #fff; border-color: #222; }
+  [data-lang-content] { display: none; }
 </style>
 </head>
 <body>
 
+<div class="lang-toggle">
+  <button type="button" data-lang-btn="tr">Türkçe</button>
+  <button type="button" data-lang-btn="en">English</button>
+</div>
+
+<div data-lang-content="tr">
+
+<h1>Wanderlist Gizlilik Politikası</h1>
+<p><em>Son güncelleme: 20 Ağustos 2026</em></p>
+
+<p>Wanderlist ("uygulama"), bağımsız, tek geliştiricili bir uygulama olarak geliştirilmektedir. Bu Gizlilik Politikası, uygulamanın hangi bilgileri nasıl işlediğini açıklar.</p>
+
+<h2>1. Topladığımız veriler</h2>
+<p>Uygulama içinde işaretlediğiniz her şey — ziyaret ettiğiniz Dünya Mirası alanları, ziyaret ettiğiniz ülkeler, denediğiniz mutfaklar/yemekler ve son aktivite geçmişiniz — her zaman kendi cihazınızda saklanır. Hesap oluşturursanız (bkz. Bölüm 4), bu aynı veri, cihaz değiştirdiğinizde geri yüklenebilmesi için sunucularımıza da eşitlenir.</p>
+<p>Hesap oluşturursanız, ayrıca doğrudan sizin sağladığınız e-posta adresi, ad-soyad, ülke ve şehir bilgilerini toplarız. Kayıt olurken isteğe bağlı olarak yaş grubunuzu ve cinsiyetinizi paylaşabilirsiniz — bu iki alan tamamen opsiyoneldir, boş bırakabilirsiniz; sadece genel kullanım eğilimlerini anlamak için (örneğin hangi yaş gruplarının hangi destinasyonları tercih ettiği) toplu ve kimliksizleştirilmiş biçimde kullanılır; bireysel olarak asla satılmaz veya üçüncü taraflarla paylaşılmaz.</p>
+
+<h2>2. Üçüncü taraf servisler</h2>
+<p>Referans fotoğraf ve mutfak bilgisi göstermek için uygulama, aşağıdaki herkese açık API'lere anonim, kimliksiz istekler gönderir:</p>
+<ul>
+  <li><strong>Wikipedia</strong> (<code>en.wikipedia.org</code>) — herkese açık Dünya Mirası alanı görsel ve özetlerini almak için.</li>
+  <li><strong>TheMealDB</strong> (<code>themealdb.com</code>) — herkese açık mutfak/yemek referans verisini almak için.</li>
+</ul>
+<p>Bu istekler, standart bir ağ isteğinde doğal olarak bulunanlar dışında (örneğin cihazınızın IP adresi, bu da ilgili sağlayıcının kendi gizlilik politikası kapsamında işlenir) hiçbir kişisel bilgi içermez.</p>
+<p>Hesap oluşturursanız, hesap verileriniz (bkz. Bölüm 4) veri işleyicimiz olarak hareket eden arka uç ve kimlik doğrulama sağlayıcımız <strong>Supabase</strong>'de saklanır. Apple ile giriş yaparsanız, bu girişi Apple kendi gizlilik politikasına göre işler.</p>
+
+<h2>3. İzinler</h2>
+<p>Uygulama şu izinleri isteyebilir:</p>
+<ul>
+  <li><strong>İnternet erişimi</strong> — yukarıda açıklanan herkese açık içeriği almak için.</li>
+  <li><strong>Titreşim</strong> — bir öğeyi ziyaret edildi olarak işaretlerken dokunsal geri bildirim için.</li>
+</ul>
+
+<h2>4. Hesaplar</h2>
+<p>Wanderlist, e-posta/şifre veya Apple ile Giriş Yap yoluyla isteğe bağlı hesap oluşturmayı sunar. Hesap oluşturmak, işaretlediğiniz verilerin (Bölüm 1) cihazlarınız arasında eşitlenmesini sağlar. Şifreniz tamamen kimlik doğrulama sağlayıcımız (Supabase) tarafından işlenir ve bize hiçbir zaman düz metin olarak görünmez. Hesap oluşturmadan da uygulamayı tamamen kullanabilirsiniz — bu durumda verileriniz sadece cihazınızda kalır.</p>
+
+<h2>5. Çocukların gizliliği</h2>
+<p>Wanderlist, 13 yaş altındaki çocuklara yönelik değildir ve kimseden bilerek kişisel bilgi toplamaz.</p>
+
+<h2>6. Verilerinizi silme</h2>
+<p>Uygulama içinde <strong>Profil → "Verileri sıfırla"</strong> üzerinden istediğiniz zaman tüm yerel olarak saklanan uygulama verilerini silebilirsiniz. Uygulamayı kaldırmak da cihazınızdaki tüm yerel verileri siler. Bir hesabınız varsa, aşağıdaki e-posta adresinden bize ulaşarak hesabınızın ve ilişkili tüm bulut verilerinizin silinmesini talep edebilirsiniz.</p>
+
+<h2>7. Bu politikadaki değişiklikler</h2>
+<p>Bu politika değişirse, yukarıdaki "Son güncelleme" tarihi buna göre revize edilecektir.</p>
+
+<h2>8. İletişim</h2>
+<p>Bu politikayla ilgili sorular şu adrese gönderilebilir: <strong>contact.wanderlistapp@gmail.com</strong></p>
+
+</div>
+
+<div data-lang-content="en">
+
 <h1>Wanderlist Privacy Policy</h1>
-<p><em>Last updated: August 13, 2026</em></p>
+<p><em>Last updated: August 20, 2026</em></p>
 
 <p>Wanderlist ("the app") is developed as an independent, single-developer app. This Privacy Policy explains what information the app handles and how.</p>
 
 <h2>1. Data we collect</h2>
-<p>Wanderlist does not collect, transmit, or store any personal data on external servers. Everything you mark inside the app — visited World Heritage sites, visited countries, visited cuisines/dishes, and your recent activity history — is stored <strong>only on your own device</strong>, using standard local device storage. We have no access to this data, no analytics, and no account system that would let it leave your device.</p>
+<p>Everything you mark inside the app — visited World Heritage sites, visited countries, visited cuisines/dishes, and your recent activity history — is always stored on your own device. If you choose to create an account (see Section 4), this same data is also synced to our backend so it can be restored if you switch devices.</p>
+<p>If you create an account, we additionally collect: your email address, first and last name, country, and city, all of which you provide directly. At sign-up you may optionally share your age group and gender — these two fields are optional, you can leave them unanswered, and they are used only in aggregated, non-identifying form to understand overall usage patterns (e.g. which age groups favor which destinations); they are never sold or shared with third parties individually.</p>
 
 <h2>2. Third-party services</h2>
 <p>To show reference photos and cuisine information, the app makes anonymous, unauthenticated requests to the following public APIs:</p>
@@ -28,6 +84,7 @@
   <li><strong>TheMealDB</strong> (<code>themealdb.com</code>) — to fetch public cuisine/meal reference data.</li>
 </ul>
 <p>These requests do not include any personal information beyond what is inherent to a standard network request (e.g. your device's IP address, which is handled under each provider's own privacy policy).</p>
+<p>If you create an account, your account data (see Section 4) is stored with <strong>Supabase</strong>, our backend and authentication provider, acting as our data processor. If you sign in with Apple, Apple processes that sign-in according to its own privacy policy.</p>
 
 <h2>3. Permissions</h2>
 <p>The app may request:</p>
@@ -37,19 +94,55 @@
 </ul>
 
 <h2>4. Accounts</h2>
-<p>Wanderlist does not currently offer account creation, sign-in, or any cloud backup. No email, password, or authentication data is collected.</p>
+<p>Wanderlist offers optional account creation via email/password or Sign in with Apple. Creating an account lets your marked data (Section 1) sync across your devices. Your password is handled entirely by our authentication provider (Supabase) and is never visible to us in plain text. You can use the app fully without creating an account — in that case, your data stays only on your device.</p>
 
 <h2>5. Children's privacy</h2>
 <p>Wanderlist is not directed at children under 13 and does not knowingly collect personal information from anyone.</p>
 
 <h2>6. Deleting your data</h2>
-<p>You can erase all locally stored app data at any time from <strong>Profile → "Verileri sıfırla"</strong> inside the app. Uninstalling the app also removes all of its locally stored data from your device.</p>
+<p>You can erase all locally stored app data at any time from <strong>Profile → "Verileri sıfırla"</strong> inside the app. Uninstalling the app also removes all of its locally stored data from your device. If you have an account, you can request deletion of your account and all associated cloud data by contacting us at the email address below.</p>
 
 <h2>7. Changes to this policy</h2>
 <p>If this policy changes, the "Last updated" date above will be revised accordingly.</p>
 
 <h2>8. Contact</h2>
 <p>Questions about this policy can be sent to: <strong>contact.wanderlistapp@gmail.com</strong></p>
+
+</div>
+
+<script>
+  (function () {
+    var STORAGE_KEY = "wanderlist-privacy-lang";
+    var buttons = document.querySelectorAll("[data-lang-btn]");
+    var sections = document.querySelectorAll("[data-lang-content]");
+
+    function applyLang(lang) {
+      sections.forEach(function (section) {
+        section.style.display = section.getAttribute("data-lang-content") === lang ? "block" : "none";
+      });
+      buttons.forEach(function (button) {
+        button.classList.toggle("active", button.getAttribute("data-lang-btn") === lang);
+      });
+      document.documentElement.lang = lang;
+      try {
+        localStorage.setItem(STORAGE_KEY, lang);
+      } catch (e) {}
+    }
+
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        applyLang(button.getAttribute("data-lang-btn"));
+      });
+    });
+
+    var stored = null;
+    try {
+      stored = localStorage.getItem(STORAGE_KEY);
+    } catch (e) {}
+    var browserLang = (navigator.language || "en").toLowerCase().indexOf("tr") === 0 ? "tr" : "en";
+    applyLang(stored === "tr" || stored === "en" ? stored : browserLang);
+  })();
+</script>
 
 </body>
 </html>

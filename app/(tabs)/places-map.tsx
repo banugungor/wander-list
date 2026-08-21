@@ -3,12 +3,9 @@ import { CountryFlag } from "@/components/country-flag";
 import { ScreenHeader } from "@/components/screen-header";
 import { palette } from "@/constants/palette";
 import { useLanguage, type Language } from "@/contexts/language-context";
-import { logActivity } from "@/data/activityLog";
-import { maybePromptSignup } from "@/data/authPrompt";
-import { queueCloudSync } from "@/data/cloudSync";
 import { CONTINENT_BY_COUNTRY_ID, CONTINENTS, ContinentId } from "@/data/continents";
 import { getLocalizedCountryName } from "@/data/countryNamesTr";
-import { PLACES_VISITED_KEY } from "@/data/placesStorage";
+import { PLACES_VISITED_KEY, togglePlaceVisited } from "@/data/placesStorage";
 import worldData from "@/data/worldCountries.json";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -128,24 +125,12 @@ export default function PlacesMapScreen() {
   );
 
   const toggle = async (country: CountryPath) => {
-    const wasVisited = visited.includes(country.id);
-    const updated = wasVisited
-      ? visited.filter((id) => id !== country.id)
-      : [...visited, country.id];
-
+    const updated = await togglePlaceVisited(
+      country.id,
+      { name: country.name, iso2: country.iso2 },
+      visited,
+    );
     setVisited(updated);
-    await AsyncStorage.setItem(PLACES_VISITED_KEY, JSON.stringify(updated));
-    queueCloudSync();
-
-    if (!wasVisited) {
-      maybePromptSignup();
-      logActivity({
-        id: country.id,
-        type: "places",
-        title: country.name,
-        iso2: country.iso2,
-      });
-    }
   };
 
   const sortByLocalizedName = useCallback(
