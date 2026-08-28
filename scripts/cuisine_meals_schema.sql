@@ -29,6 +29,12 @@ alter table public.cuisine_meals add column if not exists city_tr text;
 create index if not exists cuisine_meals_country_id_idx
   on public.cuisine_meals (country_id);
 
+-- Lets inserts use `on conflict (country_id, name) do nothing` so re-running
+-- an insert script (e.g. pasting it into the SQL Editor twice by mistake)
+-- doesn't create a second row for the same dish.
+create unique index if not exists cuisine_meals_country_name_uidx
+  on public.cuisine_meals (country_id, name);
+
 alter table public.cuisine_meals enable row level security;
 
 -- Readable by everyone, including signed-out users — this is shared content,

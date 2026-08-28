@@ -28,6 +28,11 @@ create table if not exists public.catalog_highlights (
 create index if not exists catalog_highlights_created_at_idx
   on public.catalog_highlights (created_at desc);
 
+-- Lets inserts use `on conflict (type, item_id) do nothing` so re-running an
+-- insert script doesn't add the same underlying item to the feed twice.
+create unique index if not exists catalog_highlights_type_item_uidx
+  on public.catalog_highlights (type, item_id);
+
 alter table public.catalog_highlights enable row level security;
 
 drop policy if exists "Anyone can read catalog highlights" on public.catalog_highlights;

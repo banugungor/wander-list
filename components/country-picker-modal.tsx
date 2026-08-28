@@ -12,6 +12,7 @@ import {
   TextInput,
   View,
 } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type Country = { id: string; name: string; iso2: string };
 
@@ -28,6 +29,7 @@ export function CountryPickerModal({
 }: CountryPickerModalProps) {
   const { t, language } = useLanguage();
   const [search, setSearch] = useState("");
+  const insets = useSafeAreaInsets();
 
   const countries = worldData.countries as Country[];
 
@@ -53,7 +55,7 @@ export function CountryPickerModal({
 
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
-      <View style={{ flex: 1, backgroundColor: palette.cream, paddingTop: 60 }}>
+      <View style={{ flex: 1, backgroundColor: palette.cream, paddingTop: insets.top + 40 }}>
         <View
           style={{
             flexDirection: "row",

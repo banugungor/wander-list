@@ -15,8 +15,11 @@
 insert into public.catalog_highlights (type, item_id, title, title_tr, iso2)
 select 'places', id, name, name_tr, iso2
 from public.countries
-where name = 'REPLACE_COUNTRY_NAME_IN_ENGLISH';
+where name = 'REPLACE_COUNTRY_NAME_IN_ENGLISH'
+on conflict (type, item_id) do nothing;
 -- Example: where name = 'Japan';
+-- Safe to run twice — on conflict do nothing skips it if this country is
+-- already in the feed instead of adding a duplicate row.
 
 
 -- ============================================================
@@ -44,12 +47,17 @@ new_meal as (
     'REPLACE_DESCRIPTION_TR_OR_NULL',
     'REPLACE_IMAGE_URL'
   from country
+  on conflict (country_id, name) do nothing
   returning id, name, name_tr, city, city_tr, image_url
 )
 insert into public.catalog_highlights
   (type, item_id, title, title_tr, subtitle, subtitle_tr, image_url)
 select 'cuisine', id::text, name, name_tr, city, city_tr, image_url
-from new_meal;
+from new_meal
+on conflict (type, item_id) do nothing;
 -- Example values: country name 'Turkey', dish 'Künefe'/'Künefe',
 -- city 'Hatay'/'Hatay', image_url a public Supabase Storage link.
 -- If city doesn't apply, use null instead of a quoted empty string.
+-- Safe to run twice — if the dish already exists for that country, the
+-- cuisine_meals insert is skipped (on conflict do nothing), `new_meal` ends
+-- up empty, and no highlight row is inserted either.
