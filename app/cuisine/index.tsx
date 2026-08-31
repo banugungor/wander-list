@@ -11,14 +11,14 @@ import { useCuisineMealIndex } from "@/hooks/use-cuisine-meal-index";
 import { useCuisineVisited } from "@/hooks/use-cuisine-visited";
 import { Stack, router } from "expo-router";
 import { useMemo } from "react";
-import { FlatList, View } from "react-native";
+import { ActivityIndicator, FlatList, Text, View } from "react-native";
 
 export default function CuisineContinentPickerScreen() {
   const { t, language } = useLanguage();
   const categoryMeta = getCategory("cuisine");
 
   const [visited] = useCuisineVisited();
-  const { counts, countryByMealId } = useCuisineMealIndex();
+  const { counts, countryByMealId, loading } = useCuisineMealIndex();
   const tastedByCountry = useMemo(
     () => tastedCountByCountry(visited, countryByMealId),
     [visited, countryByMealId],
@@ -75,20 +75,29 @@ export default function CuisineContinentPickerScreen() {
         accentFg={categoryMeta?.fg}
       />
 
-      <FlatList
-        contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
-        data={continentStats}
-        keyExtractor={(item) => item.continent.id}
-        renderItem={({ item }) => (
-          <ProgressRow
-            title={language === "tr" ? item.continent.name : item.continent.nameEn}
-            fractionLabel={`${item.tasted}/${item.total}`}
-            percent={Math.round((item.tasted / item.total) * 100)}
-            accentColor={categoryMeta?.fg ?? palette.brand}
-            onPress={() => router.push(`/cuisine/continent/${item.continent.id}`)}
-          />
-        )}
-      />
+      {loading ? (
+        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+          <ActivityIndicator size="large" color={palette.brand} />
+          <Text style={{ marginTop: 12, color: palette.inkMuted }}>
+            {t("explore.loading")}
+          </Text>
+        </View>
+      ) : (
+        <FlatList
+          contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
+          data={continentStats}
+          keyExtractor={(item) => item.continent.id}
+          renderItem={({ item }) => (
+            <ProgressRow
+              title={language === "tr" ? item.continent.name : item.continent.nameEn}
+              fractionLabel={`${item.tasted}/${item.total}`}
+              percent={Math.round((item.tasted / item.total) * 100)}
+              accentColor={categoryMeta?.fg ?? palette.brand}
+              onPress={() => router.push(`/cuisine/continent/${item.continent.id}`)}
+            />
+          )}
+        />
+      )}
     </View>
   );
 }
