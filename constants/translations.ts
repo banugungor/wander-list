@@ -5,6 +5,7 @@ export const translations = {
       cancel: "Vazgeç",
       ok: "Tamam",
       all: "Tümü",
+      unlockWithMembership: "Üyelikle aç",
     },
     home: {
       title: "Ana Sayfa",
@@ -103,6 +104,24 @@ export const translations = {
       empty: "Bu ülke için henüz yemek eklenmedi.",
       tasted: "Tadıldı",
     },
+    islandsPicker: {
+      progressLabel: "İlerleme",
+      progressDetail: "{{total}} içinden {{count}} gezildi",
+      continentLabel: "{{continent}} Adaları",
+      filterVisited: "Gezdiklerim",
+      filterUnvisited: "Gezmediklerim",
+      noIslandsYet: "Henüz yok",
+    },
+    islandsCountry: {
+      loading: "Adalar yükleniyor…",
+      empty: "Bu ülke için henüz ada eklenmedi.",
+      visited: "Gezildi",
+    },
+    paywall: {
+      title: "Adalar yıllık üyelikle açılır",
+      body: "Adalar kategorisine erişmek ve dünyanın en güzel adalarını işaretlemeye başlamak için yıllık üyeliğe geç.",
+      unlockButton: "Yıllık üyelikle aç",
+    },
     auth: {
       signIn: "Giriş Yap",
       signUp: "Kayıt Ol",
@@ -186,6 +205,7 @@ export const translations = {
       cancel: "Cancel",
       ok: "OK",
       all: "All",
+      unlockWithMembership: "Unlock with membership",
     },
     home: {
       title: "Home",
@@ -283,6 +303,24 @@ export const translations = {
       loading: "Loading dishes…",
       empty: "No dishes have been added for this country yet.",
       tasted: "Tasted",
+    },
+    islandsPicker: {
+      progressLabel: "Progress",
+      progressDetail: "{{count}} of {{total}} visited",
+      continentLabel: "{{continent}} Islands",
+      filterVisited: "Visited",
+      filterUnvisited: "Not visited",
+      noIslandsYet: "Not yet",
+    },
+    islandsCountry: {
+      loading: "Loading islands…",
+      empty: "No islands have been added for this country yet.",
+      visited: "Visited",
+    },
+    paywall: {
+      title: "Islands unlock with a yearly membership",
+      body: "Upgrade to yearly membership to access the Islands category and start marking the world's most beautiful islands.",
+      unlockButton: "Unlock with yearly membership",
     },
     auth: {
       signIn: "Sign In",

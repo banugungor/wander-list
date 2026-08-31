@@ -18,8 +18,11 @@ import { getCachedMealIndex } from "@/data/cuisineMeals";
 import { toggleCuisineVisited } from "@/data/cuisineVisited";
 import { heritageSites } from "@/data/heritageSites";
 import { HERITAGE_VISITED_KEY, toggleHeritageVisited } from "@/data/heritageStorage";
+import { getCachedIslandIndex } from "@/data/islands";
+import { toggleIslandVisited } from "@/data/islandsVisited";
 import { PLACES_VISITED_KEY, togglePlaceVisited } from "@/data/placesStorage";
-import { CUISINE_VISITED_KEY } from "@/data/storageKeys";
+import { CUISINE_VISITED_KEY, ISLANDS_VISITED_KEY } from "@/data/storageKeys";
+import { isIslandsUnlocked } from "@/data/subscription";
 import worldData from "@/data/worldCountries.json";
 import { useCatalogHighlights } from "@/hooks/use-catalog-highlights";
 import { useAppStore } from "@/store/useAppStore";
@@ -62,6 +65,7 @@ export default function HomeScreen() {
   const { highlights } = useCatalogHighlights();
   const [placesVisitedIds, setPlacesVisitedIds] = useState<string[]>([]);
   const [cuisineVisitedIds, setCuisineVisitedIds] = useState<string[]>([]);
+  const [islandsVisitedIds, setIslandsVisitedIds] = useState<string[]>([]);
   const visitedHeritage = useAppStore((s) => s.visitedHeritage);
   const setVisitedHeritage = useAppStore((s) => s.setVisitedHeritage);
 
@@ -69,7 +73,22 @@ export default function HomeScreen() {
     useCallback(() => {
       const load = async () => {
         try {
-          const visitedData = await AsyncStorage.getItem(HERITAGE_VISITED_KEY);
+          const [
+            visitedData,
+            placesVisitedData,
+            cuisineVisitedData,
+            islandsVisitedData,
+            mealIndex,
+            islandIndex,
+          ] = await Promise.all([
+            AsyncStorage.getItem(HERITAGE_VISITED_KEY),
+            AsyncStorage.getItem(PLACES_VISITED_KEY),
+            AsyncStorage.getItem(CUISINE_VISITED_KEY),
+            AsyncStorage.getItem(ISLANDS_VISITED_KEY),
+            getCachedMealIndex(),
+            getCachedIslandIndex(),
+          ]);
+
           const visited: string[] = visitedData ? JSON.parse(visitedData) : [];
           setVisitedHeritage(visited);
 
@@ -79,7 +98,6 @@ export default function HomeScreen() {
               ? Math.min(100, Math.round((visited.length / heritageTotal) * 100))
               : 0;
 
-          const placesVisitedData = await AsyncStorage.getItem(PLACES_VISITED_KEY);
           const visitedCountries: string[] = placesVisitedData
             ? JSON.parse(placesVisitedData)
             : [];
@@ -90,18 +108,28 @@ export default function HomeScreen() {
               ? Math.min(100, Math.round((visitedCountries.length / placesTotal) * 100))
               : 0;
 
-          const cuisineVisitedData = await AsyncStorage.getItem(CUISINE_VISITED_KEY);
           const visitedMeals: string[] = cuisineVisitedData
             ? JSON.parse(cuisineVisitedData)
             : [];
           setCuisineVisitedIds(visitedMeals);
-          const mealIndex = await getCachedMealIndex();
           const cuisineTotal = mealIndex
             ? Object.values(mealIndex.counts).reduce((sum, c) => sum + c, 0)
             : 0;
           const cuisinePercent =
             cuisineTotal > 0
               ? Math.min(100, Math.round((visitedMeals.length / cuisineTotal) * 100))
+              : 0;
+
+          const visitedIslands: string[] = islandsVisitedData
+            ? JSON.parse(islandsVisitedData)
+            : [];
+          setIslandsVisitedIds(visitedIslands);
+          const islandsTotal = islandIndex
+            ? Object.values(islandIndex.counts).reduce((sum, c) => sum + c, 0)
+            : 0;
+          const islandsPercent =
+            islandsTotal > 0
+              ? Math.min(100, Math.round((visitedIslands.length / islandsTotal) * 100))
               : 0;
 
           setStats({
@@ -119,6 +147,11 @@ export default function HomeScreen() {
               count: visitedMeals.length,
               total: cuisineTotal,
               percent: cuisinePercent,
+            },
+            islands: {
+              count: visitedIslands.length,
+              total: islandsTotal,
+              percent: islandsPercent,
             },
           });
 
@@ -140,6 +173,7 @@ export default function HomeScreen() {
     if (type === "heritage") return visitedHeritage.includes(id);
     if (type === "places") return placesVisitedIds.includes(id);
     if (type === "cuisine") return cuisineVisitedIds.includes(id);
+    if (type === "islands") return islandsVisitedIds.includes(id);
     return false;
   };
 
@@ -183,6 +217,19 @@ export default function HomeScreen() {
         cuisineVisitedIds,
       );
       setCuisineVisitedIds(updated);
+      updateStatsCount(type, updated.length);
+    } else if (type === "islands") {
+      const unlocked = await isIslandsUnlocked().catch(() => false);
+      if (!unlocked) {
+        router.push("/paywall");
+        return;
+      }
+      const updated = await toggleIslandVisited(
+        id,
+        { name: info.name, country: info.subtitle ?? "", imageUrl: info.imageUrl },
+        islandsVisitedIds,
+      );
+      setIslandsVisitedIds(updated);
       updateStatsCount(type, updated.length);
     }
   };
@@ -391,16 +438,22 @@ export default function HomeScreen() {
                       count={s.count}
                       total={s.total}
                       wide={row.length === 1}
-                      onPress={() =>
-                        cat.id === "places"
-                          ? router.push("/places-map")
-                          : cat.id === "cuisine"
-                            ? router.push("/cuisine")
-                            : router.push({
-                                pathname: "/explore",
-                                params: { type: cat.id },
-                              })
-                      }
+                      onPress={async () => {
+                        if (cat.id === "places") {
+                          router.push("/places-map");
+                          return;
+                        }
+                        if (cat.id === "cuisine") {
+                          router.push("/cuisine");
+                          return;
+                        }
+                        if (cat.id === "islands") {
+                          const unlocked = await isIslandsUnlocked().catch(() => false);
+                          router.push(unlocked ? "/islands" : "/paywall");
+                          return;
+                        }
+                        router.push({ pathname: "/explore", params: { type: cat.id } });
+                      }}
                     />
                   </View>
                 );

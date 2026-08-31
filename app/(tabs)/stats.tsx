@@ -6,7 +6,7 @@ import { useLanguage } from "@/contexts/language-context";
 import { ActivityEntry, getActivityLog } from "@/data/activityLog";
 import { HERITAGE_VISITED_KEY } from "@/data/heritageStorage";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
-import { CUISINE_VISITED_KEY } from "@/data/storageKeys";
+import { CUISINE_VISITED_KEY, ISLANDS_VISITED_KEY } from "@/data/storageKeys";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "expo-router";
 import { useCallback, useMemo, useState } from "react";
@@ -36,21 +36,28 @@ export default function StatsScreen() {
   const [heritageCount, setHeritageCount] = useState(0);
   const [placesCount, setPlacesCount] = useState(0);
   const [cuisineCount, setCuisineCount] = useState(0);
+  const [islandsCount, setIslandsCount] = useState(0);
   const [activity, setActivity] = useState<ActivityEntry[]>([]);
 
   useFocusEffect(
     useCallback(() => {
       const load = async () => {
-        const [heritageRaw, placesRaw, cuisineRaw, log] = await Promise.all([
-          AsyncStorage.getItem(HERITAGE_VISITED_KEY),
-          AsyncStorage.getItem(PLACES_VISITED_KEY),
-          AsyncStorage.getItem(CUISINE_VISITED_KEY),
-          getActivityLog(),
-        ]);
-        setHeritageCount(heritageRaw ? JSON.parse(heritageRaw).length : 0);
-        setPlacesCount(placesRaw ? JSON.parse(placesRaw).length : 0);
-        setCuisineCount(cuisineRaw ? JSON.parse(cuisineRaw).length : 0);
-        setActivity(log);
+        try {
+          const [heritageRaw, placesRaw, cuisineRaw, islandsRaw, log] = await Promise.all([
+            AsyncStorage.getItem(HERITAGE_VISITED_KEY),
+            AsyncStorage.getItem(PLACES_VISITED_KEY),
+            AsyncStorage.getItem(CUISINE_VISITED_KEY),
+            AsyncStorage.getItem(ISLANDS_VISITED_KEY),
+            getActivityLog(),
+          ]);
+          setHeritageCount(heritageRaw ? JSON.parse(heritageRaw).length : 0);
+          setPlacesCount(placesRaw ? JSON.parse(placesRaw).length : 0);
+          setCuisineCount(cuisineRaw ? JSON.parse(cuisineRaw).length : 0);
+          setIslandsCount(islandsRaw ? JSON.parse(islandsRaw).length : 0);
+          setActivity(log);
+        } catch (e) {
+          console.log("STATS LOAD ERROR", e);
+        }
       };
       load();
     }, []),
@@ -113,7 +120,7 @@ export default function StatsScreen() {
           />
           <StatCard
             label={t(islands.titleKey)}
-            value={0}
+            value={islandsCount}
             icon={islands.icon}
             bg={islands.bg}
             fg={islands.fg}

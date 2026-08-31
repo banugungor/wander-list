@@ -1,18 +1,33 @@
 import { categories } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
+import { isIslandsUnlocked } from "@/data/subscription";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
+import { useEffect, useRef } from "react";
 import { Alert, Pressable, Text, View } from "react-native";
 
 export default function AddScreen() {
   const { t } = useLanguage();
+  const pendingTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handlePress = (id: string, implemented: boolean) => {
+  useEffect(() => {
+    return () => {
+      if (pendingTimeout.current) clearTimeout(pendingTimeout.current);
+    };
+  }, []);
+
+  const handlePress = async (id: string, implemented: boolean) => {
+    if (id === "islands" && !(await isIslandsUnlocked())) {
+      router.back();
+      pendingTimeout.current = setTimeout(() => router.push("/paywall"), 300);
+      return;
+    }
+
     router.back();
 
     if (!implemented) {
-      setTimeout(() => {
+      pendingTimeout.current = setTimeout(() => {
         Alert.alert(
           t("modal.comingSoonAlertTitle"),
           t("modal.comingSoonAlertMessage"),
@@ -28,6 +43,11 @@ export default function AddScreen() {
 
     if (id === "cuisine") {
       router.push("/cuisine");
+      return;
+    }
+
+    if (id === "islands") {
+      router.push("/islands");
       return;
     }
 

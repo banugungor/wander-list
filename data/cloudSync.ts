@@ -4,14 +4,17 @@ import {
   ACTIVITY_LOG_KEY,
   CUISINE_VISITED_KEY,
   HERITAGE_VISITED_KEY,
+  ISLANDS_VISITED_KEY,
   PLACES_VISITED_KEY,
 } from "@/data/storageKeys";
+import { loginPurchases } from "@/data/subscription";
 import { useAppStore } from "@/store/useAppStore";
 
 const SYNCED_KEYS = [
   HERITAGE_VISITED_KEY,
   PLACES_VISITED_KEY,
   CUISINE_VISITED_KEY,
+  ISLANDS_VISITED_KEY,
   ACTIVITY_LOG_KEY,
 ] as const;
 
@@ -22,6 +25,7 @@ async function readLocalBackup() {
     heritage_visited: JSON.parse(raw[HERITAGE_VISITED_KEY] ?? "[]"),
     countries_visited: JSON.parse(raw[PLACES_VISITED_KEY] ?? "[]"),
     cuisine_visited: JSON.parse(raw[CUISINE_VISITED_KEY] ?? "[]"),
+    islands_visited: JSON.parse(raw[ISLANDS_VISITED_KEY] ?? "[]"),
     activity_log: JSON.parse(raw[ACTIVITY_LOG_KEY] ?? "[]"),
   };
 }
@@ -91,6 +95,7 @@ export async function pullFromCloud(): Promise<boolean> {
       [HERITAGE_VISITED_KEY, JSON.stringify(data.heritage_visited ?? [])],
       [PLACES_VISITED_KEY, JSON.stringify(data.countries_visited ?? [])],
       [CUISINE_VISITED_KEY, JSON.stringify(data.cuisine_visited ?? [])],
+      [ISLANDS_VISITED_KEY, JSON.stringify(data.islands_visited ?? [])],
       [ACTIVITY_LOG_KEY, JSON.stringify(data.activity_log ?? [])],
     ]);
     // heritage-visited state also lives in a zustand store (see
@@ -108,6 +113,15 @@ export async function pullFromCloud(): Promise<boolean> {
 /** Called right after a successful sign-in/sign-up: restores existing cloud
  * data if there is any, otherwise seeds the cloud with what's on the device. */
 export async function syncAfterAuth(): Promise<void> {
+  try {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (user) await loginPurchases(user.id);
+  } catch (e) {
+    console.log("REVENUECAT LOGIN ERROR", e);
+  }
+
   await syncProfileFromMetadata();
   const pulled = await pullFromCloud();
   if (!pulled) {

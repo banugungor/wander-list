@@ -8,7 +8,12 @@ import "react-native-reanimated";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { LanguageProvider, useLanguage } from "@/contexts/language-context";
 import { loadHeritageSites } from "@/data/heritageSites";
+import { configurePurchases } from "@/data/subscription";
 import { hydrateVisitedHeritage } from "@/store/useAppStore";
+
+// RevenueCat only needs a synchronous API-key registration at startup — it
+// doesn't block the splash screen the way heritage decompression does.
+configurePurchases();
 
 export const unstable_settings = {
   anchor: "(tabs)",

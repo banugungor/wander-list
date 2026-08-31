@@ -1,8 +1,11 @@
 import type { Category, CategoryId } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
+import { isIslandsUnlocked } from "@/data/subscription";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { useFocusEffect } from "expo-router";
+import { useCallback, useState } from "react";
 import { Image, Pressable, Text, View } from "react-native";
 
 const DECORATIONS: Partial<
@@ -57,6 +60,27 @@ export function CategoryTile({
     total > 0 ? Math.min(100, Math.round((count / total) * 100)) : 0;
   const decoration = DECORATIONS[category.id];
 
+  const [locked, setLocked] = useState(false);
+  useFocusEffect(
+    useCallback(() => {
+      if (category.id !== "islands") return;
+      let cancelled = false;
+      isIslandsUnlocked().then((unlocked) => {
+        if (!cancelled) setLocked(!unlocked);
+      });
+      return () => {
+        cancelled = true;
+      };
+    }, [category.id]),
+  );
+
+  const statusLabel = !category.implemented
+    ? t("common.comingSoon")
+    : locked
+      ? t("common.unlockWithMembership")
+      : `${count}/${total}`;
+  const dimmed = !category.implemented || locked;
+
   const badge = (
     <View
       style={{
@@ -74,6 +98,25 @@ export function CategoryTile({
       }}
     >
       <Ionicons name={category.icon} size={24} color={category.fg} />
+      {locked && (
+        <View
+          style={{
+            position: "absolute",
+            bottom: -2,
+            right: -2,
+            width: 20,
+            height: 20,
+            borderRadius: 10,
+            backgroundColor: category.fg,
+            alignItems: "center",
+            justifyContent: "center",
+            borderWidth: 2,
+            borderColor: "rgba(255,255,255,0.92)",
+          }}
+        >
+          <Ionicons name="lock-closed" size={10} color={palette.surface} />
+        </View>
+      )}
     </View>
   );
 
@@ -225,12 +268,10 @@ export function CategoryTile({
                     fontSize: 14,
                     fontWeight: "400",
                     color: category.fg,
-                    opacity: category.implemented ? 1 : 0.6,
+                    opacity: dimmed ? 0.6 : 1,
                   }}
                 >
-                  {category.implemented
-                    ? `${count}/${total}`
-                    : t("common.comingSoon")}
+                  {statusLabel}
                 </Text>
               </View>
             </View>
@@ -256,12 +297,10 @@ export function CategoryTile({
                 fontSize: 14,
                 fontWeight: "400",
                 color: category.fg,
-                opacity: category.implemented ? 1 : 0.6,
+                opacity: dimmed ? 0.6 : 1,
               }}
             >
-              {category.implemented
-                ? `${count}/${total}`
-                : t("common.comingSoon")}
+              {statusLabel}
             </Text>
             {progressTrack}
           </>

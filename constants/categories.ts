@@ -49,7 +49,7 @@ export const categories: Category[] = [
     bg: palette.violetPale,
     bgTo: palette.violetPaleDeep,
     fg: palette.violetText,
-    implemented: false,
+    implemented: true,
   },
   {
     id: "capitals",

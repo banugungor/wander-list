@@ -6,7 +6,8 @@ import { ACTIVITY_LOG_KEY } from "@/data/activityLog";
 import { pushToCloud } from "@/data/cloudSync";
 import { HERITAGE_VISITED_KEY } from "@/data/heritageStorage";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
-import { CUISINE_AREA_TOTALS_KEY, CUISINE_VISITED_KEY } from "@/data/storageKeys";
+import { CUISINE_AREA_TOTALS_KEY, CUISINE_VISITED_KEY, ISLANDS_VISITED_KEY } from "@/data/storageKeys";
+import { logoutPurchases } from "@/data/subscription";
 import { supabase } from "@/lib/supabase";
 import { useAppStore } from "@/store/useAppStore";
 import { Ionicons } from "@expo/vector-icons";
@@ -92,6 +93,7 @@ export default function ProfileScreen() {
               CUISINE_VISITED_KEY,
               CUISINE_AREA_TOTALS_KEY,
               PLACES_VISITED_KEY,
+              ISLANDS_VISITED_KEY,
               ACTIVITY_LOG_KEY,
             ]);
             useAppStore.getState().setVisitedHeritage([]);
@@ -114,7 +116,10 @@ export default function ProfileScreen() {
         {
           text: t("auth.signOutAction"),
           style: "destructive",
-          onPress: () => supabase.auth.signOut(),
+          onPress: () => {
+            logoutPurchases();
+            supabase.auth.signOut();
+          },
         },
       ],
     );

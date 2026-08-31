@@ -17,8 +17,8 @@ type RecentItemCardProps = {
   imageUrl?: string | null;
   iso2?: string | null;
   isVisited: boolean;
-  /** Omitted for categories that aren't markable yet (e.g. an upcoming
-   * "islands" highlight before that list ships) — the toggle button is
+  /** Omitted for categories that aren't markable yet (`implemented: false`
+   * in constants/categories.ts, e.g. Capitals) — the toggle button is
    * hidden rather than shown disabled. */
   onToggle?: () => void;
 };
