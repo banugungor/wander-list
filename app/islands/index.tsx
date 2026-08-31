@@ -46,7 +46,7 @@ export default function IslandsContinentPickerScreen() {
           0,
         );
         return { continent, total, visitedCount };
-      }),
+      }).filter((stat) => stat.total > 0),
     [countryIdsByContinent, counts, visitedByCountry],
   );
 
@@ -81,23 +81,15 @@ export default function IslandsContinentPickerScreen() {
         contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
         data={continentStats}
         keyExtractor={(item) => item.continent.id}
-        renderItem={({ item }) => {
-          const rowPercent =
-            item.total > 0 ? Math.round((item.visitedCount / item.total) * 100) : 0;
-          return (
-            <ProgressRow
-              title={language === "tr" ? item.continent.name : item.continent.nameEn}
-              fractionLabel={
-                item.total > 0
-                  ? `${item.visitedCount}/${item.total}`
-                  : t("islandsPicker.noIslandsYet")
-              }
-              percent={rowPercent}
-              accentColor={categoryMeta?.fg ?? palette.brand}
-              onPress={() => router.push(`/islands/continent/${item.continent.id}`)}
-            />
-          );
-        }}
+        renderItem={({ item }) => (
+          <ProgressRow
+            title={language === "tr" ? item.continent.name : item.continent.nameEn}
+            fractionLabel={`${item.visitedCount}/${item.total}`}
+            percent={Math.round((item.visitedCount / item.total) * 100)}
+            accentColor={categoryMeta?.fg ?? palette.brand}
+            onPress={() => router.push(`/islands/continent/${item.continent.id}`)}
+          />
+        )}
       />
     </View>
   );

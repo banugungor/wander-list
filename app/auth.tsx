@@ -57,6 +57,11 @@ export default function AuthScreen() {
       return;
     }
 
+    if (mode === "signUp" && (!firstName.trim() || !lastName.trim())) {
+      Alert.alert(t("auth.missingNameTitle"), t("auth.missingNameMessage"));
+      return;
+    }
+
     if (mode === "signUp" && !country) {
       Alert.alert(t("auth.missingCountryTitle"), t("auth.missingCountryMessage"));
       return;

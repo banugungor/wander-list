@@ -77,6 +77,10 @@ export const translations = {
       addCountryCta: "Yeni Ülke İşaretle",
       pickerTitle: "Ülke seç",
       pickerSearchPlaceholder: "Ülke ara...",
+      removeConfirmTitle: "Ülkeyi kaldır",
+      removeConfirmMessage: "{{country}} gezilen ülkelerden kaldırılsın mı?",
+      removeConfirmAction: "Kaldır",
+      otherTerritories: "Diğer",
     },
     heritageDetail: {
       notFound: "Bu miras alanı bulunamadı.",
@@ -110,11 +114,20 @@ export const translations = {
       continentLabel: "{{continent}} Adaları",
       filterVisited: "Gezdiklerim",
       filterUnvisited: "Gezmediklerim",
-      noIslandsYet: "Henüz yok",
     },
     islandsCountry: {
       loading: "Adalar yükleniyor…",
       empty: "Bu ülke için henüz ada eklenmedi.",
+      visited: "Gezildi",
+    },
+    heritagePicker: {
+      progressLabel: "İlerleme",
+      progressDetail: "{{total}} içinden {{count}} gezildi",
+      continentLabel: "{{continent}} Miras Alanları",
+      filterVisited: "Gezdiklerim",
+      filterUnvisited: "Gezmediklerim",
+    },
+    heritageCountry: {
       visited: "Gezildi",
     },
     paywall: {
@@ -143,6 +156,8 @@ export const translations = {
       privacySuffix: "okudum, kabul ediyorum.",
       missingInfoTitle: "Eksik bilgi",
       missingInfoMessage: "Email ve şifre gerekli.",
+      missingNameTitle: "Ad soyad gerekli",
+      missingNameMessage: "Kayıt olmak için adını ve soyadını girmen gerekiyor.",
       missingCountryTitle: "Ülke seçimi gerekli",
       missingCountryMessage: "Kayıt olmak için ülkeni seçmen gerekiyor.",
       missingPrivacyTitle: "Onay gerekli",
@@ -277,6 +292,10 @@ export const translations = {
       addCountryCta: "Mark a New Country",
       pickerTitle: "Select a country",
       pickerSearchPlaceholder: "Search countries...",
+      removeConfirmTitle: "Remove country",
+      removeConfirmMessage: "Remove {{country}} from your visited countries?",
+      removeConfirmAction: "Remove",
+      otherTerritories: "Other",
     },
     heritageDetail: {
       notFound: "This heritage site could not be found.",
@@ -310,11 +329,20 @@ export const translations = {
       continentLabel: "{{continent}} Islands",
       filterVisited: "Visited",
       filterUnvisited: "Not visited",
-      noIslandsYet: "Not yet",
     },
     islandsCountry: {
       loading: "Loading islands…",
       empty: "No islands have been added for this country yet.",
+      visited: "Visited",
+    },
+    heritagePicker: {
+      progressLabel: "Progress",
+      progressDetail: "{{count}} of {{total}} visited",
+      continentLabel: "{{continent}} Heritage Sites",
+      filterVisited: "Visited",
+      filterUnvisited: "Not visited",
+    },
+    heritageCountry: {
       visited: "Visited",
     },
     paywall: {
@@ -343,6 +371,8 @@ export const translations = {
       privacySuffix: "— I have read and agree to it.",
       missingInfoTitle: "Missing info",
       missingInfoMessage: "Email and password are required.",
+      missingNameTitle: "Name required",
+      missingNameMessage: "You need to enter your first and last name to sign up.",
       missingCountryTitle: "Country required",
       missingCountryMessage: "You need to select your country to sign up.",
       missingPrivacyTitle: "Consent required",

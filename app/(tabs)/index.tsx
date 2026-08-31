@@ -414,7 +414,7 @@ export default function HomeScreen() {
             {t("home.categories")}
           </Text>
           <Pressable
-            onPress={() => router.push("/explore")}
+            onPress={() => router.push("/heritage")}
             style={({ pressed }) => [
               { flexDirection: "row", alignItems: "center", gap: 2 },
               pressed && { opacity: 0.6 },
@@ -439,6 +439,10 @@ export default function HomeScreen() {
                       total={s.total}
                       wide={row.length === 1}
                       onPress={async () => {
+                        if (cat.id === "heritage") {
+                          router.push("/heritage");
+                          return;
+                        }
                         if (cat.id === "places") {
                           router.push("/places-map");
                           return;

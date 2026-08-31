@@ -1,5 +1,6 @@
 export type ContinentId =
   | "africa"
+  | "antarctica"
   | "asia"
   | "europe"
   | "north_america"
@@ -8,6 +9,7 @@ export type ContinentId =
 
 export const CONTINENTS: { id: ContinentId; name: string; nameEn: string }[] = [
   { id: "africa", name: "Afrika", nameEn: "Africa" },
+  { id: "antarctica", name: "Antarktika", nameEn: "Antarctica" },
   { id: "asia", name: "Asya", nameEn: "Asia" },
   { id: "europe", name: "Avrupa", nameEn: "Europe" },
   { id: "north_america", name: "Kuzey Amerika", nameEn: "North America" },
@@ -19,8 +21,12 @@ export const CONTINENTS: { id: ContinentId; name: string; nameEn: string }[] = [
 // e.g. Cyprus/N. Cyprus, share the same iso2 but need distinct continents).
 // A handful of uninhabited sub-Antarctic territories (Fr. S. Antarctic Lands,
 // Heard I. and McDonald Is., S. Geo. and the Is.) are intentionally omitted —
-// there's no "antarctica" bucket in this 6-continent model.
+// they aren't in worldCountries.json either. Antarctica itself ("010") is,
+// and gets its own single-country "antarctica" continent bucket below.
 export const CONTINENT_BY_COUNTRY_ID: Record<string, ContinentId> = {
+  // Antarctica
+  "010": "antarctica", // Antarctica
+
   // Africa
   "012": "africa", // Algeria
   "024": "africa", // Angola

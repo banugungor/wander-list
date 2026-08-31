@@ -42,18 +42,33 @@ const ALIASES: Record<string, ContinentId> = {
   "Viet Nam": "asia",
 };
 
-// A transnational site (~51 of 1273) lists multiple countries in one
-// comma-joined string; it's returned under every continent it touches.
-export function getContinentsForCountryField(countryField: string): ContinentId[] {
-  const tokens = countryField
+/** Splits a heritage site's `country` field into individual country name
+ * tokens — usually just one, but ~51 transnational sites list several
+ * comma-joined names. Shared by every heritage screen that needs to bucket a
+ * site under each country/continent it touches, so the delimiter/whitespace
+ * handling only lives in one place. */
+export function splitCountryField(countryField: string): string[] {
+  return countryField
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean);
+}
 
+// A transnational site (~51 of 1273) lists multiple countries in one
+// comma-joined string; it's returned under every continent it touches.
+export function getContinentsForCountryField(countryField: string): ContinentId[] {
   const result = new Set<ContinentId>();
-  for (const token of tokens) {
+  for (const token of splitCountryField(countryField)) {
     const continent = NAME_TO_CONTINENT[token] ?? ALIASES[token];
     if (continent) result.add(continent);
   }
   return [...result];
+}
+
+/** Same lookup as getContinentsForCountryField, but for a single already-split
+ * country token (e.g. one side of a transnational site's comma-joined
+ * field) — used by the heritage continent → country picker to bucket each
+ * country name under its one continent. */
+export function getContinentForCountryName(name: string): ContinentId | undefined {
+  return NAME_TO_CONTINENT[name] ?? ALIASES[name];
 }

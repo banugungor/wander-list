@@ -1,5 +1,5 @@
 import { isIslandsUnlocked } from "@/data/subscription";
-import { Redirect, Slot, useFocusEffect } from "expo-router";
+import { Redirect, Slot, Stack, useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
 
 /** Guards every /islands route (index, continent picker, country detail)
@@ -24,8 +24,14 @@ export default function IslandsLayout() {
     }, []),
   );
 
-  if (unlocked === null) return null;
-  if (!unlocked) return <Redirect href="/paywall" />;
-
-  return <Slot />;
+  return (
+    <>
+      {/* Set unconditionally (not just by each child screen) so the root
+       * Stack's default native header — and its back button, labeled after
+       * the previous, title-less "(tabs)" route — never gets a chance to
+       * flash while `unlocked` is still resolving. */}
+      <Stack.Screen options={{ headerShown: false }} />
+      {unlocked === null ? null : unlocked ? <Slot /> : <Redirect href="/paywall" />}
+    </>
+  );
 }

@@ -3,7 +3,11 @@ import { CountryFlag } from "@/components/country-flag";
 import { ScreenHeader } from "@/components/screen-header";
 import { palette } from "@/constants/palette";
 import { useLanguage, type Language } from "@/contexts/language-context";
-import { CONTINENT_BY_COUNTRY_ID, CONTINENTS, ContinentId } from "@/data/continents";
+import {
+  CONTINENT_BY_COUNTRY_ID,
+  ContinentId,
+  CONTINENTS,
+} from "@/data/continents";
 import { getLocalizedCountryName } from "@/data/countryNamesTr";
 import { PLACES_VISITED_KEY, togglePlaceVisited } from "@/data/placesStorage";
 import worldData from "@/data/worldCountries.json";
@@ -12,6 +16,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Stack, useFocusEffect } from "expo-router";
 import { useCallback, useMemo, useState } from "react";
 import {
+  Alert,
   Dimensions,
   FlatList,
   Modal,
@@ -28,13 +33,20 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
-import Svg, { Path } from "react-native-svg";
+import Svg, { Path, Rect } from "react-native-svg";
 
 type CountryPath = { id: string; name: string; d: string; iso2?: string };
 
 const { width: screenWidth } = Dimensions.get("window");
-const mapWidth = screenWidth - 32;
-const mapHeight = mapWidth * (worldData.height / worldData.width);
+const mapWidth = screenWidth;
+// worldCountries.json's paths only ever occupy y ∈ [60.7, 521.4] of its
+// 0–525 viewBox (empty Arctic above, Antarctica's coastline bottoming out
+// around y≈521) — crop the SVG viewBox to that band (with a small margin)
+// instead of rendering the full 0–525 height, so land fills the map
+// top-to-bottom rather than floating in a tall box with empty margins.
+const MAP_VIEWBOX_Y = 55;
+const MAP_VIEWBOX_HEIGHT = 471;
+const mapHeight = mapWidth * (MAP_VIEWBOX_HEIGHT / worldData.width);
 const MAX_SCALE = 5;
 
 function localizedNameOf(country: CountryPath, language: Language): string {
@@ -50,9 +62,9 @@ export default function PlacesMapScreen() {
   const [pickerSearch, setPickerSearch] = useState("");
   const [pickerFilter, setPickerFilter] = useState<"all" | "visited">("all");
   const [listFilter, setListFilter] = useState<"all" | "visited">("visited");
-  const [expandedContinents, setExpandedContinents] = useState<Set<ContinentId>>(
-    new Set(),
-  );
+  const [expandedContinents, setExpandedContinents] = useState<
+    Set<ContinentId>
+  >(new Set());
   const countries = worldData.countries as CountryPath[];
 
   const scale = useSharedValue(1);
@@ -70,7 +82,14 @@ export default function PlacesMapScreen() {
     savedTranslateX.value = 0;
     savedTranslateY.value = 0;
     setZoomed(false);
-  }, [scale, savedScale, translateX, translateY, savedTranslateX, savedTranslateY]);
+  }, [
+    scale,
+    savedScale,
+    translateX,
+    translateY,
+    savedTranslateX,
+    savedTranslateY,
+  ]);
 
   const pinchGesture = Gesture.Pinch()
     .onUpdate((e) => {
@@ -133,6 +152,32 @@ export default function PlacesMapScreen() {
     setVisited(updated);
   };
 
+  // Marking a country from a tap is low-risk (adds to the list), but
+  // unmarking one from the "visited" list/grid below is easy to trigger by
+  // accident and hard to undo without remembering which country it was — so
+  // that specific entry point confirms before removing, unlike the map and
+  // the add-country picker.
+  const handleVisitedListPress = (country: CountryPath) => {
+    if (!visited.includes(country.id)) {
+      toggle(country);
+      return;
+    }
+    Alert.alert(
+      t("placesMap.removeConfirmTitle"),
+      t("placesMap.removeConfirmMessage", {
+        country: localizedNameOf(country, language),
+      }),
+      [
+        { text: t("common.cancel"), style: "cancel" },
+        {
+          text: t("placesMap.removeConfirmAction"),
+          style: "destructive",
+          onPress: () => toggle(country),
+        },
+      ],
+    );
+  };
+
   const sortByLocalizedName = useCallback(
     (a: CountryPath, b: CountryPath) =>
       localizedNameOf(a, language).localeCompare(localizedNameOf(b, language)),
@@ -140,7 +185,8 @@ export default function PlacesMapScreen() {
   );
 
   const visitedCountries = useMemo(
-    () => countries.filter((c) => visited.includes(c.id)).sort(sortByLocalizedName),
+    () =>
+      countries.filter((c) => visited.includes(c.id)).sort(sortByLocalizedName),
     [countries, visited, sortByLocalizedName],
   );
 
@@ -151,6 +197,25 @@ export default function PlacesMapScreen() {
 
   const displayedCountries =
     listFilter === "all" ? allSorted : visitedCountries;
+
+  // A couple of worldCountries.json entries (uninhabited sub-Antarctic
+  // territories not covered by any continent bucket — see
+  // data/continents.ts) have no entry in CONTINENT_BY_COUNTRY_ID. They still
+  // need somewhere to show up here, or marking one visited would make it
+  // silently vanish from this section despite still counting toward
+  // visited.length — otherCountries is that catch-all.
+  const { byContinent: displayedByContinent, otherCountries } = useMemo(() => {
+    const map = new Map<ContinentId, CountryPath[]>();
+    for (const continent of CONTINENTS) map.set(continent.id, []);
+    const other: CountryPath[] = [];
+    for (const c of allSorted) {
+      if (listFilter === "visited" && !visited.includes(c.id)) continue;
+      const continent = CONTINENT_BY_COUNTRY_ID[c.id];
+      if (continent) map.get(continent)?.push(c);
+      else other.push(c);
+    }
+    return { byContinent: map, otherCountries: other };
+  }, [allSorted, listFilter, visited]);
 
   const pickerResults = useMemo(() => {
     const query = pickerSearch.trim().toLowerCase();
@@ -228,7 +293,13 @@ export default function PlacesMapScreen() {
               alignItems: "center",
             }}
           >
-            <Text style={{ fontSize: 22, fontWeight: "700", color: palette.greenText }}>
+            <Text
+              style={{
+                fontSize: 22,
+                fontWeight: "700",
+                color: palette.greenText,
+              }}
+            >
               {visited.length}
             </Text>
             <Text style={{ fontSize: 11, color: palette.greenText }}>
@@ -245,20 +316,13 @@ export default function PlacesMapScreen() {
           <CircularProgress percent={percent} size={52} strokeWidth={6} />
         </View>
 
-        {/* MAP */}
+        {/* MAP — full-bleed (no side margins/card) so it reads as a large
+         * map rather than a small inset illustration */}
         <View
           style={{
             marginTop: 16,
-            marginHorizontal: 16,
             backgroundColor: palette.surface,
-            borderRadius: 16,
-            padding: 8,
             overflow: "hidden",
-            shadowColor: palette.shadow,
-            shadowOpacity: 0.05,
-            shadowRadius: 10,
-            shadowOffset: { width: 0, height: 4 },
-            elevation: 1,
           }}
         >
           <GestureDetector gesture={composedGesture}>
@@ -268,17 +332,24 @@ export default function PlacesMapScreen() {
               <Svg
                 width={mapWidth}
                 height={mapHeight}
-                viewBox={`0 0 ${worldData.width} ${worldData.height}`}
+                viewBox={`0 ${MAP_VIEWBOX_Y} ${worldData.width} ${MAP_VIEWBOX_HEIGHT}`}
               >
+                <Rect
+                  x={0}
+                  y={MAP_VIEWBOX_Y}
+                  width={worldData.width}
+                  height={MAP_VIEWBOX_HEIGHT}
+                  fill={palette.surface}
+                />
                 {countries.map((country) => {
                   const isVisited = visited.includes(country.id);
                   return (
                     <Path
                       key={country.id}
                       d={country.d}
-                      fill={isVisited ? palette.brand : palette.creamDeep}
+                      fill={isVisited ? palette.brand : palette.inkFaint}
                       stroke={palette.surface}
-                      strokeWidth={0.5}
+                      strokeWidth={0.6}
                       onPress={() => toggle(country)}
                     />
                   );
@@ -324,8 +395,18 @@ export default function PlacesMapScreen() {
               paddingVertical: 8,
             }}
           >
-            <Ionicons name="hand-left-outline" size={14} color={palette.greenText} />
-            <Text style={{ fontSize: 12, fontWeight: "600", color: palette.greenText }}>
+            <Ionicons
+              name="hand-left-outline"
+              size={14}
+              color={palette.greenText}
+            />
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: "600",
+                color: palette.greenText,
+              }}
+            >
               {t("placesMap.tapToMark")}
             </Text>
           </View>
@@ -422,59 +503,114 @@ export default function PlacesMapScreen() {
             {t("placesMap.noVisitedCountries")}
           </Text>
         ) : (
-          <View
-            style={{
-              marginHorizontal: 16,
-              flexDirection: viewMode === "grid" ? "row" : "column",
-              flexWrap: viewMode === "grid" ? "wrap" : "nowrap",
-              gap: 10,
-            }}
-          >
-            {displayedCountries.map((c) => {
-              const isVisited = visited.includes(c.id);
+          <View style={{ marginHorizontal: 16, gap: 10 }}>
+            {CONTINENTS.map((continent) => {
+              const list = displayedByContinent.get(continent.id) ?? [];
+              if (list.length === 0) return null;
+              const visitedCount = list.filter((c) =>
+                visited.includes(c.id),
+              ).length;
+              const expanded = expandedContinents.has(continent.id);
+
               return (
-                <Pressable
-                  key={c.id}
-                  onPress={() => toggle(c)}
-                  style={({ pressed }) => [
-                    {
-                      flexDirection: "row",
-                      alignItems: "center",
-                      gap: 8,
-                      backgroundColor: palette.surface,
-                      borderRadius: 14,
-                      paddingVertical: 10,
-                      paddingHorizontal: 12,
-                      width: viewMode === "grid" ? "31%" : "100%",
-                      shadowColor: palette.shadow,
-                      shadowOpacity: 0.04,
-                      shadowRadius: 6,
-                      shadowOffset: { width: 0, height: 2 },
-                      elevation: 1,
-                    },
-                    pressed && { opacity: 0.6 },
-                  ]}
-                >
-                  <CountryFlag id={c.id} iso2={c.iso2} size={18} />
-                  <Text
-                    style={{
-                      flex: 1,
-                      fontSize: 12,
-                      fontWeight: "600",
-                      color: palette.ink,
-                    }}
-                    numberOfLines={1}
+                <View key={continent.id}>
+                  <Pressable
+                    onPress={() => toggleContinent(continent.id)}
+                    style={({ pressed }) => [
+                      {
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        paddingVertical: 13,
+                        paddingHorizontal: 14,
+                        borderRadius: 12,
+                        backgroundColor: palette.surface,
+                        borderWidth: 1,
+                        borderColor: palette.hairline,
+                      },
+                      pressed && { opacity: 0.7 },
+                    ]}
                   >
-                    {localizedNameOf(c, language)}
-                  </Text>
-                  <Ionicons
-                    name={isVisited ? "checkmark-circle" : "ellipse-outline"}
-                    size={16}
-                    color={isVisited ? palette.brand : palette.inkFaint}
-                  />
-                </Pressable>
+                    <Text
+                      style={{
+                        fontSize: 14,
+                        fontWeight: "700",
+                        color: palette.ink,
+                      }}
+                    >
+                      {language === "tr" ? continent.name : continent.nameEn}
+                    </Text>
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        gap: 10,
+                      }}
+                    >
+                      <Text style={{ fontSize: 12, color: palette.inkMuted }}>
+                        {visitedCount}/{list.length}
+                      </Text>
+                      <Ionicons
+                        name={expanded ? "chevron-up" : "chevron-down"}
+                        size={16}
+                        color={palette.inkMuted}
+                      />
+                    </View>
+                  </Pressable>
+
+                  {expanded && (
+                    <View
+                      style={{
+                        marginTop: 10,
+                        flexDirection: viewMode === "grid" ? "row" : "column",
+                        flexWrap: viewMode === "grid" ? "wrap" : "nowrap",
+                        gap: 10,
+                      }}
+                    >
+                      {list.map((c) => (
+                        <VisitedCountryCard
+                          key={c.id}
+                          country={c}
+                          isVisited={visited.includes(c.id)}
+                          viewMode={viewMode}
+                          onPress={() => handleVisitedListPress(c)}
+                        />
+                      ))}
+                    </View>
+                  )}
+                </View>
               );
             })}
+
+            {otherCountries.length > 0 && (
+              <View
+                style={{
+                  flexDirection: viewMode === "grid" ? "row" : "column",
+                  flexWrap: viewMode === "grid" ? "wrap" : "nowrap",
+                  gap: 10,
+                }}
+              >
+                <Text
+                  style={{
+                    width: "100%",
+                    fontSize: 12,
+                    fontWeight: "700",
+                    color: palette.inkMuted,
+                  }}
+                >
+                  {t("placesMap.otherTerritories")}
+                </Text>
+                {otherCountries.map((c) => (
+                  <VisitedCountryCard
+                    key={c.id}
+                    country={c}
+                    isVisited={visited.includes(c.id)}
+                    viewMode={viewMode}
+                    onPress={() => handleVisitedListPress(c)}
+                  />
+                ))}
+              </View>
+            )}
           </View>
         )}
 
@@ -484,6 +620,7 @@ export default function PlacesMapScreen() {
           style={({ pressed }) => [
             {
               marginTop: 24,
+              marginBottom: 24,
               marginHorizontal: 16,
               backgroundColor: palette.brand,
               borderRadius: 999,
@@ -496,7 +633,9 @@ export default function PlacesMapScreen() {
             pressed && { opacity: 0.9 },
           ]}
         >
-          <Text style={{ fontSize: 15, fontWeight: "700", color: palette.surface }}>
+          <Text
+            style={{ fontSize: 15, fontWeight: "700", color: palette.surface }}
+          >
             {t("placesMap.addCountryCta")}
           </Text>
           <Ionicons name="add" size={18} color={palette.surface} />
@@ -510,7 +649,9 @@ export default function PlacesMapScreen() {
         presentationStyle="pageSheet"
         onRequestClose={() => setPickerVisible(false)}
       >
-        <View style={{ flex: 1, backgroundColor: palette.cream, paddingTop: 20 }}>
+        <View
+          style={{ flex: 1, backgroundColor: palette.cream, paddingTop: 20 }}
+        >
           <View
             style={{
               flexDirection: "row",
@@ -520,7 +661,9 @@ export default function PlacesMapScreen() {
               marginBottom: 12,
             }}
           >
-            <Text style={{ fontSize: 17, fontWeight: "700", color: palette.ink }}>
+            <Text
+              style={{ fontSize: 17, fontWeight: "700", color: palette.ink }}
+            >
               {t("placesMap.pickerTitle")}
             </Text>
             <Pressable onPress={() => setPickerVisible(false)}>
@@ -542,13 +685,22 @@ export default function PlacesMapScreen() {
               borderColor: palette.hairline,
             }}
           >
-            <Ionicons name="search-outline" size={18} color={palette.inkFaint} />
+            <Ionicons
+              name="search-outline"
+              size={18}
+              color={palette.inkFaint}
+            />
             <TextInput
               value={pickerSearch}
               onChangeText={setPickerSearch}
               placeholder={t("placesMap.pickerSearchPlaceholder")}
               placeholderTextColor={palette.inkFaint}
-              style={{ flex: 1, marginLeft: 8, fontSize: 15, color: palette.ink }}
+              style={{
+                flex: 1,
+                marginLeft: 8,
+                fontSize: 15,
+                color: palette.ink,
+              }}
             />
           </View>
 
@@ -598,7 +750,10 @@ export default function PlacesMapScreen() {
             <FlatList
               data={pickerResults}
               keyExtractor={(item) => item.id}
-              contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 24 }}
+              contentContainerStyle={{
+                paddingHorizontal: 16,
+                paddingBottom: 24,
+              }}
               ListEmptyComponent={
                 <Text
                   style={{
@@ -637,7 +792,12 @@ export default function PlacesMapScreen() {
                 : t("placesMap.noResults")}
             </Text>
           ) : (
-            <ScrollView contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 24 }}>
+            <ScrollView
+              contentContainerStyle={{
+                paddingHorizontal: 16,
+                paddingBottom: 24,
+              }}
+            >
               {CONTINENTS.map((continent) => {
                 const list = countriesByContinent.get(continent.id) ?? [];
                 if (list.length === 0) return null;
@@ -666,11 +826,21 @@ export default function PlacesMapScreen() {
                       ]}
                     >
                       <Text
-                        style={{ fontSize: 14, fontWeight: "700", color: palette.ink }}
+                        style={{
+                          fontSize: 14,
+                          fontWeight: "700",
+                          color: palette.ink,
+                        }}
                       >
                         {language === "tr" ? continent.name : continent.nameEn}
                       </Text>
-                      <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          alignItems: "center",
+                          gap: 10,
+                        }}
+                      >
                         <Text style={{ fontSize: 12, color: palette.inkMuted }}>
                           {visitedCount}/{list.length}
                         </Text>
@@ -712,6 +882,61 @@ export default function PlacesMapScreen() {
         </View>
       </Modal>
     </View>
+  );
+}
+
+function VisitedCountryCard({
+  country,
+  isVisited,
+  viewMode,
+  onPress,
+}: {
+  country: CountryPath;
+  isVisited: boolean;
+  viewMode: "grid" | "list";
+  onPress: () => void;
+}) {
+  const { language } = useLanguage();
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        {
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 8,
+          backgroundColor: palette.surface,
+          borderRadius: 14,
+          paddingVertical: 10,
+          paddingHorizontal: 12,
+          width: viewMode === "grid" ? "31%" : "100%",
+          shadowColor: palette.shadow,
+          shadowOpacity: 0.04,
+          shadowRadius: 6,
+          shadowOffset: { width: 0, height: 2 },
+          elevation: 1,
+        },
+        pressed && { opacity: 0.6 },
+      ]}
+    >
+      <CountryFlag id={country.id} iso2={country.iso2} size={18} />
+      <Text
+        style={{
+          flex: 1,
+          fontSize: 12,
+          fontWeight: "600",
+          color: palette.ink,
+        }}
+        numberOfLines={1}
+      >
+        {localizedNameOf(country, language)}
+      </Text>
+      <Ionicons
+        name={isVisited ? "checkmark-circle" : "ellipse-outline"}
+        size={16}
+        color={isVisited ? palette.brand : palette.inkFaint}
+      />
+    </Pressable>
   );
 }
 

@@ -46,7 +46,7 @@ export default function CuisineContinentPickerScreen() {
           0,
         );
         return { continent, total, tasted };
-      }),
+      }).filter((stat) => stat.total > 0),
     [countryIdsByContinent, counts, tastedByCountry],
   );
 
@@ -79,23 +79,15 @@ export default function CuisineContinentPickerScreen() {
         contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
         data={continentStats}
         keyExtractor={(item) => item.continent.id}
-        renderItem={({ item }) => {
-          const rowPercent =
-            item.total > 0 ? Math.round((item.tasted / item.total) * 100) : 0;
-          return (
-            <ProgressRow
-              title={language === "tr" ? item.continent.name : item.continent.nameEn}
-              fractionLabel={
-                item.total > 0
-                  ? `${item.tasted}/${item.total}`
-                  : t("cuisinePicker.noMealsYet")
-              }
-              percent={rowPercent}
-              accentColor={categoryMeta?.fg ?? palette.brand}
-              onPress={() => router.push(`/cuisine/continent/${item.continent.id}`)}
-            />
-          );
-        }}
+        renderItem={({ item }) => (
+          <ProgressRow
+            title={language === "tr" ? item.continent.name : item.continent.nameEn}
+            fractionLabel={`${item.tasted}/${item.total}`}
+            percent={Math.round((item.tasted / item.total) * 100)}
+            accentColor={categoryMeta?.fg ?? palette.brand}
+            onPress={() => router.push(`/cuisine/continent/${item.continent.id}`)}
+          />
+        )}
       />
     </View>
   );

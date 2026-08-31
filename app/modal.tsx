@@ -36,6 +36,11 @@ export default function AddScreen() {
       return;
     }
 
+    if (id === "heritage") {
+      router.push("/heritage");
+      return;
+    }
+
     if (id === "places") {
       router.push("/places-map");
       return;
