@@ -1,11 +1,12 @@
 import { categories } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
+import { showComingSoonAlert } from "@/data/comingSoonAlert";
 import { isIslandsUnlocked } from "@/data/subscription";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { useEffect, useRef } from "react";
-import { Alert, Pressable, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 
 export default function AddScreen() {
   const { t } = useLanguage();
@@ -27,12 +28,7 @@ export default function AddScreen() {
     router.back();
 
     if (!implemented) {
-      pendingTimeout.current = setTimeout(() => {
-        Alert.alert(
-          t("modal.comingSoonAlertTitle"),
-          t("modal.comingSoonAlertMessage"),
-        );
-      }, 300);
+      pendingTimeout.current = setTimeout(() => showComingSoonAlert(t), 300);
       return;
     }
 

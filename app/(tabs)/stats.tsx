@@ -1,4 +1,5 @@
 import { BottomTabBar } from "@/components/bottom-tab-bar";
+import { ShareStoryCard } from "@/components/share-story-card";
 import { StatCard } from "@/components/stat-card";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
@@ -6,11 +7,20 @@ import { useLanguage } from "@/contexts/language-context";
 import { ActivityEntry, getActivityLog } from "@/data/activityLog";
 import { HERITAGE_VISITED_KEY } from "@/data/heritageStorage";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
+import { shareStatsToInstagramStory } from "@/data/shareStory";
 import { CUISINE_VISITED_KEY, ISLANDS_VISITED_KEY } from "@/data/storageKeys";
+import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "expo-router";
-import { useCallback, useMemo, useState } from "react";
-import { ScrollView, Text, View } from "react-native";
+import { useCallback, useMemo, useRef, useState } from "react";
+import {
+  ActivityIndicator,
+  Alert,
+  Pressable,
+  ScrollView,
+  Text,
+  View,
+} from "react-native";
 
 const WEEKS = 8;
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
@@ -38,6 +48,8 @@ export default function StatsScreen() {
   const [cuisineCount, setCuisineCount] = useState(0);
   const [islandsCount, setIslandsCount] = useState(0);
   const [activity, setActivity] = useState<ActivityEntry[]>([]);
+  const [sharing, setSharing] = useState(false);
+  const shareCardRef = useRef<View>(null);
 
   useFocusEffect(
     useCallback(() => {
@@ -72,6 +84,18 @@ export default function StatsScreen() {
   const islands = getCategory("islands")!;
   const capitals = getCategory("capitals")!;
 
+  const handleShare = async () => {
+    setSharing(true);
+    try {
+      await shareStatsToInstagramStory(shareCardRef);
+    } catch (e) {
+      console.log("SHARE STORY ERROR", e);
+      Alert.alert(t("stats.shareErrorTitle"), t("stats.shareError"));
+    } finally {
+      setSharing(false);
+    }
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
       <ScrollView
@@ -82,12 +106,48 @@ export default function StatsScreen() {
         }}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={{ fontSize: 20, fontWeight: "700", color: palette.ink }}>
-          {t("stats.title")}
-        </Text>
-        <Text style={{ marginTop: 4, fontSize: 13, color: palette.inkMuted }}>
-          {t("stats.subtitle")}
-        </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+          }}
+        >
+          <View style={{ flex: 1 }}>
+            <Text style={{ fontSize: 20, fontWeight: "700", color: palette.ink }}>
+              {t("stats.title")}
+            </Text>
+            <Text style={{ marginTop: 4, fontSize: 13, color: palette.inkMuted }}>
+              {t("stats.subtitle")}
+            </Text>
+          </View>
+
+          <Pressable
+            onPress={handleShare}
+            disabled={sharing}
+            style={({ pressed }) => [
+              {
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 6,
+                paddingHorizontal: 12,
+                paddingVertical: 8,
+                borderRadius: 999,
+                backgroundColor: palette.greenSoft,
+              },
+              pressed && { opacity: 0.7 },
+            ]}
+          >
+            {sharing ? (
+              <ActivityIndicator size="small" color={palette.greenText} />
+            ) : (
+              <Ionicons name="share-social-outline" size={15} color={palette.greenText} />
+            )}
+            <Text style={{ fontSize: 12, fontWeight: "600", color: palette.greenText }}>
+              {t("stats.shareButton")}
+            </Text>
+          </Pressable>
+        </View>
 
         <View
           style={{
@@ -182,6 +242,24 @@ export default function StatsScreen() {
           {t("stats.lastNWeeks", { n: WEEKS })}
         </Text>
       </ScrollView>
+
+      {/* Off-screen — never shown, only captured by shareStatsToInstagramStory
+       * via shareCardRef. Positioned instead of unmounted so the ref is
+       * always ready by the time the share button is tapped. */}
+      <View
+        style={{ position: "absolute", top: 0, left: -9999 }}
+        pointerEvents="none"
+      >
+        <ShareStoryCard
+          ref={shareCardRef}
+          heritageCount={heritageCount}
+          placesCount={placesCount}
+          cuisineCount={cuisineCount}
+          islandsCount={islandsCount}
+          title={t("stats.shareCardTitle")}
+          footer={t("stats.shareCardFooter")}
+        />
+      </View>
 
       <BottomTabBar />
     </View>

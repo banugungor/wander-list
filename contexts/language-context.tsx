@@ -12,7 +12,7 @@ import {
 
 export type Language = "tr" | "en";
 
-type TranslateFn = (key: string, params?: Record<string, string | number>) => string;
+export type TranslateFn = (key: string, params?: Record<string, string | number>) => string;
 
 type LanguageContextValue = {
   language: Language;

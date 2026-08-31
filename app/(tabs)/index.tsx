@@ -13,6 +13,7 @@ import {
   localizedHighlightTitle,
   type CatalogHighlight,
 } from "@/data/catalogHighlights";
+import { showComingSoonAlert } from "@/data/comingSoonAlert";
 import { getLocalizedCountryName } from "@/data/countryNamesTr";
 import { getCachedMealIndex } from "@/data/cuisineMeals";
 import { toggleCuisineVisited } from "@/data/cuisineVisited";
@@ -583,6 +584,74 @@ export default function HomeScreen() {
             })}
           </>
         )}
+
+        {/* COMING SOON TEASER — two future categories with no data source or
+            screen yet (see constants/categories.ts's `implemented: false`
+            convention for Capitals). Deliberately NOT added to categories.ts
+            itself: unlike Capitals, these aren't in the Kategoriler grid,
+            badges, or stats — this is just a small heads-up row between the
+            viewer's own recent activity and our curated highlights, so a
+            static title + "Yakında" pill is all they need for now. */}
+        <View style={{ flexDirection: "row", gap: 8, marginTop: 26 }}>
+          {(
+            [
+              {
+                titleKey: "category.nationalParks",
+                icon: "leaf-outline",
+                bg: palette.amberPale,
+                fg: palette.amberText,
+              },
+              {
+                titleKey: "category.mountainPeaks",
+                icon: "trending-up-outline",
+                bg: palette.tealPale,
+                fg: palette.tealText,
+              },
+            ] as const
+          ).map((item) => (
+            <Pressable
+              key={item.titleKey}
+              onPress={() => showComingSoonAlert(t)}
+              style={({ pressed }) => [
+                {
+                  flex: 1,
+                  minHeight: 92,
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: 10,
+                  backgroundColor: item.bg,
+                  borderRadius: 16,
+                  padding: 16,
+                },
+                pressed && { opacity: 0.85 },
+              ]}
+            >
+              <View
+                style={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: 12,
+                  backgroundColor: "rgba(255,255,255,0.6)",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Ionicons name={item.icon} size={20} color={item.fg} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text
+                  style={{ fontSize: 12, fontWeight: "700", color: palette.ink }}
+                  numberOfLines={1}
+                >
+                  {t(item.titleKey)}
+                </Text>
+                <Text style={{ marginTop: 2, fontSize: 11, color: item.fg }}>
+                  {t("common.comingSoon")}
+                </Text>
+              </View>
+            </Pressable>
+          ))}
+        </View>
 
         {/* NEWLY ADDED — new content we've added across every list, not the
             viewer's own activity. Marking one visited/tasted here never

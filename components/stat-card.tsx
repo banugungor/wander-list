@@ -8,9 +8,23 @@ type StatCardProps = {
   icon: keyof typeof Ionicons.glyphMap;
   bg: string;
   fg: string;
+  /** Overrides for use on a dark card (e.g. ShareStoryCard) — default to the
+   * light-card look used everywhere else. */
+  iconColor?: string;
+  iconBadgeBg?: string;
+  valueColor?: string;
 };
 
-export function StatCard({ label, value, icon, bg, fg }: StatCardProps) {
+export function StatCard({
+  label,
+  value,
+  icon,
+  bg,
+  fg,
+  iconColor = fg,
+  iconBadgeBg = "rgba(255,255,255,0.7)",
+  valueColor = palette.ink,
+}: StatCardProps) {
   return (
     <View
       style={{
@@ -30,19 +44,19 @@ export function StatCard({ label, value, icon, bg, fg }: StatCardProps) {
           width: 32,
           height: 32,
           borderRadius: 11,
-          backgroundColor: "rgba(255,255,255,0.7)",
+          backgroundColor: iconBadgeBg,
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <Ionicons name={icon} size={16} color={fg} />
+        <Ionicons name={icon} size={16} color={iconColor} />
       </View>
       <Text
         style={{
           marginTop: 10,
           fontSize: 24,
           fontWeight: "700",
-          color: palette.ink,
+          color: valueColor,
         }}
       >
         {value}

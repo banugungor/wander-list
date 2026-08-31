@@ -32,6 +32,12 @@ export const palette = {
   bluePale: "#E2EEFC",
   bluePaleDeep: "#CFE2F6",
   blueText: "#3D7DD8",
+  amberPale: "#FCF0CE",
+  amberPaleDeep: "#F8E2A8",
+  amberText: "#C99A1E",
+  tealPale: "#DFF4F2",
+  tealPaleDeep: "#C7EBE7",
+  tealText: "#1E9C8E",
 
   // Dark gradient card (home progress card)
   cardDarkFrom: "#335449",
