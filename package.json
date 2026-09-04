@@ -18,6 +18,7 @@
     "lint": "expo lint",
     "compress-heritage": "node scripts/compress-heritage-data.mjs",
     "heritage-status": "node --no-warnings scripts/heritage-translation-status.mjs",
+    "catalog-snapshot": "node --env-file=.env scripts/catalog-snapshot.mjs",
     "postinstall": "patch-package"
   },
   "dependencies": {

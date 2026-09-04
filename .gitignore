@@ -47,3 +47,13 @@ app-example
 
 
 notlar
+catalog-snapshot.md
+
+# Founder-only project notes — kept local, not pushed to this public repo
+CLAUDE.md
+
+# Admin content panel — contains/references the admin account's email;
+# kept local only so a public-repo reader can't target that account
+scripts/admin-panel.html
+scripts/admin_panel_bucket.sql
+scripts/admin_panel_policies.sql
