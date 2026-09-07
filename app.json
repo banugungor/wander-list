@@ -11,7 +11,8 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.wanderlistapp.ios",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSPhotoLibraryUsageDescription": "Wanderlist needs access to your photo library to save and share your travel stats as an Instagram Story image."
       }
     },
     "android": {
