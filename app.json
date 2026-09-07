@@ -9,7 +9,7 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.wanderlist.app",
+      "bundleIdentifier": "com.wanderlistapp.ios",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }

@@ -15,8 +15,8 @@ export const translations = {
       noDataYet: "Henüz veri yok, keşfetmeye başla",
       categories: "Kategoriler",
       seeAll: "Tümünü Gör",
-      recentlyAdded: "Son eklenenler",
-      newlyAdded: "Yeni eklenenler",
+      recentlyAdded: "Listene son eklenenler",
+      newlyAdded: "Yeni eklenenleri keşfet",
     },
     explore: {
       detailsTitle: "Detaylar",
@@ -70,7 +70,7 @@ export const translations = {
       emailBackupHint: "Verilerini yedeklemek için giriş yap",
     },
     placesMap: {
-      title: "Gittiğin Ülkeler",
+      title: "Ülkeler",
       subtitle: "Dünyayı keşfetmeye devam et",
       countryUnit: "Ülke",
       countriesDiscovered: "/{{total}} ülke keşfedildi",
@@ -135,11 +135,6 @@ export const translations = {
     heritageCountry: {
       visited: "Gezildi",
     },
-    paywall: {
-      title: "Adalar yıllık üyelikle açılır",
-      body: "Adalar kategorisine erişmek ve dünyanın en güzel adalarını işaretlemeye başlamak için yıllık üyeliğe geç.",
-      unlockButton: "Yıllık üyelikle aç",
-    },
     auth: {
       signIn: "Giriş Yap",
       signUp: "Kayıt Ol",
@@ -187,7 +182,7 @@ export const translations = {
     },
     category: {
       heritage: "Dünya Mirası",
-      places: "Gittiğin Ülkeler",
+      places: "Ülkeler",
       cuisine: "Mutfaklar",
       islands: "Adalar",
       capitals: "Başkentler",
@@ -237,8 +232,8 @@ export const translations = {
       noDataYet: "No data yet, start exploring",
       categories: "Categories",
       seeAll: "See All",
-      recentlyAdded: "Recently added",
-      newlyAdded: "Newly added",
+      recentlyAdded: "Recently added to your list",
+      newlyAdded: "Discover Newly added",
     },
     explore: {
       detailsTitle: "Details",
@@ -357,11 +352,6 @@ export const translations = {
     heritageCountry: {
       visited: "Visited",
     },
-    paywall: {
-      title: "Islands unlock with a yearly membership",
-      body: "Upgrade to yearly membership to access the Islands category and start marking the world's most beautiful islands.",
-      unlockButton: "Unlock with yearly membership",
-    },
     auth: {
       signIn: "Sign In",
       signUp: "Sign Up",
@@ -409,10 +399,10 @@ export const translations = {
     },
     category: {
       heritage: "World Heritage",
-      places: "Places Visited",
+      places: "Countries",
       cuisine: "World Cuisines",
-      islands: "Islands Collected",
-      capitals: "Capital Cities",
+      islands: "Islands",
+      capitals: "Capitals",
       nationalParks: "National Parks",
       mountainPeaks: "Mountain Peaks",
     },

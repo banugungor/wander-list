@@ -38,6 +38,13 @@ const DECORATIONS: Partial<
     topOffset: -5,
     rightOffset: -14,
   },
+  islands: {
+    source: require("../assets/decor/islands.png"),
+    resizeMode: "cover",
+    heightScale: 1,
+    topOffset: -8,
+    rightOffset: -22,
+  },
 };
 
 type CategoryTileProps = {

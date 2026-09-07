@@ -9,8 +9,11 @@ import { captureRef, releaseCapture } from "react-native-view-shot";
 // Facebook App ID, we don't have one configured (see CLAUDE.md). It only
 // unlocks the "swipe up to open app" attribution link, which needs a real
 // Facebook App ID to work anyway; passing the bundle id still lets the
-// plain background-image share work today.
-const INSTAGRAM_SOURCE_APPLICATION = "com.wanderlist.app";
+// plain background-image share work today. iOS and Android use different
+// ids (app.json's ios.bundleIdentifier vs android.package), so this must
+// match whichever platform is sharing.
+const INSTAGRAM_SOURCE_APPLICATION =
+  Platform.OS === "ios" ? "com.wanderlistapp.ios" : "com.wanderlist.app";
 
 // react-native-share has no web implementation — it calls
 // TurboModuleRegistry.getEnforcing() at module load, which throws

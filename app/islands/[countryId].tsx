@@ -1,3 +1,4 @@
+import { EntryListRow } from "@/components/entry-list-row";
 import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
 import { getCategory } from "@/constants/categories";
@@ -13,11 +14,9 @@ import { toggleIslandVisited } from "@/data/islandsVisited";
 import worldData from "@/data/worldCountries.json";
 import { useCountryIslands } from "@/hooks/use-country-islands";
 import { useIslandsVisited } from "@/hooks/use-islands-visited";
-import { Ionicons } from "@expo/vector-icons";
-import { Image } from "expo-image";
 import { Stack, useLocalSearchParams } from "expo-router";
 import { useMemo } from "react";
-import { ActivityIndicator, FlatList, Pressable, Text, View } from "react-native";
+import { ActivityIndicator, FlatList, Text, View } from "react-native";
 
 export default function IslandsCountryScreen() {
   const { t, language } = useLanguage();
@@ -55,88 +54,18 @@ export default function IslandsCountryScreen() {
     setVisited(updated);
   };
 
-  const renderItem = ({ item }: { item: Island }) => {
-    const isVisited = visited.includes(item.id);
-    const name = localizedIslandName(item, language);
-    const description = localizedIslandDescription(item, language);
-
-    return (
-      <View
-        style={{
-          backgroundColor: palette.surface,
-          paddingHorizontal: 16,
-          paddingVertical: 14,
-          borderBottomWidth: 1,
-          borderBottomColor: palette.hairline,
-          flexDirection: "row",
-          alignItems: "center",
-          gap: 14,
-        }}
-      >
-        {item.imageUrl ? (
-          <Image
-            source={{ uri: item.imageUrl }}
-            style={{ width: 64, height: 64, borderRadius: 16 }}
-            contentFit="cover"
-            transition={200}
-          />
-        ) : (
-          <View
-            style={{
-              width: 64,
-              height: 64,
-              borderRadius: 16,
-              backgroundColor: palette.creamDeep,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Ionicons name="boat-outline" size={22} color={palette.violetText} />
-          </View>
-        )}
-
-        <View style={{ flex: 1 }}>
-          <Text style={{ fontSize: 15, fontWeight: "700", color: palette.ink }}>
-            {name}
-          </Text>
-          {description && (
-            <Text
-              style={{ marginTop: 4, fontSize: 12, color: palette.inkMuted }}
-              numberOfLines={2}
-            >
-              {description}
-            </Text>
-          )}
-        </View>
-
-        <Pressable
-          onPress={() => handleToggle(item)}
-          hitSlop={8}
-          style={({ pressed }) => [
-            {
-              width: 34,
-              height: 34,
-              borderRadius: 17,
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: isVisited
-                ? (categoryMeta?.fg ?? palette.brand)
-                : palette.cream,
-              borderWidth: isVisited ? 0 : 1,
-              borderColor: palette.hairline,
-            },
-            pressed && { opacity: 0.8 },
-          ]}
-        >
-          <Ionicons
-            name={isVisited ? "checkmark" : "ellipse-outline"}
-            size={17}
-            color={isVisited ? palette.surface : palette.inkFaint}
-          />
-        </Pressable>
-      </View>
-    );
-  };
+  const renderItem = ({ item }: { item: Island }) => (
+    <EntryListRow
+      name={localizedIslandName(item, language)}
+      description={localizedIslandDescription(item, language)}
+      imageUrl={item.imageUrl}
+      icon="boat-outline"
+      iconColor={palette.violetText}
+      isVisited={visited.includes(item.id)}
+      toggleColor={categoryMeta?.fg ?? palette.brand}
+      onTogglePress={() => handleToggle(item)}
+    />
+  );
 
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
