@@ -74,13 +74,13 @@ export async function isIslandsUnlocked(): Promise<boolean> {
   return isCategoryUnlocked(ISLANDS_ENTITLEMENT_ID);
 }
 
-/** The RevenueCat Offering identifier that carries the Islands-specific
- * paywall design/copy ("Make Every Journey Count" etc). Must match an
- * Offering created in the RevenueCat dashboard (Product catalog →
- * Offerings) with the Islands paywall attached and the Islands products
- * added as packages. Each future paid category (e.g. bike routes) should
- * get its own Offering + paywall rather than reusing this one, since the
- * design/copy won't make sense for a different category. */
+/** The RevenueCat Offering identifier for the paywall shown from the
+ * Islands-locked entry points. Must match an Offering created in the
+ * RevenueCat dashboard (Product catalog → Offerings) with monthly/yearly
+ * "premium" membership packages (`app_wl_premium_monthly`/`_yearly`)
+ * attached to ALL_ACCESS_ENTITLEMENT_ID, not ISLANDS_ENTITLEMENT_ID — the
+ * membership isn't Islands-specific, Islands is just the only paid
+ * category that currently routes here. */
 export const ISLANDS_OFFERING_ID = "island_offering";
 
 /** Presents the RevenueCat paywall UI for a specific Offering (its design is
@@ -112,9 +112,16 @@ export async function presentPaywallForCategory(
 
 /** Presents the Islands paywall. Thin wrapper over
  * presentPaywallForCategory() kept for callers that only ever deal with
- * Islands. */
+ * Islands. Targets ALL_ACCESS_ENTITLEMENT_ID rather than
+ * ISLANDS_ENTITLEMENT_ID — the monthly/yearly products behind this
+ * offering are a general "premium" membership (not Islands-specific), so
+ * they're attached to the all-access entitlement in the RevenueCat
+ * dashboard. This only changes which entitlement RevenueCat checks to
+ * decide whether to skip an already-unlocked user; isIslandsUnlocked()
+ * still accepts either entitlement (see hasEntitlement above), so gating
+ * behavior is unaffected. */
 export async function presentIslandsPaywall(): Promise<boolean> {
-  return presentPaywallForCategory(ISLANDS_OFFERING_ID, ISLANDS_ENTITLEMENT_ID);
+  return presentPaywallForCategory(ISLANDS_OFFERING_ID, ALL_ACCESS_ENTITLEMENT_ID);
 }
 
 /** Ties the RevenueCat customer id to the signed-in Supabase user, so
