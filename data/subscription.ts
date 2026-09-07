@@ -2,7 +2,14 @@ import { Platform } from "react-native";
 import Purchases, { LOG_LEVEL, type CustomerInfo } from "react-native-purchases";
 import RevenueCatUI from "react-native-purchases-ui";
 
-const REVENUECAT_API_KEY = process.env.EXPO_PUBLIC_REVENUECAT_API_KEY;
+// RevenueCat issues a separate public SDK key per platform app within the
+// project (appl_... for iOS, goog_... for Android) — a key from one
+// platform's app doesn't work for the other, so pick the right one here
+// rather than sharing a single EXPO_PUBLIC_REVENUECAT_API_KEY.
+const REVENUECAT_API_KEY =
+  Platform.OS === "ios"
+    ? process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_IOS
+    : process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID;
 
 /** The RevenueCat entitlement identifier that gates the Islands category.
  * Must match the entitlement configured in the RevenueCat dashboard
