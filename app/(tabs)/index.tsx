@@ -21,9 +21,18 @@ import { heritageSites } from "@/data/heritageSites";
 import { HERITAGE_VISITED_KEY, toggleHeritageVisited } from "@/data/heritageStorage";
 import { getCachedIslandIndex } from "@/data/islands";
 import { toggleIslandVisited } from "@/data/islandsVisited";
+import { fetchLandmarkIndex, getCachedLandmarkIndex } from "@/data/landmarks";
+import { toggleLandmarkVisited } from "@/data/landmarksVisited";
 import { PLACES_VISITED_KEY, togglePlaceVisited } from "@/data/placesStorage";
-import { CUISINE_VISITED_KEY, ISLANDS_VISITED_KEY } from "@/data/storageKeys";
-import { isIslandsUnlocked } from "@/data/subscription";
+import {
+  CUISINE_VISITED_KEY,
+  ISLANDS_VISITED_KEY,
+  LANDMARKS_VISITED_KEY,
+} from "@/data/storageKeys";
+import {
+  isIslandsUnlocked,
+  isLandmarksUnlocked,
+} from "@/data/subscription";
 import worldData from "@/data/worldCountries.json";
 import { useCatalogHighlights } from "@/hooks/use-catalog-highlights";
 import { useAppStore } from "@/store/useAppStore";
@@ -67,6 +76,7 @@ export default function HomeScreen() {
   const [placesVisitedIds, setPlacesVisitedIds] = useState<string[]>([]);
   const [cuisineVisitedIds, setCuisineVisitedIds] = useState<string[]>([]);
   const [islandsVisitedIds, setIslandsVisitedIds] = useState<string[]>([]);
+  const [landmarksVisitedIds, setLandmarksVisitedIds] = useState<string[]>([]);
   const visitedHeritage = useAppStore((s) => s.visitedHeritage);
   const setVisitedHeritage = useAppStore((s) => s.setVisitedHeritage);
 
@@ -79,15 +89,19 @@ export default function HomeScreen() {
             placesVisitedData,
             cuisineVisitedData,
             islandsVisitedData,
+            landmarksVisitedData,
             mealIndex,
             islandIndex,
+            landmarkIndex,
           ] = await Promise.all([
             AsyncStorage.getItem(HERITAGE_VISITED_KEY),
             AsyncStorage.getItem(PLACES_VISITED_KEY),
             AsyncStorage.getItem(CUISINE_VISITED_KEY),
             AsyncStorage.getItem(ISLANDS_VISITED_KEY),
+            AsyncStorage.getItem(LANDMARKS_VISITED_KEY),
             getCachedMealIndex(),
             getCachedIslandIndex(),
+            fetchLandmarkIndex().catch(() => getCachedLandmarkIndex()),
           ]);
 
           const visited: string[] = visitedData ? JSON.parse(visitedData) : [];
@@ -133,6 +147,18 @@ export default function HomeScreen() {
               ? Math.min(100, Math.round((visitedIslands.length / islandsTotal) * 100))
               : 0;
 
+          const visitedLandmarks: string[] = landmarksVisitedData
+            ? JSON.parse(landmarksVisitedData)
+            : [];
+          setLandmarksVisitedIds(visitedLandmarks);
+          const landmarksTotal = landmarkIndex
+            ? Object.values(landmarkIndex.countByCountry).reduce((sum, c) => sum + c, 0)
+            : 0;
+          const landmarksPercent =
+            landmarksTotal > 0
+              ? Math.min(100, Math.round((visitedLandmarks.length / landmarksTotal) * 100))
+              : 0;
+
           setStats({
             heritage: {
               count: visited.length,
@@ -153,6 +179,11 @@ export default function HomeScreen() {
               count: visitedIslands.length,
               total: islandsTotal,
               percent: islandsPercent,
+            },
+            landmarks: {
+              count: visitedLandmarks.length,
+              total: landmarksTotal,
+              percent: landmarksPercent,
             },
           });
 
@@ -175,6 +206,7 @@ export default function HomeScreen() {
     if (type === "places") return placesVisitedIds.includes(id);
     if (type === "cuisine") return cuisineVisitedIds.includes(id);
     if (type === "islands") return islandsVisitedIds.includes(id);
+    if (type === "landmarks") return landmarksVisitedIds.includes(id);
     return false;
   };
 
@@ -222,7 +254,7 @@ export default function HomeScreen() {
     } else if (type === "islands") {
       const unlocked = await isIslandsUnlocked().catch(() => false);
       if (!unlocked) {
-        router.push("/paywall");
+        router.push({ pathname: "/paywall", params: { category: "islands" } });
         return;
       }
       const updated = await toggleIslandVisited(
@@ -231,6 +263,19 @@ export default function HomeScreen() {
         islandsVisitedIds,
       );
       setIslandsVisitedIds(updated);
+      updateStatsCount(type, updated.length);
+    } else if (type === "landmarks") {
+      const unlocked = await isLandmarksUnlocked().catch(() => false);
+      if (!unlocked) {
+        router.push({ pathname: "/paywall", params: { category: "landmarks" } });
+        return;
+      }
+      const updated = await toggleLandmarkVisited(
+        id,
+        { name: info.name, country: info.subtitle ?? "", imageUrl: info.imageUrl },
+        landmarksVisitedIds,
+      );
+      setLandmarksVisitedIds(updated);
       updateStatsCount(type, updated.length);
     }
   };
@@ -454,7 +499,20 @@ export default function HomeScreen() {
                         }
                         if (cat.id === "islands") {
                           const unlocked = await isIslandsUnlocked().catch(() => false);
-                          router.push(unlocked ? "/islands" : "/paywall");
+                          router.push(
+                            unlocked
+                              ? "/islands"
+                              : { pathname: "/paywall", params: { category: "islands" } },
+                          );
+                          return;
+                        }
+                        if (cat.id === "landmarks") {
+                          const unlocked = await isLandmarksUnlocked().catch(() => false);
+                          router.push(
+                            unlocked
+                              ? "/landmarks"
+                              : { pathname: "/paywall", params: { category: "landmarks" } },
+                          );
                           return;
                         }
                         router.push({ pathname: "/explore", params: { type: cat.id } });

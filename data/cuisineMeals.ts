@@ -96,17 +96,30 @@ async function getCachedMealIndex(): Promise<CuisineMealIndex | null> {
   return raw ? JSON.parse(raw) : null;
 }
 
-/** Live-fetches every meal's (id, country_id) in one round trip — used by
- * the continent/country picker for per-row and overall totals. */
-export async function fetchMealIndex(): Promise<CuisineMealIndex> {
-  const { data, error } = await supabase.from("cuisine_meals").select("id, country_id");
-  if (error) throw error;
+const INDEX_PAGE_SIZE = 1000;
 
+/** Live-fetches every meal's (id, country_id), paginating in
+ * INDEX_PAGE_SIZE-row pages — Supabase/PostgREST caps a single response at
+ * 1000 rows by default, which would otherwise silently truncate (and
+ * plateau) counts once cuisine_meals grows past that. Used by the
+ * continent/country picker for per-row and overall totals. */
+export async function fetchMealIndex(): Promise<CuisineMealIndex> {
   const counts: Record<string, number> = {};
   const countryByMealId: Record<string, string> = {};
-  for (const row of data as { id: number; country_id: string }[]) {
-    counts[row.country_id] = (counts[row.country_id] ?? 0) + 1;
-    countryByMealId[String(row.id)] = row.country_id;
+
+  for (let from = 0; ; from += INDEX_PAGE_SIZE) {
+    const { data, error } = await supabase
+      .from("cuisine_meals")
+      .select("id, country_id")
+      .range(from, from + INDEX_PAGE_SIZE - 1);
+    if (error) throw error;
+
+    for (const row of data as { id: number; country_id: string }[]) {
+      counts[row.country_id] = (counts[row.country_id] ?? 0) + 1;
+      countryByMealId[String(row.id)] = row.country_id;
+    }
+
+    if (data.length < INDEX_PAGE_SIZE) break;
   }
 
   const index: CuisineMealIndex = { counts, countryByMealId };

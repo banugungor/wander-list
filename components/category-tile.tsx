@@ -1,7 +1,7 @@
 import type { Category, CategoryId } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
-import { isIslandsUnlocked } from "@/data/subscription";
+import { isIslandsUnlocked, isLandmarksUnlocked } from "@/data/subscription";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { useFocusEffect } from "expo-router";
@@ -70,9 +70,11 @@ export function CategoryTile({
   const [locked, setLocked] = useState(false);
   useFocusEffect(
     useCallback(() => {
-      if (category.id !== "islands") return;
+      if (category.id !== "islands" && category.id !== "landmarks") return;
       let cancelled = false;
-      isIslandsUnlocked().then((unlocked) => {
+      const check =
+        category.id === "islands" ? isIslandsUnlocked() : isLandmarksUnlocked();
+      check.then((unlocked) => {
         if (!cancelled) setLocked(!unlocked);
       });
       return () => {

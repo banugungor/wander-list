@@ -74,6 +74,20 @@ export async function isIslandsUnlocked(): Promise<boolean> {
   return isCategoryUnlocked(ISLANDS_ENTITLEMENT_ID);
 }
 
+/** Landmarks is temporarily free while the category is new — flip this to
+ * `true` to re-enable the all-access paywall gate for it (no other code
+ * change needed; every landmarks entry point calls isLandmarksUnlocked()
+ * rather than checking ALL_ACCESS_ENTITLEMENT_ID directly). */
+const LANDMARKS_LOCK_ENABLED = false;
+
+/** Whether the Landmarks category is unlocked for the current device. Thin
+ * wrapper over isCategoryUnlocked() kept for callers that only ever deal
+ * with Landmarks — see LANDMARKS_LOCK_ENABLED above. */
+export async function isLandmarksUnlocked(): Promise<boolean> {
+  if (!LANDMARKS_LOCK_ENABLED) return true;
+  return isCategoryUnlocked(ALL_ACCESS_ENTITLEMENT_ID);
+}
+
 /** The RevenueCat Offering identifier for the paywall shown from the
  * Islands-locked entry points. Must match an Offering created in the
  * RevenueCat dashboard (Product catalog → Offerings) with monthly/yearly

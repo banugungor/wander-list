@@ -1,7 +1,13 @@
 import { palette } from "@/constants/palette";
 import { Ionicons } from "@expo/vector-icons";
 
-export type CategoryId = "heritage" | "places" | "cuisine" | "islands" | "capitals";
+export type CategoryId =
+  | "heritage"
+  | "places"
+  | "landmarks"
+  | "cuisine"
+  | "islands"
+  | "capitals";
 
 export type Category = {
   id: CategoryId;
@@ -31,6 +37,15 @@ export const categories: Category[] = [
     bg: palette.greenSoft,
     bgTo: palette.greenSoftDeep,
     fg: palette.greenText,
+    implemented: true,
+  },
+  {
+    id: "landmarks",
+    titleKey: "category.landmarks",
+    icon: "trail-sign-outline",
+    bg: palette.amberPale,
+    bgTo: palette.amberPaleDeep,
+    fg: palette.amberText,
     implemented: true,
   },
   {

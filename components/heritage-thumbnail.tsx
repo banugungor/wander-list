@@ -17,12 +17,12 @@ export function HeritageThumbnail({
   item: HeritageItem;
   size?: number;
 }) {
-  const [imageUrl, setImageUrl] = useState(item.imageUrl);
+  const [resolvedUrl, setResolvedUrl] = useState(item.imageUrl);
+  const imageUrl = item.imageUrl !== undefined ? item.imageUrl : resolvedUrl;
   const borderRadius = size >= 200 ? 20 : 18;
 
   useEffect(() => {
     if (item.imageUrl !== undefined) {
-      setImageUrl(item.imageUrl);
       return;
     }
 
@@ -31,12 +31,12 @@ export function HeritageThumbnail({
     const resolve = async () => {
       const cached = await getCachedHeritageImage(item.id);
       if (cached !== undefined) {
-        if (!cancelled) setImageUrl(cached);
+        if (!cancelled) setResolvedUrl(cached);
         return;
       }
 
       const thumb = await fetchWikipediaThumbnail(item.name);
-      if (!cancelled) setImageUrl(thumb);
+      if (!cancelled) setResolvedUrl(thumb);
       await setCachedHeritageImage(item.id, thumb);
     };
 

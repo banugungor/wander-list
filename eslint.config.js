@@ -7,4 +7,12 @@ module.exports = defineConfig([
   {
     ignores: ['dist/*'],
   },
+  {
+    // react-hooks/immutability (React Compiler rule) doesn't understand
+    // react-native-reanimated's useSharedValue().value mutation — that's
+    // the library's documented, safe usage pattern, not a real bug.
+    rules: {
+      'react-hooks/immutability': 'off',
+    },
+  },
 ]);

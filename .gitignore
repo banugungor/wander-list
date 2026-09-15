@@ -45,6 +45,9 @@ app-example
 /ios
 /android
 
+# Supabase CLI local cache (project ref, service versions, etc.)
+supabase/.temp/
+
 
 notlar
 catalog-snapshot.md
@@ -57,3 +60,4 @@ CLAUDE.md
 scripts/admin-panel.html
 scripts/admin_panel_bucket.sql
 scripts/admin_panel_policies.sql
+scripts/content_images_bucket.sql

@@ -5,9 +5,10 @@ import {
   CUISINE_VISITED_KEY,
   HERITAGE_VISITED_KEY,
   ISLANDS_VISITED_KEY,
+  LANDMARKS_VISITED_KEY,
   PLACES_VISITED_KEY,
 } from "@/data/storageKeys";
-import { loginPurchases } from "@/data/subscription";
+import { loginPurchases, logoutPurchases } from "@/data/subscription";
 import { useAppStore } from "@/store/useAppStore";
 
 const SYNCED_KEYS = [
@@ -15,6 +16,7 @@ const SYNCED_KEYS = [
   PLACES_VISITED_KEY,
   CUISINE_VISITED_KEY,
   ISLANDS_VISITED_KEY,
+  LANDMARKS_VISITED_KEY,
   ACTIVITY_LOG_KEY,
 ] as const;
 
@@ -26,6 +28,7 @@ async function readLocalBackup() {
     countries_visited: JSON.parse(raw[PLACES_VISITED_KEY] ?? "[]"),
     cuisine_visited: JSON.parse(raw[CUISINE_VISITED_KEY] ?? "[]"),
     islands_visited: JSON.parse(raw[ISLANDS_VISITED_KEY] ?? "[]"),
+    landmarks_visited: JSON.parse(raw[LANDMARKS_VISITED_KEY] ?? "[]"),
     activity_log: JSON.parse(raw[ACTIVITY_LOG_KEY] ?? "[]"),
   };
 }
@@ -96,6 +99,7 @@ export async function pullFromCloud(): Promise<boolean> {
       [PLACES_VISITED_KEY, JSON.stringify(data.countries_visited ?? [])],
       [CUISINE_VISITED_KEY, JSON.stringify(data.cuisine_visited ?? [])],
       [ISLANDS_VISITED_KEY, JSON.stringify(data.islands_visited ?? [])],
+      [LANDMARKS_VISITED_KEY, JSON.stringify(data.landmarks_visited ?? [])],
       [ACTIVITY_LOG_KEY, JSON.stringify(data.activity_log ?? [])],
     ]);
     // heritage-visited state also lives in a zustand store (see
@@ -127,6 +131,25 @@ export async function syncAfterAuth(): Promise<void> {
   if (!pulled) {
     await pushToCloud();
   }
+}
+
+/** Permanently deletes the signed-in user's account: server-side row +
+ * auth.users deletion via the `delete-account` Edge Function (needs the
+ * service-role key, which never lives in this app — see
+ * supabase/functions/delete-account/index.ts), then clears everything that
+ * was theirs on this device. Throws if the function call fails, so the
+ * caller can show an error instead of signing the user out of a
+ * half-deleted account. */
+export async function deleteAccount(): Promise<void> {
+  const { error } = await supabase.functions.invoke("delete-account", {
+    method: "POST",
+  });
+  if (error) throw error;
+
+  logoutPurchases();
+  await AsyncStorage.multiRemove(SYNCED_KEYS);
+  useAppStore.getState().setVisitedHeritage([]);
+  await supabase.auth.signOut();
 }
 
 let syncTimeout: ReturnType<typeof setTimeout> | null = null;

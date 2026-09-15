@@ -2,7 +2,7 @@ import { categories } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { showComingSoonAlert } from "@/data/comingSoonAlert";
-import { isIslandsUnlocked } from "@/data/subscription";
+import { isIslandsUnlocked, isLandmarksUnlocked } from "@/data/subscription";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { useEffect, useRef } from "react";
@@ -21,7 +21,19 @@ export default function AddScreen() {
   const handlePress = async (id: string, implemented: boolean) => {
     if (id === "islands" && !(await isIslandsUnlocked())) {
       router.back();
-      pendingTimeout.current = setTimeout(() => router.push("/paywall"), 300);
+      pendingTimeout.current = setTimeout(
+        () => router.push({ pathname: "/paywall", params: { category: "islands" } }),
+        300,
+      );
+      return;
+    }
+
+    if (id === "landmarks" && !(await isLandmarksUnlocked())) {
+      router.back();
+      pendingTimeout.current = setTimeout(
+        () => router.push({ pathname: "/paywall", params: { category: "landmarks" } }),
+        300,
+      );
       return;
     }
 
@@ -49,6 +61,11 @@ export default function AddScreen() {
 
     if (id === "islands") {
       router.push("/islands");
+      return;
+    }
+
+    if (id === "landmarks") {
+      router.push("/landmarks");
       return;
     }
 

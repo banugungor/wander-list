@@ -68,6 +68,15 @@ export const translations = {
       notSignedIn: "Giriş yapılmadı",
       signInCta: "Giriş Yap / Kayıt Ol",
       emailBackupHint: "Verilerini yedeklemek için giriş yap",
+      deleteAccount: "Hesabımı sil",
+      deleteAccountConfirmTitle: "Hesabımı sil",
+      deleteAccountConfirmMessage:
+        "Hesabın ve tüm verilerin kalıcı olarak silinecek. Bu işlem geri alınamaz. Emin misin?",
+      deleteAccountConfirmAction: "Hesabımı Sil",
+      deleteAccountDoneTitle: "Hesabın silindi",
+      deleteAccountDoneMessage: "Hesabın ve verilerin kalıcı olarak silindi.",
+      deleteAccountErrorTitle: "Hata",
+      deleteAccountErrorMessage: "Hesabın silinemedi, lütfen tekrar dene.",
     },
     placesMap: {
       title: "Ülkeler",
@@ -123,6 +132,23 @@ export const translations = {
     islandsCountry: {
       loading: "Adalar yükleniyor…",
       empty: "Bu ülke için henüz ada eklenmedi.",
+      visited: "Gezildi",
+    },
+    landmarksPicker: {
+      progressLabel: "İlerleme",
+      progressDetail: "{{total}} içinden {{count}} gezildi",
+      continentLabel: "{{continent}} Gezilecek Yerleri",
+      filterVisited: "Gezdiklerim",
+      filterUnvisited: "Gezmediklerim",
+    },
+    landmarksCountry: {
+      loading: "Şehirler yükleniyor…",
+      empty: "Bu ülke için henüz gezilecek yer eklenmedi.",
+      countryLabel: "{{country}} Gezilecek Yerleri",
+    },
+    landmarksCity: {
+      loading: "Gezilecek yerler yükleniyor…",
+      empty: "Bu şehir için henüz gezilecek yer eklenmedi.",
       visited: "Gezildi",
     },
     heritagePicker: {
@@ -185,6 +211,7 @@ export const translations = {
       places: "Ülkeler",
       cuisine: "Mutfaklar",
       islands: "Adalar",
+      landmarks: "Gezilecek Yerler",
       capitals: "Başkentler",
       nationalParks: "Milli Parklar",
       mountainPeaks: "Dağ Zirveleri",
@@ -285,6 +312,15 @@ export const translations = {
       notSignedIn: "Not signed in",
       signInCta: "Sign In / Sign Up",
       emailBackupHint: "Sign in to back up your data",
+      deleteAccount: "Delete my account",
+      deleteAccountConfirmTitle: "Delete my account",
+      deleteAccountConfirmMessage:
+        "Your account and all your data will be permanently deleted. This cannot be undone. Are you sure?",
+      deleteAccountConfirmAction: "Delete My Account",
+      deleteAccountDoneTitle: "Account deleted",
+      deleteAccountDoneMessage: "Your account and data have been permanently deleted.",
+      deleteAccountErrorTitle: "Error",
+      deleteAccountErrorMessage: "Couldn't delete your account, please try again.",
     },
     placesMap: {
       title: "Places Visited",
@@ -340,6 +376,23 @@ export const translations = {
     islandsCountry: {
       loading: "Loading islands…",
       empty: "No islands have been added for this country yet.",
+      visited: "Visited",
+    },
+    landmarksPicker: {
+      progressLabel: "Progress",
+      progressDetail: "{{count}} of {{total}} visited",
+      continentLabel: "{{continent}} Landmarks",
+      filterVisited: "Visited",
+      filterUnvisited: "Not visited",
+    },
+    landmarksCountry: {
+      loading: "Loading cities…",
+      empty: "No landmarks have been added for this country yet.",
+      countryLabel: "{{country}} Landmarks",
+    },
+    landmarksCity: {
+      loading: "Loading landmarks…",
+      empty: "No landmarks have been added for this city yet.",
       visited: "Visited",
     },
     heritagePicker: {
@@ -402,6 +455,7 @@ export const translations = {
       places: "Countries",
       cuisine: "World Cuisines",
       islands: "Islands",
+      landmarks: "Landmarks",
       capitals: "Capitals",
       nationalParks: "National Parks",
       mountainPeaks: "Mountain Peaks",

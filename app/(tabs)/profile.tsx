@@ -3,7 +3,7 @@ import { LanguageSwitch } from "@/components/language-switch";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { ACTIVITY_LOG_KEY } from "@/data/activityLog";
-import { pushToCloud } from "@/data/cloudSync";
+import { deleteAccount, pushToCloud } from "@/data/cloudSync";
 import { HERITAGE_VISITED_KEY } from "@/data/heritageStorage";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
 import { CUISINE_AREA_TOTALS_KEY, CUISINE_VISITED_KEY, ISLANDS_VISITED_KEY } from "@/data/storageKeys";
@@ -101,6 +101,29 @@ export default function ProfileScreen() {
               await pushToCloud();
             }
             Alert.alert(t("profile.resetDoneTitle"), t("profile.resetDoneMessage"));
+          },
+        },
+      ],
+    );
+  };
+
+  const handleDeleteAccount = () => {
+    Alert.alert(
+      t("profile.deleteAccountConfirmTitle"),
+      t("profile.deleteAccountConfirmMessage"),
+      [
+        { text: t("common.cancel"), style: "cancel" },
+        {
+          text: t("profile.deleteAccountConfirmAction"),
+          style: "destructive",
+          onPress: async () => {
+            try {
+              await deleteAccount();
+              Alert.alert(t("profile.deleteAccountDoneTitle"), t("profile.deleteAccountDoneMessage"));
+            } catch (e) {
+              console.log("DELETE ACCOUNT ERROR", e);
+              Alert.alert(t("profile.deleteAccountErrorTitle"), t("profile.deleteAccountErrorMessage"));
+            }
           },
         },
       ],
@@ -208,6 +231,14 @@ export default function ProfileScreen() {
         danger
         onPress={resetData}
       />
+      {session && (
+        <Row
+          icon="trash-outline"
+          label={t("profile.deleteAccount")}
+          danger
+          onPress={handleDeleteAccount}
+        />
+      )}
 
       <BottomTabBar />
     </View>

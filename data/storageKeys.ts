@@ -5,6 +5,8 @@ export const CUISINE_AREA_TOTALS_KEY = "cuisine_area_totals";
 
 export const ISLANDS_VISITED_KEY = "visited_islands";
 
+export const LANDMARKS_VISITED_KEY = "visited_landmarks";
+
 export const PLACES_VISITED_KEY = "visited_countries";
 
 export const ACTIVITY_LOG_KEY = "activity_log_v1";
