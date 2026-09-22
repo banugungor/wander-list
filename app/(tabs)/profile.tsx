@@ -7,10 +7,10 @@ import { deleteAccount, pushToCloud } from "@/data/cloudSync";
 import { HERITAGE_VISITED_KEY } from "@/data/heritageStorage";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
 import { CUISINE_AREA_TOTALS_KEY, CUISINE_VISITED_KEY, ISLANDS_VISITED_KEY } from "@/data/storageKeys";
-import { logoutPurchases } from "@/data/subscription";
+import { ALL_ACCESS_ENTITLEMENT_ID, isCategoryUnlocked, logoutPurchases } from "@/data/subscription";
 import { supabase } from "@/lib/supabase";
 import { useAppStore } from "@/store/useAppStore";
-import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome6, Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
 import { router } from "expo-router";
@@ -66,9 +66,63 @@ function Row({
   );
 }
 
+function ProMembershipCard({
+  title,
+  subtitle,
+  onPress,
+}: {
+  title: string;
+  subtitle: string;
+  onPress?: () => void;
+}) {
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        {
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 14,
+          paddingVertical: 14,
+          paddingHorizontal: 16,
+          backgroundColor: palette.surface,
+          borderRadius: 14,
+          marginBottom: 10,
+        },
+        pressed && onPress && { opacity: 0.8 },
+      ]}
+    >
+      <View
+        style={{
+          width: 44,
+          height: 44,
+          borderRadius: 22,
+          backgroundColor: palette.amberPale,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <FontAwesome6 name="crown" size={18} color={palette.amberText} />
+      </View>
+      <View style={{ flex: 1 }}>
+        <Text style={{ fontSize: 14, fontWeight: "700", color: palette.ink }}>
+          {title}
+        </Text>
+        <Text style={{ marginTop: 2, fontSize: 12, color: palette.inkMuted }}>
+          {subtitle}
+        </Text>
+      </View>
+      {onPress && (
+        <Ionicons name="chevron-forward" size={18} color={palette.inkFaint} />
+      )}
+    </Pressable>
+  );
+}
+
 export default function ProfileScreen() {
   const { t } = useLanguage();
   const [session, setSession] = useState<Session | null>(null);
+  const [proUnlocked, setProUnlocked] = useState(false);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSession(data.session));
@@ -76,6 +130,10 @@ export default function ProfileScreen() {
       (_event, newSession) => setSession(newSession),
     );
     return () => listener.subscription.unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    isCategoryUnlocked(ALL_ACCESS_ENTITLEMENT_ID).then(setProUnlocked);
   }, []);
 
   const resetData = () => {
@@ -187,14 +245,20 @@ export default function ProfileScreen() {
         </Text>
       </View>
 
-      {session ? (
-        <Row
-          icon="log-out-outline"
-          label={t("auth.signOutAction")}
-          danger
-          onPress={signOut}
+      {proUnlocked ? (
+        <ProMembershipCard
+          title={t("profile.proMember")}
+          subtitle={t("profile.proMemberSubtitle")}
         />
       ) : (
+        <ProMembershipCard
+          title={t("profile.proMembership")}
+          subtitle={t("profile.proMembershipSubtitle")}
+          onPress={() => router.push({ pathname: "/paywall", params: { category: "profile" } })}
+        />
+      )}
+
+      {!session && (
         <Row
           icon="log-in-outline"
           label={t("profile.signInCta")}
@@ -237,6 +301,14 @@ export default function ProfileScreen() {
           label={t("profile.deleteAccount")}
           danger
           onPress={handleDeleteAccount}
+        />
+      )}
+      {session && (
+        <Row
+          icon="log-out-outline"
+          label={t("auth.signOutAction")}
+          danger
+          onPress={signOut}
         />
       )}
 

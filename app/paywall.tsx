@@ -16,6 +16,7 @@ import { ActivityIndicator, View } from "react-native";
 const ROUTE_BY_CATEGORY: Record<string, string> = {
   islands: "/islands",
   landmarks: "/landmarks",
+  profile: "/(tabs)/profile",
 };
 
 /** App-side entry point for every paid-category paywall: presents

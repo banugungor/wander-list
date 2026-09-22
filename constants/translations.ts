@@ -57,6 +57,10 @@ export const translations = {
     profile: {
       version: "Sürüm {{version}}",
       language: "Dil",
+      proMembership: "Pro Üyelik",
+      proMembershipSubtitle: "Deneyiminden daha fazlasını al",
+      proMember: "Pro Üyesin",
+      proMemberSubtitle: "Tüm premium içerikler açık",
       resetData: "Verileri sıfırla",
       resetConfirmTitle: "Verileri sıfırla",
       resetConfirmMessage:
@@ -301,6 +305,10 @@ export const translations = {
     profile: {
       version: "Version {{version}}",
       language: "Language",
+      proMembership: "Pro Membership",
+      proMembershipSubtitle: "Get more from your experience",
+      proMember: "You're a Pro member",
+      proMemberSubtitle: "All premium content unlocked",
       resetData: "Reset data",
       resetConfirmTitle: "Reset data",
       resetConfirmMessage:
