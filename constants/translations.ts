@@ -7,6 +7,11 @@ export const translations = {
       all: "Tümü",
       unlockWithMembership: "Üyelikle aç",
     },
+    paywall: {
+      unavailableTitle: "Üyelik şu anda açılamıyor",
+      unavailableMessage:
+        "Üyelik seçenekleri yüklenemedi. İnternet bağlantını kontrol edip tekrar dene.",
+    },
     home: {
       title: "Ana Sayfa",
       greeting: "Merhaba 👋",
@@ -254,6 +259,11 @@ export const translations = {
       ok: "OK",
       all: "All",
       unlockWithMembership: "Unlock with membership",
+    },
+    paywall: {
+      unavailableTitle: "Membership unavailable",
+      unavailableMessage:
+        "We couldn't load membership options. Check your internet connection and try again.",
     },
     home: {
       title: "Home",

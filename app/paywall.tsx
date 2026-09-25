@@ -1,4 +1,5 @@
 import { palette } from "@/constants/palette";
+import { useLanguage } from "@/contexts/language-context";
 import {
   ALL_ACCESS_ENTITLEMENT_ID,
   ISLANDS_OFFERING_ID,
@@ -6,7 +7,7 @@ import {
 } from "@/data/subscription";
 import { Stack, router, useLocalSearchParams } from "expo-router";
 import { useEffect, useRef } from "react";
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, Alert, View } from "react-native";
 
 // Every paid category shares the same two membership products (monthly /
 // yearly, both attached to ALL_ACCESS_ENTITLEMENT_ID) and the same
@@ -26,8 +27,10 @@ const ROUTE_BY_CATEGORY: Record<string, string> = {
  * without buying — routes back to the category that sent the viewer here
  * (via the `category` param, defaulting to "islands" for old links/history
  * entries with no param) if now unlocked, otherwise just unwinds back to
- * wherever the user came from. */
+ * wherever the user came from. If no paywall could be shown at all, says so
+ * in an alert before unwinding, rather than closing with no feedback. */
 export default function PaywallScreen() {
+  const { t } = useLanguage();
   const presented = useRef(false);
   const { category } = useLocalSearchParams<{ category?: string }>();
   const categoryId = category ?? "islands";
@@ -37,17 +40,21 @@ export default function PaywallScreen() {
     presented.current = true;
 
     (async () => {
-      const unlocked = await presentPaywallForCategory(
+      const { unlocked, failed } = await presentPaywallForCategory(
         ISLANDS_OFFERING_ID,
         ALL_ACCESS_ENTITLEMENT_ID,
       );
       if (unlocked) {
         router.replace((ROUTE_BY_CATEGORY[categoryId] ?? "/islands") as never);
+      } else if (failed) {
+        Alert.alert(t("paywall.unavailableTitle"), t("paywall.unavailableMessage"), [
+          { text: t("common.ok"), onPress: () => router.back() },
+        ]);
       } else {
         router.back();
       }
     })();
-  }, [categoryId]);
+  }, [categoryId, t]);
 
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream, alignItems: "center", justifyContent: "center" }}>

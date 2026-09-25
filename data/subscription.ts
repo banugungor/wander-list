@@ -103,25 +103,38 @@ export const ISLANDS_OFFERING_ID = "island_offering";
  * callers get an up-to-date unlocked state right after the sheet closes (a
  * purchase, a restore, or a dismiss without buying). Falls back to the
  * dashboard's "current" offering if `offeringId` can't be found, so a typo
- * or not-yet-created Offering degrades to *a* paywall rather than none. */
+ * or not-yet-created Offering degrades to *a* paywall rather than none.
+ *
+ * `failed` is true when no paywall could be shown at all (SDK not
+ * configured, offerings fetch failed — e.g. no network or products missing
+ * from App Store Connect — or no offering exists), so callers can tell the
+ * viewer instead of silently closing: App Review rejected build 1.1.1 (6)
+ * as "unresponsive" because this path used to return with no feedback. */
 export async function presentPaywallForCategory(
   offeringId: string,
   entitlementId: string,
-): Promise<boolean> {
-  if (!configured) return false;
+): Promise<{ unlocked: boolean; failed: boolean }> {
+  if (!configured) return { unlocked: false, failed: true };
 
+  let failed = false;
   try {
     const offerings = await Purchases.getOfferings();
     const offering = offerings.all[offeringId] ?? offerings.current ?? undefined;
-    await RevenueCatUI.presentPaywallIfNeeded({
-      requiredEntitlementIdentifier: entitlementId,
-      offering,
-    });
+    if (offering) {
+      await RevenueCatUI.presentPaywallIfNeeded({
+        requiredEntitlementIdentifier: entitlementId,
+        offering,
+      });
+    } else {
+      console.log("REVENUECAT: no offering found for", offeringId);
+      failed = true;
+    }
   } catch (e) {
     console.log("REVENUECAT: presentPaywallIfNeeded failed", e);
+    failed = true;
   }
 
-  return isCategoryUnlocked(entitlementId);
+  return { unlocked: await isCategoryUnlocked(entitlementId), failed };
 }
 
 /** Presents the Islands paywall. Thin wrapper over
@@ -135,7 +148,8 @@ export async function presentPaywallForCategory(
  * still accepts either entitlement (see hasEntitlement above), so gating
  * behavior is unaffected. */
 export async function presentIslandsPaywall(): Promise<boolean> {
-  return presentPaywallForCategory(ISLANDS_OFFERING_ID, ALL_ACCESS_ENTITLEMENT_ID);
+  const { unlocked } = await presentPaywallForCategory(ISLANDS_OFFERING_ID, ALL_ACCESS_ENTITLEMENT_ID);
+  return unlocked;
 }
 
 /** Ties the RevenueCat customer id to the signed-in Supabase user, so
