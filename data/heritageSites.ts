@@ -17,8 +17,10 @@ export type HeritageItem = {
   category?: "Cultural" | "Natural" | "Mixed";
   description?: string;
   descriptionTr?: string;
-  // undefined = not resolved yet (resolved lazily on-device, see
-  // heritage-thumbnail.tsx), null = resolved but no image found
+  // Optional photo URL added by hand on the record in
+  // data/heritageSites.json. No site has one by default — heritage-thumbnail.tsx
+  // shows a placeholder icon when it's missing. Only use images you have
+  // the rights to (own photos, or a licence that allows it with attribution).
   imageUrl?: string | null;
   latitude?: number;
   longitude?: number;

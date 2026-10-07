@@ -1,13 +1,7 @@
 import { palette } from "@/constants/palette";
-import {
-  getCachedHeritageImage,
-  setCachedHeritageImage,
-} from "@/data/heritageImageCache";
 import type { HeritageItem } from "@/data/heritageSites";
-import { fetchWikipediaThumbnail } from "@/data/wikipediaApi";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
-import { useEffect, useState } from "react";
 import { View } from "react-native";
 
 export function HeritageThumbnail({
@@ -17,40 +11,12 @@ export function HeritageThumbnail({
   item: HeritageItem;
   size?: number;
 }) {
-  const [resolvedUrl, setResolvedUrl] = useState(item.imageUrl);
-  const imageUrl = item.imageUrl !== undefined ? item.imageUrl : resolvedUrl;
   const borderRadius = size >= 200 ? 20 : 18;
 
-  useEffect(() => {
-    if (item.imageUrl !== undefined) {
-      return;
-    }
-
-    let cancelled = false;
-
-    const resolve = async () => {
-      const cached = await getCachedHeritageImage(item.id);
-      if (cached !== undefined) {
-        if (!cancelled) setResolvedUrl(cached);
-        return;
-      }
-
-      const thumb = await fetchWikipediaThumbnail(item.name);
-      if (!cancelled) setResolvedUrl(thumb);
-      await setCachedHeritageImage(item.id, thumb);
-    };
-
-    resolve();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [item.id, item.imageUrl, item.name]);
-
-  if (imageUrl) {
+  if (item.imageUrl) {
     return (
       <Image
-        source={{ uri: imageUrl }}
+        source={{ uri: item.imageUrl }}
         style={{ width: size, height: size, borderRadius }}
         contentFit="cover"
         transition={200}

@@ -20,27 +20,11 @@ const OUTPUT_PATH = fileURLToPath(
   new URL("../assets/heritage/heritage-data.json.gz", import.meta.url),
 );
 
-// Wikipedia thumbnail URLs carry Wikipedia-editor tracking params
-// (utm_source/utm_campaign/utm_content) that are dead weight for us — they
-// don't affect which image loads, they just bloat every row. Strip them.
-function stripTrackingParams(imageUrl) {
-  if (!imageUrl) return imageUrl;
-  return imageUrl.replace(/\?utm_source=.*$/, "");
-}
-
 async function main() {
   const raw = await readFile(SOURCE_PATH, "utf8");
   const sites = JSON.parse(raw);
 
-  const cleaned = sites.map((site) => ({
-    ...site,
-    imageUrl:
-      site.imageUrl === undefined
-        ? undefined
-        : stripTrackingParams(site.imageUrl),
-  }));
-
-  const compact = JSON.stringify(cleaned);
+  const compact = JSON.stringify(sites);
   const gzipped = gzipSync(compact, { level: 9 });
 
   await writeFile(OUTPUT_PATH, gzipped);

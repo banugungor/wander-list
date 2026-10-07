@@ -2,10 +2,10 @@
 // Fetches the full UNESCO World Heritage list and writes it as a static JSON
 // bundled with the app, so the app doesn't depend on UNESCO's flaky paginated
 // API at runtime. Site images are intentionally NOT resolved here — UNESCO's
-// own image field is a Cloudflare-blocked document page, and bulk-resolving
-// ~1300 Wikipedia thumbnails from one IP in a short burst reliably triggers
-// rate limiting. Images are instead resolved lazily per-site on the device
-// (see components/heritage-thumbnail.tsx), spread out over real usage.
+// own image field is a Cloudflare-blocked document page, and Wikipedia/
+// Wikimedia photos were dropped because their licences need per-photo
+// attribution the app doesn't show. Add an `imageUrl` by hand on a record in
+// data/heritageSites.json for any photo you have rights to.
 //
 // Re-run this whenever UNESCO updates its list (roughly annually):
 //   node scripts/generate-heritage-data.mjs
