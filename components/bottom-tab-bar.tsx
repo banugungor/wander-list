@@ -6,15 +6,14 @@ import { Pressable, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type TabDef = {
-  href: "/" | "/stats" | "/profile";
+  href: "/" | "/trips" | "/stats" | "/profile";
   icon: keyof typeof Ionicons.glyphMap;
   activeIcon: keyof typeof Ionicons.glyphMap;
 };
 
 const tabs: TabDef[] = [
   { href: "/", icon: "home-outline", activeIcon: "home" },
-  // Free slot (badges moved into the Stats tab as a segment) — reserved
-  // for an upcoming feature.
+  { href: "/trips", icon: "airplane-outline", activeIcon: "airplane" },
 ];
 
 const tabsRight: TabDef[] = [

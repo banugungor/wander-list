@@ -14,6 +14,8 @@ export const palette = {
   violetSoft: "#EDE4FC",
   violetDeep: "#5B21B6",
   shadow: "#1E1B18",
+  // Destructive actions and error text (delete, failed save).
+  danger: "#D64545",
 
   // Primary brand accent — used for the progress ring, add button, active nav
   brand: "#2F9E6E",

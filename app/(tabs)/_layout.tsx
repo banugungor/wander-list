@@ -26,6 +26,12 @@ export default function TabLayout() {
         }}
       />
       <Stack.Screen
+        name="trips"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
         name="stats"
         options={{
           headerShown: false,

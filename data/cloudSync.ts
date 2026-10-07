@@ -9,6 +9,7 @@ import {
   PLACES_VISITED_KEY,
 } from "@/data/storageKeys";
 import { loginPurchases, logoutPurchases } from "@/data/subscription";
+import { clearTripsCache } from "@/data/trips";
 import { useAppStore } from "@/store/useAppStore";
 
 const SYNCED_KEYS = [
@@ -151,11 +152,18 @@ export async function syncAfterAuth(): Promise<void> {
  * caller can show an error instead of signing the user out of a
  * half-deleted account. */
 export async function deleteAccount(): Promise<void> {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   const { error } = await supabase.functions.invoke("delete-account", {
     method: "POST",
   });
   if (error) throw error;
 
+  // The server-side `trips` rows go with the auth user (on delete cascade);
+  // this removes the offline copy on the device.
+  if (user) await clearTripsCache(user.id);
   logoutPurchases();
   await AsyncStorage.multiRemove(SYNCED_KEYS);
   useAppStore.getState().setVisitedHeritage([]);

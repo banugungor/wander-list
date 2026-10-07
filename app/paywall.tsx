@@ -17,6 +17,7 @@ import { ActivityIndicator, Alert, View } from "react-native";
 const ROUTE_BY_CATEGORY: Record<string, string> = {
   islands: "/islands",
   landmarks: "/landmarks",
+  trips: "/(tabs)/trips",
   profile: "/(tabs)/profile",
 };
 

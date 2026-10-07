@@ -14,3 +14,8 @@ export const ACTIVITY_LOG_KEY = "activity_log_v1";
 export const CATALOG_HIGHLIGHTS_KEY = "catalog_highlights_v1";
 
 export const APP_LANGUAGE_KEY = "app_language";
+
+// Offline read cache of the signed-in user's trips (see data/trips.ts). The
+// source of truth is the Supabase `trips` table, so this is NOT part of the
+// cloud-synced keys; the user id is appended to keep accounts apart.
+export const TRIPS_CACHE_KEY_PREFIX = "trips_cache_v1_";

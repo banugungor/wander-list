@@ -16,17 +16,22 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type Country = { id: string; name: string; iso2: string };
 
-type CountryPickerModalProps = {
-  visible: boolean;
+type CountryPickerContentProps = {
   onClose: () => void;
   onSelect: (country: Country) => void;
 };
 
-export function CountryPickerModal({
-  visible,
+type CountryPickerModalProps = CountryPickerContentProps & {
+  visible: boolean;
+};
+
+/** The searchable country list, without a Modal around it — so it can also
+ * be shown as an overlay inside another modal (see trip-form-modal.tsx)
+ * instead of closing that modal and opening a second one. */
+export function CountryPickerContent({
   onClose,
   onSelect,
-}: CountryPickerModalProps) {
+}: CountryPickerContentProps) {
   const { t, language } = useLanguage();
   const [search, setSearch] = useState("");
   const insets = useSafeAreaInsets();
@@ -54,87 +59,97 @@ export function CountryPickerModal({
   }, [sorted, search, language]);
 
   return (
-    <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
-      <View style={{ flex: 1, backgroundColor: palette.cream, paddingTop: insets.top + 40 }}>
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-            paddingHorizontal: 16,
-            marginBottom: 16,
-          }}
-        >
-          <Text style={{ fontSize: 18, fontWeight: "700", color: palette.ink }}>
-            {t("countryPicker.title")}
-          </Text>
-          <Pressable onPress={onClose} hitSlop={8}>
-            <Ionicons name="close" size={24} color={palette.inkMuted} />
-          </Pressable>
-        </View>
-
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            marginHorizontal: 16,
-            marginBottom: 12,
-            paddingHorizontal: 14,
-            height: 44,
-            borderRadius: 12,
-            backgroundColor: palette.surface,
-            borderWidth: 1,
-            borderColor: palette.hairline,
-          }}
-        >
-          <Ionicons name="search-outline" size={18} color={palette.inkFaint} />
-          <TextInput
-            value={search}
-            onChangeText={setSearch}
-            placeholder={t("explore.searchPlaceholder")}
-            placeholderTextColor={palette.inkFaint}
-            style={{ flex: 1, marginLeft: 8, fontSize: 15, color: palette.ink }}
-          />
-          {search.length > 0 && (
-            <Pressable onPress={() => setSearch("")}>
-              <Ionicons name="close-circle" size={18} color={palette.inkFaint} />
-            </Pressable>
-          )}
-        </View>
-
-        <FlatList
-          contentContainerStyle={{ paddingBottom: 40 }}
-          data={filtered}
-          keyExtractor={(item) => item.id}
-          ListEmptyComponent={
-            <Text style={{ textAlign: "center", marginTop: 40, color: palette.inkMuted }}>
-              {t("explore.noResults")}
-            </Text>
-          }
-          renderItem={({ item }) => (
-            <Pressable
-              onPress={() => {
-                onSelect(item);
-                setSearch("");
-                onClose();
-              }}
-              style={({ pressed }) => [
-                {
-                  paddingHorizontal: 16,
-                  paddingVertical: 14,
-                  borderBottomWidth: 1,
-                  borderBottomColor: palette.hairline,
-                },
-                pressed && { backgroundColor: palette.surface },
-              ]}
-            >
-              <Text style={{ fontSize: 15, color: palette.ink }}>
-                {getLocalizedCountryName(item.name, language)}
-              </Text>
-            </Pressable>
-          )}
-        />
+    <View style={{ flex: 1, backgroundColor: palette.cream, paddingTop: insets.top + 40 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          paddingHorizontal: 16,
+          marginBottom: 16,
+        }}
+      >
+        <Text style={{ fontSize: 18, fontWeight: "700", color: palette.ink }}>
+          {t("countryPicker.title")}
+        </Text>
+        <Pressable onPress={onClose} hitSlop={8}>
+          <Ionicons name="close" size={24} color={palette.inkMuted} />
+        </Pressable>
       </View>
+
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          marginHorizontal: 16,
+          marginBottom: 12,
+          paddingHorizontal: 14,
+          height: 44,
+          borderRadius: 12,
+          backgroundColor: palette.surface,
+          borderWidth: 1,
+          borderColor: palette.hairline,
+        }}
+      >
+        <Ionicons name="search-outline" size={18} color={palette.inkFaint} />
+        <TextInput
+          value={search}
+          onChangeText={setSearch}
+          placeholder={t("explore.searchPlaceholder")}
+          placeholderTextColor={palette.inkFaint}
+          style={{ flex: 1, marginLeft: 8, fontSize: 15, color: palette.ink }}
+        />
+        {search.length > 0 && (
+          <Pressable onPress={() => setSearch("")}>
+            <Ionicons name="close-circle" size={18} color={palette.inkFaint} />
+          </Pressable>
+        )}
+      </View>
+
+      <FlatList
+        contentContainerStyle={{ paddingBottom: 40 }}
+        data={filtered}
+        keyExtractor={(item) => item.id}
+        ListEmptyComponent={
+          <Text style={{ textAlign: "center", marginTop: 40, color: palette.inkMuted }}>
+            {t("explore.noResults")}
+          </Text>
+        }
+        renderItem={({ item }) => (
+          <Pressable
+            onPress={() => {
+              onSelect(item);
+              setSearch("");
+              onClose();
+            }}
+            style={({ pressed }) => [
+              {
+                paddingHorizontal: 16,
+                paddingVertical: 14,
+                borderBottomWidth: 1,
+                borderBottomColor: palette.hairline,
+              },
+              pressed && { backgroundColor: palette.surface },
+            ]}
+          >
+            <Text style={{ fontSize: 15, color: palette.ink }}>
+              {getLocalizedCountryName(item.name, language)}
+            </Text>
+          </Pressable>
+        )}
+      />
+    </View>
+  );
+}
+
+export function CountryPickerModal({
+  visible,
+  onClose,
+  onSelect,
+}: CountryPickerModalProps) {
+  return (
+    <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
+      <CountryPickerContent onClose={onClose} onSelect={onSelect} />
     </Modal>
   );
 }
