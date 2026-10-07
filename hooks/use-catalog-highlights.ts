@@ -1,4 +1,5 @@
 import {
+  CATALOG_HIGHLIGHTS_LIMIT,
   fetchCatalogHighlights,
   getCachedCatalogHighlights,
   type CatalogHighlight,
@@ -8,8 +9,8 @@ import { useCallback, useEffect, useState } from "react";
 /** Stale-while-revalidate: shows the last cached "what's new" feed instantly,
  * then refreshes from Supabase in the background so highlights added after
  * the last app open show up without a manual reload. Drives the home
- * screen's "Son Eklenenler" rail. */
-export function useCatalogHighlights(limit = 10) {
+ * screen's "Yeni eklenenler" rail. */
+export function useCatalogHighlights(limit = CATALOG_HIGHLIGHTS_LIMIT) {
   const [highlights, setHighlights] = useState<CatalogHighlight[]>([]);
 
   const load = useCallback(async () => {

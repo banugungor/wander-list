@@ -4,6 +4,8 @@ import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { ACTIVITY_LOG_KEY } from "@/data/activityLog";
 import { deleteAccount, pushToCloud } from "@/data/cloudSync";
+import { clearTripsCache } from "@/data/trips";
+import { useSession } from "@/hooks/use-session";
 import { HERITAGE_VISITED_KEY } from "@/data/heritageStorage";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
 import { CUISINE_AREA_TOTALS_KEY, CUISINE_VISITED_KEY, ISLANDS_VISITED_KEY } from "@/data/storageKeys";
@@ -16,7 +18,6 @@ import Constants from "expo-constants";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import { Alert, Pressable, Text, View } from "react-native";
-import type { Session } from "@supabase/supabase-js";
 
 const appVersion = Constants.expoConfig?.version ?? "1.0.0";
 
@@ -121,16 +122,8 @@ function ProMembershipCard({
 
 export default function ProfileScreen() {
   const { t } = useLanguage();
-  const [session, setSession] = useState<Session | null>(null);
+  const { session } = useSession();
   const [proUnlocked, setProUnlocked] = useState(false);
-
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => setSession(data.session));
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      (_event, newSession) => setSession(newSession),
-    );
-    return () => listener.subscription.unsubscribe();
-  }, []);
 
   useEffect(() => {
     isCategoryUnlocked(ALL_ACCESS_ENTITLEMENT_ID).then(setProUnlocked);
@@ -199,6 +192,7 @@ export default function ProfileScreen() {
           style: "destructive",
           onPress: () => {
             logoutPurchases();
+            if (session) clearTripsCache(session.user.id);
             supabase.auth.signOut();
           },
         },

@@ -26,7 +26,7 @@ export default function TabLayout() {
         }}
       />
       <Stack.Screen
-        name="badges"
+        name="trips"
         options={{
           headerShown: false,
         }}

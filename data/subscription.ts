@@ -88,6 +88,20 @@ export async function isLandmarksUnlocked(): Promise<boolean> {
   return isCategoryUnlocked(ALL_ACCESS_ENTITLEMENT_ID);
 }
 
+/** How many trips a non-member can have. Members (the all-access
+ * entitlement, same one that unlocks Islands) have no limit. */
+export const FREE_TRIPS_LIMIT = 1;
+
+/** Whether the current device may create one more trip, given how many it
+ * already has: the first trip is free, every further one needs membership.
+ * Only gates *creating* — a lapsed member keeps (and can edit/delete) all
+ * the trips they already made. Enforced here in the app only; the `trips`
+ * table can't know RevenueCat state (see scripts/trips_schema.sql). */
+export async function canCreateTrip(existingTripCount: number): Promise<boolean> {
+  if (existingTripCount < FREE_TRIPS_LIMIT) return true;
+  return isCategoryUnlocked(ALL_ACCESS_ENTITLEMENT_ID);
+}
+
 /** The RevenueCat Offering identifier for the paywall shown from the
  * Islands-locked entry points. Must match an Offering created in the
  * RevenueCat dashboard (Product catalog → Offerings) with monthly/yearly

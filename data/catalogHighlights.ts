@@ -58,15 +58,27 @@ export function localizedHighlightSubtitle(
   return (language === "tr" && highlight.subtitleTr) || highlight.subtitle;
 }
 
+/** How many of the newest highlights the home screen's "Yeni eklenenler"
+ * rail shows at most. Older rows stay in the table, they just drop off. */
+export const CATALOG_HIGHLIGHTS_LIMIT = 20;
+
 export async function getCachedCatalogHighlights(): Promise<CatalogHighlight[]> {
   const raw = await AsyncStorage.getItem(CATALOG_HIGHLIGHTS_KEY);
-  return raw ? JSON.parse(raw) : [];
+  if (!raw) return [];
+  try {
+    return JSON.parse(raw);
+  } catch (e) {
+    console.log("CATALOG HIGHLIGHTS CACHE PARSE ERROR", e);
+    return [];
+  }
 }
 
 /** Live-fetches the newest additions across every list — the home screen's
- * "Son Eklenenler" feed — and refreshes the local cache. Throws on failure;
+ * "Yeni eklenenler" feed — and refreshes the local cache. Throws on failure;
  * callers fall back to the cache. */
-export async function fetchCatalogHighlights(limit = 10): Promise<CatalogHighlight[]> {
+export async function fetchCatalogHighlights(
+  limit = CATALOG_HIGHLIGHTS_LIMIT,
+): Promise<CatalogHighlight[]> {
   const { data, error } = await supabase
     .from("catalog_highlights")
     .select("*")
