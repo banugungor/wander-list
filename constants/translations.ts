@@ -44,6 +44,7 @@ export const translations = {
       mixed: "Karma",
     },
     stats: {
+      pageTitle: "İlerlemem",
       title: "İstatistikler",
       subtitle: "Şimdiye kadar biriktirdiklerin",
       weeklyActivity: "Haftalık aktivite",
@@ -297,6 +298,7 @@ export const translations = {
       mixed: "Mixed",
     },
     stats: {
+      pageTitle: "My Progress",
       title: "Statistics",
       subtitle: "Everything you've collected so far",
       weeklyActivity: "Weekly activity",

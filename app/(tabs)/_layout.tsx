@@ -26,12 +26,6 @@ export default function TabLayout() {
         }}
       />
       <Stack.Screen
-        name="badges"
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
         name="stats"
         options={{
           headerShown: false,

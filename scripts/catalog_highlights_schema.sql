@@ -10,7 +10,10 @@
 create table if not exists public.catalog_highlights (
   id bigint generated always as identity primary key,
   -- One of constants/categories.ts's CategoryId values.
-  type text not null check (type in ('heritage', 'places', 'cuisine', 'islands', 'capitals')),
+  -- 'landmarks' was added after this table was first created; an existing
+  -- table gets it from step 1 of add_landmarks.sql (create table if not
+  -- exists won't touch the old constraint).
+  type text not null check (type in ('heritage', 'places', 'landmarks', 'cuisine', 'islands', 'capitals')),
   -- The id of the underlying item within its own list — a heritage site id,
   -- a worldCountries.json country id, or a cuisine_meals row id (as text).
   item_id text not null,
