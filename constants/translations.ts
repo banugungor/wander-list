@@ -273,6 +273,24 @@ export const translations = {
       signOutConfirmTitle: "Çıkış yap",
       signOutConfirmMessage: "Hesabından çıkış yapmak istiyor musun?",
       signOutAction: "Çıkış yap",
+      forgotPassword: "Şifremi unuttum",
+      forgotTitle: "Şifremi Unuttum",
+      resetTitle: "Yeni Şifre Belirle",
+      forgotInstructions:
+        "Hesabının email adresini gir, sana 6 haneli bir kod gönderelim.",
+      resetInstructions:
+        "Email adresine gelen kodu ve yeni şifreni gir.",
+      sendCode: "Kod Gönder",
+      resendCode: "Kodu tekrar gönder",
+      codeSentTitle: "Kod gönderildi",
+      codeSentMessage:
+        "Bu email adresiyle kayıtlı bir hesap varsa, şifre sıfırlama kodu gönderildi. Spam klasörünü de kontrol et.",
+      code: "Kod*",
+      newPassword: "Yeni şifre*",
+      resetAction: "Şifreyi Güncelle",
+      backToSignIn: "Giriş ekranına dön",
+      missingEmailMessage: "Email adresi gerekli.",
+      missingResetInfoMessage: "Kod ve yeni şifre gerekli.",
     },
     countryPicker: {
       title: "Ülke Seç",
@@ -588,6 +606,24 @@ export const translations = {
       signOutConfirmTitle: "Sign out",
       signOutConfirmMessage: "Do you want to sign out of your account?",
       signOutAction: "Sign out",
+      forgotPassword: "Forgot password?",
+      forgotTitle: "Forgot Password",
+      resetTitle: "Set New Password",
+      forgotInstructions:
+        "Enter your account email and we'll send you a 6-digit code.",
+      resetInstructions:
+        "Enter the code sent to your email and your new password.",
+      sendCode: "Send Code",
+      resendCode: "Resend code",
+      codeSentTitle: "Code sent",
+      codeSentMessage:
+        "If an account exists for this email, a password reset code has been sent. Check your spam folder too.",
+      code: "Code*",
+      newPassword: "New password*",
+      resetAction: "Update Password",
+      backToSignIn: "Back to sign in",
+      missingEmailMessage: "Email is required.",
+      missingResetInfoMessage: "Code and new password are required.",
     },
     countryPicker: {
       title: "Select Country",
