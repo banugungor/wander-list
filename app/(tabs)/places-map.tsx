@@ -730,7 +730,7 @@ function VisitedCountryCard({
           borderRadius: 14,
           paddingVertical: 10,
           paddingHorizontal: 12,
-          width: viewMode === "grid" ? "31%" : "100%",
+          width: viewMode === "grid" ? "48%" : "100%",
           shadowColor: palette.shadow,
           shadowOpacity: 0.04,
           shadowRadius: 6,
@@ -748,7 +748,7 @@ function VisitedCountryCard({
           fontWeight: "600",
           color: palette.ink,
         }}
-        numberOfLines={1}
+        numberOfLines={viewMode === "grid" ? 2 : 1}
       >
         {localizedNameOf(country, language)}
       </Text>

@@ -21,25 +21,25 @@ const DECORATIONS: Partial<
   >
 > = {
   heritage: {
-    source: require("../assets/decor/ephesus.png"),
+    source: require("../assets/decor/ephesus.webp"),
     resizeMode: "cover",
   },
   places: {
-    source: require("../assets/decor/countries.png"),
+    source: require("../assets/decor/countries.webp"),
     resizeMode: "cover",
     heightScale: 1.1,
     topOffset: -25,
     rightOffset: 4,
   },
   cuisine: {
-    source: require("../assets/decor/cuisine.png"),
+    source: require("../assets/decor/cuisine.webp"),
     resizeMode: "cover",
     heightScale: 0.9,
     topOffset: -5,
     rightOffset: -14,
   },
   islands: {
-    source: require("../assets/decor/islands.png"),
+    source: require("../assets/decor/islands.webp"),
     resizeMode: "cover",
     heightScale: 1,
     topOffset: -8,
