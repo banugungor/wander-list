@@ -14,6 +14,10 @@ export type HeritageItem = {
   // heritageTranslations.ts, which reads these.
   nameTr?: string;
   country: string;
+  // City (or region, for remote natural sites) the site is in, shown beside
+  // the category pill. Absent for transnational/serial sites, where no single
+  // city applies. Turkish names come from data/cityNamesTr.ts.
+  city?: string;
   category?: "Cultural" | "Natural" | "Mixed";
   description?: string;
   descriptionTr?: string;

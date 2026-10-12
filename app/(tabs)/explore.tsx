@@ -1,4 +1,5 @@
 import { HeritageThumbnail } from "@/components/heritage-thumbnail";
+import { HeritageBadges } from "@/components/heritage-badges";
 import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
 import { SearchBar } from "@/components/search-bar";
@@ -178,29 +179,7 @@ export default function ExploreScreen() {
             </View>
           )}
 
-          {"category" in item && item.category && (
-            <View
-              style={{
-                alignSelf: "flex-start",
-                marginTop: 8,
-                paddingHorizontal: 10,
-                paddingVertical: 3,
-                borderRadius: 999,
-                backgroundColor: palette.violetSoft,
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 11,
-                  fontWeight: "700",
-                  color: palette.violet,
-                  letterSpacing: 0.5,
-                }}
-              >
-                {t(`heritageCategory.${item.category.toLowerCase()}`).toUpperCase()}
-              </Text>
-            </View>
-          )}
+          {"category" in item && <HeritageBadges item={item} marginTop={8} />}
         </View>
 
         {isHeritage && (

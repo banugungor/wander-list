@@ -1,4 +1,5 @@
 import { HeritageThumbnail } from "@/components/heritage-thumbnail";
+import { HeritageBadges } from "@/components/heritage-badges";
 import { ScreenHeader } from "@/components/screen-header";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
@@ -76,29 +77,7 @@ export default function HeritageDetailScreen() {
             <HeritageThumbnail item={item} size={240} />
           </View>
 
-          {item.category && (
-            <View
-              style={{
-                alignSelf: "flex-start",
-                marginTop: 16,
-                paddingHorizontal: 10,
-                paddingVertical: 3,
-                borderRadius: 999,
-                backgroundColor: palette.violetSoft,
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 11,
-                  fontWeight: "700",
-                  color: palette.violet,
-                  letterSpacing: 0.5,
-                }}
-              >
-                {t(`heritageCategory.${item.category.toLowerCase()}`).toUpperCase()}
-              </Text>
-            </View>
-          )}
+          <HeritageBadges item={item} marginTop={16} />
 
           <Text
             style={{
