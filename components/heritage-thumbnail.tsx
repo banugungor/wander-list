@@ -1,5 +1,6 @@
 import { palette } from "@/constants/palette";
 import type { HeritageItem } from "@/data/heritageSites";
+import { useHeritageImageUrl } from "@/hooks/use-heritage-image-url";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { View } from "react-native";
@@ -12,11 +13,12 @@ export function HeritageThumbnail({
   size?: number;
 }) {
   const borderRadius = size >= 200 ? 20 : 18;
+  const imageUrl = useHeritageImageUrl(item);
 
-  if (item.imageUrl) {
+  if (imageUrl) {
     return (
       <Image
-        source={{ uri: item.imageUrl }}
+        source={{ uri: imageUrl }}
         style={{ width: size, height: size, borderRadius }}
         contentFit="cover"
         transition={200}
