@@ -1242,7 +1242,9 @@
     "category": "Cultural",
     "description": "The abbey, together with its monumental entrance, the famous 'Torhall', are rare architectural vestiges of the Carolingian era. The sculptures and paintings from this period are still in remarkably good condition.",
     "latitude": 49.65369,
-    "longitude": 8.56858
+    "longitude": 8.56858,
+    "nameTr": "Lorsch Manastırı ve Altenmünster",
+    "descriptionTr": "Manastır, anıtsal girişi olan ünlü 'Torhall' ile birlikte, Karolenj dönemine ait nadir mimari kalıntılardır. Bu döneme ait heykeller ve resimler hâlâ olağanüstü iyi durumdadır."
   },
   {
     "id": "44aaced7-702b-5165-b769-f509de057edd",
@@ -1251,7 +1253,9 @@
     "category": "Cultural",
     "description": "Descending a long hill dominated by a giant statue of Hercules, the monumental water displays of Wilhelmshöhe were begun by Landgrave Carl of Hesse-Kassel in 1689 around an east-west axis and were developed further into the 19th century. Reservoirs and channels behind the Hercules Monument supply water to a complex system of hydro-pneumatic devices that supply the site’s large Baroque water theatre, grotto, fountains and 350-metre long Grand Cascade. Beyond this, channels and waterways wind across the axis, feeding a series of dramatic waterfalls and wild rapids, the geyser-like Grand Fountain which leaps 50m high, the lake and secluded ponds that enliven the Romantic garden created in the 18th century by Carl’s great-grandson, Elector Wilhelm I. The great size of the park and its waterworks along with the towering Hercules statue constitute an expression of the ideals of absolutist Monarchy while the ensemble is a remarkable testimony to the aesthetics of the Baroque and Romantic periods.",
     "latitude": 51.3158333333,
-    "longitude": 9.3930555556
+    "longitude": 9.3930555556,
+    "nameTr": "Wilhelmshöhe Bergpark'ı",
+    "descriptionTr": "Dev bir Herkül heykelinin hâkim olduğu uzun bir yamaçtan aşağı inen Wilhelmshöhe'nin anıtsal su gösterileri, 1689'da Hessen-Kassel Landgrafı Carl tarafından doğu-batı ekseni boyunca başlatılmış ve 19. yüzyıla kadar geliştirilmiştir. Herkül Anıtı'nın arkasındaki su depoları ve kanallar, alanın geniş Barok su tiyatrosunu, grotosunu, çeşmelerini ve 350 metre uzunluğundaki Büyük Çağlayan'ı besleyen karmaşık bir hidropnömatik düzeneğe su sağlar. Bunun ötesinde kanallar ve su yolları eksen boyunca kıvrılarak etkileyici şelaleleri ve çalkantılı akıntıları, 50 metre yüksekliğe fışkıran gayzer benzeri Büyük Fıskiye'yi, ayrıca Carl'ın torununun oğlu Elektör I. Wilhelm tarafından 18. yüzyılda yaratılan Romantik bahçeyi canlandıran gölü ve sakin göletleri besler. Parkın ve su tesislerinin büyüklüğü ile yükselen Herkül heykeli, mutlakiyetçi monarşinin ideallerinin bir ifadesini oluşturur; topluluk ise Barok ve Romantik dönemlerin estetiğinin dikkat çekici bir tanığıdır."
   },
   {
     "id": "d111f1a7-95a4-59d1-b365-eb4f40fccdbf",
@@ -1260,7 +1264,9 @@
     "category": "Cultural",
     "description": "In the late 18th and early 19th centuries the small Thuringian town of Weimar witnessed a remarkable cultural flowering, attracting many writers and scholars, notably Goethe and Schiller. This development is reflected in the high quality of many of the buildings and of the parks in the surrounding area.",
     "latitude": 50.9775,
-    "longitude": 11.32861
+    "longitude": 11.32861,
+    "nameTr": "Klasik Weimar",
+    "descriptionTr": "18. yüzyılın sonları ve 19. yüzyılın başlarında Thüringen'in küçük kasabası Weimar, başta Goethe ve Schiller olmak üzere birçok yazarı ve bilim insanını çeken olağanüstü bir kültürel çiçeklenmeye sahne oldu. Bu gelişim, çevredeki birçok yapının ve parkın yüksek niteliğine yansımıştır."
   },
   {
     "id": "abc989af-93c9-5220-884e-69569c27a956",
@@ -1269,7 +1275,9 @@
     "category": "Cultural",
     "description": "Quedlinburg, in the Land of Sachsen-Anhalt, was a capital of the East Franconian German Empire at the time of the Saxonian-Ottonian ruling dynasty. It has been a prosperous trading town since the Middle Ages. The number and high quality of the timber-framed buildings make Quedlinburg an exceptional example of a medieval European town. The Collegiate Church of St Servatius is one of the masterpieces of Romanesque architecture.",
     "latitude": 51.78333,
-    "longitude": 11.15
+    "longitude": 11.15,
+    "nameTr": "Quedlinburg Kapitül Kilisesi, Kalesi ve Eski Kenti",
+    "descriptionTr": "Saksonya-Anhalt eyaletindeki Quedlinburg, Sakson-Otto hanedanı döneminde Doğu Frank Alman İmparatorluğu'nun başkentlerinden biriydi. Orta Çağ'dan beri zengin bir ticaret kentidir. Ahşap karkas yapıların sayısı ve yüksek niteliği, Quedlinburg'u ortaçağ Avrupa kentinin istisnai bir örneği kılar. Aziz Servatius Kapitül Kilisesi, Romanesk mimarinin başyapıtlarından biridir."
   },
   {
     "id": "d4ebb5ba-e6f0-5da6-a5c8-379cafcbe92f",
@@ -1278,7 +1286,9 @@
     "category": "Cultural",
     "description": "Begun in 1248, the construction of this Gothic masterpiece took place in several stages and was not completed until 1880. Over seven centuries, successive builders were inspired by the same faith and a spirit of absolute fidelity to the original plans. Apart from its exceptional intrinsic value and the artistic masterpieces it contains, Cologne Cathedral testifies to the enduring strength of European Christianity.",
     "latitude": 50.94111111,
-    "longitude": 6.957222222
+    "longitude": 6.957222222,
+    "nameTr": "Köln Katedrali",
+    "descriptionTr": "1248'de başlayan bu Gotik başyapıtın inşası birkaç aşamada gerçekleşmiş ve 1880'e kadar tamamlanamamıştır. Yedi yüzyıl boyunca ardı ardına gelen yapı ustaları aynı inançtan ve özgün planlara mutlak bağlılık ruhundan ilham almıştır. Olağanüstü kendine has değerinin ve içerdiği sanat başyapıtlarının yanı sıra Köln Katedrali, Avrupa Hristiyanlığının kalıcı gücüne tanıklık eder."
   },
   {
     "id": "0567e3b5-24b3-533f-9760-40cf46ad6836",
@@ -1287,7 +1297,9 @@
     "category": "Cultural",
     "description": "Located in the medieval historic centre of Erfurt, the capital city of Thuringia, the property comprises three monuments: the Old Synagogue, the Mikveh, and the Stone House. They illustrate the life of the local Jewish community and its coexistence with a Christian majority in Central Europe during the Middle Ages, between the end of the 11th and the mid-14th century.",
     "latitude": 50.9786638889,
-    "longitude": 11.0292333333
+    "longitude": 11.0292333333,
+    "nameTr": "Erfurt'un Yahudi-Ortaçağ Mirası",
+    "descriptionTr": "Thüringen'in başkenti Erfurt'un ortaçağ tarihi merkezinde yer alan alan üç anıttan oluşur: Eski Sinagog, Mikve ve Taş Ev. Bu yapılar, Orta Çağ'da, 11. yüzyılın sonu ile 14. yüzyılın ortası arasında Orta Avrupa'da yerel Yahudi cemaatinin yaşamını ve Hristiyan çoğunlukla bir arada yaşamasını gözler önüne serer."
   },
   {
     "id": "fba9aa4d-d629-57f2-ae02-eb6de50f9f64",
@@ -1296,7 +1308,9 @@
     "category": "Cultural",
     "description": "The Garden Kingdom of Dessau-Wörlitz is an exceptional example of landscape design and planning of the Age of the Enlightenment, the 18th century. Its diverse components - outstanding buildings, landscaped parks and gardens in the English style, and subtly modified expanses of agricultural land - serve aesthetic, educational, and economic purposes in an exemplary manner.",
     "latitude": 51.8425,
-    "longitude": 12.42083
+    "longitude": 12.42083,
+    "nameTr": "Dessau-Wörlitz Bahçe Krallığı",
+    "descriptionTr": "Dessau-Wörlitz Bahçe Krallığı, 18. yüzyıl Aydınlanma Çağı'nın peyzaj tasarımı ve planlamasının istisnai bir örneğidir. Seçkin yapılar, İngiliz tarzı peyzajlı parklar ve bahçeler ile ince biçimde düzenlenmiş tarım arazileri gibi çeşitli bileşenleri; estetik, eğitsel ve ekonomik amaçlara örnek bir biçimde hizmet eder."
   },
   {
     "id": "cfbb936c-953d-582d-add1-510031fdcf99",
@@ -1305,7 +1319,9 @@
     "category": "Cultural",
     "description": "A masterpiece of Baroque theatre architecture, built between 1745 and 1750, the Opera House is the only entirely preserved example of its type where an audience of 500 can experience Baroque court opera culture and acoustics authentically, as its auditorium retains its original materials, i.e. wood and canvas. Commissioned by Margravine Wilhelmine, wife of Frederick, Margrave of Brandenburg–Bayreuth, it was designed by the renowned theatre architect Giuseppe Galli Bibiena. As a court opera house in a public space, it foreshadowed the large public theatres of the 19th century. The highly decorated theatre’s tiered loge structure of wood with illusionistic painted canvas represents the ephemeral ceremonial architectural tradition that was employed in pageants and celebrations for princely self-representation.",
     "latitude": 49.9443931107,
-    "longitude": 11.5784979437
+    "longitude": 11.5784979437,
+    "nameTr": "Bayreuth Margrav Opera Binası",
+    "descriptionTr": "1745 ile 1750 arasında inşa edilen, Barok tiyatro mimarisinin başyapıtı olan Opera Binası, salonu özgün malzemelerini (ahşap ve tuval) koruduğu için 500 kişilik bir seyircinin Barok saray operası kültürünü ve akustiğini otantik biçimde deneyimleyebildiği, türünün tamamen korunmuş tek örneğidir. Brandenburg-Bayreuth Margravı Frederick'in eşi Margravin Wilhelmine'in siparişiyle yapılan bina, ünlü tiyatro mimarı Giuseppe Galli Bibiena tarafından tasarlanmıştır. Kamusal bir mekânda yer alan bir saray opera binası olarak 19. yüzyılın büyük halk tiyatrolarının habercisi olmuştur. Yoğun biçimde süslenmiş tiyatronun, yanıltıcı perspektifli boyalı tuvallerle kaplı katlı ahşap loca yapısı, prenslerin kendilerini sergilemesi için geçit törenlerinde ve kutlamalarda kullanılan geçici törensel mimari geleneğini temsil eder."
   },
   {
     "id": "de919efe-0bf4-56ea-ac33-97b44fbb9a3c",
@@ -1314,7 +1330,9 @@
     "category": "Natural",
     "description": "Messel Pit is the richest site in the world for understanding the living environment of the Eocene, between 57 million and 36 million years ago. In particular, it provides unique information about the early stages of the evolution of mammals and includes exceptionally well-preserved mammal fossils, ranging from fully articulated skeletons to the contents of stomachs of animals of this period.",
     "latitude": 49.918,
-    "longitude": 8.757
+    "longitude": 8.757,
+    "nameTr": "Messel Çukuru Fosil Alanı",
+    "descriptionTr": "Messel Çukuru, 57 ila 36 milyon yıl öncesi arasındaki Eosen döneminin yaşam ortamını anlamak için dünyanın en zengin alanıdır. Özellikle memelilerin evriminin ilk aşamaları hakkında eşsiz bilgiler sunar; tam eklemli iskeletlerden bu dönemdeki hayvanların mide içeriklerine kadar uzanan, olağanüstü iyi korunmuş memeli fosillerini içerir."
   },
   {
     "id": "c7b2fbd6-4a3a-5be5-a5c0-fdc4bffb91d3",
@@ -1323,7 +1341,9 @@
     "category": "Cultural",
     "description": "The museum as a social phenomenon owes its origins to the Age of Enlightenment in the 18th century. The five museums on the Museumsinsel in Berlin, built between 1824 and 1930, are the realization of a visionary project and show the evolution of approaches to museum design over the course of the 20th century. Each museum was designed so as to establish an organic connection with the art it houses. The importance of the museum's collections – which trace the development of civilizations throughout the ages – is enhanced by the urban and architectural quality of the buildings.",
     "latitude": 52.51972222,
-    "longitude": 13.39861111
+    "longitude": 13.39861111,
+    "nameTr": "Müzeler Adası (Museumsinsel), Berlin",
+    "descriptionTr": "Toplumsal bir olgu olarak müze, kökenlerini 18. yüzyıldaki Aydınlanma Çağı'na borçludur. Berlin'deki Müzeler Adası'nda 1824 ile 1930 arasında inşa edilen beş müze, vizyoner bir projenin gerçekleşmesidir ve 20. yüzyıl boyunca müze tasarımı yaklaşımlarının evrimini gösterir. Her müze, barındırdığı sanatla organik bir bağ kuracak biçimde tasarlanmıştır. Medeniyetlerin çağlar boyunca gelişimini izleyen müze koleksiyonlarının önemi, binaların kentsel ve mimari niteliğiyle daha da artmaktadır."
   },
   {
     "id": "ef2abe62-5ef6-554d-938b-17d3c13955d0",
@@ -1332,7 +1352,9 @@
     "category": "Cultural",
     "description": "Miraculously preserved in the beautiful setting of an Alpine valley, the Church of Wies (1745–54), the work of architect Dominikus Zimmermann, is a masterpiece of Bavarian Rococo – exuberant, colourful and joyful.",
     "latitude": 47.68127778,
-    "longitude": 10.90013889
+    "longitude": 10.90013889,
+    "nameTr": "Wies Hac Kilisesi",
+    "descriptionTr": "Bir Alp vadisinin güzel ortamında mucizevi biçimde korunmuş olan Wies Kilisesi (1745-54), mimar Dominikus Zimmermann'ın eseridir ve Bavyera Rokokosu'nun coşkulu, renkli ve neşeli bir başyapıtıdır."
   },
   {
     "id": "6f8599bc-2fe5-5b61-9246-e2ac62ddce94",
@@ -1341,7 +1363,9 @@
     "category": "Cultural",
     "description": "Established on the shores of Lake Schwerin in northeast Germany, the Schwerin Residence Ensemble is an architectural and landscape ensemble, which fits very precisely within the context of the emergence and development of the historicist style in Europe. Created for the most part in the 19th century in what was then the capital of the Grand Duchy of Mecklenburg-Schwerin in northeast Germany, the property comprises 38 elements, including the Grand Duke’s Residence Palace and manor houses, cultural and sacred buildings, and the Pfaffenteich ornamental lake. But it also fulfils all the functions required of a ducal capital in terms of administration, defence, service infrastructure, transportation, prestige and cultural activities, with parks, canals, ponds and lakes, and public spaces. The buildings form an exceptional architectural ensemble, ranging from Neo­-Classical to Neo-Baroque and Neo-Renaissance and even includes in certain cases references to the more regional Neo-Renaissance Johann-Albrecht style, with influences from the Italian Renaissance.",
     "latitude": 53.6241666667,
-    "longitude": 11.4188888889
+    "longitude": 11.4188888889,
+    "nameTr": "Schwerin Saray Topluluğu",
+    "descriptionTr": "Kuzeydoğu Almanya'da Schwerin Gölü kıyısında kurulan Schwerin Saray Topluluğu, Avrupa'da tarihselci üslubun ortaya çıkışı ve gelişimi bağlamına çok isabetli biçimde oturan bir mimari ve peyzaj topluluğudur. Çoğunlukla 19. yüzyılda, dönemin Mecklenburg-Schwerin Büyük Dükalığı'nın başkenti olan kentte oluşturulan alan; Büyük Dük'ün Saray Konutu ve malikâneler, kültürel ve dinî yapılar ile Pfaffenteich süs gölü dahil 38 öğeden oluşur. Bununla birlikte parkları, kanalları, göletleri, gölleri ve kamusal alanlarıyla bir dük başkentinden beklenen idare, savunma, hizmet altyapısı, ulaşım, prestij ve kültürel faaliyetler gibi tüm işlevleri de yerine getirir. Yapılar; Neo-Klasik'ten Neo-Barok ve Neo-Rönesans'a uzanan, bazı durumlarda İtalyan Rönesansı'ndan etkilenen, daha bölgesel Neo-Rönesans Johann-Albrecht üslubuna göndermeler de içeren istisnai bir mimari topluluk oluşturur."
   },
   {
     "id": "42d2c00d-ff65-5663-94b6-f3aa62d7a08e",
@@ -1350,7 +1374,9 @@
     "category": "Cultural",
     "description": "Speyer Cathedral, a basilica with four towers and two domes, was founded by Conrad II in 1030 and remodelled at the end of the 11th century. It is one of the most important Romanesque monuments from the time of the Holy Roman Empire. The cathedral was the burial place of the German emperors for almost 300 years.",
     "latitude": 49.3172222222,
-    "longitude": 8.4423888889
+    "longitude": 8.4423888889,
+    "nameTr": "Speyer Katedrali",
+    "descriptionTr": "Dört kuleli ve iki kubbeli bir bazilika olan Speyer Katedrali, II. Conrad tarafından 1030'da kurulmuş ve 11. yüzyılın sonunda yeniden düzenlenmiştir. Kutsal Roma İmparatorluğu döneminin en önemli Romanesk anıtlarından biridir. Katedral, yaklaşık 300 yıl boyunca Alman imparatorlarının mezar yeri olmuştur."
   },
   {
     "id": "aea9220e-4718-5028-8989-f05c369145aa",
@@ -1359,7 +1385,9 @@
     "category": "Cultural",
     "description": "From the 10th century onwards, this town became an important link with the Slav peoples, especially those of Poland and Pomerania. During its period of greatest prosperity, from the 12th century onwards, the architecture of Bamberg strongly influenced northern Germany and Hungary. In the late 18th century it was the centre of the Enlightenment in southern Germany, with eminent philosophers and writers such as Hegel and Hoffmann living there.",
     "latitude": 49.89166667,
-    "longitude": 10.88888889
+    "longitude": 10.88888889,
+    "nameTr": "Bamberg Kenti",
+    "descriptionTr": "10. yüzyıldan itibaren bu kent, Slav halklarıyla, özellikle Polonya ve Pomeranya halklarıyla önemli bir bağlantı noktası haline geldi. 12. yüzyıldan itibaren, en parlak refah döneminde Bamberg mimarisi kuzey Almanya'yı ve Macaristan'ı güçlü biçimde etkiledi. 18. yüzyılın sonlarında Hegel ve Hoffmann gibi seçkin filozofların ve yazarların yaşadığı kent, güney Almanya'da Aydınlanma'nın merkeziydi."
   },
   {
     "id": "a4510c80-e7bb-5afd-b13c-140e3cdf6e59",
@@ -1377,7 +1405,9 @@
     "category": "Cultural",
     "description": "The Acropolis of Athens and its monuments are universal symbols of the classical spirit and civilization and form the greatest architectural and artistic complex bequeathed by Greek Antiquity to the world. In the second half of the fifth century bc, Athens, following the victory against the Persians and the establishment of democracy, took a leading position amongst the other city-states of the ancient world. In the age that followed, as thought and art flourished, an exceptional group of artists put into effect the ambitious plans of Athenian statesman Pericles and, under the inspired guidance of the sculptor Pheidias, transformed the rocky hill into a unique monument of thought and the arts. The most important monuments were built during that time: the Parthenon, built by Ictinus, the Erechtheon, the Propylaea, the monumental entrance to the Acropolis, designed by Mnesicles and the small temple Athena Nike.",
     "latitude": 37.97087,
-    "longitude": 23.72618
+    "longitude": 23.72618,
+    "nameTr": "Atina Akropolisi",
+    "descriptionTr": "Atina Akropolisi ve anıtları, klasik ruhun ve medeniyetin evrensel simgeleridir ve Yunan Antikçağı'nın dünyaya bıraktığı en büyük mimari ve sanatsal topluluğu oluşturur. M.Ö. beşinci yüzyılın ikinci yarısında Atina, Persler'e karşı kazanılan zaferin ve demokrasinin kurulmasının ardından antik dünyanın diğer şehir devletleri arasında öncü bir konuma yükseldi. Düşüncenin ve sanatın geliştiği sonraki çağda, seçkin bir sanatçı grubu Atinalı devlet adamı Perikles'in iddialı planlarını hayata geçirdi ve heykeltıraş Pheidias'ın ilham verici yönlendirmesi altında kayalık tepeyi düşüncenin ve sanatların eşsiz bir anıtına dönüştürdü. En önemli anıtlar bu dönemde inşa edildi: Iktinos'un yaptığı Parthenon, Erekhteion, Mnesikles'in tasarladığı Akropolis'in anıtsal girişi Propylaia ve küçük Athena Nike Tapınağı."
   },
   {
     "id": "6533eb3f-ec2b-5efe-aa1c-90d3bc5cab06",
@@ -1386,7 +1416,9 @@
     "category": "Cultural",
     "description": "The city of Aigai, the ancient first capital of the Kingdom of Macedonia, was discovered in the 19th century near Vergina, in northern Greece. The most important remains are the monumental palace, lavishly decorated with mosaics and painted stuccoes, and the burial ground with more than 300 tumuli, some of which date from the 11th century B.C. One of the royal tombs in the Great Tumulus is identified as that of Philip II, who conquered all the Greek cities, paving the way for his son Alexander and the expansion of the Hellenistic world.",
     "latitude": 40.47139,
-    "longitude": 22.31833
+    "longitude": 22.31833,
+    "nameTr": "Aigai Arkeolojik Alanı (günümüzdeki adıyla Vergina)",
+    "descriptionTr": "Makedonya Krallığı'nın antik ilk başkenti olan Aigai kenti, 19. yüzyılda kuzey Yunanistan'da Vergina yakınlarında keşfedildi. En önemli kalıntılar, mozaikler ve boyalı alçı işlemelerle zengin biçimde süslenmiş anıtsal saray ile bazıları M.Ö. 11. yüzyıla uzanan 300'den fazla tümülüs içeren mezarlık alanıdır. Büyük Tümülüs'teki kraliyet mezarlarından biri, tüm Yunan kentlerini fethederek oğlu İskender'in ve Helenistik dünyanın genişlemesinin yolunu açan II. Philippos'a ait olarak tanımlanmaktadır."
   },
   {
     "id": "687dbd24-9ea1-50c4-91c3-657bdd99c797",
@@ -1395,7 +1427,9 @@
     "category": "Cultural",
     "description": "Mystras, the 'wonder of the Morea', was built as an amphitheatre around the fortress erected in 1249 by the prince of Achaia, William of Villehardouin. Reconquered by the Byzantines, then occupied by the Turks and the Venetians, the city was abandoned in 1832, leaving only the breathtaking medieval ruins, standing in a beautiful landscape.",
     "latitude": 37.08056,
-    "longitude": 22.36667
+    "longitude": 22.36667,
+    "nameTr": "Mystras Arkeolojik Alanı",
+    "descriptionTr": "'Mora'nın harikası' Mystras, Akhaia Prensi Villehardouin'li William tarafından 1249'da inşa edilen kalenin çevresinde bir amfitiyatro biçiminde kurulmuştur. Bizanslılar tarafından geri alınan, ardından Türklerin ve Venediklilerin eline geçen kent 1832'de terk edildi ve geriye güzel bir manzara içinde duran nefes kesici ortaçağ kalıntıları kaldı."
   },
   {
     "id": "e97e35a2-61ef-55ec-a8c8-cc5f7d6e7993",
@@ -1404,7 +1438,9 @@
     "category": "Cultural",
     "description": "The pan-Hellenic sanctuary of Delphi, where the oracle of Apollo spoke, was the site of the omphalos, the 'navel of the world'. Blending harmoniously with the superb landscape and charged with sacred meaning, Delphi in the 6th century B.C. was indeed the religious centre and symbol of unity of the ancient Greek world.",
     "latitude": 38.48149,
-    "longitude": 22.49617
+    "longitude": 22.49617,
+    "nameTr": "Delfi Arkeolojik Alanı",
+    "descriptionTr": "Apollon'un kehanetinin söylendiği Panhelenik Delfi kutsal alanı, 'dünyanın göbeği' omphalos'un bulunduğu yerdi. Muhteşem manzarayla uyum içinde kaynaşan ve kutsal anlamlarla yüklü olan Delfi, M.Ö. 6. yüzyılda gerçekten de antik Yunan dünyasının dinî merkezi ve birlik simgesiydi."
   },
   {
     "id": "bfdb6c41-27f9-5646-9035-25f3723e0c36",
@@ -1413,7 +1449,9 @@
     "category": "Cultural",
     "description": "The site of Olympia, in a valley in the Peloponnesus, has been inhabited since prehistoric times. In the 10th century B.C., Olympia became a centre for the worship of Zeus. The Altis – the sanctuary to the gods – has one of the highest concentrations of masterpieces from the ancient Greek world. In addition to temples, there are the remains of all the sports structures erected for the Olympic Games, which were held in Olympia every four years beginning in 776 B.C.",
     "latitude": 37.64,
-    "longitude": 21.634
+    "longitude": 21.634,
+    "nameTr": "Olimpiya Arkeolojik Alanı",
+    "descriptionTr": "Mora Yarımadası'nda bir vadide yer alan Olimpiya alanı tarih öncesi çağlardan beri iskân edilmiştir. M.Ö. 10. yüzyılda Olimpiya, Zeus'a tapınmanın merkezi haline geldi. Tanrıların kutsal alanı olan Altis, antik Yunan dünyasının başyapıtlarının en yoğun bulunduğu yerlerden birine sahiptir. Tapınakların yanı sıra, M.Ö. 776'dan itibaren dört yılda bir Olimpiya'da düzenlenen Olimpiyat Oyunları için inşa edilen tüm spor yapılarının kalıntıları da bulunur."
   },
   {
     "id": "3a65622f-fe03-585b-ad89-bf45b5095111",
@@ -1422,7 +1460,9 @@
     "category": "Cultural",
     "description": "This serial property comprises six archaeological sites on Crete dating from 1900 to 1100 BCE. These sites represent the Minoan civilization, a major prehistoric Mediterranean culture. The palatial centres served as administrative, economic, and religious hubs, featuring advanced architecture, urban planning, and vibrant frescoes. They reveal early writing systems, maritime networks, and cultural exchanges. The property highlights the complexity of the Minoans’ social structure and their enduring influence on Mediterranean history.",
     "latitude": 35.2486111111,
-    "longitude": 24.8872222222
+    "longitude": 24.8872222222,
+    "nameTr": "Minos Saray Merkezleri",
+    "descriptionTr": "Bu seri alan, Girit'te M.Ö. 1900 ile 1100 arasına tarihlenen altı arkeolojik alandan oluşur. Bu alanlar, tarih öncesi Akdeniz'in önemli kültürlerinden biri olan Minos uygarlığını temsil eder. Saray merkezleri; gelişmiş mimarisi, kent planlaması ve canlı fresklerinin yanı sıra idari, ekonomik ve dinî merkezler olarak işlev görmüştür. Erken yazı sistemlerini, deniz ağlarını ve kültürel alışverişleri ortaya koyarlar. Alan, Minos toplumsal yapısının karmaşıklığını ve Akdeniz tarihi üzerindeki kalıcı etkisini vurgular."
   },
   {
     "id": "8172298d-0839-552c-8e22-7114b673e5aa",
@@ -1431,7 +1471,9 @@
     "category": "Cultural",
     "description": "The Old Town of Corfu, on the Island of Corfu off the western coasts of Albania and Greece, is located in a strategic position at the entrance of the Adriatic Sea, and has its roots in the 8th century BC. The three forts of the town, designed by renowned Venetian engineers, were used for four centuries to defend the maritime trading interests of the Republic of Venice against the Ottoman Empire. In the course of time, the forts were repaired and partly rebuilt several times, more recently under British rule in the 19th century. The mainly neoclassical housing stock of the Old Town is partly from the Venetian period, partly of later construction, notably the 19th century. As a fortified Mediterranean port, Corfu’s urban and port ensemble is notable for its high level of integrity and authenticity.",
     "latitude": 39.6239413889,
-    "longitude": 19.9275
+    "longitude": 19.9275,
+    "nameTr": "Korfu Eski Kenti",
+    "descriptionTr": "Arnavutluk ve Yunanistan'ın batı kıyılarının açığındaki Korfu Adası'nda yer alan Korfu Eski Kenti, Adriyatik Denizi'nin girişinde stratejik bir konumdadır ve kökleri M.Ö. 8. yüzyıla uzanır. Ünlü Venedikli mühendisler tarafından tasarlanan kentin üç kalesi, dört yüzyıl boyunca Venedik Cumhuriyeti'nin deniz ticareti çıkarlarını Osmanlı İmparatorluğu'na karşı savunmak için kullanılmıştır. Zamanla kaleler birçok kez onarılmış ve kısmen yeniden inşa edilmiştir; en son 19. yüzyılda İngiliz yönetimi altında. Eski Kent'in ağırlıklı olarak neoklasik olan konut dokusu, kısmen Venedik dönemine, kısmen de başta 19. yüzyıl olmak üzere sonraki dönemlere aittir. Surlarla çevrili bir Akdeniz limanı olarak Korfu'nun kentsel ve liman topluluğu, yüksek bütünlüğü ve özgünlüğüyle dikkat çeker."
   },
   {
     "id": "638fc7f2-f38a-524a-a08f-9373ddbca088",
@@ -1440,7 +1482,9 @@
     "category": "Cultural",
     "description": "Founded in 315 B.C., the provincial capital and sea port of Thessalonika was one of the first bases for the spread of Christianity. Among its Christian monuments are fine churches, some built on the Greek cross plan and others on the three-nave basilica plan. Constructed over a long period, from the 4th to the 15th century, they constitute a diachronic typological series, which had considerable influence in the Byzantine world. The mosaics of the rotunda, St Demetrius and St David are among the great masterpieces of early Christian art.",
     "latitude": 40.63833,
-    "longitude": 22.965
+    "longitude": 22.965,
+    "nameTr": "Selanik'in İlk Hristiyanlık ve Bizans Dönemi Anıtları",
+    "descriptionTr": "M.Ö. 315'te kurulan eyalet başkenti ve deniz limanı Selanik, Hristiyanlığın yayılmasının ilk üslerinden biriydi. Hristiyan anıtları arasında bazıları Yunan haçı planında, bazıları üç nefli bazilika planında inşa edilmiş güzel kiliseler bulunur. 4. yüzyıldan 15. yüzyıla kadar uzun bir dönemde inşa edilen bu yapılar, Bizans dünyasında önemli etki yaratmış, zaman içinde değişimi gösteren bir tipolojik seri oluşturur. Rotunda'nın, Aziz Demetrios'un ve Aziz David'in mozaikleri, ilk Hristiyan sanatının büyük başyapıtları arasındadır."
   },
   {
     "id": "341b44a3-97f4-54b1-9560-64693d673887",
@@ -1449,7 +1493,9 @@
     "category": "Cultural",
     "description": "Although geographically distant from each other, these three monasteries (the first is in Attica, near Athens, the second in Phocida near Delphi, and the third on an island in the Aegean Sea, near Asia Minor) belong to the same typological series and share the same aesthetic characteristics. The churches are built on a cross-in-square plan with a large dome supported by squinches defining an octagonal space. In the 11th and 12th centuries they were decorated with superb marble works as well as mosaics on a gold background, all characteristic of the 'second golden age of Byzantine art'.",
     "latitude": 38.3952777778,
-    "longitude": 22.7466666667
+    "longitude": 22.7466666667,
+    "nameTr": "Daphni, Hosios Loukas ve Sakız Adası'ndaki Nea Moni Manastırları",
+    "descriptionTr": "Coğrafi olarak birbirinden uzak olsalar da (ilki Atina yakınlarındaki Attika'da, ikincisi Delfi yakınlarındaki Fokida'da, üçüncüsü Küçük Asya'ya yakın bir Ege Denizi adasında), bu üç manastır aynı tipolojik seriye aittir ve aynı estetik özellikleri paylaşır. Kiliseler, sekizgen bir mekânı belirleyen tromplarla taşınan büyük bir kubbeyle, kare içine haç planında inşa edilmiştir. 11. ve 12. yüzyıllarda, 'Bizans sanatının ikinci altın çağı'nın karakteristiği olan muhteşem mermer işçiliği ve altın zemin üzerine mozaiklerle süslenmişlerdir."
   },
   {
     "id": "62d7fd46-917f-56cd-8bbf-ee64b2b496aa",
@@ -1458,7 +1504,9 @@
     "category": "Cultural",
     "description": "In a small valley in the Peloponnesus, the shrine of Asklepios, the god of medicine, developed out of a much earlier cult of Apollo (Maleatas), during the 6th century BC at the latest, as the official cult of the city state of Epidaurus. Its principal monuments, particularly the temple of Asklepios, the Tholos and the Theatre - considered one of the purest masterpieces of Greek architecture – date from the 4th century. The vast site, with its temples and hospital buildings devoted to its healing gods, provides valuable insight into the healing cults of Greek and Roman times.",
     "latitude": 37.6,
-    "longitude": 23.0805555556
+    "longitude": 23.0805555556,
+    "nameTr": "Epidauros'taki Asklepios Kutsal Alanı",
+    "descriptionTr": "Mora Yarımadası'ndaki küçük bir vadide, tıp tanrısı Asklepios'un tapınağı, en geç M.Ö. 6. yüzyılda Epidauros şehir devletinin resmî kültü olarak çok daha eski bir Apollon (Maleatas) kültünden gelişmiştir. Başlıca anıtları, özellikle Asklepios Tapınağı, Tholos ve Yunan mimarisinin en saf başyapıtlarından biri sayılan Tiyatro, 4. yüzyıla tarihlenir. Şifa tanrılarına adanmış tapınakları ve hastane binalarıyla geniş alan, Yunan ve Roma dönemlerindeki şifa kültleri hakkında değerli bilgiler sunar."
   },
   {
     "id": "79c26af6-f892-51e1-99c7-d2a6148867a0",
@@ -1485,7 +1533,9 @@
     "category": "Cultural",
     "description": "The Vatican City, one of the most sacred places in Christendom, attests to a great history and a formidable spiritual venture. A unique collection of artistic and architectural masterpieces lie within the boundaries of this small state. At its centre is St Peter's Basilica, with its double colonnade and a circular piazza in front and bordered by palaces and gardens. The basilica, erected over the tomb of St Peter the Apostle, is the largest religious building in the world, the fruit of the combined genius of Bramante, Raphael, Michelangelo, Bernini and Maderno.",
     "latitude": 41.90216,
-    "longitude": 12.45736
+    "longitude": 12.45736,
+    "nameTr": "Vatikan Şehri",
+    "descriptionTr": "Hristiyan dünyasının en kutsal yerlerinden biri olan Vatikan Şehri, büyük bir tarihe ve olağanüstü bir manevi serüvene tanıklık eder. Bu küçük devletin sınırları içinde sanat ve mimari başyapıtlarından oluşan eşsiz bir koleksiyon yer alır. Merkezinde, önünde çift sıra sütunlu galerisi ve dairesel bir meydanı bulunan, saraylar ve bahçelerle çevrili Aziz Petrus Bazilikası vardır. Havari Aziz Petrus'un mezarı üzerine inşa edilen bazilika, dünyanın en büyük dinî yapısıdır ve Bramante, Raffaello, Michelangelo, Bernini ve Maderno'nun ortak dehasının ürünüdür."
   },
   {
     "id": "4d46952a-f339-5e32-8ec2-0ae9e5809e8c",
@@ -1494,7 +1544,9 @@
     "category": "Cultural",
     "description": "Founded, according to legend, by Romulus and Remus in 753 BC, Rome was first the centre of the Roman Republic, then of the Roman Empire, and it became the capital of the Christian world in the 4th century. The World Heritage site, extended in 1990 to the walls of Urban VIII, includes some of the major monuments of antiquity such as the Forums, the Mausoleum of Augustus, the Mausoleum of Hadrian, the Pantheon, Trajan’s Column and the Column of Marcus Aurelius, as well as the religious and public buildings of papal Rome.",
     "latitude": 41.89022222,
-    "longitude": 12.49230556
+    "longitude": 12.49230556,
+    "nameTr": "Roma Tarihi Merkezi, Kutsal Makam'ın Kentteki Ekstrateritoryal Haklardan Yararlanan Mülkleri ve San Paolo Fuori le Mura",
+    "descriptionTr": "Efsaneye göre M.Ö. 753'te Romulus ve Remus tarafından kurulan Roma, önce Roma Cumhuriyeti'nin, ardından Roma İmparatorluğu'nun merkeziydi ve 4. yüzyılda Hristiyan dünyasının başkenti haline geldi. 1990'da VIII. Urbanus Surları'na kadar genişletilen Dünya Mirası alanı; Forumlar, Augustus Mozolesi, Hadrianus Mozolesi, Pantheon, Traianus Sütunu ve Marcus Aurelius Sütunu gibi antik çağın başlıca anıtlarının yanı sıra papalık Roması'nın dinî ve kamusal yapılarını da içerir."
   },
   {
     "id": "e31bb8e6-5b4e-5694-b5c0-c77e2748ca1d",
@@ -2423,7 +2475,9 @@
     "category": "Natural",
     "description": "The Uvs Nuur Basin (1,068,853 ha), is the northernmost of the enclosed basins of Central Asia. It takes its name from Uvs Nuur Lake, a large, shallow and very saline lake, important for migrating birds, waterfowl and seabirds. The site is made up of twelve protected areas representing the major biomes of eastern Eurasia. The steppe ecosystem supports a rich diversity of birds and the desert is home to a number of rare gerbil, jerboas and the marbled polecat. The mountains are an important refuge for the globally endangered snow leopard, mountain sheep (argali) and the Asiatic ibex.",
     "latitude": 50.275,
-    "longitude": 92.71972222
+    "longitude": 92.71972222,
+    "nameTr": "Uvs Nuur Havzası",
+    "descriptionTr": "Uvs Nuur Havzası (1.068.853 hektar), Orta Asya'nın kapalı havzalarının en kuzeyde olanıdır. Adını, göçmen kuşlar, su kuşları ve deniz kuşları için önemli olan, büyük, sığ ve çok tuzlu bir göl olan Uvs Nuur Gölü'nden alır. Alan, doğu Avrasya'nın başlıca biyomlarını temsil eden on iki korunan alandan oluşur. Bozkır ekosistemi zengin bir kuş çeşitliliğini destekler; çöl ise nadir görülen birçok kum faresi (gerbil), çöl tavşanı faresi (jerboa) ve alaca sansar türüne ev sahipliği yapar. Dağlar, küresel ölçekte nesli tehlike altındaki kar leoparı, arkar (dağ koyunu) ve Sibirya dağ keçisi için önemli bir sığınaktır."
   },
   {
     "id": "29f7b2e9-5b80-5bcb-a809-3b0eb4633cd4",
@@ -2628,7 +2682,9 @@
     "category": "Cultural",
     "description": "Situated in the eastern fringe of Central Europe, the transnational property numbers a selection of sixteen tserkvas (churches). They were built of horizontal wooden logs between the 16th and 19th centuries by communities of Orthodox and Greek Catholic faiths. The tserkvas bear testimony to a distinct building tradition rooted in Orthodox ecclesiastic design interwoven with elements of local tradition, and symbolic references to their communities’ cosmogony. The tserkvas are built on a tri-partite plan surmounted by open quadrilateral or octagonal domes and cupolas. Integral to tserkvas are iconostasis screens, interior polychrome decorations, and other historic furnishings. Important elements of some tserkvas include wooden bell towers, churchyards, gatehouses and graveyards.",
     "latitude": 49.5338888889,
-    "longitude": 21.0322222222
+    "longitude": 21.0322222222,
+    "nameTr": "Polonya ve Ukrayna'daki Karpat Bölgesi Ahşap Tserkvaları",
+    "descriptionTr": "Orta Avrupa'nın doğu kenarında yer alan bu sınır aşan alan, on altı tserkva (kilise) seçkisinden oluşur. Bunlar, 16. ile 19. yüzyıllar arasında Ortodoks ve Yunan Katolik topluluklar tarafından yatay ahşap kütüklerle inşa edilmiştir. Tserkvalar, yerel gelenek unsurlarıyla ve toplulukların kozmogonisine yönelik sembolik göndermelerle iç içe geçmiş, Ortodoks kilise tasarımına dayanan ayrı bir yapı geleneğine tanıklık eder. Tserkvalar, açık dörtgen veya sekizgen kubbeler ve kubbecikler taşıyan üç bölümlü bir plan üzerine inşa edilmiştir. İkonostasis perdeleri, iç mekândaki çok renkli süslemeler ve diğer tarihî donanımlar tserkvaların ayrılmaz parçalarıdır. Bazı tserkvaların önemli unsurları arasında ahşap çan kuleleri, kilise avluları, giriş yapıları ve mezarlıklar yer alır."
   },
   {
     "id": "c65be02c-544b-5ec9-8a71-fc1d1d949d16",
@@ -2736,7 +2792,9 @@
     "category": "Cultural",
     "description": "The Church of the Ascension was built in 1532 on the imperial estate of Kolomenskoye, near Moscow, to celebrate the birth of the prince who was to become Tsar Ivan IV ('the Terrible'). One of the earliest examples of a traditional wooden tent-roofed church on a stone and brick substructure, it had a great influence on the development of Russian ecclesiastical architecture.",
     "latitude": 55.65556,
-    "longitude": 37.67389
+    "longitude": 37.67389,
+    "nameTr": "Kolomenskoye'deki Yükseliş Kilisesi",
+    "descriptionTr": "Yükseliş Kilisesi, daha sonra Çar IV. İvan ('Korkunç İvan') olacak prensin doğumunu kutlamak için 1532'de Moskova yakınlarındaki Kolomenskoye imparatorluk malikânesinde inşa edilmiştir. Taş ve tuğla bir alt yapı üzerinde geleneksel ahşap çadır çatılı kilisenin en erken örneklerinden biri olan yapı, Rus kilise mimarisinin gelişimi üzerinde büyük etki yapmıştır."
   },
   {
     "id": "53273e12-ae5c-552c-b7e9-5404a9faf471",
@@ -2745,7 +2803,9 @@
     "category": "Cultural",
     "description": "The Citadel, Ancient City and Fortress Buildings of Derbent were part of the northern lines of the Sasanian Persian Empire, which extended east and west of the Caspian Sea. The fortification was built in stone. It consisted of two parallel walls that formed a barrier from the seashore up to the mountain. The town of Derbent was built between these two walls, and has retained part of its medieval fabric. The site continued to be of great strategic importance until the 19th century.",
     "latitude": 42.0558333333,
-    "longitude": 48.2827777778
+    "longitude": 48.2827777778,
+    "nameTr": "Derbent Hisarı, Antik Kenti ve Kale Yapıları",
+    "descriptionTr": "Derbent Hisarı, Antik Kenti ve Kale Yapıları, Hazar Denizi'nin doğusuna ve batısına uzanan Sasani Pers İmparatorluğu'nun kuzey hatlarının bir parçasıydı. Tahkimat taştan inşa edilmiştir. Deniz kıyısından dağa kadar bir bariyer oluşturan iki paralel duvardan oluşuyordu. Derbent kenti bu iki duvar arasında inşa edilmiş ve ortaçağ dokusunun bir kısmını korumuştur. Alan, 19. yüzyıla kadar büyük stratejik önemini sürdürdü."
   },
   {
     "id": "bf40b385-662e-58ad-b31e-6c1189dc2e7b",
@@ -2754,7 +2814,9 @@
     "category": "Cultural",
     "description": "This group of monuments is located in the historic city of Pskov, on the banks of the Velikaya River in the northwest of Russia. Characteristics of these buildings, produced by the Pskov School of Architecture, include cubic volumes, domes, porches and belfries, with the oldest elements dating back to the 12th century. Churches and cathedrals are integrated into the natural environment through gardens, perimeter walls and fences. Inspired by the Byzantine and Novgorod traditions, the Pskov School of Architecture reached its peak in the 15th and 16th centuries, and was one of the foremost schools in the country. It informed the evolution of Russian architecture over five centuries.",
     "latitude": 57.8071944444,
-    "longitude": 28.3285555556
+    "longitude": 28.3285555556,
+    "nameTr": "Pskov Mimari Okulu Kiliseleri",
+    "descriptionTr": "Bu anıt grubu, Rusya'nın kuzeybatısında, Velikaya Nehri kıyısındaki tarihî Pskov kentinde yer alır. Pskov Mimari Okulu'nun ürünü olan bu yapıların özellikleri arasında küp biçimli hacimler, kubbeler, sundurmalar ve çan kuleleri bulunur; en eski unsurlar 12. yüzyıla uzanır. Kiliseler ve katedraller bahçeler, çevre duvarları ve çitlerle doğal ortama entegre edilmiştir. Bizans ve Novgorod geleneklerinden ilham alan Pskov Mimari Okulu, 15. ve 16. yüzyıllarda zirvesine ulaşmış ve ülkenin önde gelen okullarından biri olmuştur. Rus mimarisinin beş yüzyıl boyunca evrimine yön vermiştir."
   },
   {
     "id": "36056e4f-db0b-5c64-898e-1f9e7a726cb5",
@@ -2763,7 +2825,9 @@
     "category": "Cultural",
     "description": "The Solovetsky archipelago comprises six islands in the western part of the White Sea, covering about 300 km2 . They have been inhabited since the 5th century B.C. and important traces of a human presence from as far back as the 5th millennium B.C. can be found there. The archipelago has been the site of fervent monastic activity since the 15th century, and there are several churches dating from the 16th to the 19th century.",
     "latitude": 65.08333333,
-    "longitude": 35.66666667
+    "longitude": 35.66666667,
+    "nameTr": "Solovetsky Adaları Kültürel ve Tarihî Topluluğu",
+    "descriptionTr": "Solovetsky takımadası, Beyaz Deniz'in batı kesiminde yaklaşık 300 km²'lik bir alanı kapsayan altı adadan oluşur. Adalar M.Ö. 5. yüzyıldan beri iskân edilmiştir ve M.Ö. 5. binyıla uzanan önemli insan varlığı izleri burada bulunabilir. Takımada 15. yüzyıldan beri coşkulu bir manastır faaliyetine sahne olmuştur ve 16. ile 19. yüzyıllara tarihlenen birkaç kilise bulunmaktadır."
   },
   {
     "id": "01041ad3-940d-5b52-949b-e77d26ae1d96",
@@ -2772,7 +2836,9 @@
     "category": "Cultural",
     "description": "Built on an ancient site, the Kazan Kremlin dates from the Muslim period of the Golden Horde and the Kazan Khanate. It was conquered by Ivan the Terrible in 1552 and became the Christian See of the Volga Land. The only surviving Tatar fortress in Russia and an important place of pilgrimage, the Kazan Kremlin consists of an outstanding group of historic buildings dating from the 16th to 19th centuries, integrating remains of earlier structures of the 10th to 16th centuries.",
     "latitude": 55.7994526626,
-    "longitude": 49.1064602384
+    "longitude": 49.1064602384,
+    "nameTr": "Kazan Kremlin'inin Tarihî ve Mimari Kompleksi",
+    "descriptionTr": "Eski bir yerleşim alanı üzerine inşa edilen Kazan Kremlin'i, Altın Orda ve Kazan Hanlığı'nın Müslüman dönemine tarihlenir. 1552'de Korkunç İvan tarafından fethedilmiş ve Volga Ülkesi'nin Hristiyan piskoposluk merkezi haline gelmiştir. Rusya'da ayakta kalan tek Tatar kalesi ve önemli bir hac yeri olan Kazan Kremlin'i, 10. ile 16. yüzyıllara ait daha eski yapıların kalıntılarını bünyesine katan, 16. ile 19. yüzyıllara tarihlenen olağanüstü bir tarihî yapı grubundan oluşur."
   },
   {
     "id": "2b15c78e-3f65-5169-bca4-ef1f93a11bc9",
@@ -2781,7 +2847,9 @@
     "category": "Natural",
     "description": "Situated in south-east Siberia, the 3.15-million-ha Lake Baikal is the oldest (25 million years) and deepest (1,700 m) lake in the world. It contains 20% of the world's total unfrozen freshwater reserve. Known as the 'Galapagos of Russia', its age and isolation have produced one of the world's richest and most unusual freshwater faunas, which is of exceptional value to evolutionary science.",
     "latitude": 53.17361111,
-    "longitude": 107.6625
+    "longitude": 107.6625,
+    "nameTr": "Baykal Gölü",
+    "descriptionTr": "Güneydoğu Sibirya'da yer alan, 3,15 milyon hektarlık Baykal Gölü, dünyanın en eski (25 milyon yıl) ve en derin (1.700 m) gölüdür. Dünyanın toplam donmamış tatlı su rezervinin %20'sini barındırır. 'Rusya'nın Galapagos'u' olarak bilinen gölün yaşı ve izolasyonu, evrim bilimi için olağanüstü değere sahip, dünyanın en zengin ve en alışılmadık tatlı su faunalarından birini ortaya çıkarmıştır."
   },
   {
     "id": "8278c701-e407-5850-a98c-9a458f2035c2",
@@ -2790,7 +2858,9 @@
     "category": "Cultural",
     "description": "The site contains 4,500 petroglyphs carved in the rocks during the Neolithic period dated about 6-7 thousand years ago and located in the Republic of Karelia in the Russian Federation. It is one of the largest such sites in Europe with petroglyphs that document Neolithic culture in Fennoscandia. The serial property encompasses 33 rock art panels in two component parts 300km apart: 22 petroglyph groups at Lake Onega in the District of Pudozhsky featuring a total of over 1,200 figures and 3,411 figures in 11 groups by the White Sea in the District of Belomorsky. The rock art figures at Lake Onega mostly represents birds, animals, half human and half animal figures as well as geometric shapes that may be symbols of the moon and the sun. The petroglyphs of the White Sea are mostly composed of carvings depicting hunting and sailing scenes including their related equipment as well as animal and human footprints. They show significant artistic qualities and testify to the creativity of the Stone Age. The petroglyphs are associated with sites including settlements and burial grounds.",
     "latitude": 61.7299,
-    "longitude": 36.0126388889
+    "longitude": 36.0126388889,
+    "nameTr": "Onega Gölü ve Beyaz Deniz Petroglifleri",
+    "descriptionTr": "Alan, Rusya Federasyonu'na bağlı Karelya Cumhuriyeti'nde bulunan ve Neolitik dönemde, yaklaşık 6-7 bin yıl önce kayalara oyulmuş 4.500 petroglif içerir. Fennoskandiya'daki Neolitik kültürü belgeleyen petroglifleriyle Avrupa'daki bu türden en büyük alanlardan biridir. Seri alan, birbirinden 300 km uzaklıktaki iki bileşen parçada 33 kaya sanatı panelini kapsar: Pudozhsky Bölgesi'ndeki Onega Gölü'nde toplam 1.200'den fazla figür içeren 22 petroglif grubu ve Belomorsky Bölgesi'nde Beyaz Deniz kıyısında 11 grupta 3.411 figür. Onega Gölü'ndeki kaya sanatı figürleri çoğunlukla kuşları, hayvanları, yarı insan yarı hayvan figürleri ve ay ile güneşin sembolleri olabilecek geometrik şekilleri temsil eder. Beyaz Deniz petrogliflerinin çoğu ise avlanma ve denizcilik sahnelerini, bunlarla ilgili ekipmanı, ayrıca hayvan ve insan ayak izlerini tasvir eden oymalardan oluşur. Önemli sanatsal niteliklere sahiptirler ve Taş Çağı'nın yaratıcılığına tanıklık ederler. Petroglifler yerleşimleri ve mezarlıkları da içeren alanlarla ilişkilidir."
   },
   {
     "id": "7f863145-aa2a-5460-88cc-9d7b32c3619e",
@@ -2799,7 +2869,9 @@
     "category": "Cultural",
     "description": "Located in the Southern Ural Mountains of Bashkortostan, the Shulgan-Tash Cave contains extensive Late Palaeolithic rock art. Set within a karst massif near the Belaya and Shulgan Rivers, it features large halls and deep chambers across two levels. The paintings depict steppe fauna—mammoths, woolly rhinoceroses, bison, horses, and a Bactrian camel—alongside anthropomorphic figures, abstract signs, and geometric motifs like the “Kapova trapezoids.” Archaeological finds offer insights into the artistic process and domestic life of its prehistoric inhabitants.",
     "latitude": 53.0494444444,
-    "longitude": 57.0720277778
+    "longitude": 57.0720277778,
+    "nameTr": "Shulgan-Tash Mağarası Kaya Resimleri",
+    "descriptionTr": "Başkurdistan'ın Güney Ural Dağları'nda yer alan Shulgan-Tash Mağarası, kapsamlı bir Geç Paleolitik kaya sanatı içerir. Belaya ve Shulgan nehirlerinin yakınındaki bir karstik masifin içinde yer alan mağara, iki seviyeye yayılan büyük salonlara ve derin odalara sahiptir. Resimler bozkır faunasını (mamutları, tüylü gergedanları, bizonları, atları ve bir Baktriya devesini) insan biçimli figürlerle, soyut işaretlerle ve 'Kapova yamukları' gibi geometrik motiflerle birlikte tasvir eder. Arkeolojik buluntular, tarih öncesi sakinlerinin sanatsal sürecine ve gündelik yaşamına dair fikir verir."
   },
   {
     "id": "87dc3301-301d-5ebe-8f76-6a4c2f135f9f",
@@ -2808,7 +2880,9 @@
     "category": "Natural",
     "description": "The Virgin Komi Forests cover 3.28 million ha of tundra and mountain tundra in the Urals, as well as one of the most extensive areas of virgin boreal forest remaining in Europe. This vast area of conifers, aspens, birches, peat bogs, rivers and natural lakes has been monitored and studied for over 50 years. It provides valuable evidence of the natural processes affecting biodiversity in the taiga.",
     "latitude": 63.6258333333,
-    "longitude": 58.9525
+    "longitude": 58.9525,
+    "nameTr": "Bakir Komi Ormanları",
+    "descriptionTr": "Bakir Komi Ormanları, Urallar'da 3,28 milyon hektarlık tundra ve dağ tundrasını, ayrıca Avrupa'da kalan en geniş bakir boreal orman alanlarından birini kapsar. Kozalaklı ağaçlardan, titrek kavaklardan, huş ağaçlarından, turba bataklıklarından, nehirlerden ve doğal göllerden oluşan bu geniş alan, 50 yılı aşkın süredir izlenmekte ve incelenmektedir. Tayga'daki biyoçeşitliliği etkileyen doğal süreçlere dair değerli kanıtlar sunar."
   },
   {
     "id": "114ac883-79d1-5f78-a3de-83160665c238",
@@ -2817,7 +2891,9 @@
     "category": "Cultural",
     "description": "These two artistic centres in central Russia hold an important place in the country's architectural history. There are a number of magnificent 12th- and 13th-century public and religious buildings, above all the masterpieces of the Collegiate Church of St Demetrios and the Cathedral of the Assumption of the Virgin.",
     "latitude": 56.15,
-    "longitude": 40.41666667
+    "longitude": 40.41666667,
+    "nameTr": "Vladimir ve Suzdal Beyaz Anıtları",
+    "descriptionTr": "Orta Rusya'daki bu iki sanat merkezi, ülkenin mimari tarihinde önemli bir yere sahiptir. 12. ve 13. yüzyıllara ait çok sayıda görkemli kamusal ve dinî yapı vardır; bunların başında Aziz Demetrios Kapitül Kilisesi ile Meryem'in Göğe Alınışı (Varsayım) Katedrali'nin başyapıtları gelir."
   },
   {
     "id": "a48267ca-8c7d-586a-961d-67969a598cd1",
@@ -2853,7 +2929,9 @@
     "category": "Cultural",
     "description": "The Late Roman fortified palace compound and memorial complex of Gamzigrad-Romuliana, Palace of Galerius, in the east of Serbia, was commissioned by Emperor Caius Valerius Galerius Maximianus, in the late 3rd and early 4th centuries. It was known as Felix Romuliana, named after the emperor’s mother. The site consists of fortifications, the palace in the north-western part of the complex, basilicas, temples, hot baths, memorial complex, and a tetrapylon. The group of buildings is also unique in its intertwining of ceremonial and memorial functions.",
     "latitude": 43.8993055556,
-    "longitude": 22.1861111111
+    "longitude": 22.1861111111,
+    "nameTr": "Gamzigrad-Romuliana, Galerius Sarayı",
+    "descriptionTr": "Sırbistan'ın doğusundaki Gamzigrad-Romuliana, Galerius Sarayı'nın Geç Roma dönemine ait surlu saray külliyesi ve anıt kompleksi, İmparator Caius Valerius Galerius Maximianus tarafından 3. yüzyılın sonu ile 4. yüzyılın başında yaptırılmıştır. İmparatorun annesinin adından esinlenerek Felix Romuliana olarak bilinirdi. Alan; surlardan, kompleksin kuzeybatı kesimindeki saraydan, bazilikalardan, tapınaklardan, sıcak hamamlardan, anıt kompleksinden ve bir tetrapilondan oluşur. Yapılar grubu, törensel ve anma işlevlerinin iç içe geçmesi bakımından da eşsizdir."
   },
   {
     "id": "d314d146-9e9f-57bb-b8f3-7a9322216feb",
@@ -2871,7 +2949,9 @@
     "category": "Cultural",
     "description": "The four edifices of the site reflect the high points of the Byzantine-Romanesque ecclesiastical culture, with its distinct style of wall painting, which developed in the Balkans between the 13th and 17th centuries. The Dečani Monastery was built in the mid-14th century for the Serbian king Stefan Dečanski and is also his mausoleum. The Patriarchate of Peć Monastery is a group of four domed churches featuring series of wall paintings. The 13th-century frescoes of the Church of Holy Apostles are painted in a unique, monumental style. Early 14th-century frescoes in the church of the Holy Virgin of Ljevisa represent the appearance of the new so-called Palaiologian Renaissance style, combining the influences of the eastern Orthodox Byzantine and the Western Romanesque traditions. The style played a decisive role in subsequent Balkan art.",
     "latitude": 42.6611111111,
-    "longitude": 20.2655555555
+    "longitude": 20.2655555555,
+    "nameTr": "Kosova'daki Ortaçağ Anıtları",
+    "descriptionTr": "Alanın dört yapısı, Balkanlar'da 13. ile 17. yüzyıllar arasında gelişen, kendine özgü duvar resmi üslubuna sahip Bizans-Romanesk dinî kültürünün zirve noktalarını yansıtır. Dečani Manastırı, 14. yüzyılın ortasında Sırp kralı Stefan Dečanski için inşa edilmiştir ve aynı zamanda onun mozolesidir. Peć Patrikhanesi Manastırı, bir dizi duvar resmi içeren dört kubbeli kiliseden oluşan bir gruptur. Kutsal Havariler Kilisesi'nin 13. yüzyıl freskleri, eşsiz ve anıtsal bir üslupla yapılmıştır. Ljeviša'daki Kutsal Bakire Kilisesi'nin 14. yüzyıl başı freskleri, doğu Ortodoks Bizans ve Batı Romanesk geleneklerinin etkilerini birleştiren, Palaiologos Rönesansı denen yeni üslubun ortaya çıkışını temsil eder. Bu üslup sonraki Balkan sanatında belirleyici bir rol oynamıştır."
   },
   {
     "id": "b942267f-4e21-5145-9d08-943d617cef21",
@@ -3431,7 +3511,9 @@
     "category": "Cultural",
     "description": "The city of L''viv, founded in the late Middle Ages, was a flourishing administrative, religious and commercial centre for several centuries. The medieval urban topography has been preserved virtually intact (in particular, there is evidence of the different ethnic communities who lived there), along with many fine Baroque and later buildings.",
     "latitude": 49.84163,
-    "longitude": 24.03198
+    "longitude": 24.03198,
+    "nameTr": "Lviv – Tarihi Merkez Topluluğu",
+    "descriptionTr": "Geç Orta Çağ'da kurulan Lviv kenti, birkaç yüzyıl boyunca gelişen bir idari, dinî ve ticari merkezdi. Ortaçağ kent topografyası (özellikle orada yaşamış farklı etnik toplulukların kanıtlarıyla birlikte), çok sayıdaki güzel Barok ve sonraki dönem yapılarıyla birlikte neredeyse bozulmamış olarak korunmuştur."
   },
   {
     "id": "4d97dff0-a8b4-50e9-8334-feeed5dc6a5a",
@@ -3440,7 +3522,9 @@
     "category": "Cultural",
     "description": "Designed to rival Hagia Sophia in Constantinople, Kyiv's Saint-Sophia Cathedral symbolizes the 'new Constantinople', capital of the Christian principality of Kyiv, which was created in the 11th century in a region evangelized after the baptism of St Vladimir in 988. The spiritual and intellectual influence of Kyiv-Pechersk Lavra contributed to the spread of Orthodox thought and the Orthodox faith in the Russian world from the 17th to the 19th century.",
     "latitude": 50.45258,
-    "longitude": 30.51686
+    "longitude": 30.51686,
+    "nameTr": "Kyiv: Aziz Sofya Katedrali ve İlgili Manastır Yapıları, Kyiv-Pechersk Lavra'sı",
+    "descriptionTr": "Konstantinopolis'teki Ayasofya'ya rakip olacak biçimde tasarlanan Kyiv'deki Aziz Sofya Katedrali, 988'de Aziz Vladimir'in vaftizinin ardından Hristiyanlaştırılan bir bölgede 11. yüzyılda kurulan Kyiv Hristiyan prensliğinin başkenti 'yeni Konstantinopolis'i simgeler. Kyiv-Pechersk Lavra'sının manevi ve entelektüel etkisi, 17. yüzyıldan 19. yüzyıla kadar Rus dünyasında Ortodoks düşüncenin ve Ortodoks inancının yayılmasına katkıda bulunmuştur."
   },
   {
     "id": "a7634fbb-016f-5880-8542-328ffbeda3a0",
@@ -3449,7 +3533,9 @@
     "category": "Cultural",
     "description": "The Residence of Bukovinian and Dalmatian Metropolitans represents a masterful synergy of architectural styles built by Czech architect Josef Hlavka from 1864 to 1882. The property, an outstanding example of 19th-century historicist architecture, also includes a seminary and monastery and is dominated by the domed, cruciform Seminary Church with a garden and park. The complex expresses architectural and cultural influences from the Byzantine period onward and embodies the powerful presence of the Orthodox Church during Habsburg rule, reflecting the Austro-Hungarian Empire policy of religious tolerance.",
     "latitude": 48.2966666667,
-    "longitude": 25.9247222222
+    "longitude": 25.9247222222,
+    "nameTr": "Bukovina ve Dalmaçya Metropolitlerinin Konutu",
+    "descriptionTr": "Bukovina ve Dalmaçya Metropolitlerinin Konutu, Çek mimar Josef Hlávka tarafından 1864 ile 1882 arasında inşa edilmiş, mimari üslupların ustaca bir sentezini temsil eder. 19. yüzyıl tarihselci mimarisinin olağanüstü bir örneği olan alan ayrıca bir ruhban okulu ve manastır içerir; bahçe ve parkla birlikte kubbeli, haç planlı Ruhban Okulu Kilisesi'nin hâkimiyetindedir. Kompleks, Bizans döneminden itibaren mimari ve kültürel etkileri ifade eder ve Habsburg yönetimi sırasında Ortodoks Kilisesi'nin güçlü varlığını somutlaştırarak Avusturya-Macaristan İmparatorluğu'nun dinî hoşgörü politikasını yansıtır."
   },
   {
     "id": "8daf9fb8-576c-5fd2-a842-cdb8004f147c",
@@ -3467,7 +3553,9 @@
     "category": "Cultural",
     "description": "The Historic Center of Odesa, part of the Black Sea port city developed on the site of Khadzhybei, is a densely built-up area, planned according to classicism canons, characterized by two- to four-storey buildings and wide perpendicular streets lined with trees. Historic buildings reflect the rapid economic development of the city in the 19th and early 20th centuries. The site includes theatres, bridges, monuments, religious buildings, schools, private palaces and tenement houses, clubs, hotels, banks, shopping centres, warehouses, stock exchanges and other public and administrative buildings designed by architects and engineers, mostly from Italy in the early years, but also of other nationalities. Eclecticism is the dominant feature of the historic city centre’s architecture. The site bears witness to the city’s highly diverse ethnic and religious communities, representing an outstanding example of intercultural exchanges and the growth of multicultural and multi-ethnic Eastern European cities of the 19th century.",
     "latitude": 46.48645,
-    "longitude": 30.7416138889
+    "longitude": 30.7416138889,
+    "nameTr": "Odesa Tarihi Merkezi",
+    "descriptionTr": "Hacıbey (Khadzhybei) yerleşiminin üzerinde gelişen Karadeniz liman kenti Odesa'nın bir parçası olan Odesa Tarihi Merkezi, klasisizm kanonlarına göre planlanmış, iki ile dört katlı binalar ve ağaçlarla çevrili geniş dik sokaklarla karakterize edilen yoğun yapılaşmış bir alandır. Tarihî binalar, kentin 19. yüzyılda ve 20. yüzyılın başlarında yaşadığı hızlı ekonomik gelişmeyi yansıtır. Alan; tiyatroları, köprüleri, anıtları, dinî yapıları, okulları, özel sarayları ve apartman bloklarını, kulüpleri, otelleri, bankaları, alışveriş merkezlerini, depoları, borsaları ve ilk yıllarda çoğunlukla İtalya'dan, ancak başka uluslardan da gelen mimarlar ve mühendisler tarafından tasarlanan diğer kamu ve idari binaları içerir. Eklektisizm, tarihî kent merkezi mimarisinin baskın özelliğidir. Alan, kentin son derece çeşitli etnik ve dinî topluluklarına tanıklık eder ve 19. yüzyıl Doğu Avrupa'sının çok kültürlü ve çok etnikli kentlerinin büyümesinin ve kültürlerarası alışverişin olağanüstü bir örneğini oluşturur."
   },
   {
     "id": "77942949-8c63-5685-afe5-c7e21bcbab10",
@@ -3978,7 +4066,9 @@
     "category": "Cultural",
     "description": "This serial property of 111 small individual sites encompasses the remains of prehistoric pile-dwelling (or stilt house) settlements in and around the Alps built from around 5000 to 500 B.C. on the edges of lakes, rivers or wetlands. Excavations, only conducted in some of the sites, have yielded evidence that provides insight into life in prehistoric times during the Neolithic and Bronze Age in Alpine Europe and the way communities interacted with their environment. Fifty-six of the sites are located in Switzerland. The settlements are a unique group of exceptionally well-preserved and culturally rich archaeological sites, which constitute one of the most important sources for the study of early agrarian societies in the region.",
     "latitude": 47.2783333333,
-    "longitude": 8.2075
+    "longitude": 8.2075,
+    "nameTr": "Alpler Çevresindeki Tarih Öncesi Kazıklı Konutlar",
+    "descriptionTr": "111 küçük bireysel alandan oluşan bu seri alan, Alpler'de ve çevresinde, göllerin, nehirlerin veya sulak alanların kıyısında yaklaşık M.Ö. 5000 ile 500 arasında inşa edilmiş tarih öncesi kazıklı konut (veya kazık ev) yerleşimlerinin kalıntılarını kapsar. Yalnızca bazı alanlarda yapılan kazılar, Alp Avrupası'nda Neolitik ve Tunç Çağı'ndaki tarih öncesi yaşam ve toplulukların çevreleriyle etkileşim biçimi hakkında fikir veren kanıtlar ortaya çıkarmıştır. Alanların elli altısı İsviçre'dedir. Yerleşimler, olağanüstü iyi korunmuş ve kültürel açıdan zengin, bölgedeki erken tarım toplumlarının incelenmesi için en önemli kaynaklardan birini oluşturan eşsiz bir arkeolojik alan grubudur."
   },
   {
     "id": "a6ba41d6-8eb1-5e86-8396-aa73618898c5",
@@ -4831,7 +4921,9 @@
     "category": "Cultural",
     "description": "This transnational serial property comprises four congregational settlements in four countries representing the transnational scope and consistency of the international Moravian community as a global network of the Moravian Church: Christiansfeld (Denmark), Herrnhut (Germany), Gracehill (United Kingdom of Great Britain and Northern Ireland) and Bethlehem (United States of America). These settlements were established according to overarching planning principles that reflected the ideals of the Moravian Church, as expressed in their plans and democratic organisation. Each architectural ensemble bears witness to the Moravian Church’s vision of a unified, coherent urban design, inspired by the concept of an “ideal city” developed by the Church during its formative phase in the 18th and beginning of the 19th enturies. Distinctive Moravian buildings include a particular type of Gemeinhaus (congregation building), church, choir houses, as well as a nearby God’s Acre (cemetery). Each settlement has its own architectural character based on an original Moravian Church Civic Baroque style but adapted to local conditions. Present today in each component part is an active congregation whose continuation of traditions forms a living Moravian heritage.",
     "latitude": 55.3555555556,
-    "longitude": 9.4813888889
+    "longitude": 9.4813888889,
+    "nameTr": "Moravya Kilisesi Yerleşimleri",
+    "descriptionTr": "Sınır aşan bu seri alan, Moravya Kilisesi'nin küresel bir ağ olarak uluslararası Moravya topluluğunun sınır aşan kapsamını ve tutarlılığını temsil eden, dört ülkedeki dört cemaat yerleşiminden oluşur: Christiansfeld (Danimarka), Herrnhut (Almanya), Gracehill (Birleşik Krallık) ve Bethlehem (Amerika Birleşik Devletleri). Bu yerleşimler, planlarında ve demokratik örgütlenmelerinde ifade edilen, Moravya Kilisesi'nin ideallerini yansıtan kapsayıcı planlama ilkelerine göre kurulmuştur. Her mimari topluluk, Kilise'nin 18. yüzyıl ile 19. yüzyılın başındaki oluşum döneminde geliştirdiği 'ideal kent' kavramından esinlenen, birleşik ve tutarlı bir kentsel tasarım vizyonuna tanıklık eder. Moravya'ya özgü yapılar arasında belirli bir Gemeinhaus (cemaat binası) türü, kilise, koro evleri ve yakındaki bir Tanrı'nın Bahçesi (mezarlık) yer alır. Her yerleşim, özgün Moravya Kilisesi Sivil Barok üslubuna dayanan ancak yerel koşullara uyarlanmış kendi mimari karakterine sahiptir. Bugün her bileşen parçada, geleneklerini sürdüren ve yaşayan bir Moravya mirası oluşturan etkin bir cemaat bulunmaktadır."
   },
   {
     "id": "30e7bdbc-f4d0-5740-8c20-c0f8ea4e42f5",
@@ -5164,7 +5256,9 @@
     "category": "Cultural",
     "description": "The archaeological site of Hedeby consists of the remains of an emporium – or trading town – containing traces of roads, buildings, cemeteries and a harbour dating back to the 1st and early 2nd millennia CE. It is enclosed by part of the Danevirke, a line of fortification crossing the Schleswig isthmus, which separates the Jutland Peninsula from the rest of the European mainland. Because of its unique situation between the Frankish Empire in the South and the Danish Kingdom in the North, Hedeby became a trading hub between continental Europe and Scandinavia and between the North Sea and the Baltic Sea. Because of its rich and well preserved archaeological material, it has become a key site for the interpretation of economic, social and historical developments in Europe during the Viking age.",
     "latitude": 54.4619444444,
-    "longitude": 9.4541111111
+    "longitude": 9.4541111111,
+    "nameTr": "Hedeby ve Danevirke Arkeolojik Sınır Kompleksi",
+    "descriptionTr": "Hedeby arkeolojik alanı, M.S. 1. ve 2. binyılın başlarına uzanan yol, bina, mezarlık ve liman izleri içeren bir emporium'un, yani ticaret kasabasının kalıntılarından oluşur. Alan, Jutland Yarımadası'nı Avrupa anakarasının geri kalanından ayıran Schleswig kıstağını kesen bir tahkimat hattı olan Danevirke'nin bir bölümüyle çevrilidir. Güneydeki Frank İmparatorluğu ile kuzeydeki Danimarka Krallığı arasındaki eşsiz konumu nedeniyle Hedeby, kıta Avrupası ile İskandinavya arasında ve Kuzey Denizi ile Baltık Denizi arasında bir ticaret merkezi haline geldi. Zengin ve iyi korunmuş arkeolojik malzemesi sayesinde, Viking Çağı'nda Avrupa'daki ekonomik, toplumsal ve tarihsel gelişmelerin yorumlanması için anahtar bir alan olmuştur."
   },
   {
     "id": "f9a13495-1c3d-5fc0-8ac5-bd7fa838ff29",
@@ -5173,14 +5267,18 @@
     "category": "Cultural",
     "description": "Between 1919 and 1933 the Bauhaus movement revolutionized architectural and aesthetic thinking and practice in the 20th century. The Bauhaus buildings in Weimar, Dessau and Bernau are fundamental representatives of Classical Modernism, directed towards a radical renewal of architecture and design. This property, which was inscribed on the World Heritage List in 1996, originally comprised buildings located in Weimar (Former Art School, the Applied Art School and the Haus Am Horn) and Dessau (Bauhaus Building, the group of seven Masters' Houses). The 2017 extension includes the Houses with Balcony Access in Dessau and the ADGB Trade Union School in Bernau as important contributions to the Bauhaus ideas of austere design, functionalism and social reform.",
     "latitude": 50.9747777778,
-    "longitude": 11.3295
+    "longitude": 11.3295,
+    "nameTr": "Weimar, Dessau ve Bernau'daki Bauhaus ve Alanları",
+    "descriptionTr": "1919 ile 1933 arasında Bauhaus hareketi, 20. yüzyılda mimari ve estetik düşünceyi ve uygulamayı kökten değiştirdi. Weimar, Dessau ve Bernau'daki Bauhaus binaları, mimari ve tasarımda köklü bir yenilenmeyi hedefleyen Klasik Modernizm'in temel temsilcileridir. 1996'da Dünya Mirası Listesi'ne alınan bu alan, başlangıçta Weimar'daki (Eski Sanat Okulu, Uygulamalı Sanatlar Okulu ve Haus Am Horn) ve Dessau'daki (Bauhaus Binası, yedi Usta Evi grubu) binalardan oluşuyordu. 2017'deki genişletme, Bauhaus'un sade tasarım, işlevselcilik ve toplumsal reform fikirlerine önemli katkılar olarak Dessau'daki Balkon Erişimli Evler'i ve Bernau'daki ADGB Sendika Okulu'nu da kapsar."
   },
   {
     "id": "67750fdb-0f32-54c8-ad8d-8fdefb55e777",
     "name": "Berlin Modernism Housing Estates",
     "country": "Germany",
     "category": "Cultural",
-    "description": "Waldsiedlung Zehlendorf (the Zehlendorf forest estate), built between 1926 and 1932 in Berlin, is one of the largest modernist housing estates in Germany. This estate comprises multi-storey apartment buildings and single-family row houses, retail units, a railway station with shopping arcades, and green spaces. Inscribed as an extension to the World Heritage serial property ‘Berlin Modernism Housing Estates’, it complements and contributes to the series by representing a different example of modernist housing estates, characterised by its integration into the wooded landscape, the development of transportation infrastructure, an exclusive use of flat roofs, specific colour principles, and a sculptural façade design. Together with this extension, the series provides a comprehensive illustration of the global housing reform movement of the early 20th century."
+    "description": "Waldsiedlung Zehlendorf (the Zehlendorf forest estate), built between 1926 and 1932 in Berlin, is one of the largest modernist housing estates in Germany. This estate comprises multi-storey apartment buildings and single-family row houses, retail units, a railway station with shopping arcades, and green spaces. Inscribed as an extension to the World Heritage serial property ‘Berlin Modernism Housing Estates’, it complements and contributes to the series by representing a different example of modernist housing estates, characterised by its integration into the wooded landscape, the development of transportation infrastructure, an exclusive use of flat roofs, specific colour principles, and a sculptural façade design. Together with this extension, the series provides a comprehensive illustration of the global housing reform movement of the early 20th century.",
+    "nameTr": "Berlin Modernizm Konut Siteleri",
+    "descriptionTr": "1926 ile 1932 arasında Berlin'de inşa edilen Waldsiedlung Zehlendorf (Zehlendorf orman sitesi), Almanya'nın en büyük modernist konut sitelerinden biridir. Site; çok katlı apartman binalarından ve tek aileli sıra evlerden, ticari birimlerden, alışveriş pasajlı bir tren istasyonundan ve yeşil alanlardan oluşur. 'Berlin Modernizm Konut Siteleri' seri Dünya Mirası alanına genişletme olarak eklenen site; ormanlık peyzaja entegrasyonu, ulaşım altyapısının gelişimi, yalnızca düz çatı kullanımı, belirli renk ilkeleri ve heykelsi cephe tasarımıyla karakterize edilen farklı bir modernist konut sitesi örneğini temsil ederek seriyi tamamlar ve ona katkıda bulunur. Bu genişletmeyle birlikte seri, 20. yüzyılın başındaki küresel konut reformu hareketinin kapsamlı bir resmini sunar."
   },
   {
     "id": "51cf0827-c6fb-55ef-a643-18ea13a6e14c",
@@ -5189,7 +5287,9 @@
     "category": "Cultural",
     "description": "Modern humans first arrived in Europe 43,000 years ago during the last ice age. One of the areas where they took up residence was the Swabian Jura in southern Germany. Excavated from the 1860s, six caves have revealed items dating from 43,000 to 33,000 years ago. Among them are carved figurines of animals (including cave lions, mammoths, horses and bovids), musical instruments and items of personal adornment. Other figurines depict creatures that are half animal, half human and there is one statuette of a woman. These archaeological sites feature some of the oldest figurative art worldwide and help shed light on the origins of human artistic development.",
     "latitude": 48.3877777778,
-    "longitude": 9.7655555556
+    "longitude": 9.7655555556,
+    "nameTr": "Schwaben Jurası'ndaki Mağaralar ve Buz Çağı Sanatı",
+    "descriptionTr": "Modern insanlar Avrupa'ya ilk kez 43.000 yıl önce, son buz çağında geldi. Yerleştikleri bölgelerden biri güney Almanya'daki Schwaben Jurası'ydı. 1860'lardan itibaren kazılan altı mağara, 43.000 ila 33.000 yıl öncesine tarihlenen eserleri ortaya çıkardı. Bunlar arasında hayvan figürinleri (mağara aslanları, mamutlar, atlar ve sığırgiller dahil), müzik aletleri ve kişisel süs eşyaları bulunur. Diğer figürinler yarı hayvan yarı insan yaratıkları tasvir eder; ayrıca bir de kadın heykelciği vardır. Bu arkeolojik alanlar dünyanın en eski figüratif sanat örneklerinden bazılarını barındırır ve insanın sanatsal gelişiminin kökenlerine ışık tutar."
   },
   {
     "id": "98c86c10-998f-593b-b7c7-2ac88ec09699",
@@ -5198,7 +5298,9 @@
     "category": "Cultural",
     "description": "Fagus Factory in Alfeld is a 10-building complex - began around 1910 to the design of Walter Gropius, which is a landmark in the development of modern architecture and industrial design. Serving all stages of manufacture, storage and dispatch of lasts used by the shoe industry, the complex, which is still operational today, is situated in Alfeld an der Leine in Lower Saxony. With its groundbreaking vast expanses of glass panels and functionalist aesthetics, the complex foreshadowed the work of the Bauhaus school and is a landmark in the development of architecture in Europe and North America.",
     "latitude": 51.9838888889,
-    "longitude": 9.8122222222
+    "longitude": 9.8122222222,
+    "nameTr": "Alfeld'deki Fagus Fabrikası",
+    "descriptionTr": "Alfeld'deki Fagus Fabrikası, 1910 dolaylarında Walter Gropius'un tasarımıyla başlayan, modern mimari ve endüstriyel tasarımın gelişiminde bir dönüm noktası olan 10 binalı bir komplekstir. Ayakkabı endüstrisinde kullanılan kalıpların üretim, depolama ve sevkiyatının tüm aşamalarına hizmet eden ve bugün hâlâ faaliyette olan kompleks, Aşağı Saksonya'da Leine kıyısındaki Alfeld'de yer alır. Çığır açan geniş cam yüzeyleri ve işlevselci estetiğiyle kompleks, Bauhaus okulunun çalışmalarının habercisi olmuş ve Avrupa ile Kuzey Amerika'da mimarinin gelişiminde bir dönüm noktası oluşturmuştur."
   },
   {
     "id": "9116622c-9d76-5f0c-b513-e8f4eb1e3d8a",
@@ -5207,7 +5309,9 @@
     "category": "Cultural",
     "description": "The ‘Roman Limes’ represents the border line of the Roman Empire at its greatest extent in the 2nd century AD. It stretched over 5,000 km from the Atlantic coast of northern Britain, through Europe to the Black Sea, and from there to the Red Sea and across North Africa to the Atlantic coast. The remains of the Limes today consist of vestiges of built walls, ditches, forts, fortresses, watchtowers and civilian settlements. Certain elements of the line have been excavated, some reconstructed and a few destroyed. The two sections of the Limes in Germany cover a length of 550 km from the north-west of the country to the Danube in the south-east. The 118-km-long Hadrian’s Wall (UK) was built on the orders of the Emperor Hadrian c. AD 122 at the northernmost limits of the Roman province of Britannia. It is a striking example of the organization of a military zone and illustrates the defensive techniques and geopolitical strategies of ancient Rome. The Antonine Wall, a 60-km long fortification in Scotland was started by Emperor Antonius Pius in 142 AD as a defense against the “barbarians” of the north. It constitutes the northwestern-most portion of the Roman Limes.",
     "latitude": 54.9926111111,
-    "longitude": -2.601
+    "longitude": -2.601,
+    "nameTr": "Roma İmparatorluğu Sınırları",
+    "descriptionTr": "'Roma Limesi', Roma İmparatorluğu'nun M.S. 2. yüzyılda en geniş hâlindeki sınır hattını temsil eder. Kuzey Britanya'nın Atlantik kıyısından Avrupa boyunca Karadeniz'e, oradan Kızıldeniz'e ve Kuzey Afrika boyunca Atlantik kıyısına kadar 5.000 km'den fazla uzanıyordu. Limes'in bugünkü kalıntıları; inşa edilmiş duvarların, hendeklerin, kalelerin, tahkimatların, gözetleme kulelerinin ve sivil yerleşimlerin izlerinden oluşur. Hattın bazı unsurları kazılmış, bazıları yeniden inşa edilmiş, birkaçı ise yok olmuştur. Limes'in Almanya'daki iki kesimi, ülkenin kuzeybatısından güneydoğudaki Tuna'ya kadar 550 km uzunluğu kapsar. 118 km uzunluğundaki Hadrianus Duvarı (Birleşik Krallık), İmparator Hadrianus'un emriyle yaklaşık M.S. 122'de Britannia eyaletinin en kuzey sınırlarında inşa edilmiştir. Bir askerî bölgenin örgütlenişinin çarpıcı bir örneğidir ve antik Roma'nın savunma tekniklerini ve jeopolitik stratejilerini gözler önüne serer. İskoçya'daki 60 km uzunluğundaki bir tahkimat olan Antoninus Duvarı ise İmparator Antoninus Pius tarafından M.S. 142'de kuzeyin 'barbarlarına' karşı bir savunma olarak başlatılmıştır. Roma Limesi'nin en kuzeybatıdaki bölümünü oluşturur."
   },
   {
     "id": "74ac43c2-9953-54a9-9bea-b9577fd055ae",
@@ -5216,7 +5320,9 @@
     "category": "Cultural",
     "description": "The medieval towns of Wismar and Stralsund, on the Baltic coast of northern Germany, were major trading centres of the Hanseatic League in the 14th and 15th centuries. In the 17th and 18th centuries they became Swedish administrative and defensive centres for the German territories. They contributed to the development of the characteristic building types and techniques of Brick Gothic in the Baltic region, as exemplified in several important brick cathedrals, the Town Hall of Stralsund, and the series of houses for residential, commercial and crafts use, representing its evolution over several centuries.",
     "latitude": 54.3025,
-    "longitude": 13.08527778
+    "longitude": 13.08527778,
+    "nameTr": "Stralsund ve Wismar Tarihi Merkezleri",
+    "descriptionTr": "Kuzey Almanya'nın Baltık kıyısındaki ortaçağ kentleri Wismar ve Stralsund, 14. ve 15. yüzyıllarda Hansa Birliği'nin önemli ticaret merkezleriydi. 17. ve 18. yüzyıllarda Alman topraklarındaki İsveç idari ve savunma merkezleri haline geldiler. Baltık bölgesinde Tuğla Gotik'in karakteristik yapı türlerinin ve tekniklerinin gelişimine katkıda bulundular; bu durum birkaç önemli tuğla katedralde, Stralsund Belediye Binası'nda ve birkaç yüzyıl boyunca geçirdiği evrimi gösteren konut, ticaret ve zanaat amaçlı evler dizisinde görülür."
   },
   {
     "id": "cb863b6a-fb44-5e46-beaa-25ce0f181b71",
@@ -5225,7 +5331,9 @@
     "category": "Cultural",
     "description": "Located in the eastern part of the Thuringian Basin, the Cathedral of Naumburg, whose construction began in 1028, is an outstanding testimony to medieval art and architecture. Its Romanesque structure, flanked by two Gothic choirs, demonstrates the stylistic transition from late Romanesque to early Gothic. The west choir, dating to the first half of the 13th century, reflects changes in religious practice and the appearance of science and nature in the figurative arts. The choir and life-size sculptures of the founders of the Cathedral are masterpieces of the workshop known as the ‘Naumburg Master’.",
     "latitude": 51.1548055556,
-    "longitude": 11.804
+    "longitude": 11.804,
+    "nameTr": "Naumburg Katedrali",
+    "descriptionTr": "Thüringen Havzası'nın doğu kesiminde yer alan, inşasına 1028'de başlanan Naumburg Katedrali, ortaçağ sanatının ve mimarisinin olağanüstü bir tanığıdır. İki Gotik koronun yan yana yer aldığı Romanesk yapısı, geç Romanesk'ten erken Gotik'e üslup geçişini gösterir. 13. yüzyılın ilk yarısına tarihlenen batı korosu, dinî uygulamalardaki değişimleri ve figüratif sanatlarda bilimin ve doğanın ortaya çıkışını yansıtır. Koro ve katedralin kurucularının doğal boyutlardaki heykelleri, 'Naumburg Ustası' olarak bilinen atölyenin başyapıtlarıdır."
   },
   {
     "id": "23edad02-ef54-5bfd-bdf7-4ab9481c5712",
@@ -5234,7 +5342,9 @@
     "category": "Cultural",
     "description": "The island of Reichenau on Lake Constance preserves the traces of the Benedictine monastery, founded in 724, which exercised remarkable spiritual, intellectual and artistic influence. The churches of St Mary and Marcus, St Peter and St Paul, and St George, mainly built between the 9th and 11th centuries, provide a panorama of early medieval monastic architecture in central Europe. Their wall paintings bear witness to impressive artistic activity.",
     "latitude": 47.69872222,
-    "longitude": 9.061305556
+    "longitude": 9.061305556,
+    "nameTr": "Reichenau Manastır Adası",
+    "descriptionTr": "Konstanz Gölü'ndeki Reichenau Adası, 724'te kurulan ve dikkat çekici bir manevi, entelektüel ve sanatsal etki yaratan Benedikten manastırının izlerini korur. Çoğunlukla 9. ile 11. yüzyıllar arasında inşa edilen Aziz Meryem ve Marcus, Aziz Petrus ve Aziz Pavlus ile Aziz Georg kiliseleri, Orta Avrupa'daki erken ortaçağ manastır mimarisinin bir panoramasını sunar. Duvar resimleri etkileyici bir sanatsal faaliyete tanıklık eder."
   },
   {
     "id": "82b09a76-802c-5b92-acf4-c40450f3741d",
@@ -5243,7 +5353,9 @@
     "category": "Cultural",
     "description": "With 500 ha of parks and 150 buildings constructed between 1730 and 1916, Potsdam's complex of palaces and parks forms an artistic whole, whose eclectic nature reinforces its sense of uniqueness. It extends into the district of Berlin-Zehlendorf, with the palaces and parks lining the banks of the River Havel and Lake Glienicke. Voltaire stayed at the Sans-Souci Palace, built under Frederick II between 1745 and 1747.",
     "latitude": 52.4,
-    "longitude": 13.03333333
+    "longitude": 13.03333333,
+    "nameTr": "Potsdam ve Berlin Sarayları ve Parkları",
+    "descriptionTr": "500 hektarlık parkı ve 1730 ile 1916 arasında inşa edilen 150 binasıyla Potsdam'ın saray ve park kompleksi, eklektik doğasının benzersizlik duygusunu pekiştirdiği sanatsal bir bütün oluşturur. Kompleks, Havel Nehri ve Glienicke Gölü kıyılarını süsleyen saraylar ve parklarla Berlin-Zehlendorf semtine kadar uzanır. Voltaire, II. Friedrich döneminde 1745 ile 1747 arasında inşa edilen Sanssouci Sarayı'nda kalmıştır."
   },
   {
     "id": "454283b9-60ec-5c9e-a9a0-5b5497a458ec",
@@ -5252,7 +5364,9 @@
     "category": "Cultural",
     "description": "Trier, which stands on the Moselle River, was a Roman colony from the 1st century AD and then a great trading centre beginning in the next century. It became one of the capitals of the Tetrarchy at the end of the 3rd century, when it was known as the ‘second Rome’. The number and quality of the surviving monuments are an outstanding testimony to Roman civilization.",
     "latitude": 49.75,
-    "longitude": 6.633333333
+    "longitude": 6.633333333,
+    "nameTr": "Trier'deki Roma Anıtları, Aziz Petrus Katedrali ve Meryem Ana Kilisesi",
+    "descriptionTr": "Mosel Nehri üzerinde yer alan Trier, M.S. 1. yüzyıldan itibaren bir Roma kolonisiydi ve ardından gelen yüzyılın başlarından itibaren büyük bir ticaret merkezi oldu. 3. yüzyılın sonunda 'ikinci Roma' olarak anıldığı Tetrarşi'nin başkentlerinden biri haline geldi. Ayakta kalan anıtların sayısı ve niteliği, Roma medeniyetinin olağanüstü bir tanığıdır."
   },
   {
     "id": "9afc7871-c7b5-5387-904b-43609a9164b7",
@@ -5261,7 +5375,9 @@
     "category": "Cultural",
     "description": "St Michael's Church was built between 1010 and 1020 on a symmetrical plan with two apses that was characteristic of Ottonian Romanesque art in Old Saxony. Its interior, in particular the wooden ceiling and painted stucco-work, its famous bronze doors and the Bernward bronze column, are – together with the treasures of St Mary's Cathedral – of exceptional interest as examples of the Romanesque churches of the Holy Roman Empire.",
     "latitude": 52.15278,
-    "longitude": 9.94389
+    "longitude": 9.94389,
+    "nameTr": "Hildesheim'daki Aziz Meryem Katedrali ve Aziz Mikail Kilisesi",
+    "descriptionTr": "Aziz Mikail Kilisesi, Eski Saksonya'daki Otto dönemi Romanesk sanatının karakteristik özelliği olan, iki apsisli simetrik bir plan üzerine 1010 ile 1020 arasında inşa edilmiştir. İç mekânı, özellikle ahşap tavanı ve boyalı alçı işlemeleri, ünlü bronz kapıları ve Bernward bronz sütunu, Aziz Meryem Katedrali'nin hazineleriyle birlikte Kutsal Roma İmparatorluğu'nun Romanesk kiliselerinin örnekleri olarak istisnai bir ilgi uyandırır."
   },
   {
     "id": "1d4f4dbf-6444-5549-992a-7f7d84d36b73",
@@ -5270,7 +5386,9 @@
     "category": "Cultural",
     "description": "Speicherstadt and the adjacent Kontorhaus district are two densely built urban areas in the centre of the port city of Hamburg. Speicherstadt, originally developed on a group of narrow islands in the Elbe River between 1885 and 1927, was partly rebuilt from 1949 to 1967. It is one of the largest coherent historic ensembles of port warehouses in the world (300,000 m2). It includes 15 very large warehouse blocks as well as six ancillary buildings and a connecting network of short canals. Adjacent to the modernist Chilehaus office building, the Kontorhaus district is an area of over five hectares featuring six very large office complexes built from the 1920s to the 1940s to house port-related businesses. The complex exemplifies the effects of the rapid growth in international trade in the late 19th and early 20th centuries.",
     "latitude": 53.5455555556,
-    "longitude": 9.9994444444
+    "longitude": 9.9994444444,
+    "nameTr": "Speicherstadt ve Chilehaus'lu Kontorhaus Mahallesi",
+    "descriptionTr": "Speicherstadt ve bitişikteki Kontorhaus mahallesi, liman kenti Hamburg'un merkezindeki, yoğun yapılaşmış iki kentsel alandır. 1885 ile 1927 arasında Elbe Nehri üzerindeki bir grup dar ada üzerinde geliştirilen Speicherstadt, 1949 ile 1967 arasında kısmen yeniden inşa edilmiştir. Dünyanın en büyük bütünlüklü tarihî liman ambarı topluluklarından biridir (300.000 m²). 15 çok büyük ambar bloğunu, altı yardımcı yapıyı ve kısa kanallardan oluşan bağlantılı bir ağı içerir. Modernist Chilehaus ofis binasına bitişik olan Kontorhaus mahallesi, 1920'lerden 1940'lara kadar limanla ilgili işletmeleri barındırmak için inşa edilmiş altı çok büyük ofis kompleksinin yer aldığı, beş hektarı aşan bir alandır. Kompleks, 19. yüzyılın sonu ve 20. yüzyılın başında uluslararası ticaretteki hızlı büyümenin etkilerini örneklendirir."
   },
   {
     "id": "c444ca16-608d-5b2d-ba93-d0212aaef29a",
@@ -5279,7 +5397,9 @@
     "category": "Cultural",
     "description": "This serial property consists of four grand palace complexes in Bavaria’s alpine region, built under King Ludwig II between 1868 and 1886. Designed as personal retreats and imaginative escapes, they reflect the romantic and eclectic spirit of the era. Drawing inspiration from the Wartburg Castle, Versailles, German fairy tales, and Wagner’s operas, the palaces showcase historicist styles and advanced 19th-century techniques. Carefully integrated into stunning natural landscapes, they embody Ludwig’s artistic vision. Opened to the public shortly after his death in 1886, these sites are now preserved as museums and remain major cultural landmarks.",
     "latitude": 47.5575,
-    "longitude": 10.7494444444
+    "longitude": 10.7494444444,
+    "nameTr": "Bavyera Kralı II. Ludwig'in Sarayları: Neuschwanstein, Linderhof, Schachen ve Herrenchiemsee",
+    "descriptionTr": "Bu seri alan, Bavyera'nın Alp bölgesinde Kral II. Ludwig döneminde 1868 ile 1886 arasında inşa edilmiş dört büyük saray kompleksinden oluşur. Kişisel inziva yerleri ve hayalî kaçış mekânları olarak tasarlanan saraylar, dönemin romantik ve eklektik ruhunu yansıtır. Wartburg Kalesi'nden, Versay'dan, Alman masallarından ve Wagner'in operalarından ilham alan saraylar, tarihselci üslupları ve gelişmiş 19. yüzyıl tekniklerini sergiler. Çarpıcı doğal manzaralara özenle yerleştirilmiş olan bu yapılar, Ludwig'in sanatsal vizyonunu somutlaştırır. 1886'daki ölümünden kısa süre sonra halka açılan bu alanlar, bugün müze olarak korunmakta ve önemli kültürel simgeler olmayı sürdürmektedir."
   },
   {
     "id": "92ba1cac-3096-5644-bb30-579b52509e3f",
@@ -5288,7 +5408,9 @@
     "category": "Cultural",
     "description": "Wartburg Castle blends superbly into its forest surroundings and is in many ways 'the ideal castle'. Although it has retained some original sections from the feudal period, the form it acquired during the 19th-century reconstitution gives a good idea of what this fortress might have been at the height of its military and seigneurial power. It was during his exile at Wartburg Castle that Martin Luther translated the New Testament into German.",
     "latitude": 50.96677778,
-    "longitude": 10.307
+    "longitude": 10.307,
+    "nameTr": "Wartburg Kalesi",
+    "descriptionTr": "Wartburg Kalesi, çevresindeki ormanla olağanüstü bir uyum içindedir ve pek çok yönden 'ideal kale'dir. Feodal döneme ait bazı özgün bölümlerini korumuş olsa da, 19. yüzyıldaki yeniden inşası sırasında kazandığı biçim, bu kalenin askerî ve soylu gücünün zirvesinde nasıl olabileceği konusunda iyi bir fikir verir. Martin Luther, Wartburg Kalesi'ndeki sürgünü sırasında Yeni Ahit'i Almancaya çevirmiştir."
   },
   {
     "id": "068224ac-2b11-50ae-8cb9-7108e589715c",
@@ -5297,7 +5419,9 @@
     "category": "Cultural",
     "description": "The Zollverein industrial complex in Land Nordrhein-Westfalen consists of the complete infrastructure of a historical coal-mining site, with some 20th-century buildings of outstanding architectural merit. It constitutes remarkable material evidence of the evolution and decline of an essential industry over the past 150 years.",
     "latitude": 51.49138889,
-    "longitude": 7.046111111
+    "longitude": 7.046111111,
+    "nameTr": "Essen'deki Zollverein Kömür Madeni Endüstriyel Kompleksi",
+    "descriptionTr": "Kuzey Ren-Vestfalya eyaletindeki Zollverein endüstriyel kompleksi, tarihî bir kömür madeni alanının eksiksiz altyapısından ve olağanüstü mimari değere sahip bazı 20. yüzyıl yapılarından oluşur. Son 150 yılda temel bir sanayi kolunun evrimine ve gerilemesine dair dikkat çekici bir maddi kanıt oluşturur."
   },
   {
     "id": "238d626a-d563-549e-bdbd-017a49086293",
@@ -5306,7 +5430,9 @@
     "category": "Cultural",
     "description": "The archaeological sites of Mycenae and Tiryns are the imposing ruins of the two greatest cities of the Mycenaean civilization, which dominated the eastern Mediterranean world from the 15th to the 12th century B.C. and played a vital role in the development of classical Greek culture. These two cities are indissolubly linked to the Homeric epics, the Iliad and the Odyssey , which have influenced European art and literature for more than three millennia.",
     "latitude": 37.73333333,
-    "longitude": 22.75
+    "longitude": 22.75,
+    "nameTr": "Miken ve Tiryns Arkeolojik Alanları",
+    "descriptionTr": "Miken ve Tiryns arkeolojik alanları, M.Ö. 15. yüzyıldan 12. yüzyıla kadar doğu Akdeniz dünyasına egemen olan ve klasik Yunan kültürünün gelişiminde hayati rol oynayan Miken uygarlığının iki büyük kentinin görkemli kalıntılarıdır. Bu iki kent, üç bin yılı aşkın süredir Avrupa sanatını ve edebiyatını etkilemiş olan Homeros destanlarıyla, İlyada ve Odysseia ile ayrılmaz biçimde bağlantılıdır."
   },
   {
     "id": "57ba509e-b0a1-52ec-a32e-866774e26e0a",
@@ -5315,7 +5441,9 @@
     "category": "Cultural",
     "description": "The Order of St John of Jerusalem occupied Rhodes from 1309 to 1523 and set about transforming the city into a stronghold. It subsequently came under Turkish and Italian rule. With the Palace of the Grand Masters, the Great Hospital and the Street of the Knights, the Upper Town is one of the most beautiful urban ensembles of the Gothic period. In the Lower Town, Gothic architecture coexists with mosques, public baths and other buildings dating from the Ottoman period.",
     "latitude": 36.44722,
-    "longitude": 28.22778
+    "longitude": 28.22778,
+    "nameTr": "Rodos Ortaçağ Kenti",
+    "descriptionTr": "Kudüs'teki Aziz Yuhanna Şövalyeleri, 1309'dan 1523'e kadar Rodos'u işgal etti ve kenti bir kaleye dönüştürmeye girişti. Kent daha sonra Türk ve İtalyan yönetimi altına girdi. Büyük Üstatlar Sarayı, Büyük Hastane ve Şövalyeler Sokağı ile Yukarı Şehir, Gotik dönemin en güzel kentsel topluluklarından biridir. Aşağı Şehir'de ise Gotik mimari; camiler, hamamlar ve Osmanlı dönemine ait diğer yapılarla bir arada bulunur."
   },
   {
     "id": "61c1ff2b-3753-5aa5-ae8b-8adf2e89d6bc",
@@ -5324,7 +5452,9 @@
     "category": "Mixed",
     "description": "In a region of almost inaccessible sandstone peaks, monks settled on these 'columns of the sky' from the 11th century onwards. Twenty-four of these monasteries were built, despite incredible difficulties, at the time of the great revival of the eremetic ideal in the 15th century. Their 16th-century frescoes mark a key stage in the development of post-Byzantine painting.",
     "latitude": 39.71667,
-    "longitude": 21.63333
+    "longitude": 21.63333,
+    "nameTr": "Meteora",
+    "descriptionTr": "Neredeyse erişilmez kumtaşı zirvelerden oluşan bir bölgede, keşişler 11. yüzyıldan itibaren bu 'göğün sütunları' üzerine yerleşti. Bu manastırlardan yirmi dördü, 15. yüzyılda inzivaya çekilme idealinin büyük canlanışı sırasında, inanılmaz güçlüklere rağmen inşa edildi. 16. yüzyıldan kalma freskleri, Bizans sonrası resmin gelişiminde önemli bir aşamayı işaret eder."
   },
   {
     "id": "69573a85-fe62-5ab5-ad0b-85ca74936e25",
@@ -5959,7 +6089,9 @@
     "category": "Cultural",
     "description": "The Novodevichy Convent, in south-western Moscow, built in the 16th and 17th centuries in the so-called Moscow Baroque style, was part of a chain of monastic ensembles that were integrated into the defence system of the city. The convent was directly associated with the political, cultural and religious history of Russia, and closely linked to the Moscow Kremlin. It was used by women of the Tsar’s family and the aristocracy. Members of the Tsar’s family and entourage were also buried in its cemetery. The convent provides an example of the highest accomplishments of Russian architecture with rich interiors and an important collection of paintings and artefacts.",
     "latitude": 55.72611111,
-    "longitude": 37.55508333
+    "longitude": 37.55508333,
+    "nameTr": "Novodeviçi Manastırı Topluluğu",
+    "descriptionTr": "Moskova'nın güneybatısındaki Novodeviçi Manastırı, 16. ve 17. yüzyıllarda Moskova Barokı denen üslupta inşa edilmiş ve kentin savunma sistemine entegre edilmiş bir manastır topluluğu zincirinin parçasıydı. Manastır, Rusya'nın siyasi, kültürel ve dinî tarihiyle doğrudan ilişkiliydi ve Moskova Kremlin'iyle yakından bağlantılıydı. Çar'ın ailesinden kadınlar ve aristokrasi tarafından kullanılmıştır. Çar'ın ailesinin ve maiyetinin üyeleri de mezarlığına gömülmüştür. Manastır, zengin iç mekânları ve önemli bir resim ve eser koleksiyonuyla Rus mimarisinin en yüksek başarılarının bir örneğini sunar."
   },
   {
     "id": "7695dfdf-924f-59bc-bd7b-e1eb60e45c6c",
@@ -6085,7 +6217,9 @@
     "category": "Cultural",
     "description": "Human habitation of this elongated sand dune peninsula, 98 km long and 0.4-4 km wide, dates back to prehistoric times. Throughout this period it has been threatened by the natural forces of wind and waves. Its survival to the present day has been made possible only as a result of ceaseless human efforts to combat the erosion of the Spit, dramatically illustrated by continuing stabilisation and reforestation projects.",
     "latitude": 55.27458,
-    "longitude": 20.96239
+    "longitude": 20.96239,
+    "nameTr": "Kuron Kumul Yarımadası",
+    "descriptionTr": "98 km uzunluğunda ve 0,4-4 km genişliğinde bu uzun kumul yarımadasında insan yerleşimi tarih öncesi çağlara uzanır. Bu dönem boyunca yarımada, rüzgârın ve dalgaların doğal güçlerinin tehdidi altında kalmıştır. Günümüze kadar varlığını sürdürebilmesi, yalnızca yarımadanın erozyonuyla mücadele etmek için durmaksızın sürdürülen insan çabaları sayesinde mümkün olmuştur; sürmekte olan sabitleme ve yeniden ağaçlandırma projeleri bunu çarpıcı biçimde gösterir."
   },
   {
     "id": "c7f5e6eb-7344-553e-a535-b1ecd14bbf83",
@@ -6238,7 +6372,9 @@
     "category": "Natural",
     "description": "Shared between Mongolia and the Russian Federation, this site is an outstanding example of the Daurian Steppe eco-region, which extends from eastern Mongolia into Russian Siberia and northeastern China. Cyclical climate changes, with distinct dry and wet periods lead to a wide diversity of species and ecosystems of global significance. The different types of steppe ecosystems represented, such as grassland and forest, as well as lakes and wetlands serve as habitats for rare species of fauna, such as the White-naped crane, Great Bustard, Relict Gull and Swan goose, as well as millions of vulnerable, endangered or threatened migratory birds. It is also a critical site on the transboundary migration path for the Mongolian gazelle.",
     "latitude": 49.9302222222,
-    "longitude": 115.4254444444
+    "longitude": 115.4254444444,
+    "nameTr": "Dauria Peyzajları",
+    "descriptionTr": "Moğolistan ile Rusya Federasyonu arasında paylaşılan bu alan, doğu Moğolistan'dan Rus Sibiryası'na ve kuzeydoğu Çin'e uzanan Dauria Bozkırı ekolojik bölgesinin olağanüstü bir örneğidir. Belirgin kurak ve yağışlı dönemlerle seyreden döngüsel iklim değişiklikleri, küresel öneme sahip geniş bir tür ve ekosistem çeşitliliğine yol açar. Çayır ve orman gibi temsil edilen farklı bozkır ekosistemi türleri ile göller ve sulak alanlar; beyaz ensili turna, büyük toy, relikt martı ve kuğu kazı gibi nadir fauna türlerinin yanı sıra, savunmasız, nesli tehlike altındaki veya tehdit altındaki milyonlarca göçmen kuşun yaşam alanı olarak hizmet eder. Ayrıca Moğol ceylanının sınır ötesi göç yolunda kritik bir alandır."
   },
   {
     "id": "8e02f512-e527-506b-b37a-3e461fae7922",
@@ -6760,7 +6896,9 @@
     "category": "Cultural",
     "description": "This property lies on the shores of the Volga River, south of its confluence with the River Kama, and south of the capital of Tatarstan, Kazan. It contains evidence of the medieval city of Bolgar, an early settlement of the civilization of Volga-Bolgars, which existed between the 7th and 15th centuries AD, and was the first capital of the Golden Horde in the 13th century. Bolgar represents the historical cultural exchanges and transformations of Eurasia over several centuries that played a pivotal role in the formation of civilizations, customs and cultural traditions. The property provides remarkable evidence of historic continuity and cultural diversity. It is a symbolic reminder of the acceptance of Islam by the Volga-Bolgars in AD 922 and remains a sacred pilgrimage destination to the Tatar Muslims.",
     "latitude": 54.9788888889,
-    "longitude": 49.0563888889
+    "longitude": 49.0563888889,
+    "nameTr": "Bolgar Tarihî ve Arkeolojik Kompleksi",
+    "descriptionTr": "Bu alan, Volga Nehri kıyısında, Kama Nehri ile birleştiği noktanın güneyinde ve Tataristan'ın başkenti Kazan'ın güneyinde yer alır. M.S. 7. ile 15. yüzyıllar arasında var olmuş, Volga Bulgarları uygarlığının erken bir yerleşimi ve 13. yüzyılda Altın Orda'nın ilk başkenti olan ortaçağ Bolgar kentine dair kanıtlar içerir. Bolgar, uygarlıkların, geleneklerin ve kültürel geleneklerin oluşumunda belirleyici rol oynayan, Avrasya'daki yüzyıllar boyunca süren tarihî kültürel alışverişleri ve dönüşümleri temsil eder. Alan, tarihî sürekliliğe ve kültürel çeşitliliğe dair dikkat çekici kanıtlar sunar. Volga Bulgarları'nın M.S. 922'de İslam'ı kabul ettiğini simgesel olarak hatırlatır ve Tatar Müslümanlar için kutsal bir hac yeri olmayı sürdürür."
   },
   {
     "id": "40a157be-f3d3-54d4-959c-7a37b418d203",
@@ -6769,7 +6907,9 @@
     "category": "Cultural",
     "description": "The property is comprised of two component parts: one in the historical centre of Kazan and the other in a forested suburban area west of the city. The Kazan City Astronomical Observatory, built in 1837, is located on the University campus and the building is characterized by a semi-circular façade and three towers with domes built to house astronomical instruments. The suburban Engelhardt Astronomical Observatory includes structures for sky observations and residential buildings, all located within a park. The observatories have been preserved complete with astronomical instruments and today perform mainly educational functions.",
     "latitude": 55.7909083333,
-    "longitude": 49.1190972222
+    "longitude": 49.1190972222,
+    "nameTr": "Kazan Federal Üniversitesi Astronomi Gözlemevleri",
+    "descriptionTr": "Alan iki bileşen parçadan oluşur: biri Kazan'ın tarihî merkezinde, diğeri kentin batısındaki ormanlık bir banliyö bölgesinde yer alır. 1837'de inşa edilen Kazan Şehir Astronomi Gözlemevi, Üniversite kampüsündedir ve bina, yarım daire biçimli cephesi ve astronomi aletlerini barındırmak için yapılmış kubbeli üç kulesiyle karakterizedir. Banliyödeki Engelhardt Astronomi Gözlemevi, gökyüzü gözlemleri için yapıları ve konut binalarını içerir; hepsi bir park içinde yer alır. Gözlemevleri astronomi aletleriyle birlikte eksiksiz olarak korunmuştur ve bugün ağırlıklı olarak eğitim işlevi görmektedir."
   },
   {
     "id": "a9219380-9021-52eb-a734-b25c6bdc8925",
@@ -6787,7 +6927,9 @@
     "category": "Natural",
     "description": "The Sikhote-Alin mountain range contains one of the richest and most unusual temperate forests of the world. In this mixed zone between taiga and subtropics, southern species such as the tiger and Himalayan bear cohabit with northern species such as the brown bear and lynx. After its extension in 2018, the property includes the Bikin River Valley, located about 100 km to the north of the existing site. It encompasses the South-Okhotsk dark coniferous forests and the East-Asian coniferous broadleaf forests. The fauna includes species of the taiga alongside southern Manchurian species. It includes notable mammals such as the Amur Tiger, Siberian Musk Deer, Wolverine and Sable.",
     "latitude": 46.6833333333,
-    "longitude": 136.6611111111
+    "longitude": 136.6611111111,
+    "nameTr": "Orta Sikhote-Alin",
+    "descriptionTr": "Sikhote-Alin dağ silsilesi, dünyanın en zengin ve en alışılmadık ılıman ormanlarından birini barındırır. Tayga ile subtropikler arasındaki bu karma bölgede, kaplan ve Himalaya ayısı gibi güney türleri, boz ayı ve vaşak gibi kuzey türleriyle bir arada yaşar. 2018'deki genişletmesinin ardından alan, mevcut alanın yaklaşık 100 km kuzeyinde yer alan Bikin Nehri Vadisi'ni de içerir. Güney Okhotsk koyu kozalaklı ormanlarını ve Doğu Asya kozalaklı geniş yapraklı ormanlarını kapsar. Fauna, tayga türlerinin yanı sıra güney Mançurya türlerini de içerir. Amur kaplanı, Sibirya misk geyiği, vulverin (obur) ve samur gibi dikkat çekici memelileri barındırır."
   },
   {
     "id": "60cb1bf6-f6a4-50d2-b5c9-98029a01c5b4",
@@ -6796,7 +6938,9 @@
     "category": "Natural",
     "description": "The Altai mountains in southern Siberia form the major mountain range in the western Siberia biogeographic region and provide the source of its greatest rivers – the Ob and the Irtysh. Three separate areas are inscribed: Altaisky Zapovednik and a buffer zone around Lake Teletskoye; Katunsky Zapovednik and a buffer zone around Mount Belukha; and the Ukok Quiet Zone on the Ukok plateau. The total area covers 1,611,457 ha. The region represents the most complete sequence of altitudinal vegetation zones in central Siberia, from steppe, forest-steppe, mixed forest, subalpine vegetation to alpine vegetation. The site is also an important habitat for endangered animal species such as the snow leopard.",
     "latitude": 50.46666667,
-    "longitude": 86
+    "longitude": 86,
+    "nameTr": "Altay'ın Altın Dağları",
+    "descriptionTr": "Güney Sibirya'daki Altay dağları, batı Sibirya biyocoğrafi bölgesindeki başlıca dağ silsilesini oluşturur ve bölgenin en büyük nehirlerinin, Ob ve Irtış'ın kaynağını sağlar. Üç ayrı alan listeye alınmıştır: Altaisky Zapovednik ve Teletskoye Gölü çevresindeki bir tampon bölge; Katunsky Zapovednik ve Belukha Dağı çevresindeki bir tampon bölge; ve Ukok platosundaki Ukok Sessiz Bölgesi. Toplam alan 1.611.457 hektardır. Bölge, orta Sibirya'daki en eksiksiz yükseltiye bağlı bitki örtüsü kuşakları dizisini temsil eder: bozkırdan orman-bozkıra, karma ormana, subalpin bitki örtüsüne ve alpin bitki örtüsüne kadar. Alan ayrıca kar leoparı gibi nesli tehlike altındaki hayvan türleri için önemli bir yaşam alanıdır."
   },
   {
     "id": "2378fc83-d242-574c-bfaa-4d77d3374615",
@@ -6805,7 +6949,9 @@
     "category": "Cultural",
     "description": "The 'Venice of the North', with its numerous canals and more than 400 bridges, is the result of a vast urban project begun in 1703 under Peter the Great. Later known as Leningrad (in the former USSR), the city is closely associated with the October Revolution. Its architectural heritage reconciles the very different Baroque and pure neoclassical styles, as can be seen in the Admiralty, the Winter Palace, the Marble Palace and the Hermitage.",
     "latitude": 59.95,
-    "longitude": 30.31833
+    "longitude": 30.31833,
+    "nameTr": "Saint Petersburg Tarihi Merkezi ve İlgili Anıt Grupları",
+    "descriptionTr": "Çok sayıda kanalı ve 400'den fazla köprüsüyle 'Kuzey'in Venedik'i', 1703'te Büyük Petro döneminde başlatılan geniş bir kentsel projenin sonucudur. Daha sonra Leningrad (eski SSCB'de) olarak bilinen kent, Ekim Devrimi ile yakından ilişkilidir. Mimari mirası, Amirallik Binası, Kış Sarayı, Mermer Saray ve Ermitaj'da görülebileceği gibi, birbirinden çok farklı Barok ve saf neoklasik üslupları uzlaştırır."
   },
   {
     "id": "9bc0f7ef-b0f0-50b0-bf4b-2f7c33b85618",
@@ -6814,7 +6960,9 @@
     "category": "Cultural",
     "description": "Situated on the ancient trade route between Central Asia and northern Europe, Novgorod was Russia's first capital in the 9th century. Surrounded by churches and monasteries, it was a centre for Orthodox spirituality as well as Russian architecture. Its medieval monuments and the 14th-century frescoes of Theophanes the Greek (Andrei Rublev's teacher) illustrate the development of its remarkable architecture and cultural creativity.",
     "latitude": 58.53333,
-    "longitude": 31.28333
+    "longitude": 31.28333,
+    "nameTr": "Novgorod ve Çevresinin Tarihî Anıtları",
+    "descriptionTr": "Orta Asya ile kuzey Avrupa arasındaki antik ticaret yolu üzerinde yer alan Novgorod, 9. yüzyılda Rusya'nın ilk başkentiydi. Kiliselerle ve manastırlarla çevrili kent, Rus mimarisinin yanı sıra Ortodoks maneviyatının da merkeziydi. Ortaçağ anıtları ve Andrey Rublev'in ustası Rum Theophanes'in 14. yüzyıl freskleri, kentin olağanüstü mimarisinin ve kültürel yaratıcılığının gelişimini gözler önüne serer."
   },
   {
     "id": "603e3220-5b32-5b2d-80cd-5d63d20fc56a",
@@ -6823,7 +6971,9 @@
     "category": "Cultural",
     "description": "Inextricably linked to all the most important historical and political events in Russia since the 13th century, the Kremlin (built between the 14th and 17th centuries by outstanding Russian and foreign architects) was the residence of the Great Prince and also a religious centre. At the foot of its ramparts, on Red Square, St Basil's Basilica is one of the most beautiful Russian Orthodox monuments.",
     "latitude": 55.7540277778,
-    "longitude": 37.6204166667
+    "longitude": 37.6204166667,
+    "nameTr": "Moskova'da Kremlin ve Kızıl Meydan",
+    "descriptionTr": "13. yüzyıldan beri Rusya'daki tüm önemli tarihî ve siyasi olaylarla ayrılmaz biçimde bağlantılı olan Kremlin (14. ile 17. yüzyıllar arasında seçkin Rus ve yabancı mimarlar tarafından inşa edilmiştir), Büyük Prens'in ikametgâhı ve aynı zamanda bir dinî merkezdi. Surlarının eteğinde, Kızıl Meydan'da yer alan Aziz Vasil Katedrali, en güzel Rus Ortodoks anıtlarından biridir."
   },
   {
     "id": "e7e85fc1-c012-56a1-967d-e8750766e26d",
@@ -6832,7 +6982,9 @@
     "category": "Cultural",
     "description": "Situated at the confluence of the Volga and Kotorosl Rivers some 250 km north-east of Moscow, the historic city of Yaroslavl developed into a major commercial centre from the 11th century. It is renowned for its numerous 17th-century churches and is an outstanding example of the urban planning reform Empress Catherine the Great ordered for the whole of Russia in 1763. While keeping some of its significant historic structures, the town was renovated in the neoclassical style on a radial urban master plan. It has also kept elements from the 16th century in the Spassky Monastery, one of the oldest in the Upper Volga region, built on the site of a pagan temple in the late 12th century but reconstructed over time.",
     "latitude": 57.65278,
-    "longitude": 39.87611
+    "longitude": 39.87611,
+    "nameTr": "Yaroslavl Şehrinin Tarihi Merkezi",
+    "descriptionTr": "Moskova'nın yaklaşık 250 km kuzeydoğusunda, Volga ve Kotorosl nehirlerinin birleştiği noktada yer alan tarihî Yaroslavl kenti, 11. yüzyıldan itibaren önemli bir ticaret merkezi olarak gelişmiştir. Çok sayıdaki 17. yüzyıl kilisesiyle ünlüdür ve İmparatoriçe Büyük Katerina'nın 1763'te tüm Rusya için emrettiği kent planlama reformunun olağanüstü bir örneğidir. Bazı önemli tarihî yapılarını korurken, kent radyal bir kentsel ana plan üzerinde neoklasik üslupta yenilenmiştir. Ayrıca 12. yüzyılın sonlarında pagan bir tapınağın yerine inşa edilmiş ancak zamanla yeniden yapılmış olan, Yukarı Volga bölgesinin en eski manastırlarından biri olan Spassky Manastırı'nda 16. yüzyıldan kalma unsurları da korumuştur."
   },
   {
     "id": "5473c6c5-8d5a-583d-9008-fe8502521d9f",
@@ -6841,7 +6993,9 @@
     "category": "Natural",
     "description": "This site coincides with the area of the Putoransky State Nature Reserve, and is located in the central part of the Putorana Plateau in northern Central Siberia. It is situated about 100 km north of the Arctic Circle. The part of the plateau inscribed on the World Heritage List harbours a complete set of subarctic and arctic ecosystems in an isolated mountain range, including pristine taiga, forest tundra, tundra and arctic desert systems, as well as untouched cold-water lake and river systems. A major reindeer migration route crosses the property, which represents an exceptional, large-scale and increasingly rare natural phenomenon.",
     "latitude": 69.0469444444,
-    "longitude": 94.1580555556
+    "longitude": 94.1580555556,
+    "nameTr": "Putorana Platosu",
+    "descriptionTr": "Bu alan, Putoransky Devlet Doğa Koruma Alanı'yla örtüşür ve kuzey Orta Sibirya'daki Putorana Platosu'nun merkezî kesiminde yer alır. Kuzey Kutup Dairesi'nin yaklaşık 100 km kuzeyindedir. Platonun Dünya Mirası Listesi'ne alınan kısmı, izole bir dağ silsilesi içinde bakir tayga, orman tundrası, tundra ve kutup çölü sistemleri ile dokunulmamış soğuk su gölü ve nehir sistemleri dahil eksiksiz bir alt-Arktik ve Arktik ekosistem dizisini barındırır. Önemli bir ren geyiği göç yolu alanı kesmektedir; bu, olağanüstü, büyük ölçekli ve giderek nadirleşen bir doğa olayını temsil eder."
   },
   {
     "id": "b3f3cd7e-adb8-5817-b0d0-c9a19947eeb1",
@@ -6850,7 +7004,9 @@
     "category": "Natural",
     "description": "Lena Pillars Nature Park is marked by spectacular rock pillars that reach a height of approximately 100 m along the banks of the Lena River in the central part of the Sakha Republic (Yakutia). They were produced by the region’s extreme continental climate with an annual temperature range of almost 100 degrees Celsius (from –60 °C in winter to +40 °C in summer). The pillars form rocky buttresses isolated from each other by deep and steep gullies developed by frost shattering directed along intervening joints. Penetration of water from the surface has facilitated cryogenic processes (freeze-thaw action), which have widened gullies between pillars leading to their isolation. Fluvial processes are also critical to the pillars. The site also contains a wealth of Cambrian fossil remains of numerous species, some of them unique.",
     "latitude": 60.6666666667,
-    "longitude": 127
+    "longitude": 127,
+    "nameTr": "Lena Sütunları Doğa Parkı",
+    "descriptionTr": "Lena Sütunları Doğa Parkı, Saha Cumhuriyeti'nin (Yakutya) orta kesiminde Lena Nehri kıyıları boyunca yaklaşık 100 metre yüksekliğe ulaşan muhteşem kaya sütunlarıyla karakterizedir. Bu sütunlar, yıllık sıcaklık farkı neredeyse 100 santigrat derece olan (kışın -60 °C'den yazın +40 °C'ye) bölgenin aşırı karasal iklimi tarafından oluşturulmuştur. Sütunlar, aradaki eklemler boyunca yönlenen don çatlamasıyla gelişen derin ve dik oluklarla birbirinden ayrılmış kayalık payandalar oluşturur. Yüzeyden suyun sızması kriyojenik süreçleri (donma-çözülme etkisi) kolaylaştırmış, bu da sütunlar arasındaki olukları genişleterek onların birbirinden ayrılmasına yol açmıştır. Akarsu süreçleri de sütunlar için kritik öneme sahiptir. Alan ayrıca, bazıları eşsiz olan çok sayıda türe ait zengin Kambriyen fosil kalıntıları da içerir."
   },
   {
     "id": "e4dc2674-ec7a-5e4b-b917-f9f22dcfbfe7",
@@ -6859,7 +7015,9 @@
     "category": "Natural",
     "description": "Located well above the Arctic Circle, the site includes the mountainous Wrangel Island (7,608 km2), Herald Island (11 km2) and surrounding waters. Wrangel was not glaciated during the Quaternary Ice Age, resulting in exceptionally high levels of biodiversity for this region. The island boasts the world’s largest population of Pacific walrus and the highest density of ancestral polar bear dens. It is a major feeding ground for the grey whale migrating from Mexico and the northernmost nesting ground for 100 migratory bird species, many endangered. Currently, 417 species and subspecies of vascular plants have been identified on the island, double that of any other Arctic tundra territory of comparable size and more than any other Arctic island. Some species are derivative of widespread continental forms, others are the result of recent hybridization, and 23 are endemic.",
     "latitude": 71.18888889,
-    "longitude": -179.7152778
+    "longitude": -179.7152778,
+    "nameTr": "Wrangel Adası Koruma Alanı'nın Doğal Sistemi",
+    "descriptionTr": "Kuzey Kutup Dairesi'nin çok üzerinde yer alan alan; dağlık Wrangel Adası'nı (7.608 km²), Herald Adası'nı (11 km²) ve çevresindeki suları içerir. Wrangel, Kuvaterner Buzul Çağı'nda buzullaşmamış ve bu da bölge için olağanüstü yüksek bir biyoçeşitlilik düzeyiyle sonuçlanmıştır. Ada, dünyanın en büyük Pasifik mors popülasyonuna ve atasal kutup ayısı inlerinin en yüksek yoğunluğuna sahiptir. Meksika'dan göç eden gri balina için önemli bir beslenme alanı ve nesli tehlike altındaki birçoğu dahil 100 göçmen kuş türü için en kuzeydeki yuvalama alanıdır. Şu anda adada 417 damarlı bitki türü ve alt türü belirlenmiştir; bu, karşılaştırılabilir büyüklükteki diğer Arktik tundra bölgelerinin iki katı ve diğer tüm Arktik adalardan fazladır. Bazı türler yaygın kıtasal formlardan türemiştir, bazıları yakın zamandaki melezlenmenin sonucudur ve 23'ü endemiktir."
   },
   {
     "id": "475122c2-19f3-5d70-90b4-a0bee7eb9d5b",
@@ -6868,7 +7026,9 @@
     "category": "Natural",
     "description": "This is one of the most outstanding volcanic regions in the world, with a high density of active volcanoes, a variety of types, and a wide range of related features. The six sites included in the serial designation group together the majority of volcanic features of the Kamchatka peninsula. The interplay of active volcanoes and glaciers forms a dynamic landscape of great beauty. The sites contain great species diversity, including the world's largest known variety of salmonoid fish and exceptional concentrations of sea otter, brown bear and Stellar's sea eagle.",
     "latitude": 56.33333333,
-    "longitude": 158.5
+    "longitude": 158.5,
+    "nameTr": "Kamçatka Yanardağları",
+    "descriptionTr": "Burası, yüksek yoğunlukta aktif yanardağı, çeşitli türleri ve ilgili geniş bir özellik yelpazesiyle dünyanın en olağanüstü volkanik bölgelerinden biridir. Seri tanımlamaya dahil edilen altı alan, Kamçatka Yarımadası'ndaki volkanik özelliklerin çoğunu bir araya getirir. Aktif yanardağlar ile buzulların etkileşimi, büyük güzellikte dinamik bir peyzaj oluşturur. Alanlar, dünyada bilinen en büyük salmonid balık çeşitliliği ve olağanüstü yoğunlukta deniz su samuru, boz ayı ve Steller deniz kartalı dahil büyük tür çeşitliliği içerir."
   },
   {
     "id": "86a32d7f-6bed-5d07-81fd-a7992f5c9cd3",
@@ -6877,7 +7037,9 @@
     "category": "Cultural",
     "description": "San Marino Historic Centre and Mount Titano covers 55 ha, including Mount Titano and the historic centre of the city which dates back to the foundation of the republic as a city-state in the 13th century. San Marino is inscribed as a testimony to the continuity of a free republic since the Middle Ages. The inscribed city centre includes fortification towers, walls, gates and bastions, as well as a neo-classical basilica of the 19th century, 14th and 16th century convents, and the Palazzo Publico of the 19th century, as well as the 18th century Titano Theatre. The property represents an historical centre still inhabited and preserving all its institutional functions. Thanks to its position on top of Mount Titano, it was not affected by the urban transformations that have occurred from the advent of the industrial era to today.",
     "latitude": 43.9327777778,
-    "longitude": 12.4519444444
+    "longitude": 12.4519444444,
+    "nameTr": "San Marino Tarihi Merkezi ve Titano Dağı",
+    "descriptionTr": "San Marino Tarihi Merkezi ve Titano Dağı, Titano Dağı'nı ve cumhuriyetin 13. yüzyılda bir şehir devleti olarak kuruluşuna uzanan kentin tarihî merkezini içeren 55 hektarlık bir alanı kapsar. San Marino, Orta Çağ'dan beri özgür bir cumhuriyetin sürekliliğine tanıklık olarak listeye alınmıştır. Listeye alınan kent merkezi; tahkimat kulelerini, surları, kapıları ve bastionları, 19. yüzyıldan kalma neoklasik bir bazilikayı, 14. ve 16. yüzyıl manastırlarını, 19. yüzyıldan kalma Palazzo Pubblico'yu ve 18. yüzyıldan kalma Titano Tiyatrosu'nu içerir. Alan, hâlâ iskân edilen ve tüm kurumsal işlevlerini koruyan bir tarihî merkezi temsil eder. Titano Dağı'nın tepesindeki konumu sayesinde, sanayi çağının başlangıcından günümüze kadar yaşanan kentsel dönüşümlerden etkilenmemiştir."
   },
   {
     "id": "b8372f7c-6986-5422-b533-20fe759af096",
@@ -6913,7 +7075,9 @@
     "category": "Cultural",
     "description": "On the outskirts of Stari Ras, the first capital of Serbia, there is an impressive group of medieval monuments consisting of fortresses, churches and monasteries. The monastery at Sopoćani is a reminder of the contacts between Western civilization and the Byzantine world.",
     "latitude": 43.11889,
-    "longitude": 20.42278
+    "longitude": 20.42278,
+    "nameTr": "Stari Ras ve Sopoćani",
+    "descriptionTr": "Sırbistan'ın ilk başkenti Stari Ras'ın eteklerinde, kalelerden, kiliselerden ve manastırlardan oluşan etkileyici bir ortaçağ anıtları grubu bulunur. Sopoćani'deki manastır, Batı medeniyeti ile Bizans dünyası arasındaki temasları hatırlatır."
   },
   {
     "id": "21c2b0eb-628b-5b23-a74a-ac32d5f707ba",
@@ -6931,7 +7095,9 @@
     "category": "Cultural",
     "description": "The works Jože Plečnik carried in Ljubljana between World War I and World War II present an example of a human centred urban design that successively changed the identity of the city following the dissolution of the Austro-Hungarian Empire, when it changed from a provincial city into the symbolic capital of the Slovenian people. The architect Jože Plečnik contributed to this transformation with his personal, profoundly human vision for the city, based on an architectural dialogue with the older city while serving the needs of emerging modern 20th century society. The property consists of a series of public spaces (squares, parks, streets, promenades, bridges) and public institutions (national library, churches, markets, funerary complex) that were sensitively integrated into the pre-existing urban, natural and cultural context and contributed to the city’s new identity. This highly contextual and human-scale urbanistic approach, as well as Plečnik’s distinctive architectural idiom, stand apart from the other predominant modernist principles of his time. It is an exceptional case of creating public spaces, buildings and green areas according to the vision of a single architect within a limited time, the limited space of an existing city, and with relatively limited resources.",
     "latitude": 46.0433333333,
-    "longitude": 14.5022222222
+    "longitude": 14.5022222222,
+    "nameTr": "Jože Plečnik'in Ljubljana'daki Eserleri – İnsan Odaklı Kentsel Tasarım",
+    "descriptionTr": "Jože Plečnik'in Ljubljana'da Birinci ve İkinci Dünya Savaşları arasında gerçekleştirdiği eserler, Avusturya-Macaristan İmparatorluğu'nun dağılmasının ardından kentin kimliğini art arda değiştiren, onu taşra kentinden Sloven halkının simgesel başkentine dönüştüren insan odaklı bir kentsel tasarım örneği sunar. Mimar Jože Plečnik, eski kentle mimari bir diyalog kurmaya ve aynı zamanda gelişen modern 20. yüzyıl toplumunun ihtiyaçlarına hizmet etmeye dayanan kişisel, derinden insani vizyonuyla bu dönüşüme katkıda bulundu. Alan; mevcut kentsel, doğal ve kültürel bağlama hassasiyetle entegre edilen ve kentin yeni kimliğine katkıda bulunan bir dizi kamusal mekândan (meydanlar, parklar, sokaklar, gezinti yolları, köprüler) ve kamu kurumundan (ulusal kütüphane, kiliseler, pazarlar, cenaze kompleksi) oluşur. Bu yüksek derecede bağlama duyarlı ve insan ölçeğindeki kentsel yaklaşım ile Plečnik'in kendine özgü mimari dili, dönemin diğer baskın modernist ilkelerinden ayrılır. Kamusal mekânların, binaların ve yeşil alanların tek bir mimarın vizyonuna göre, sınırlı bir sürede, mevcut bir kentin sınırlı alanında ve nispeten sınırlı kaynaklarla yaratıldığı istisnai bir örnektir."
   },
   {
     "id": "e381540f-9349-54cf-8998-ef85cc4a5d51",
@@ -7376,7 +7542,9 @@
     "category": "Cultural",
     "description": "The site features the remains of a city founded by Dorian Greeks in the 5th century BC on the northern shores of the Black Sea. It encompasses six component sites with urban remains and agricultural lands divided into several hundreds of chora, rectangular plots of equal size. The plots supported vineyards whose production was exported by the city which thrived until the 15th century. The site features several public building complexes and residential neighbourhoods, as well as early Christian monuments alongside remains from Stone and Bronze Age settlements; Roman and medieval tower fortifications and water supply systems; and exceptionally well-preserved examples of vineyard planting and dividing walls. In the 3rd century AD, the site was known as the most productive wine centre of the Black Sea and remained a hub of exchange between the Greek, Roman and Byzantine Empires and populations north of the Black Sea. It is an outstanding example of democratic land organization linked to an ancient polis, reflecting the city’s social organization.",
     "latitude": 44.6108333333,
-    "longitude": 33.4913888889
+    "longitude": 33.4913888889,
+    "nameTr": "Taurik Hersones Antik Kenti ve Chora'sı",
+    "descriptionTr": "Alan, Karadeniz'in kuzey kıyılarında M.Ö. 5. yüzyılda Dor Yunanlıları tarafından kurulan bir kentin kalıntılarını içerir. Kentsel kalıntılar ve her biri eşit büyüklükte dikdörtgen parsellerden oluşan, birkaç yüz chora'ya bölünmüş tarım arazileri içeren altı bileşen alanı kapsar. Parseller, kentin ihraç ettiği üzümlerin yetiştiği bağlara ev sahipliği yapmış ve kent 15. yüzyıla kadar gelişmeye devam etmiştir. Alan; birkaç kamu binası kompleksini ve yerleşim mahallesini, ilk Hristiyanlık dönemine ait anıtları, Taş ve Tunç Çağı yerleşimlerinin kalıntılarını, Roma ve ortaçağ kule tahkimatlarını ve su temin sistemlerini, ayrıca bağ dikimi ve bölücü duvarların olağanüstü iyi korunmuş örneklerini içerir. M.S. 3. yüzyılda alan, Karadeniz'in en verimli şarap merkezi olarak biliniyordu ve Yunan, Roma ve Bizans imparatorlukları ile Karadeniz'in kuzeyindeki halklar arasında bir değişim merkezi olmayı sürdürdü. Antik bir polisle bağlantılı demokratik arazi örgütlenmesinin olağanüstü bir örneğidir ve kentin toplumsal örgütlenişini yansıtır."
   },
   {
     "id": "7b59741f-9c83-5c52-8709-c44333809b1c",
@@ -7727,7 +7895,9 @@
     "category": "Cultural",
     "description": "Chosen from the work of Le Corbusier, the 17 sites comprising this transnational serial property are spread over seven countries and are a testimonial to the invention of a new architectural language that made a break with the past. They were built over a period of a half-century, in the course of what Le Corbusier described as “patient research”. The Complexe du Capitole in Chandigarh (India), the National Museum of Western Art, Tokyo (Japan), the House of Dr Curutchet in La Plata (Argentina) and the Unité d’habitation in Marseille (France) reflect the solutions that the Modern Movement sought to apply during the 20th century to the challenges of inventing new architectural techniques to respond to the needs of society. These masterpieces of creative genius also attest to the internationalization of architectural practice across the planet.",
     "latitude": 46.4684138889,
-    "longitude": 6.8293361111
+    "longitude": 6.8293361111,
+    "nameTr": "Le Corbusier'nin Mimari Eseri, Modern Harekete Olağanüstü Bir Katkı",
+    "descriptionTr": "Le Corbusier'nin eserlerinden seçilen ve yedi ülkeye yayılan bu sınır aşan seri alanı oluşturan 17 yapı, geçmişle bağını koparan yeni bir mimari dilin icadına tanıklık eder. Yarım yüzyıllık bir süre boyunca, Le Corbusier'nin 'sabırlı araştırma' olarak nitelendirdiği süreçte inşa edilmişlerdir. Chandigarh'daki Capitol Kompleksi (Hindistan), Tokyo'daki Ulusal Batı Sanatı Müzesi (Japonya), La Plata'daki Dr. Curutchet Evi (Arjantin) ve Marsilya'daki Unité d'habitation (Fransa), Modern Hareket'in 20. yüzyıl boyunca yeni mimari teknikler icat etme ve toplumun ihtiyaçlarına yanıt verme sorunlarına uygulamaya çalıştığı çözümleri yansıtır. Yaratıcı dehanın bu başyapıtları, mimari uygulamanın gezegen genelinde uluslararasılaşmasına da tanıklık eder."
   },
   {
     "id": "39d67b72-0c75-5fd5-9582-871d8db56e75",
@@ -7817,7 +7987,9 @@
     "category": "Cultural",
     "description": "This transnational serial property comprises eleven spa towns, located in seven European countries: Baden bei Wien (Austria); Spa (Belgium); Františkovy Lázně; Karlovy Vary; Mariánské Lázně (Czechia); Vichy (France); Bad Ems; Baden-Baden; Bad Kissingen (Germany); Montecatini Terme (Italy); and City of Bath (United Kingdom). All of these towns developed around natural mineral water springs. They bear witness to the international European spa culture that developed from the early 18th century to the 1930s, leading to the emergence of grand international resorts that impacted urban typology around ensembles of spa buildings such as baths, kurhaus and kursaal (buildings and rooms dedicated to therapy), pump rooms, drinking halls, colonnades and galleries designed to harness the natural mineral water resources and to allow their practical use for bathing and drinking. Related facilities include gardens, assembly rooms, casinos, theatres, hotels and villas, as well as spa-specific support infrastructure. These ensembles are all integrated into an overall urban context that includes a carefully managed recreational and therapeutic environment in a picturesque landscape. Together, these sites embody the significant interchange of human values and developments in medicine, science and balneology.",
     "latitude": 50.4922222222,
-    "longitude": 5.8669444444
+    "longitude": 5.8669444444,
+    "nameTr": "Avrupa'nın Büyük Kaplıca Kentleri",
+    "descriptionTr": "Bu sınır aşan seri alan, yedi Avrupa ülkesinde yer alan on bir kaplıca kentinden oluşur: Baden bei Wien (Avusturya); Spa (Belçika); Františkovy Lázně, Karlovy Vary, Mariánské Lázně (Çekya); Vichy (Fransa); Bad Ems, Baden-Baden, Bad Kissingen (Almanya); Montecatini Terme (İtalya) ve Bath Kenti (Birleşik Krallık). Bu kentlerin tümü doğal maden suyu kaynakları çevresinde gelişmiştir. 18. yüzyılın başından 1930'lara kadar gelişen uluslararası Avrupa kaplıca kültürüne tanıklık ederler. Bu kültür, doğal maden suyu kaynaklarından yararlanmak ve bunların banyo yapmak ve içmek için pratik biçimde kullanılmasına olanak tanımak üzere tasarlanmış hamamlar, kurhaus ve kursaal (tedaviye ayrılmış bina ve salonlar), içme salonları, sütunlu galeriler ve geçitler gibi kaplıca yapıları toplulukları çevresinde kentsel tipolojiyi etkileyen büyük uluslararası tatil beldelerinin ortaya çıkmasına yol açmıştır. İlgili tesisler arasında bahçeler, toplantı salonları, kumarhaneler, tiyatrolar, oteller ve villaların yanı sıra kaplıcaya özgü destek altyapısı da yer alır. Bu topluluklar, pitoresk bir manzara içinde özenle yönetilen bir dinlenme ve tedavi ortamını da kapsayan genel bir kentsel bağlama bütünleşmiştir. Bu alanlar bir arada, insani değerlerin önemli ölçüde etkileşimini ve tıp, bilim ve balneolojideki gelişmeleri somutlaştırır."
   },
   {
     "id": "5b9e4379-f7b4-5351-9e68-93092c8146d6",
@@ -7889,7 +8061,9 @@
     "category": "Cultural",
     "description": "The Struve Arc is a chain of survey triangulations stretching from Hammerfest in Norway to the Black Sea, through 10 countries and over 2,820 km. These are points of a survey, carried out between 1816 and 1855 by the astronomer Friedrich Georg Wilhelm Struve, which represented the first accurate measuring of a long segment of a meridian. This helped to establish the exact size and shape of the planet and marked an important step in the development of earth sciences and topographic mapping. It is an extraordinary example of scientific collaboration among scientists from different countries, and of collaboration between monarchs for a scientific cause. The original arc consisted of 258 main triangles with 265 main station points. The listed site includes 34 of the original station points, with different markings, i.e. a drilled hole in rock, iron cross, cairns, or built obelisks.",
     "latitude": 59.0577777778,
-    "longitude": 26.3377777777
+    "longitude": 26.3377777777,
+    "nameTr": "Struve Jeodezik Yayı",
+    "descriptionTr": "Struve Yayı, Norveç'teki Hammerfest'ten Karadeniz'e kadar 10 ülkeden geçen ve 2.820 km'den uzun bir mesafeye yayılan bir üçgenleme ölçüm zinciridir. Bunlar, astronom Friedrich Georg Wilhelm Struve tarafından 1816 ile 1855 arasında yürütülen, bir meridyenin uzun bir kesiminin ilk doğru ölçümünü temsil eden bir ölçümün noktalarıdır. Bu ölçüm, gezegenin kesin boyutunun ve şeklinin belirlenmesine yardımcı olmuş ve yer bilimlerinin ve topoğrafik haritacılığın gelişiminde önemli bir adım olmuştur. Farklı ülkelerden bilim insanları arasındaki bilimsel iş birliğinin ve hükümdarların bilimsel bir amaç için iş birliğinin olağanüstü bir örneğidir. Özgün yay, 265 ana istasyon noktalı 258 ana üçgenden oluşuyordu. Listeye alınan alan, kayaya açılmış delik, demir haç, taş yığını veya inşa edilmiş dikilitaşlar gibi farklı işaretlere sahip özgün istasyon noktalarından 34'ünü içerir."
   },
   {
     "id": "491bcafc-6087-5c2f-bb4a-fd5cc083767f",
@@ -7961,7 +8135,9 @@
     "category": "Cultural",
     "description": "This serial property combines 28 sites, located in Bosnia and Herzegovina, western Serbia, western Montenegro and central and southern Croatia, representing these cemeteries and regionally distinctive medieval tombstones, or stećci. The cemeteries, which date from the 12th to 16th centuries CE, are laid out in rows, as was the common custom in Europe from the Middle Ages. The stećci are mostly carved from limestone. They feature a wide range of decorative motifs and inscriptions that represent iconographic continuities within medieval Europe as well as locally distinctive traditions.",
     "latitude": 43.0922138889,
-    "longitude": 17.9240527778
+    "longitude": 17.9240527778,
+    "nameTr": "Stećci Ortaçağ Mezar Taşı Mezarlıkları",
+    "descriptionTr": "Bu seri alan, Bosna-Hersek'te, batı Sırbistan'da, batı Karadağ'da ve orta ile güney Hırvatistan'da yer alan 28 alanı birleştirir ve bu mezarlıkları ve bölgeye özgü ortaçağ mezar taşlarını, yani stećcileri temsil eder. M.S. 12. ile 16. yüzyıllara tarihlenen mezarlıklar, Orta Çağ'dan beri Avrupa'da yaygın olan geleneğe uygun olarak sıralar halinde düzenlenmiştir. Stećci çoğunlukla kireçtaşından oyulmuştur. Ortaçağ Avrupası'ndaki ikonografik sürekliliği ve yerel olarak ayırt edici gelenekleri temsil eden çok çeşitli süsleme motifleri ve yazıtlar içerirler."
   },
   {
     "id": "1798a609-e105-58e4-842a-f58f59d3ef9d",
@@ -8551,7 +8727,9 @@
     "category": "Cultural",
     "description": "Erzgebirge/Krušnohoří (Ore Mountains) spans a region in south-eastern Germany (Saxony) and north-western Czechia, which contains a wealth of several metals exploited through mining from the Middle Ages onwards. The region became the most important source of silver ore in Europe from 1460 to 1560. Mining was the trigger for technological and scientific innovations transferred worldwide. Tin was historically the second metal to be extracted and processed at the site. At the end of the 19th century, the region became a major global producer of uranium. The cultural landscape of the Ore Mountains has been deeply shaped by 800 years of almost continuous mining, from the 12th to the 20th century, with mining, pioneering water management systems, innovative mineral processing and smelting sites, and mining cities.",
     "latitude": 50.4065277778,
-    "longitude": 12.8373444444
+    "longitude": 12.8373444444,
+    "nameTr": "Erzgebirge/Krušnohoří Madencilik Bölgesi",
+    "descriptionTr": "Erzgebirge/Krušnohoří (Cevher Dağları), güneydoğu Almanya (Saksonya) ile kuzeybatı Çekya'ya yayılan ve Orta Çağ'dan itibaren madencilikle işletilen çok sayıda metal bakımından zengin bir bölgeyi kapsar. Bölge, 1460 ile 1560 arasında Avrupa'daki en önemli gümüş cevheri kaynağı haline geldi. Madencilik, dünya çapında aktarılan teknolojik ve bilimsel yeniliklerin tetikleyicisi oldu. Kalay, tarih boyunca alanda çıkarılan ve işlenen ikinci metaldi. 19. yüzyılın sonunda bölge, küresel ölçekte önemli bir uranyum üreticisi haline geldi. Cevher Dağları'nın kültürel peyzajı; 12. yüzyıldan 20. yüzyıla kadar neredeyse kesintisiz süren 800 yıllık madencilikle, öncü su yönetimi sistemleriyle, yenilikçi cevher işleme ve eritme alanlarıyla ve madencilik kentleriyle derinden şekillenmiştir."
   },
   {
     "id": "058b2882-65b8-5c0c-b928-e2ff4d247077",
@@ -8889,7 +9067,9 @@
     "category": "Cultural",
     "description": "Construction of this palatine chapel, with its octagonal basilica and cupola, began c. 790–800 under the Emperor Charlemagne. Originally inspired by the churches of the Eastern part of the Holy Roman Empire, it was splendidly enlarged in the Middle Ages.",
     "latitude": 50.7747468537,
-    "longitude": 6.083919968
+    "longitude": 6.083919968,
+    "nameTr": "Aachen Katedrali",
+    "descriptionTr": "Sekizgen bazilikası ve kubbesiyle bu saray şapelinin inşasına, İmparator Şarlman döneminde yaklaşık 790-800'de başlanmıştır. Başlangıçta Kutsal Roma İmparatorluğu'nun doğu kesimindeki kiliselerden esinlenen yapı, Orta Çağ'da görkemli biçimde genişletilmiştir."
   },
   {
     "id": "b2f4dc46-6b86-556d-b6ea-ae3b528f75f6",
@@ -8898,7 +9078,9 @@
     "category": "Cultural",
     "description": "The site is located along the Weser River on the outskirts of Höxter where the Carolingian Westwork and Civitas Corvey were erected between AD 822 and 885 in a largely preserved rural setting. The Westwork is the only standing structure that dates back to the Carolingian era, while the original imperial abbey complex is preserved as archaeological remains that are only partially excavated. The Westwork of Corvey uniquely illustrates one of the most important Carolingian architectural expressions. It is a genuine creation of this period, and its architectural articulation and decoration clearly illustrate the role played within the Frankish empire by imperial monasteries in securing territorial control and administration, as well as the propagation of Christianity and the Carolingian cultural and political order throughout Europe.",
     "latitude": 51.7782777778,
-    "longitude": 9.41025
+    "longitude": 9.41025,
+    "nameTr": "Karolenj Westwork'ü ve Corvey Civitas'ı",
+    "descriptionTr": "Alan, Höxter'in eteklerinde Weser Nehri boyunca yer alır; Karolenj Westwork'ü ve Civitas Corvey burada, büyük ölçüde korunmuş kırsal bir ortamda M.S. 822 ile 885 arasında inşa edilmiştir. Westwork, Karolenj dönemine uzanan tek ayakta kalan yapıdır; özgün imparatorluk manastırı kompleksi ise yalnızca kısmen kazılmış arkeolojik kalıntılar olarak korunmaktadır. Corvey Westwork'ü, en önemli Karolenj mimari ifadelerinden birini eşsiz biçimde gözler önüne serer. Bu dönemin gerçek bir eseridir; mimari düzeni ve süslemesi, imparatorluk manastırlarının Frank İmparatorluğu içinde toprak kontrolünü ve idareyi sağlamadaki, ayrıca Hristiyanlığın ve Karolenj kültürel ve siyasi düzeninin Avrupa'ya yayılmasındaki rolünü açıkça gösterir."
   },
   {
     "id": "d1bd7da0-6dc4-5f9d-8d56-6eaab14fcdf4",
@@ -8907,7 +9089,9 @@
     "category": "Cultural",
     "description": "Set in an idyllic garden landscape, Augustusburg Castle (the sumptuous residence of the prince-archbishops of Cologne) and the Falkenlust hunting lodge (a small rural folly) are among the earliest examples of Rococo architecture in 18th-century Germany.",
     "latitude": 50.82502778,
-    "longitude": 6.909777778
+    "longitude": 6.909777778,
+    "nameTr": "Brühl'deki Augustusburg ve Falkenlust Şatoları",
+    "descriptionTr": "İdilik bir bahçe manzarası içinde yer alan Augustusburg Şatosu (Köln prens-başpiskoposlarının görkemli ikametgâhı) ve Falkenlust av köşkü (küçük bir kırsal süs yapısı), 18. yüzyıl Almanya'sındaki Rokoko mimarisinin en erken örnekleri arasındadır."
   },
   {
     "id": "3f59048f-f1bf-53dc-bf52-6bdfa52b2fd5",
@@ -8916,7 +9100,9 @@
     "category": "Cultural",
     "description": "Following the left bank of the Lower Rhine River for approximately 400 km from the Rhenish Massif in Germany to the North Sea coast in the Netherlands, the transnational property consist of 102 components from one section of the frontiers of the Roman Empire, which in the 2nd century CE, stretched across Europe, the Near East, and North Africa, over 7,500 km. The property comprises military and civilian sites and infrastructure that marked the edge of Lower Germany from the 1st to 5th centuries CE. Archaeological remains in the property include legionary fortresses, forts, fortlets, towers, temporary camps, roads, harbours, a fleet base, a canal and an aqueduct, as well as civilian settlements, towns, cemeteries, sanctuaries, an amphitheatre, and a palace. Almost all of these archaeological remains are buried underground. Waterlogged deposits in the property have enabled a high degree of preservation of both structural and organic materials from the Roman periods of occupation and use.",
     "latitude": 52.1803333333,
-    "longitude": 4.433
+    "longitude": 4.433,
+    "nameTr": "Roma İmparatorluğu Sınırları – Aşağı Germania Limesi",
+    "descriptionTr": "Almanya'daki Ren Masifi'nden Hollanda'daki Kuzey Denizi kıyısına kadar Aşağı Ren Nehri'nin sol yakasını yaklaşık 400 km boyunca izleyen bu sınır aşan alan, 2. yüzyılda Avrupa, Yakın Doğu ve Kuzey Afrika boyunca 7.500 km'den fazla uzanan Roma İmparatorluğu sınırlarının bir kesimine ait 102 bileşenden oluşur. Alan, 1. ile 5. yüzyıllar arasında Aşağı Germania'nın sınırını belirleyen askerî ve sivil alanları ve altyapıyı kapsar. Alandaki arkeolojik kalıntılar arasında lejyon kaleleri, kaleler, küçük kaleler, kuleler, geçici kamplar, yollar, limanlar, bir filo üssü, bir kanal ve bir su kemerinin yanı sıra sivil yerleşimler, kentler, mezarlıklar, kutsal alanlar, bir amfitiyatro ve bir saray bulunur. Bu arkeolojik kalıntıların neredeyse tamamı yer altında gömülüdür. Alandaki su baskınına uğramış tortular, Roma'nın işgal ve kullanım dönemlerine ait hem yapısal hem de organik malzemelerin yüksek derecede korunmasını sağlamıştır."
   },
   {
     "id": "13cf2e74-5821-5a96-8a1e-82e81f463335",
@@ -8925,7 +9111,9 @@
     "category": "Cultural",
     "description": "These places in Saxony-Anhalt are all associated with the lives of Martin Luther and his fellow-reformer Melanchthon. They include Melanchthon's house in Wittenberg, the houses in Eisleben where Luther was born in 1483 and died in 1546, his room in Wittenberg, the local church and the castle church where, on 31 October 1517, Luther posted his famous '95 Theses', which launched the Reformation and a new era in the religious and political history of the Western world.",
     "latitude": 51.86472,
-    "longitude": 12.65278
+    "longitude": 12.65278,
+    "nameTr": "Eisleben ve Wittenberg'deki Luther Anıtları",
+    "descriptionTr": "Saksonya-Anhalt'taki bu yerlerin hepsi, Martin Luther'in ve reformcu arkadaşı Melanchthon'un yaşamlarıyla ilişkilidir. Bunlar arasında Melanchthon'un Wittenberg'deki evi, Luther'in 1483'te doğduğu ve 1546'da öldüğü Eisleben'deki evler, Wittenberg'deki odası, yerel kilise ve Luther'in 31 Ekim 1517'de ünlü '95 Tez'ini astığı, Reform'u ve Batı dünyasının dinî ve siyasi tarihinde yeni bir çağı başlatan saray kilisesi yer alır."
   },
   {
     "id": "2e96180a-5376-55cf-99ab-334e44398b1e",
@@ -8934,7 +9122,9 @@
     "category": "Cultural",
     "description": "Lübeck – the former capital and Queen City of the Hanseatic League – was founded in the 12th century and prospered until the 16th century as the major trading centre for northern Europe. It has remained a centre for maritime commerce to this day, particularly with the Nordic countries. Despite the damage it suffered during the Second World War, the basic structure of the old city, consisting mainly of 15th- and 16th-century patrician residences, public monuments (the famous Holstentor brick gate), churches and salt storehouses, remains unaltered.",
     "latitude": 53.86667,
-    "longitude": 10.69167
+    "longitude": 10.69167,
+    "nameTr": "Hansa Kenti Lübeck",
+    "descriptionTr": "Hansa Birliği'nin eski başkenti ve Kraliçe Kenti olan Lübeck, 12. yüzyılda kurulmuş ve 16. yüzyıla kadar kuzey Avrupa'nın başlıca ticaret merkezi olarak gelişmiştir. Bugüne kadar, özellikle Kuzey ülkeleriyle olmak üzere denizcilik ticaretinin merkezi olmayı sürdürmüştür. İkinci Dünya Savaşı sırasında uğradığı hasara rağmen, ağırlıklı olarak 15. ve 16. yüzyıl soylu konutlarından, kamusal anıtlardan (ünlü Holstentor tuğla kapısı), kiliselerden ve tuz depolarından oluşan eski kentin temel yapısı değişmeden kalmıştır."
   },
   {
     "id": "f8190b00-df31-51ac-81b5-8f9dfad3afd7",
@@ -8943,7 +9133,9 @@
     "category": "Cultural",
     "description": "Founded in 1147, the Cistercian Maulbronn Monastery is considered the most complete and best-preserved medieval monastic complex north of the Alps. Surrounded by fortified walls, the main buildings were constructed between the 12th and 16th centuries. The monastery's church, mainly in Transitional Gothic style, had a major influence in the spread of Gothic architecture over much of northern and central Europe. The water-management system at Maulbronn, with its elaborate network of drains, irrigation canals and reservoirs, is of exceptional interest.",
     "latitude": 49.00083,
-    "longitude": 8.81306
+    "longitude": 8.81306,
+    "nameTr": "Maulbronn Manastır Kompleksi",
+    "descriptionTr": "1147'de kurulan Sistersiyen Maulbronn Manastırı, Alpler'in kuzeyindeki en eksiksiz ve en iyi korunmuş ortaçağ manastır kompleksi olarak kabul edilir. Tahkim edilmiş surlarla çevrili ana binalar 12. ile 16. yüzyıllar arasında inşa edilmiştir. Manastırın ağırlıklı olarak Geçiş Dönemi Gotik üslubundaki kilisesi, Gotik mimarinin kuzey ve orta Avrupa'nın büyük bölümüne yayılmasında önemli bir etkiye sahip olmuştur. Maulbronn'un, karmaşık drenaj, sulama kanalları ve su depoları ağına sahip su yönetim sistemi de istisnai bir ilgi çekicidir."
   },
   {
     "id": "cda7341b-1c6a-52ee-bda0-dd1745c57fda",
@@ -8952,7 +9144,9 @@
     "category": "Cultural",
     "description": "The Upper Harz mining water management system, which lies south of the Rammelsberg mines and the town of Goslar, has been developed over a period of some 800 years to assist in the process of extracting ore for the production of non-ferrous metals. Its construction was first undertaken in the Middle Ages by Cistercian monks, and it was then developed on a vast scale from the end of the 16th century until the 19th century. It is made up of an extremely complex but perfectly coherent system of artificial ponds, small channels, tunnels and underground drains. It enabled the development of water power for use in mining and metallurgical processes. It is a major site for mining innovation in the western world.",
     "latitude": 51.82,
-    "longitude": 10.34
+    "longitude": 10.34,
+    "nameTr": "Rammelsberg Madenleri, Goslar Tarihi Kenti ve Yukarı Harz Su Yönetim Sistemi",
+    "descriptionTr": "Rammelsberg madenlerinin ve Goslar kentinin güneyinde yer alan Yukarı Harz madencilik su yönetim sistemi, demir dışı metallerin üretimi için cevher çıkarma sürecine yardımcı olmak üzere yaklaşık 800 yıllık bir süre içinde geliştirilmiştir. İnşasına ilk olarak Orta Çağ'da Sistersiyen rahipler tarafından girişilmiş, ardından 16. yüzyılın sonundan 19. yüzyıla kadar geniş ölçekte geliştirilmiştir. Yapay göletlerden, küçük kanallardan, tünellerden ve yeraltı drenajlarından oluşan son derece karmaşık ama kusursuz biçimde tutarlı bir sistemdir. Madencilik ve metalurji süreçlerinde kullanılmak üzere su gücünün geliştirilmesini mümkün kılmıştır. Batı dünyasında madencilik yenilikleri açısından önemli bir alandır."
   },
   {
     "id": "1b9f64c8-fb63-54ad-ae17-a11a0e8c6443",
@@ -8961,7 +9155,9 @@
     "category": "Cultural",
     "description": "The Darmstadt Artists’ Colony on Mathildenhöhe, the highest elevation above the city of Darmstadt in west-central Germany, was established in 1897 by Ernst Ludwig, Grand Duke of Hesse, as a centre for emerging reform movements in architecture, arts and crafts. The buildings of the colony were created by its artist members as experimental early modernist living and working environments. The colony was expanded during successive international exhibitions in 1901, 1904, 1908 and 1914. Today, it offers a testimony to early modern architecture, urban planning and landscape design, all of which were influenced by the Arts and Crafts movement and the Vienna Secession. The serial property consists of two component parts including 23 elements, such as the Wedding Tower (1908), the Exhibition Hall (1908), the Plane Tree Grove (1833, 1904-14), the Russian Chapel of St. Maria Magdalena (1897-99), the Lily Basin, the Gottfried Schwab Memorial (1905), the Pergola and Garden (1914), the “Swan Temple” Garden Pavilion (1914), the Ernst Ludwig Fountain, and the 13 houses and artists’ studios that were built for the Darmstadt Artists’ Colony and for the international exhibitions. A Three House Group, built for the 1904 exhibition is an additional component.",
     "latitude": 49.8763888889,
-    "longitude": 8.6675
+    "longitude": 8.6675,
+    "nameTr": "Mathildenhöhe Darmstadt",
+    "descriptionTr": "Batı-orta Almanya'daki Darmstadt kentinin en yüksek tepesi olan Mathildenhöhe'deki Darmstadt Sanatçı Kolonisi, 1897'de Hessen Büyük Dükü Ernst Ludwig tarafından mimari, sanat ve zanaatlarda ortaya çıkan reform hareketleri için bir merkez olarak kurulmuştur. Kolonin binaları, sanatçı üyeleri tarafından deneysel erken modernist yaşam ve çalışma ortamları olarak yaratılmıştır. Koloni, 1901, 1904, 1908 ve 1914'teki ardışık uluslararası sergiler sırasında genişletilmiştir. Bugün, hepsi Arts and Crafts hareketinden ve Viyana Seçesyonu'ndan etkilenmiş olan erken modern mimariye, kent planlamasına ve peyzaj tasarımına tanıklık eder. Seri alan, Evlilik Kulesi (1908), Sergi Salonu (1908), Çınar Korusu (1833, 1904-14), Rus Aziz Maria Magdalena Şapeli (1897-99), Zambak Havuzu, Gottfried Schwab Anıtı (1905), Çardak ve Bahçe (1914), 'Kuğu Tapınağı' Bahçe Köşkü (1914), Ernst Ludwig Çeşmesi ile Darmstadt Sanatçı Kolonisi ve uluslararası sergiler için inşa edilen 13 ev ve sanatçı atölyesi gibi 23 öğeyi içeren iki bileşen parçadan oluşur. 1904 sergisi için inşa edilen Üçlü Ev Grubu ek bir bileşendir."
   },
   {
     "id": "e0d97893-c8a1-5115-9214-93331356b730",
@@ -8970,7 +9166,9 @@
     "category": "Cultural",
     "description": "Located on the Danube River in Bavaria, this medieval town contains many buildings of exceptional quality that testify to its history as a trading centre and to its influence on the region from the 9th century. A notable number of historic structures span some two millennia and include ancient Roman, Romanesque and Gothic buildings. Regensburg’s 11th- to 13th-century architecture – including the market, city hall and cathedral – still defines the character of the town marked by tall buildings, dark and narrow lanes, and strong fortifications. The buildings include medieval patrician houses and towers, a large number of churches and monastic ensembles as well as the 12th-century Old Bridge. The town is also remarkable for the vestiges testifing to its rich history as one of the centres of the Holy Roman Empire that turned to Protestantism.",
     "latitude": 49.02055556,
-    "longitude": 12.09916667
+    "longitude": 12.09916667,
+    "nameTr": "Stadtamhof'lu Regensburg Eski Kenti",
+    "descriptionTr": "Bavyera'da Tuna Nehri üzerinde yer alan bu ortaçağ kenti, bir ticaret merkezi olarak tarihine ve 9. yüzyıldan itibaren bölge üzerindeki etkisine tanıklık eden, olağanüstü nitelikte çok sayıda yapı barındırır. Dikkat çekici sayıdaki tarihî yapı yaklaşık iki bin yıla yayılır ve antik Roma, Romanesk ve Gotik binaları içerir. Regensburg'un pazarı, belediye binası ve katedrali dahil 11. ile 13. yüzyıl mimarisi, yüksek binaların, karanlık ve dar sokakların ve güçlü tahkimatların damgasını vurduğu kentin karakterini hâlâ belirler. Yapılar arasında ortaçağ soylu evleri ve kuleleri, çok sayıda kilise ve manastır topluluğu ile 12. yüzyıldan kalma Eski Köprü bulunur. Kent ayrıca, Protestanlığa yönelen Kutsal Roma İmparatorluğu merkezlerinden biri olarak zengin tarihine tanıklık eden kalıntılarıyla da dikkat çekicidir."
   },
   {
     "id": "a67f1dfe-789c-5a71-ade8-5675c16386c8",
@@ -8979,7 +9177,9 @@
     "category": "Cultural",
     "description": "A landscaped park of 559.9 ha astride the Neisse River and the border between Poland and Germany, it was created by Prince Hermann von Puckler-Muskau from 1815 to 1844. Blending seamlessly with the surrounding farmed landscape, the park pioneered new approaches to landscape design and influenced the development of landscape architecture in Europe and America. Designed as a ‘painting with plants’, it did not seek to evoke classical landscapes, paradise, or some lost perfection, instead using local plants to enhance the inherent qualities of the existing landscape. This integrated landscape extends into the town of Muskau with green passages that formed urban parks framing areas for development. The town thus became a design component in a utopian landscape. The site also features a reconstructed castle, bridges and an arboretum.",
     "latitude": 51.547653,
-    "longitude": 14.729389
+    "longitude": 14.729389,
+    "nameTr": "Muskauer Parkı / Park Mużakowski",
+    "descriptionTr": "Neisse Nehri'nin ve Polonya ile Almanya sınırının iki yakasına yayılan 559,9 hektarlık peyzajlı bir park olan alan, Prens Hermann von Pückler-Muskau tarafından 1815 ile 1844 arasında yaratılmıştır. Çevredeki tarım peyzajıyla kusursuz biçimde bütünleşen park, peyzaj tasarımında yeni yaklaşımlara öncülük etmiş ve Avrupa ile Amerika'da peyzaj mimarisinin gelişimini etkilemiştir. 'Bitkilerle yapılmış bir resim' olarak tasarlanan park; klasik manzaraları, cenneti veya kaybolmuş bir mükemmelliği çağrıştırmaya çalışmamış, bunun yerine mevcut peyzajın doğal niteliklerini öne çıkarmak için yerel bitkileri kullanmıştır. Bu bütünleşik peyzaj, kentsel parklar oluşturan ve gelişim alanlarını çerçeveleyen yeşil geçitlerle Muskau kasabasına kadar uzanır. Böylece kasaba, ütopik bir peyzajda bir tasarım bileşeni haline gelmiştir. Alanda ayrıca yeniden inşa edilmiş bir kale, köprüler ve bir ağaç bahçesi bulunur."
   },
   {
     "id": "10bb7653-e550-5605-9fd7-e2989dd48917",
@@ -8988,7 +9188,9 @@
     "category": "Cultural",
     "description": "Located in the former Imperial cathedral cities of Speyer, Worms and Mainz, in the Upper Rhine Valley, the serial site of Speyer, Worms and Mainz comprise the Speyer Jewry-Court, with the structures of the synagogue and women’s shul (Yiddish for synagogue), the archaeological vestiges of the yeshiva (religious school), the courtyard and the still intact underground mikveh (ritual bath), which has retained its high architectural and building quality. The property also comprises the Worms Synagogue Compound, with its in situ post-war reconstruction of the 12th century synagogue and 13th century women’s shul, the community hall (Rashi House), and the monumental 12th-century mikveh. The series also includes the Old Jewish Cemetery in Worms and the Old Jewish Cemetery in Mainz. The four component sites tangibly reflect the early emergence of distinctive Ashkenaz customs and the development and settlement pattern of the ShUM communities, particularly between the 11th and the 14th centuries. The buildings that constitute the property served as prototypes for later Jewish community and religious buildings as well as cemeteries in Europe. The acronym ShUM stands for the Hebrew initials of Speyer, Worms and Mainz.",
     "latitude": 49.3162111111,
-    "longitude": 8.4395388889
+    "longitude": 8.4395388889,
+    "nameTr": "Speyer, Worms ve Mainz'ın ShUM Alanları",
+    "descriptionTr": "Yukarı Ren Vadisi'ndeki eski İmparatorluk katedral kentleri Speyer, Worms ve Mainz'da yer alan seri alan; sinagog ve kadınlar şulu (sinagog için Yidiş sözcük) yapılarıyla Speyer Yahudi Mahkemesi'ni, yeşivanın (dinî okul) arkeolojik kalıntılarını, avluyu ve yüksek mimari ve yapı niteliğini koruyan, hâlâ sağlam duran yeraltı mikvesini (ritüel banyo) kapsar. Alan ayrıca, 12. yüzyıl sinagogunun ve 13. yüzyıl kadınlar şulunun yerinde savaş sonrası yeniden inşasıyla Worms Sinagog Külliyesi'ni, cemaat salonunu (Raşi Evi) ve anıtsal 12. yüzyıl mikvesini içerir. Seri ayrıca Worms'taki Eski Yahudi Mezarlığı'nı ve Mainz'daki Eski Yahudi Mezarlığı'nı da kapsar. Dört bileşen alan, kendine özgü Aşkenaz geleneklerinin erken ortaya çıkışını ve ShUM cemaatlerinin gelişim ve yerleşim düzenini, özellikle 11. ile 14. yüzyıllar arasında somut biçimde yansıtır. Alanı oluşturan binalar, Avrupa'daki sonraki Yahudi cemaat ve dinî binaları ile mezarlıklar için prototip işlevi görmüştür. ShUM kısaltması, Speyer, Worms ve Mainz'ın İbranice baş harflerinden gelir."
   },
   {
     "id": "6082d25e-3f8c-5868-9714-474a2e9df946",
@@ -8997,7 +9199,9 @@
     "category": "Cultural",
     "description": "The Town Hall and the statue of Roland on the marketplace of Bremen in north-west Germany are outstanding representations of civic autonomy and sovereignty, as these developed in the Holy Roman Empire in Europe. The old town hall was built in the Gothic style in the early 15th century, after Bremen joined the Hanseatic League. The building was renovated in the so-called Weser Renaissance style in the early 17th century. A new town hall was built next to the old one in the early 20th century as part of an ensemble that survived bombardment during the Second World War. The statue stands 5.5 m tall and dates back to 1404.",
     "latitude": 53.07597222,
-    "longitude": 8.807472222
+    "longitude": 8.807472222,
+    "nameTr": "Bremen Pazar Meydanı'ndaki Belediye Binası ve Roland",
+    "descriptionTr": "Kuzeybatı Almanya'daki Bremen pazar meydanında yer alan Belediye Binası ve Roland heykeli, Avrupa'da Kutsal Roma İmparatorluğu içinde gelişen kent özerkliğinin ve egemenliğinin olağanüstü temsilleridir. Eski belediye binası, Bremen'in Hansa Birliği'ne katılmasının ardından 15. yüzyılın başlarında Gotik üslupta inşa edilmiştir. Bina, 17. yüzyılın başlarında Weser Rönesansı denen üslupta yenilenmiştir. 20. yüzyılın başlarında, İkinci Dünya Savaşı sırasındaki bombardımandan sağ çıkan bir topluluğun parçası olarak eskisinin yanına yeni bir belediye binası yapılmıştır. Heykel 5,5 metre yüksekliğindedir ve 1404 yılına tarihlenir."
   },
   {
     "id": "ec6ad065-7cfb-54d5-9294-16cc2a49d014",
@@ -9006,7 +9210,9 @@
     "category": "Cultural",
     "description": "The water management system of the city of Augsburg has evolved in successive phases from the 14th century to the present day. It includes a network of canals, water towers dating from the 15th to 17th centuries, which housed pumping machinery, a water-cooled butchers’ hall, a system of three monumental fountains and hydroelectric power stations, which continue to provide sustainable energy today. The technological innovations generated by this water management system have helped establish Augsburg as a pioneer in hydraulic engineering.",
     "latitude": 48.3654722222,
-    "longitude": 10.902
+    "longitude": 10.902,
+    "nameTr": "Augsburg Su Yönetim Sistemi",
+    "descriptionTr": "Augsburg kentinin su yönetim sistemi, 14. yüzyıldan günümüze kadar ardışık aşamalarda gelişmiştir. Sistem; bir kanal ağını, pompalama makineleri barındıran 15. ile 17. yüzyıllara tarihlenen su kulelerini, su soğutmalı bir kasap salonunu, üç anıtsal çeşmeden oluşan bir sistemi ve bugün de sürdürülebilir enerji sağlamaya devam eden hidroelektrik santrallerini içerir. Bu su yönetim sisteminin ortaya çıkardığı teknolojik yenilikler, Augsburg'un hidrolik mühendisliğinde öncü olarak yerleşmesine yardımcı olmuştur."
   },
   {
     "id": "ae34ca3d-6cdb-59ff-a320-4a07ac337782",
@@ -9015,7 +9221,9 @@
     "category": "Cultural",
     "description": "The ironworks, which cover some 6 ha, dominate the city of Völklingen. Although they have recently gone out of production, they are the only intact example, in the whole of western Europe and North America, of an integrated ironworks that was built and equipped in the 19th and 20th centuries and has remained intact.",
     "latitude": 49.2487222222,
-    "longitude": 6.8442222222
+    "longitude": 6.8442222222,
+    "nameTr": "Völklingen Demir Fabrikası",
+    "descriptionTr": "Yaklaşık 6 hektarı kaplayan demir fabrikası, Völklingen kentine hâkimdir. Yakın zamanda üretimi durmuş olsa da, 19. ve 20. yüzyıllarda inşa edilip donatılmış ve bozulmadan kalmış entegre bir demir fabrikasının tüm Batı Avrupa'da ve Kuzey Amerika'da tek sağlam örneğidir."
   },
   {
     "id": "d8abf295-2053-5fef-a278-fd0394f2e6e8",
@@ -9024,7 +9232,9 @@
     "category": "Cultural",
     "description": "The 65km-stretch of the Middle Rhine Valley, with its castles, historic towns and vineyards, graphically illustrates the long history of human involvement with a dramatic and varied natural landscape. It is intimately associated with history and legend and for centuries has exercised a powerful influence on writers, artists and composers.",
     "latitude": 50.17361111,
-    "longitude": 7.694166667
+    "longitude": 7.694166667,
+    "nameTr": "Yukarı Orta Ren Vadisi",
+    "descriptionTr": "Orta Ren Vadisi'nin, kaleleri, tarihî kentleri ve bağlarıyla 65 km'lik bu kesimi, insanoğlunun çarpıcı ve çeşitli bir doğal peyzajla olan uzun tarihini canlı biçimde gösterir. Tarih ve efsaneyle iç içedir ve yüzyıllar boyunca yazarlar, sanatçılar ve besteciler üzerinde güçlü bir etki yaratmıştır."
   },
   {
     "id": "3b535241-ac94-5416-ace3-78f92811b342",
@@ -9033,7 +9243,9 @@
     "category": "Cultural",
     "description": "This magnificent Baroque palace – one of the largest and most beautiful in Germany and surrounded by wonderful gardens – was created under the patronage of the prince-bishops Lothar Franz and Friedrich Carl von Schönborn. It was built and decorated in the 18th century by an international team of architects, painters (including Tiepolo), sculptors and stucco-workers, led by Balthasar Neumann.",
     "latitude": 49.79278,
-    "longitude": 9.93889
+    "longitude": 9.93889,
+    "nameTr": "Würzburg Residenz'i, Saray Bahçeleri ve Residenz Meydanı",
+    "descriptionTr": "Almanya'nın en büyük ve en güzel saraylarından biri olan ve harika bahçelerle çevrili bu görkemli Barok saray, prens-piskoposlar Lothar Franz ve Friedrich Carl von Schönborn'un himayesinde yaratılmıştır. Balthasar Neumann önderliğinde, aralarında Tiepolo'nun da bulunduğu uluslararası bir mimar, ressam, heykeltıraş ve alçı ustası ekibi tarafından 18. yüzyılda inşa edilmiş ve dekore edilmiştir."
   },
   {
     "id": "29e3f5c6-756d-5293-9f08-019ba59561a7",
@@ -9051,7 +9263,9 @@
     "category": "Cultural",
     "description": "The remains of this walled city lie at the foot of an acropolis in north-eastern Greece, on the ancient route linking Europe and Asia, the Via Egnatia. Founded in 356 BC by the Macedonian King Philip II, the city developed as a “small Rome” with the establishment of the Roman Empire in the decades following the Battle of Philippi, in 42 BCE. The vibrant Hellenistic city of Philip II, of which the walls and their gates, the theatre and the funerary heroon (temple) are to be seen, was supplemented with Roman public buildings such as the Forum and a monumental terrace with temples to its north. Later the city became a centre of the Christian faith following the visit of the Apostle Paul in 49-50 CE. The remains of its basilicas constitute an exceptional testimony to the early establishment of Christianity.",
     "latitude": 41.0147222222,
-    "longitude": 24.2852777778
+    "longitude": 24.2852777778,
+    "nameTr": "Filippi Arkeolojik Alanı",
+    "descriptionTr": "Surlarla çevrili bu kentin kalıntıları, kuzeydoğu Yunanistan'da bir akropolün eteğinde, Avrupa ile Asya'yı birbirine bağlayan antik yol Via Egnatia üzerinde yer alır. M.Ö. 356'da Makedon Kralı II. Philippos tarafından kurulan kent, M.Ö. 42'deki Filippi Savaşı'nı izleyen on yıllarda Roma İmparatorluğu'nun kurulmasıyla bir 'küçük Roma' olarak gelişti. II. Philippos'un surları ve kapıları, tiyatrosu ve mezar heroonu (tapınağı) görülebilen canlı Helenistik kenti; Forum gibi Roma kamu binalarıyla ve kuzeyinde tapınakların bulunduğu anıtsal bir terasla genişletildi. Kent daha sonra, Havari Pavlus'un M.S. 49-50'deki ziyaretinin ardından Hristiyan inancının bir merkezi haline geldi. Bazilikalarının kalıntıları, Hristiyanlığın erken dönemde yerleşmesine olağanüstü bir tanıklık oluşturur."
   },
   {
     "id": "14c74485-5df5-5c8f-bf8c-16c3920aaf13",
@@ -9060,7 +9274,9 @@
     "category": "Cultural",
     "description": "According to Greek mythology, Apollo was born on this tiny island in the Cyclades archipelago. Apollo's sanctuary attracted pilgrims from all over Greece and Delos was a prosperous trading port. The island bears traces of the succeeding civilizations in the Aegean world, from the 3rd millennium B.C. to the palaeochristian era. The archaeological site is exceptionally extensive and rich and conveys the image of a great cosmopolitan Mediterranean port.",
     "latitude": 37.4,
-    "longitude": 25.26667
+    "longitude": 25.26667,
+    "nameTr": "Delos",
+    "descriptionTr": "Yunan mitolojisine göre Apollon, Kiklad takımadasındaki bu küçük adada doğmuştur. Apollon'un kutsal alanı tüm Yunanistan'dan hacıları çekmiş ve Delos zengin bir ticaret limanı olmuştur. Ada, M.Ö. 3. binyıldan ilk Hristiyanlık dönemine kadar Ege dünyasında birbirini izleyen uygarlıkların izlerini taşır. Arkeolojik alan olağanüstü geniş ve zengindir ve büyük, kozmopolit bir Akdeniz limanının görüntüsünü aktarır."
   },
   {
     "id": "db850fe7-d723-5f04-8663-294a3dc0b132",
@@ -9069,7 +9285,9 @@
     "category": "Cultural",
     "description": "Many civilizations have inhabited this small Aegean island, near Asia Minor, since the 3rd millennium B.C. The remains of Pythagoreion, an ancient fortified port with Greek and Roman monuments and a spectacular tunnel-aqueduct, as well as the Heraion, temple of the Samian Hera, can still be seen.",
     "latitude": 37.69083,
-    "longitude": 26.94333
+    "longitude": 26.94333,
+    "nameTr": "Sisam'daki Pythagoreion ve Heraion",
+    "descriptionTr": "Küçük Asya'ya yakın bu küçük Ege adasında, M.Ö. 3. binyıldan beri birçok uygarlık yaşamıştır. Yunan ve Roma anıtları ile etkileyici bir tünel-su kemeri bulunan antik surlu liman Pythagoreion'un ve Sisam Hera'sının tapınağı Heraion'un kalıntıları hâlâ görülebilmektedir."
   },
   {
     "id": "3a3285f2-e576-5c28-8e92-4e832d7ba223",
@@ -9078,7 +9296,9 @@
     "category": "Mixed",
     "description": "An Orthodox spiritual centre since 1054, Mount Athos has enjoyed an autonomous statute since Byzantine times. The 'Holy Mountain', which is forbidden to women and children, is also a recognized artistic site. The layout of the monasteries (about 20 of which are presently inhabited by some 1,400 monks) had an influence as far afield as Russia, and its school of painting influenced the history of Orthodox art.",
     "latitude": 40.26667,
-    "longitude": 24.21667
+    "longitude": 24.21667,
+    "nameTr": "Athos Dağı (Aynaroz)",
+    "descriptionTr": "1054'ten beri bir Ortodoks manevi merkezi olan Athos Dağı, Bizans döneminden beri özerk bir statüye sahiptir. Kadınlara ve çocuklara yasak olan 'Kutsal Dağ' aynı zamanda tanınmış bir sanat alanıdır. Manastırların düzeni (yaklaşık 20'si şu anda yaklaşık 1.400 keşiş tarafından iskân edilmektedir) Rusya'ya kadar uzak bölgelerde etkili olmuş, resim okulu ise Ortodoks sanat tarihini etkilemiştir."
   },
   {
     "id": "af0747ec-c8ee-57dc-9f1b-965e7f893868",
@@ -9087,7 +9307,9 @@
     "category": "Cultural",
     "description": "The small island of Pátmos in the Dodecanese is reputed to be where St John the Theologian wrote both his Gospel and the Apocalypse. A monastery dedicated to the ‘beloved disciple’ was founded there in the late 10th century and it has been a place of pilgrimage and Greek Orthodox learning ever since. The fine monastic complex dominates the island. The old settlement of Chorá, associated with it, contains many religious and secular buildings.",
     "latitude": 37.3,
-    "longitude": 26.55
+    "longitude": 26.55,
+    "nameTr": "Tarihi Merkez (Chorá), Patmos Adası'ndaki Teolog Aziz Yuhanna Manastırı ve Vahiy Mağarası",
+    "descriptionTr": "Oniki Adalar'daki küçük Patmos Adası, Teolog Aziz Yuhanna'nın hem İncil'ini hem de Vahiy'ini yazdığı yer olarak bilinir. 'Sevgili havari'ye adanmış bir manastır adada 10. yüzyılın sonlarında kurulmuş ve o zamandan beri bir hac yeri ve Yunan Ortodoks öğrenim merkezi olmuştur. Güzel manastır kompleksi adaya hâkimdir. Onunla ilişkili eski yerleşim Chorá, çok sayıda dinî ve sivil yapı barındırır."
   },
   {
     "id": "bea1a2f7-e4b8-57ec-8d70-ad9672e6bab6",
@@ -9096,14 +9318,18 @@
     "category": "Cultural",
     "description": "This famous temple to the god of healing and the sun was built towards the middle of the 5th century B.C. in the lonely heights of the Arcadian mountains. The temple, which has the oldest Corinthian capital yet found, combines the Archaic style and the serenity of the Doric style with some daring architectural features.",
     "latitude": 37.43498,
-    "longitude": 21.89694
+    "longitude": 21.89694,
+    "nameTr": "Bassae'deki Apollon Epikurios Tapınağı",
+    "descriptionTr": "Şifa ve güneş tanrısına adanmış bu ünlü tapınak, M.Ö. 5. yüzyılın ortalarına doğru Arkadya dağlarının ıssız zirvelerinde inşa edilmiştir. Bulunmuş en eski Korint başlığına sahip olan tapınak, Arkaik üslubu ve Dor üslubunun dinginliğini bazı cesur mimari özelliklerle birleştirir."
   },
   {
     "id": "69f75f63-6893-5b08-99ed-36459264a43d",
     "name": "The wider area of Mount Olympus",
     "country": "Greece",
     "category": "Mixed",
-    "description": "Mount Olympus is situated in northern Greece and is the highest mountain in the country. Its microclimate, resulting from its proximity to the sea and abrupt elevation, produces a remarkable diversity in terrain, climate, and vegetation. In this landscape, the ancient Greeks situated the abode of their Twelve Olympian Gods, with Zeus as their sovereign, as well as the Muses and Graces. Through the writings of Hesiod and Homer, Mount Olympus became a central point of reference for Greek mythology throughout the Greek and Roman worlds, rendering Mount Olympus an enduring emblem of Greek civilisation. The property features striking landforms, including glacial cirques, limestone cliffs, karstic sinkholes, and olistolith fields, while sharp ridges like the Mytikas-Stefani complex and deep gorges such as the Enipeas illustrate ongoing neotectonic activity. Mount Olympus has served as a glacial refugium for forest species and is also a Mediterranean plant biodiversity and endemism hotspot."
+    "description": "Mount Olympus is situated in northern Greece and is the highest mountain in the country. Its microclimate, resulting from its proximity to the sea and abrupt elevation, produces a remarkable diversity in terrain, climate, and vegetation. In this landscape, the ancient Greeks situated the abode of their Twelve Olympian Gods, with Zeus as their sovereign, as well as the Muses and Graces. Through the writings of Hesiod and Homer, Mount Olympus became a central point of reference for Greek mythology throughout the Greek and Roman worlds, rendering Mount Olympus an enduring emblem of Greek civilisation. The property features striking landforms, including glacial cirques, limestone cliffs, karstic sinkholes, and olistolith fields, while sharp ridges like the Mytikas-Stefani complex and deep gorges such as the Enipeas illustrate ongoing neotectonic activity. Mount Olympus has served as a glacial refugium for forest species and is also a Mediterranean plant biodiversity and endemism hotspot.",
+    "nameTr": "Olimpos Dağı'nın Geniş Çevresi",
+    "descriptionTr": "Olimpos Dağı kuzey Yunanistan'da yer alır ve ülkenin en yüksek dağıdır. Denize yakınlığı ve ani yükselmesinden kaynaklanan mikroklima, arazi, iklim ve bitki örtüsünde dikkat çekici bir çeşitlilik yaratır. Antik Yunanlılar, bu manzarada Zeus'un hükümdarlığındaki Oniki Olimpos Tanrısı'nın, ayrıca Musalar'ın ve Hariteler'in yurdunu konumlandırmıştır. Hesiodos'un ve Homeros'un yazıları sayesinde Olimpos Dağı, Yunan ve Roma dünyalarında Yunan mitolojisi için merkezî bir başvuru noktası haline gelmiş ve Yunan medeniyetinin kalıcı bir simgesi olmuştur. Alan; buzul sirkleri, kireçtaşı kayalıkları, karstik obruklar ve olistolit alanları gibi çarpıcı yer şekillerine sahiptir; Mytikas-Stefani kompleksi gibi keskin sırtlar ve Enipeas gibi derin vadiler ise süregelen neotektonik etkinliği gösterir. Olimpos Dağı, orman türleri için bir buzul sığınağı işlevi görmüştür ve aynı zamanda Akdeniz bitki biyoçeşitliliği ve endemizminin sıcak noktalarından biridir."
   },
   {
     "id": "120f1cd4-866c-5481-b529-9f98a5f6e177",
@@ -9112,7 +9338,9 @@
     "category": "Cultural",
     "description": "Located in a remote rural landscape in northwestern Greece, small stone villages known as Zagorochoria extend along the western slopes of the northern part of the Pindus mountain range. These traditional villages, typically organized around a central square containing a plane tree and surrounded by sacred forests maintained by local communities, showcase a traditional architecture adapted to the mountain topography. A network of stone-arched bridges, stone cobbled paths, and stone staircases linking the villages formed a system that served as a political and social unit connecting the communities of the Vikos and the Voïdomatis River basin.",
     "latitude": 39.9052777778,
-    "longitude": 20.8197222222
+    "longitude": 20.8197222222,
+    "nameTr": "Zagori Kültürel Peyzajı",
+    "descriptionTr": "Kuzeybatı Yunanistan'da uzak bir kırsal peyzajda yer alan, Zagorochoria olarak bilinen küçük taş köyler, Pindus dağ silsilesinin kuzey kesiminin batı yamaçları boyunca uzanır. Genellikle içinde bir çınar ağacı bulunan merkezî bir meydan etrafında örgütlenen ve yerel topluluklarca korunan kutsal ormanlarla çevrili bu geleneksel köyler, dağ topografyasına uyarlanmış bir geleneksel mimariyi sergiler. Köyleri birbirine bağlayan taş kemerli köprüler, taş döşeli patikalar ve taş merdivenler ağı, Vikos ve Voïdomatis Nehri havzalarındaki toplulukları birbirine bağlayan siyasi ve toplumsal bir birim işlevi gören bir sistem oluşturmuştur."
   },
   {
     "id": "467ef8a6-be3e-5275-adc3-fbddd97aa702",
@@ -10629,7 +10857,9 @@
     "category": "Cultural",
     "description": "This is a fine example of a working Orthodox monastery, with military features that are typical of the 15th to the 18th century, the period during which it developed. The main church of the Lavra, the Cathedral of the Assumption (echoing the Kremlin Cathedral of the same name), contains the tomb of Boris Godunov. Among the treasures of the Lavra is the famous icon, The Trinity , by Andrei Rublev.",
     "latitude": 56.31035,
-    "longitude": 38.1312
+    "longitude": 38.1312,
+    "nameTr": "Sergiyev Posad'daki Kutsal Üçlü Sergius Lavra'sı Mimari Topluluğu",
+    "descriptionTr": "Burası, geliştiği 15. ile 18. yüzyıllar dönemine özgü askerî özelliklere sahip, faal bir Ortodoks manastırının güzel bir örneğidir. Lavra'nın ana kilisesi olan Meryem'in Göğe Alınışı (Varsayım) Katedrali (Kremlin'deki aynı adlı katedralin yankısı), Boris Godunov'un mezarını içerir. Lavra'nın hazineleri arasında Andrey Rublev'in ünlü ikonu 'Kutsal Üçlü' bulunur."
   },
   {
     "id": "a51d2cd1-ce3c-5e9e-a8df-7976caa4de41",
@@ -10638,7 +10868,9 @@
     "category": "Cultural",
     "description": "The Assumption Cathedral is located in the town-island of Sviyazhsk and is part of the monastery of the same name. Situated at the confluence of the Volga, the Sviyaga and the Shchuka rivers, at the crossroads of the Silk and Volga routes, Sviyazhsk was founded by Ivan the Terrible in 1551. It was from this outpost that he initiated the conquest of the Kazan Khanate. The Assumption Monastery illustrates in its location and architectural composition the political and missionary programme developed by Tsar Ivan IV to extend the Moscow state. The cathedral’s frescoes are among the rarest examples of Eastern Orthodox mural paintings.",
     "latitude": 55.7702777778,
-    "longitude": 48.6527777778
+    "longitude": 48.6527777778,
+    "nameTr": "Sviyazhsk Şehir-Adası'ndaki Varsayım Katedrali ve Manastırı",
+    "descriptionTr": "Varsayım Katedrali, Sviyazhsk şehir-adasında yer alır ve aynı adı taşıyan manastırın bir parçasıdır. Volga, Sviyaga ve Shchuka nehirlerinin birleştiği noktada, İpek ve Volga yollarının kavşağında yer alan Sviyazhsk, 1551'de Korkunç İvan tarafından kurulmuştur. Kazan Hanlığı'nın fethini bu ileri karakoldan başlatmıştır. Varsayım Manastırı, konumuyla ve mimari kompozisyonuyla Çar IV. İvan'ın Moskova devletini genişletmek için geliştirdiği siyasi ve misyonerlik programını gözler önüne serer. Katedralin freskleri, Doğu Ortodoks duvar resmi geleneğinin en nadir örnekleri arasındadır."
   },
   {
     "id": "80e2e6a3-04ca-565c-9eb8-4413c0752b01",
@@ -10647,7 +10879,9 @@
     "category": "Cultural",
     "description": "Located in Kenozero National Park in the north-western area of the European region of the Russian Federation, the property depicts the local cultural landscape that evolved here from the 12th century, following the gradual spread of the Slavic population. It incorporates a number of traditional rural settlements with vernacular wooden architecture. The cultural landscape of Kenozero reflects the communal management of agriculture and nature that developed through the fusion and interaction of the Finno-Ugric forest culture and the Slavic field culture. Wooden churches and other religious buildings, originally decorated with painted ceilings, or “heavens”, are the key social, cultural, and visual landmarks of the area. Their spatial organization, together with sacred sites and symbols, highlight the residents’ spiritual connection with this environment.",
     "latitude": 61.928,
-    "longitude": 38.1726111111
+    "longitude": 38.1726111111,
+    "nameTr": "Kenozero Gölü Kültürel Peyzajı",
+    "descriptionTr": "Rusya Federasyonu'nun Avrupa bölgesinin kuzeybatısında, Kenozero Ulusal Parkı'nda yer alan alan, Slav nüfusunun giderek yayılmasının ardından 12. yüzyıldan itibaren burada gelişen yerel kültürel peyzajı tasvir eder. Yerel ahşap mimariye sahip çok sayıda geleneksel kırsal yerleşimi içerir. Kenozero'nun kültürel peyzajı, Fin-Ugor orman kültürü ile Slav tarla kültürünün kaynaşması ve etkileşimiyle gelişen, tarımın ve doğanın ortak yönetimini yansıtır. Başlangıçta 'gökler' denen boyalı tavanlarla süslenmiş olan ahşap kiliseler ve diğer dinî yapılar, bölgenin başlıca toplumsal, kültürel ve görsel simge yapılarıdır. Mekânsal düzenleri, kutsal alanlar ve sembollerle birlikte, sakinlerin bu çevreyle manevi bağını vurgular."
   },
   {
     "id": "6d3bae7f-87fc-509d-95c6-680dd85cf95f",
@@ -10656,7 +10890,9 @@
     "category": "Cultural",
     "description": "The Ferapontov Monastery, in the Vologda region in northern Russia, is an exceptionally well-preserved and complete example of a Russian Orthodox monastic complex of the 15th-17th centuries, a period of great significance in the development of the unified Russian state and its culture. The architecture of the monastery is outstanding in its inventiveness and purity. The interior is graced by the magnificent wall paintings of Dionisy, the greatest Russian artist of the end of the 15th century.",
     "latitude": 59.95,
-    "longitude": 38.56666667
+    "longitude": 38.56666667,
+    "nameTr": "Ferapontov Manastırı Topluluğu",
+    "descriptionTr": "Kuzey Rusya'daki Vologda bölgesinde yer alan Ferapontov Manastırı, birleşik Rus devletinin ve kültürünün gelişiminde büyük önem taşıyan 15.-17. yüzyıllara ait bir Rus Ortodoks manastır kompleksinin olağanüstü iyi korunmuş ve eksiksiz bir örneğidir. Manastırın mimarisi buluşçuluğu ve saflığıyla dikkat çekicidir. İç mekân, 15. yüzyılın sonlarının en büyük Rus sanatçısı Dionisiy'in muhteşem duvar resimleriyle süslüdür."
   },
   {
     "id": "84bbe4a3-0b01-5a51-8882-389aea195102",
@@ -10665,7 +10901,9 @@
     "category": "Cultural",
     "description": "The pogost of Kizhi (i.e. the Kizhi enclosure) is located on one of the many islands in Lake Onega, in Karelia. Two 18th-century wooden churches, and an octagonal clock tower, also in wood and built in 1862, can be seen there. These unusual constructions, in which carpenters created a bold visionary architecture, perpetuate an ancient model of parish space and are in harmony with the surrounding landscape.",
     "latitude": 62.0675833333,
-    "longitude": 35.2243611111
+    "longitude": 35.2243611111,
+    "nameTr": "Kizhi Pogostu",
+    "descriptionTr": "Kizhi pogostu (yani Kizhi çevrili alanı), Karelya'da Onega Gölü'ndeki çok sayıda adadan birinde yer alır. Burada 18. yüzyıldan kalma iki ahşap kilise ile yine ahşap olan ve 1862'de inşa edilen sekizgen bir saat kulesi görülebilir. Marangozların cesur ve hayalci bir mimari yarattığı bu alışılmadık yapılar, eski bir cemaat mekânı modelini sürdürür ve çevredeki peyzajla uyum içindedir."
   },
   {
     "id": "1893baec-081d-57d3-908c-cccef0712555",
@@ -10692,7 +10930,9 @@
     "category": "Natural",
     "description": "The Western Caucasus, extending over 275,000 ha of the extreme western end of the Caucasus mountains and located 50 km north-east of the Black Sea, is one of the few large mountain areas of Europe that has not experienced significant human impact. Its subalpine and alpine pastures have only been grazed by wild animals, and its extensive tracts of undisturbed mountain forests, extending from the lowlands to the subalpine zone, are unique in Europe. The site has a great diversity of ecosystems, with important endemic plants and wildlife, and is the place of origin and reintroduction of the mountain subspecies of the European bison.",
     "latitude": 44,
-    "longitude": 40
+    "longitude": 40,
+    "nameTr": "Batı Kafkasya",
+    "descriptionTr": "Kafkas dağlarının en batı ucunda 275.000 hektarı kaplayan ve Karadeniz'in 50 km kuzeydoğusunda yer alan Batı Kafkasya, Avrupa'da önemli ölçüde insan etkisi görmemiş az sayıdaki büyük dağlık alandan biridir. Subalpin ve alpin otlakları yalnızca yabani hayvanlar tarafından otlatılmıştır; ovalardan subalpin kuşağa kadar uzanan geniş, bozulmamış dağ ormanları ise Avrupa'da eşsizdir. Alan, önemli endemik bitkilere ve yaban hayatına sahip, büyük bir ekosistem çeşitliliği barındırır ve Avrupa bizonunun dağ alt türünün kökeni ve yeniden yerleştirildiği yerdir."
   },
   {
     "id": "8c380795-a73d-5097-a71a-f6e36fca0f62",
@@ -10807,7 +11047,9 @@
     "category": "Cultural",
     "description": "The Studenica Monastery was established in the late 12th century by Stevan Nemanja, founder of the medieval Serb state, shortly after his abdication. It is the largest and richest of Serbia’s Orthodox monasteries. Its two principal monuments, the Church of the Virgin and the Church of the King, both built of white marble, enshrine priceless collections of 13th- and 14th-century Byzantine painting.",
     "latitude": 43.4865277778,
-    "longitude": 20.5316666667
+    "longitude": 20.5316666667,
+    "nameTr": "Studenica Manastırı",
+    "descriptionTr": "Studenica Manastırı, ortaçağ Sırp devletinin kurucusu Stevan Nemanja tarafından, tahttan çekilmesinden kısa süre sonra 12. yüzyılın sonlarında kurulmuştur. Sırbistan'ın Ortodoks manastırlarının en büyüğü ve en zenginidir. İkisi de beyaz mermerden yapılmış iki ana anıtı, Meryem Ana Kilisesi ve Kral Kilisesi, 13. ve 14. yüzyıl Bizans resminin paha biçilmez koleksiyonlarını barındırır."
   },
   {
     "id": "da902256-2d92-5204-82df-091c53f98c78",
@@ -10825,7 +11067,9 @@
     "category": "Natural",
     "description": "This exceptional system of limestone caves comprises collapsed dolines, some 6 km of underground passages with a total depth of more than 200 m, many waterfalls and one of the largest known underground chambers. The site, located in the Kras region (literally meaning Karst), is one of the most famous in the world for the study of karstic phenomena.",
     "latitude": 45.66667,
-    "longitude": 14
+    "longitude": 14,
+    "nameTr": "Škocjan Mağaraları",
+    "descriptionTr": "Bu olağanüstü kireçtaşı mağara sistemi; çökmüş dolinleri, toplam derinliği 200 metreyi aşan yaklaşık 6 km'lik yeraltı geçitlerini, birçok şelaleyi ve bilinen en büyük yeraltı salonlarından birini içerir. Kras bölgesinde (kelime anlamı Karst) bulunan alan, karstik olayların incelenmesi bakımından dünyanın en ünlü yerlerinden biridir."
   },
   {
     "id": "32c3c992-94a1-55e6-866b-e679a9416cde",
@@ -10834,7 +11078,9 @@
     "category": "Cultural",
     "description": "The property includes the mining sites of Almadén (Spain), where mercury (quicksilver) has been extracted since antiquity, and Idrija (Slovenia), where mercury was first found in AD1490. The Spanish property includes buildings relating to its mining history, including Retamar Castle, religious buildings and traditional dwellings. The site in Idrija notably features mercury stores and infrastructure, as well as miners’ living quarters, and a miners’ theatre. The sites bear testimony to the intercontinental trade in mercury which generated important exchanges between Europe and America over the centuries. Together they represent the two largest mercury mines in the world, operational until recent times.",
     "latitude": 38.7752777778,
-    "longitude": -4.8388888889
+    "longitude": -4.8388888889,
+    "nameTr": "Cıva Mirası. Almadén ve Idrija",
+    "descriptionTr": "Alan, cıvanın antik çağdan beri çıkarıldığı Almadén (İspanya) ve cıvanın M.S. 1490'da ilk kez bulunduğu Idrija (Slovenya) madencilik alanlarını içerir. İspanya'daki alan, Retamar Kalesi, dinî yapılar ve geleneksel konutlar dahil madencilik tarihiyle ilgili binaları kapsar. Idrija'daki alan ise özellikle cıva depolarını ve altyapıyı, madenci konutlarını ve bir madenci tiyatrosunu içerir. Bu alanlar, yüzyıllar boyunca Avrupa ile Amerika arasında önemli alışverişler doğuran kıtalararası cıva ticaretine tanıklık eder. Birlikte, yakın zamana kadar faaliyette olan dünyanın en büyük iki cıva madenini temsil ederler."
   },
   {
     "id": "58568d07-ed91-5885-8e23-f8dd7cc1a972",
