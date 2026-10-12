@@ -348,7 +348,7 @@ export default function HomeScreen() {
             }}
           >
             <Image
-              source={require("@/assets/decor/progress-card.png")}
+              source={require("@/assets/decor/progress-card.webp")}
               style={{
                 position: "absolute",
                 top: 0,
