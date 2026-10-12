@@ -1,6 +1,8 @@
+import { CountrySearchResults } from "@/components/country-search-results";
 import { ProgressCard } from "@/components/progress-card";
 import { ProgressRow } from "@/components/progress-row";
 import { ScreenHeader } from "@/components/screen-header";
+import { SearchBar } from "@/components/search-bar";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -9,13 +11,15 @@ import { visitedCountByCountry } from "@/data/landmarks";
 import worldData from "@/data/worldCountries.json";
 import { useLandmarksIndex } from "@/hooks/use-landmarks-index";
 import { useLandmarksVisited } from "@/hooks/use-landmarks-visited";
+import { useCountrySearchRows } from "@/hooks/use-country-search-rows";
 import { Stack, router } from "expo-router";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { ActivityIndicator, FlatList, Text, View } from "react-native";
 
 export default function LandmarksContinentPickerScreen() {
   const { t, language } = useLanguage();
   const categoryMeta = getCategory("landmarks");
+  const [search, setSearch] = useState("");
 
   const [visited] = useLandmarksVisited();
   const { countByCountry, countryByLandmarkId, loading } = useLandmarksIndex();
@@ -53,6 +57,16 @@ export default function LandmarksContinentPickerScreen() {
     [countryIdsByContinent, countByCountry, visitedByCountry],
   );
 
+  // While searching, the continent list is replaced by a flat list of every
+  // matching country (across all continents) that has content.
+  const searchRows = useCountrySearchRows({
+    search,
+    language,
+    totals: countByCountry,
+    done: visitedByCountry,
+    routeBase: "landmarks",
+  });
+
   const totalLandmarks = Object.values(countByCountry).reduce((sum, c) => sum + c, 0);
   const percent =
     totalLandmarks > 0
@@ -80,6 +94,12 @@ export default function LandmarksContinentPickerScreen() {
         accentFg={categoryMeta?.fg}
       />
 
+      <SearchBar
+        value={search}
+        onChangeText={setSearch}
+        placeholder={t("explore.searchPlaceholder")}
+      />
+
       {loading ? (
         <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
           <ActivityIndicator size="large" color={palette.brand} />
@@ -87,6 +107,11 @@ export default function LandmarksContinentPickerScreen() {
             {t("explore.loading")}
           </Text>
         </View>
+      ) : search.trim() ? (
+        <CountrySearchResults
+          rows={searchRows}
+          accentColor={categoryMeta?.fg ?? palette.brand}
+        />
       ) : (
         <FlatList
           contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
