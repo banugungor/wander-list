@@ -1,6 +1,8 @@
 import { CircularProgress } from "@/components/circular-progress";
 import { CountryFlag } from "@/components/country-flag";
 import { ScreenHeader } from "@/components/screen-header";
+import { SearchBar } from "@/components/search-bar";
+import { WorldMap } from "@/components/world-map";
 import { palette } from "@/constants/palette";
 import { useLanguage, type Language } from "@/contexts/language-context";
 import {
@@ -11,43 +13,22 @@ import {
 import { getLocalizedCountryName } from "@/data/countryNamesTr";
 import { PLACES_VISITED_KEY, togglePlaceVisited } from "@/data/placesStorage";
 import worldData from "@/data/worldCountries.json";
+import { matchesSearch } from "@/data/searchText";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Stack, useFocusEffect } from "expo-router";
 import { useCallback, useMemo, useState } from "react";
 import {
   Alert,
-  Dimensions,
   FlatList,
   Modal,
   Pressable,
   ScrollView,
   Text,
-  TextInput,
   View,
 } from "react-native";
-import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import Animated, {
-  runOnJS,
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from "react-native-reanimated";
-import Svg, { Path, Rect } from "react-native-svg";
 
 type CountryPath = { id: string; name: string; d: string; iso2?: string };
-
-const { width: screenWidth } = Dimensions.get("window");
-const mapWidth = screenWidth;
-// worldCountries.json's paths only ever occupy y ∈ [60.7, 521.4] of its
-// 0–525 viewBox (empty Arctic above, Antarctica's coastline bottoming out
-// around y≈521) — crop the SVG viewBox to that band (with a small margin)
-// instead of rendering the full 0–525 height, so land fills the map
-// top-to-bottom rather than floating in a tall box with empty margins.
-const MAP_VIEWBOX_Y = 55;
-const MAP_VIEWBOX_HEIGHT = 471;
-const mapHeight = mapWidth * (MAP_VIEWBOX_HEIGHT / worldData.width);
-const MAX_SCALE = 5;
 
 function localizedNameOf(country: CountryPath, language: Language): string {
   return getLocalizedCountryName(country.name, language);
@@ -56,7 +37,6 @@ function localizedNameOf(country: CountryPath, language: Language): string {
 export default function PlacesMapScreen() {
   const { t, language } = useLanguage();
   const [visited, setVisited] = useState<string[]>([]);
-  const [zoomed, setZoomed] = useState(false);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [pickerVisible, setPickerVisible] = useState(false);
   const [pickerSearch, setPickerSearch] = useState("");
@@ -66,74 +46,6 @@ export default function PlacesMapScreen() {
     Set<ContinentId>
   >(new Set());
   const countries = worldData.countries as CountryPath[];
-
-  const scale = useSharedValue(1);
-  const savedScale = useSharedValue(1);
-  const translateX = useSharedValue(0);
-  const translateY = useSharedValue(0);
-  const savedTranslateX = useSharedValue(0);
-  const savedTranslateY = useSharedValue(0);
-
-  const resetZoom = useCallback(() => {
-    scale.value = withTiming(1);
-    translateX.value = withTiming(0);
-    translateY.value = withTiming(0);
-    savedScale.value = 1;
-    savedTranslateX.value = 0;
-    savedTranslateY.value = 0;
-    setZoomed(false);
-  }, [
-    scale,
-    savedScale,
-    translateX,
-    translateY,
-    savedTranslateX,
-    savedTranslateY,
-  ]);
-
-  const pinchGesture = Gesture.Pinch()
-    .onUpdate((e) => {
-      const next = Math.min(MAX_SCALE, Math.max(1, savedScale.value * e.scale));
-      scale.value = next;
-    })
-    .onEnd(() => {
-      savedScale.value = scale.value;
-      if (scale.value <= 1.02) {
-        scale.value = withTiming(1);
-        translateX.value = withTiming(0);
-        translateY.value = withTiming(0);
-        savedScale.value = 1;
-        savedTranslateX.value = 0;
-        savedTranslateY.value = 0;
-        runOnJS(setZoomed)(false);
-      } else {
-        runOnJS(setZoomed)(true);
-      }
-    });
-
-  const panGesture = Gesture.Pan()
-    .minPointers(1)
-    .maxPointers(1)
-    .minDistance(10)
-    .enabled(zoomed)
-    .onUpdate((e) => {
-      translateX.value = savedTranslateX.value + e.translationX;
-      translateY.value = savedTranslateY.value + e.translationY;
-    })
-    .onEnd(() => {
-      savedTranslateX.value = translateX.value;
-      savedTranslateY.value = translateY.value;
-    });
-
-  const composedGesture = Gesture.Simultaneous(pinchGesture, panGesture);
-
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [
-      { translateX: translateX.value },
-      { translateY: translateY.value },
-      { scale: scale.value },
-    ],
-  }));
 
   useFocusEffect(
     useCallback(() => {
@@ -218,16 +130,9 @@ export default function PlacesMapScreen() {
   }, [allSorted, listFilter, visited]);
 
   const pickerResults = useMemo(() => {
-    const query = pickerSearch.trim().toLowerCase();
     return allSorted.filter((c) => {
       if (pickerFilter === "visited" && !visited.includes(c.id)) return false;
-      if (
-        query &&
-        !c.name.toLowerCase().includes(query) &&
-        !localizedNameOf(c, language).toLowerCase().includes(query)
-      )
-        return false;
-      return true;
+      return matchesSearch(pickerSearch, c.name, localizedNameOf(c, language));
     });
   }, [allSorted, pickerSearch, pickerFilter, visited, language]);
 
@@ -318,70 +223,12 @@ export default function PlacesMapScreen() {
 
         {/* MAP — full-bleed (no side margins/card) so it reads as a large
          * map rather than a small inset illustration */}
-        <View
-          style={{
-            marginTop: 16,
-            backgroundColor: palette.surface,
-            overflow: "hidden",
-          }}
-        >
-          <GestureDetector gesture={composedGesture}>
-            <Animated.View
-              style={[{ width: mapWidth, height: mapHeight }, animatedStyle]}
-            >
-              <Svg
-                width={mapWidth}
-                height={mapHeight}
-                viewBox={`0 ${MAP_VIEWBOX_Y} ${worldData.width} ${MAP_VIEWBOX_HEIGHT}`}
-              >
-                <Rect
-                  x={0}
-                  y={MAP_VIEWBOX_Y}
-                  width={worldData.width}
-                  height={MAP_VIEWBOX_HEIGHT}
-                  fill={palette.surface}
-                />
-                {countries.map((country) => {
-                  const isVisited = visited.includes(country.id);
-                  return (
-                    <Path
-                      key={country.id}
-                      d={country.d}
-                      fill={isVisited ? palette.brand : palette.inkFaint}
-                      stroke={palette.surface}
-                      strokeWidth={0.6}
-                      onPress={() => toggle(country)}
-                    />
-                  );
-                })}
-              </Svg>
-            </Animated.View>
-          </GestureDetector>
-
-          {zoomed && (
-            <Pressable
-              onPress={resetZoom}
-              style={{
-                position: "absolute",
-                top: 12,
-                right: 12,
-                width: 32,
-                height: 32,
-                borderRadius: 16,
-                backgroundColor: palette.surface,
-                alignItems: "center",
-                justifyContent: "center",
-                shadowColor: palette.shadow,
-                shadowOpacity: 0.15,
-                shadowRadius: 6,
-                shadowOffset: { width: 0, height: 2 },
-                elevation: 2,
-              }}
-            >
-              <Ionicons name="contract-outline" size={16} color={palette.ink} />
-            </Pressable>
-          )}
-        </View>
+        <WorldMap
+          style={{ marginTop: 16 }}
+          countries={countries}
+          visited={visited}
+          onPressCountry={toggle}
+        />
 
         <View style={{ alignItems: "center", marginTop: 12 }}>
           <View
@@ -671,38 +518,12 @@ export default function PlacesMapScreen() {
             </Pressable>
           </View>
 
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              marginHorizontal: 16,
-              marginBottom: 12,
-              paddingHorizontal: 14,
-              height: 44,
-              borderRadius: 12,
-              backgroundColor: palette.surface,
-              borderWidth: 1,
-              borderColor: palette.hairline,
-            }}
-          >
-            <Ionicons
-              name="search-outline"
-              size={18}
-              color={palette.inkFaint}
-            />
-            <TextInput
-              value={pickerSearch}
-              onChangeText={setPickerSearch}
-              placeholder={t("placesMap.pickerSearchPlaceholder")}
-              placeholderTextColor={palette.inkFaint}
-              style={{
-                flex: 1,
-                marginLeft: 8,
-                fontSize: 15,
-                color: palette.ink,
-              }}
-            />
-          </View>
+          <SearchBar
+            value={pickerSearch}
+            onChangeText={setPickerSearch}
+            placeholder={t("placesMap.pickerSearchPlaceholder")}
+            style={{ marginTop: 0, marginBottom: 12 }}
+          />
 
           <View
             style={{

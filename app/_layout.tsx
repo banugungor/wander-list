@@ -7,6 +7,7 @@ import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { LanguageProvider, useLanguage } from "@/contexts/language-context";
+import { loadHeritageImages } from "@/data/heritageImages";
 import { loadHeritageSites } from "@/data/heritageSites";
 import { configurePurchases } from "@/data/subscription";
 import { hydrateVisitedHeritage } from "@/store/useAppStore";
@@ -51,6 +52,11 @@ export default function RootLayout() {
     Promise.all([loadHeritageSites(), hydrateVisitedHeritage()])
       .catch((error) => console.log("HERITAGE LOAD ERROR", error))
       .finally(() => setHeritageReady(true));
+  }, []);
+
+  // Admin-panel heritage photos: fire-and-forget, never gates the splash.
+  useEffect(() => {
+    loadHeritageImages();
   }, []);
 
   useEffect(() => {

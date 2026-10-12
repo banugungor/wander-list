@@ -1,6 +1,8 @@
 import { HeritageThumbnail } from "@/components/heritage-thumbnail";
+import { HeritageBadges } from "@/components/heritage-badges";
 import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
+import { SearchBar } from "@/components/search-bar";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -8,6 +10,7 @@ import { CONTINENTS, ContinentId } from "@/data/continents";
 import { getLocalizedCountryField } from "@/data/countryNamesTr";
 import { getContinentsForCountryField } from "@/data/heritageContinents";
 import type { HeritageItem } from "@/data/heritageSites";
+import { matchesSearch } from "@/data/searchText";
 import { getLocalizedHeritageItem } from "@/data/heritageTranslations";
 import { useHeritageExplorer } from "@/hooks/use-heritage-explorer";
 import { Ionicons } from "@expo/vector-icons";
@@ -19,7 +22,6 @@ import {
   Pressable,
   SectionList,
   Text,
-  TextInput,
   View,
 } from "react-native";
 
@@ -72,19 +74,15 @@ export default function ExploreScreen() {
   }, [isHeritage, heritage.data]);
 
   const filteredData = useMemo(() => {
-    const query = search.trim().toLowerCase();
-
     return data.filter((item) => {
-      if (query) {
-        const matchesName = item.name.toLowerCase().includes(query);
-        const matchesCountry =
-          "country" in item &&
-          (item.country.toLowerCase().includes(query) ||
-            getLocalizedCountryField(item.country, language)
-              .toLowerCase()
-              .includes(query));
-        if (!matchesName && !matchesCountry) return false;
-      }
+      const matchesQuery =
+        matchesSearch(
+          search,
+          item.name,
+          "country" in item ? item.country : "",
+          "country" in item ? getLocalizedCountryField(item.country, language) : "",
+        );
+      if (!matchesQuery) return false;
 
       if (isHeritage && filter !== "all") {
         const isVisited = heritage.visited.includes(item.id);
@@ -181,29 +179,7 @@ export default function ExploreScreen() {
             </View>
           )}
 
-          {"category" in item && item.category && (
-            <View
-              style={{
-                alignSelf: "flex-start",
-                marginTop: 8,
-                paddingHorizontal: 10,
-                paddingVertical: 3,
-                borderRadius: 999,
-                backgroundColor: palette.violetSoft,
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 11,
-                  fontWeight: "700",
-                  color: palette.violet,
-                  letterSpacing: 0.5,
-                }}
-              >
-                {t(`heritageCategory.${item.category.toLowerCase()}`).toUpperCase()}
-              </Text>
-            </View>
-          )}
+          {"category" in item && <HeritageBadges item={item} marginTop={8} />}
         </View>
 
         {isHeritage && (
@@ -299,47 +275,12 @@ export default function ExploreScreen() {
             />
           )}
 
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              marginHorizontal: 16,
-              marginTop: isHeritage ? 4 : 16,
-              paddingHorizontal: 14,
-              height: 44,
-              borderRadius: 12,
-              backgroundColor: palette.surface,
-              borderWidth: 1,
-              borderColor: palette.hairline,
-            }}
-          >
-            <Ionicons
-              name="search-outline"
-              size={18}
-              color={palette.inkFaint}
-            />
-            <TextInput
-              value={search}
-              onChangeText={setSearch}
-              placeholder={t("explore.searchPlaceholder")}
-              placeholderTextColor={palette.inkFaint}
-              style={{
-                flex: 1,
-                marginLeft: 8,
-                fontSize: 15,
-                color: palette.ink,
-              }}
-            />
-            {search.length > 0 && (
-              <Pressable onPress={() => setSearch("")}>
-                <Ionicons
-                  name="close-circle"
-                  size={18}
-                  color={palette.inkFaint}
-                />
-              </Pressable>
-            )}
-          </View>
+          <SearchBar
+            value={search}
+            onChangeText={setSearch}
+            placeholder={t("explore.searchPlaceholder")}
+            style={{ marginTop: isHeritage ? 4 : 16 }}
+          />
 
           {isHeritage && (
             <View

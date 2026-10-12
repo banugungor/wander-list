@@ -23,6 +23,8 @@ import {
 } from "react-native";
 
 type SelectedCountry = { id: string; name: string };
+// "forgot" = ask for email, "reset" = enter the emailed code + new password.
+type AuthMode = "signIn" | "signUp" | "forgot" | "reset";
 
 const AGE_GROUPS = ["13-17", "18-24", "25-34", "35-44", "45-54", "55+"];
 const GENDERS = ["female", "male", "other"] as const;
@@ -30,9 +32,10 @@ const PRIVACY_POLICY_URL = "https://banugungor.github.io/wander-list/privacy-pol
 
 export default function AuthScreen() {
   const { t, language } = useLanguage();
-  const [mode, setMode] = useState<"signIn" | "signUp">("signIn");
+  const [mode, setMode] = useState<AuthMode>("signIn");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [resetCode, setResetCode] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [city, setCity] = useState("");
@@ -113,6 +116,91 @@ export default function AuthScreen() {
     }
   };
 
+  // Sends the recovery email (it carries a 6-digit code, see the Supabase
+  // "Reset Password" template). Always moves to the code step: Supabase doesn't
+  // reveal whether the address has an account.
+  const handleSendResetCode = async () => {
+    if (!email.trim()) {
+      Alert.alert(t("auth.missingInfoTitle"), t("auth.missingEmailMessage"));
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email.trim());
+      if (error) {
+        Alert.alert(t("auth.errorTitle"), error.message);
+        return;
+      }
+      setMode("reset");
+      Alert.alert(t("auth.codeSentTitle"), t("auth.codeSentMessage"));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResetPassword = async () => {
+    if (!resetCode.trim() || !password) {
+      Alert.alert(t("auth.missingInfoTitle"), t("auth.missingResetInfoMessage"));
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // Verifying the recovery code signs the user in; updateUser then sets
+      // the new password on that session.
+      const { error: verifyError } = await supabase.auth.verifyOtp({
+        email: email.trim(),
+        token: resetCode.trim(),
+        type: "recovery",
+      });
+      if (verifyError) {
+        Alert.alert(t("auth.errorTitle"), verifyError.message);
+        return;
+      }
+
+      const { error: updateError } = await supabase.auth.updateUser({ password });
+      if (updateError) {
+        Alert.alert(t("auth.errorTitle"), updateError.message);
+        return;
+      }
+
+      await syncAfterAuth();
+      router.back();
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const switchMode = (next: AuthMode) => {
+    setMode(next);
+    setResetCode("");
+    if (next === "forgot" || next === "reset") setPassword("");
+  };
+
+  const primaryAction =
+    mode === "forgot"
+      ? handleSendResetCode
+      : mode === "reset"
+        ? handleResetPassword
+        : handleEmailAuth;
+
+  const primaryLabel = {
+    signIn: t("auth.signIn"),
+    signUp: t("auth.signUp"),
+    forgot: t("auth.sendCode"),
+    reset: t("auth.resetAction"),
+  }[mode];
+
+  const headerTitle = {
+    signIn: t("auth.signIn"),
+    signUp: t("auth.signUp"),
+    forgot: t("auth.forgotTitle"),
+    reset: t("auth.resetTitle"),
+  }[mode];
+
+  const isRecoveryMode = mode === "forgot" || mode === "reset";
+
   const handleAppleAuth = async () => {
     setLoading(true);
     try {
@@ -162,7 +250,7 @@ export default function AuthScreen() {
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
       <Stack.Screen
         options={{
-          title: mode === "signIn" ? t("auth.signIn") : t("auth.signUp"),
+          title: headerTitle,
           headerShown: true,
         }}
       />
@@ -194,6 +282,14 @@ export default function AuthScreen() {
           </>
         )}
 
+        {isRecoveryMode && (
+          <Text style={{ fontSize: 14, color: palette.inkMuted, marginBottom: 12 }}>
+            {mode === "forgot"
+              ? t("auth.forgotInstructions")
+              : t("auth.resetInstructions")}
+          </Text>
+        )}
+
         <TextInput
           placeholder={t("auth.email")}
           placeholderTextColor={palette.inkFaint}
@@ -201,12 +297,31 @@ export default function AuthScreen() {
           keyboardType="email-address"
           value={email}
           onChangeText={setEmail}
-          style={[inputStyle, mode === "signIn" && { marginTop: 0 }]}
+          editable={mode !== "reset"}
+          style={[
+            inputStyle,
+            mode !== "signUp" && { marginTop: 0 },
+            mode === "reset" && { opacity: 0.6 },
+          ]}
         />
 
+        {mode === "reset" && (
+          <TextInput
+            placeholder={t("auth.code")}
+            placeholderTextColor={palette.inkFaint}
+            keyboardType="number-pad"
+            autoCapitalize="none"
+            autoComplete="one-time-code"
+            value={resetCode}
+            onChangeText={setResetCode}
+            style={inputStyle}
+          />
+        )}
+
+        {mode !== "forgot" && (
         <View style={{ position: "relative" }}>
           <TextInput
-            placeholder={t("auth.password")}
+            placeholder={mode === "reset" ? t("auth.newPassword") : t("auth.password")}
             placeholderTextColor={palette.inkFaint}
             secureTextEntry={!showPassword}
             value={password}
@@ -231,6 +346,18 @@ export default function AuthScreen() {
             />
           </Pressable>
         </View>
+        )}
+
+        {mode === "signIn" && (
+          <Pressable
+            onPress={() => switchMode("forgot")}
+            style={{ alignSelf: "flex-end", marginTop: 12 }}
+          >
+            <Text style={{ fontSize: 13, color: palette.brand, fontWeight: "600" }}>
+              {t("auth.forgotPassword")}
+            </Text>
+          </Pressable>
+        )}
 
         {mode === "signUp" && (
           <>
@@ -316,7 +443,7 @@ export default function AuthScreen() {
         )}
 
         <Pressable
-          onPress={handleEmailAuth}
+          onPress={primaryAction}
           disabled={loading}
           style={({ pressed }) => [
             {
@@ -335,31 +462,54 @@ export default function AuthScreen() {
             <Text
               style={{ color: palette.surface, fontSize: 14, fontWeight: "700" }}
             >
-              {mode === "signIn" ? t("auth.signIn") : t("auth.signUp")}
+              {primaryLabel}
             </Text>
           )}
         </Pressable>
 
-        <Pressable
-          onPress={() => setMode(mode === "signIn" ? "signUp" : "signIn")}
-          style={{
-            marginTop: 16,
-            flexDirection: "row",
-            justifyContent: "center",
-            gap: 6,
-          }}
-        >
-          <Text style={{ fontSize: 14, color: palette.inkMuted }}>
-            {mode === "signIn"
-              ? t("auth.noAccountPrefix")
-              : t("auth.hasAccountPrefix")}
-          </Text>
-          <Text style={{ fontSize: 14, color: palette.brand, fontWeight: "700" }}>
-            {mode === "signIn" ? t("auth.signUp") : t("auth.signIn")}
-          </Text>
-        </Pressable>
+        {mode === "reset" && (
+          <Pressable
+            onPress={handleSendResetCode}
+            disabled={loading}
+            style={{ marginTop: 16, alignItems: "center" }}
+          >
+            <Text style={{ fontSize: 14, color: palette.brand, fontWeight: "700" }}>
+              {t("auth.resendCode")}
+            </Text>
+          </Pressable>
+        )}
 
-        {appleAvailable && (
+        {isRecoveryMode ? (
+          <Pressable
+            onPress={() => switchMode("signIn")}
+            style={{ marginTop: 16, alignItems: "center" }}
+          >
+            <Text style={{ fontSize: 14, color: palette.inkMuted }}>
+              {t("auth.backToSignIn")}
+            </Text>
+          </Pressable>
+        ) : (
+          <Pressable
+            onPress={() => switchMode(mode === "signIn" ? "signUp" : "signIn")}
+            style={{
+              marginTop: 16,
+              flexDirection: "row",
+              justifyContent: "center",
+              gap: 6,
+            }}
+          >
+            <Text style={{ fontSize: 14, color: palette.inkMuted }}>
+              {mode === "signIn"
+                ? t("auth.noAccountPrefix")
+                : t("auth.hasAccountPrefix")}
+            </Text>
+            <Text style={{ fontSize: 14, color: palette.brand, fontWeight: "700" }}>
+              {mode === "signIn" ? t("auth.signUp") : t("auth.signIn")}
+            </Text>
+          </Pressable>
+        )}
+
+        {appleAvailable && !isRecoveryMode && (
           <AppleAuthentication.AppleAuthenticationButton
             buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
             buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}

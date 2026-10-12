@@ -1,6 +1,7 @@
 import { logActivity } from "@/data/activityLog";
 import { maybePromptSignup } from "@/data/authPrompt";
 import { queueCloudSync } from "@/data/cloudSync";
+import { getHeritageImageUrl } from "@/data/heritageImages";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { HERITAGE_VISITED_KEY } from "@/data/storageKeys";
 
@@ -36,7 +37,9 @@ export async function toggleHeritageVisited(
         type: "heritage",
         title: item.name,
         subtitle: item.country,
-        imageUrl: item.imageUrl,
+        // Same precedence as the thumbnail (use-heritage-image-url.ts): the
+        // admin-panel photo first, then one baked into the bundled JSON.
+        imageUrl: getHeritageImageUrl(id) ?? item.imageUrl,
       });
     }
   }

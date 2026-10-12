@@ -1,4 +1,5 @@
 import { HeritageThumbnail } from "@/components/heritage-thumbnail";
+import { HeritageBadges } from "@/components/heritage-badges";
 import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
 import { getCategory } from "@/constants/categories";
@@ -67,29 +68,7 @@ export default function HeritageCountryScreen() {
             {displayItem.name}
           </Text>
 
-          {item.category && (
-            <View
-              style={{
-                alignSelf: "flex-start",
-                marginTop: 8,
-                paddingHorizontal: 10,
-                paddingVertical: 3,
-                borderRadius: 999,
-                backgroundColor: palette.violetSoft,
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 11,
-                  fontWeight: "700",
-                  color: palette.violet,
-                  letterSpacing: 0.5,
-                }}
-              >
-                {t(`heritageCategory.${item.category.toLowerCase()}`).toUpperCase()}
-              </Text>
-            </View>
-          )}
+          <HeritageBadges item={item} marginTop={8} />
         </View>
 
         <Pressable

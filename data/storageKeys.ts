@@ -1,4 +1,7 @@
 export const HERITAGE_VISITED_KEY = "visited_heritage";
+// Offline read cache of the Supabase heritage_images table (site id -> photo
+// URL, see data/heritageImages.ts). Not user data, so not a cloud-synced key.
+export const HERITAGE_IMAGES_CACHE_KEY = "heritage_images_v1";
 
 export const CUISINE_VISITED_KEY = "visited_meals";
 export const CUISINE_AREA_TOTALS_KEY = "cuisine_area_totals";

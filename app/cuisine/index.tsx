@@ -1,6 +1,8 @@
+import { CountrySearchResults } from "@/components/country-search-results";
 import { ProgressCard } from "@/components/progress-card";
 import { ProgressRow } from "@/components/progress-row";
 import { ScreenHeader } from "@/components/screen-header";
+import { SearchBar } from "@/components/search-bar";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -9,13 +11,15 @@ import { tastedCountByCountry } from "@/data/cuisineMeals";
 import worldData from "@/data/worldCountries.json";
 import { useCuisineMealIndex } from "@/hooks/use-cuisine-meal-index";
 import { useCuisineVisited } from "@/hooks/use-cuisine-visited";
+import { useCountrySearchRows } from "@/hooks/use-country-search-rows";
 import { Stack, router } from "expo-router";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { ActivityIndicator, FlatList, Text, View } from "react-native";
 
 export default function CuisineContinentPickerScreen() {
   const { t, language } = useLanguage();
   const categoryMeta = getCategory("cuisine");
+  const [search, setSearch] = useState("");
 
   const [visited] = useCuisineVisited();
   const { counts, countryByMealId, loading } = useCuisineMealIndex();
@@ -50,6 +54,16 @@ export default function CuisineContinentPickerScreen() {
     [countryIdsByContinent, counts, tastedByCountry],
   );
 
+  // While searching, the continent list is replaced by a flat list of every
+  // matching country (across all continents) that has content.
+  const searchRows = useCountrySearchRows({
+    search,
+    language,
+    totals: counts,
+    done: tastedByCountry,
+    routeBase: "cuisine",
+  });
+
   const totalMeals = Object.values(counts).reduce((sum, c) => sum + c, 0);
   const percent =
     totalMeals > 0 ? Math.min(100, Math.round((visited.length / totalMeals) * 100)) : 0;
@@ -75,6 +89,12 @@ export default function CuisineContinentPickerScreen() {
         accentFg={categoryMeta?.fg}
       />
 
+      <SearchBar
+        value={search}
+        onChangeText={setSearch}
+        placeholder={t("explore.searchPlaceholder")}
+      />
+
       {loading ? (
         <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
           <ActivityIndicator size="large" color={palette.brand} />
@@ -82,6 +102,11 @@ export default function CuisineContinentPickerScreen() {
             {t("explore.loading")}
           </Text>
         </View>
+      ) : search.trim() ? (
+        <CountrySearchResults
+          rows={searchRows}
+          accentColor={categoryMeta?.fg ?? palette.brand}
+        />
       ) : (
         <FlatList
           contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}

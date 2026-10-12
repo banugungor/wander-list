@@ -2,6 +2,7 @@ import { CountryFlag } from "@/components/country-flag";
 import { ProgressCard } from "@/components/progress-card";
 import { ProgressRow } from "@/components/progress-row";
 import { ScreenHeader } from "@/components/screen-header";
+import { SearchBar } from "@/components/search-bar";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -9,9 +10,9 @@ import { CONTINENT_BY_COUNTRY_ID, CONTINENTS } from "@/data/continents";
 import { getLocalizedCountryName } from "@/data/countryNamesTr";
 import { visitedCountByCountry } from "@/data/landmarks";
 import worldData from "@/data/worldCountries.json";
+import { matchesSearch } from "@/data/searchText";
 import { useLandmarksIndex } from "@/hooks/use-landmarks-index";
 import { useLandmarksVisited } from "@/hooks/use-landmarks-visited";
-import { Ionicons } from "@expo/vector-icons";
 import { Stack, router, useLocalSearchParams } from "expo-router";
 import { useMemo, useState } from "react";
 import {
@@ -19,7 +20,6 @@ import {
   FlatList,
   Pressable,
   Text,
-  TextInput,
   View,
 } from "react-native";
 
@@ -59,15 +59,9 @@ export default function LandmarksContinentCountriesScreen() {
   const percent = total > 0 ? Math.min(100, Math.round((visitedTotal / total) * 100)) : 0;
 
   const filteredCountries = useMemo(() => {
-    const query = search.trim().toLowerCase();
     return countries
       .filter((c) => {
-        if (query) {
-          const matches =
-            c.name.toLowerCase().includes(query) ||
-            getLocalizedCountryName(c.name, language).toLowerCase().includes(query);
-          if (!matches) return false;
-        }
+        if (!matchesSearch(search, c.name, getLocalizedCountryName(c.name, language))) return false;
         const countryVisited = visitedByCountry[c.id] ?? 0;
         if (filter === "visited" && countryVisited === 0) return false;
         if (filter === "unvisited" && countryVisited > 0) return false;
@@ -113,34 +107,11 @@ export default function LandmarksContinentCountriesScreen() {
         </View>
       ) : (
         <>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              marginHorizontal: 16,
-              marginTop: 16,
-              paddingHorizontal: 14,
-              height: 44,
-              borderRadius: 12,
-              backgroundColor: palette.surface,
-              borderWidth: 1,
-              borderColor: palette.hairline,
-            }}
-          >
-            <Ionicons name="search-outline" size={18} color={palette.inkFaint} />
-            <TextInput
-              value={search}
-              onChangeText={setSearch}
-              placeholder={t("explore.searchPlaceholder")}
-              placeholderTextColor={palette.inkFaint}
-              style={{ flex: 1, marginLeft: 8, fontSize: 15, color: palette.ink }}
-            />
-            {search.length > 0 && (
-              <Pressable onPress={() => setSearch("")}>
-                <Ionicons name="close-circle" size={18} color={palette.inkFaint} />
-              </Pressable>
-            )}
-          </View>
+          <SearchBar
+            value={search}
+            onChangeText={setSearch}
+            placeholder={t("explore.searchPlaceholder")}
+          />
 
           <View style={{ flexDirection: "row", gap: 8, marginHorizontal: 16, marginTop: 12 }}>
             {(
