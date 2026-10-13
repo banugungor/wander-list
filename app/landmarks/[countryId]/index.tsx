@@ -2,6 +2,7 @@ import { ProgressCard } from "@/components/progress-card";
 import { ProgressRow } from "@/components/progress-row";
 import { ScreenHeader } from "@/components/screen-header";
 import { SearchBar } from "@/components/search-bar";
+import { SuggestionEntry } from "@/components/suggestion-entry";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -119,6 +120,9 @@ export default function LandmarksCountryCitiesScreen() {
           >
             {t("landmarksCountry.empty")}
           </Text>
+          <View style={{ alignSelf: "stretch" }}>
+            <SuggestionEntry category="landmarks" countryId={id} accentColor={categoryMeta?.fg} />
+          </View>
         </View>
       ) : (
         <>
@@ -170,6 +174,9 @@ export default function LandmarksCountryCitiesScreen() {
             contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
             data={filteredCities}
             keyExtractor={(item) => item.id}
+            ListFooterComponent={
+              <SuggestionEntry category="landmarks" countryId={id} accentColor={categoryMeta?.fg} />
+            }
             ListEmptyComponent={
               <Text style={{ textAlign: "center", marginTop: 40, color: palette.inkMuted }}>
                 {t("explore.noResults")}

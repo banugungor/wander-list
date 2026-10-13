@@ -1,6 +1,7 @@
 import { EntryListRow } from "@/components/entry-list-row";
 import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
+import { SuggestionEntry } from "@/components/suggestion-entry";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -130,6 +131,9 @@ export default function CuisineCountryMealsScreen() {
           >
             {t("cuisineCountry.empty")}
           </Text>
+          <View style={{ alignSelf: "stretch" }}>
+            <SuggestionEntry category="cuisine" countryId={id} accentColor={categoryMeta?.fg} />
+          </View>
         </View>
       )}
 
@@ -139,6 +143,9 @@ export default function CuisineCountryMealsScreen() {
           data={filteredMeals}
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
+          ListFooterComponent={
+            <SuggestionEntry category="cuisine" countryId={id} accentColor={categoryMeta?.fg} />
+          }
           ListHeaderComponent={
             <View style={{ marginBottom: 16 }}>
               <ProgressCard

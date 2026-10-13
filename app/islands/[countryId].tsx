@@ -1,6 +1,7 @@
 import { EntryListRow } from "@/components/entry-list-row";
 import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
+import { SuggestionEntry } from "@/components/suggestion-entry";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -105,6 +106,9 @@ export default function IslandsCountryScreen() {
           >
             {t("islandsCountry.empty")}
           </Text>
+          <View style={{ alignSelf: "stretch" }}>
+            <SuggestionEntry category="islands" countryId={id} accentColor={categoryMeta?.fg} />
+          </View>
         </View>
       )}
 
@@ -126,6 +130,9 @@ export default function IslandsCountryScreen() {
             data={islands}
             keyExtractor={(item) => item.id}
             renderItem={renderItem}
+            ListFooterComponent={
+              <SuggestionEntry category="islands" countryId={id} accentColor={categoryMeta?.fg} />
+            }
           />
         </>
       )}

@@ -162,7 +162,9 @@ export async function deleteAccount(): Promise<void> {
   if (error) throw error;
 
   // The server-side `trips` rows go with the auth user (on delete cascade);
-  // this removes the offline copy on the device.
+  // this removes the offline copy on the device. `suggestions` rows are
+  // deliberately kept (FK is `on delete set null` — the user agreed to that
+  // when submitting, see scripts/suggestions_schema.sql).
   if (user) await clearTripsCache(user.id);
   logoutPurchases();
   await AsyncStorage.multiRemove(SYNCED_KEYS);
