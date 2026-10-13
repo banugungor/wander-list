@@ -16,13 +16,16 @@ export type CountrySearchRow = {
 type CountrySearchResultsProps = {
   rows: CountrySearchRow[];
   accentColor: string;
+  /** Shown under the list (and under "no results") — e.g. the "suggest
+   * something" card, since a country with no content yet can't be found here. */
+  footer?: ReactNode;
 };
 
 /** Flat country list shown by a category's continent picker while its search
  * box is non-empty, so a country can be found without first picking its
  * continent. Each picker builds its own `rows` (the data sources differ) but
  * they all render through this one list. */
-export function CountrySearchResults({ rows, accentColor }: CountrySearchResultsProps) {
+export function CountrySearchResults({ rows, accentColor, footer }: CountrySearchResultsProps) {
   const { t } = useLanguage();
   return (
     <FlatList
@@ -30,6 +33,7 @@ export function CountrySearchResults({ rows, accentColor }: CountrySearchResults
       keyboardShouldPersistTaps="handled"
       data={rows}
       keyExtractor={(row) => row.key}
+      ListFooterComponent={footer ? <>{footer}</> : null}
       ListEmptyComponent={
         <Text style={{ textAlign: "center", marginTop: 40, color: palette.inkMuted }}>
           {t("explore.noResults")}

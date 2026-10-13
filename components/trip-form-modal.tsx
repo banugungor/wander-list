@@ -1,6 +1,7 @@
 import { CountryFlag } from "@/components/country-flag";
 import { CountryPickerContent } from "@/components/country-picker-modal";
 import { DateRangePicker } from "@/components/date-range-picker";
+import { ModalOverlay } from "@/components/modal-overlay";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { getLocalizedCountryName } from "@/data/countryNamesTr";
@@ -11,10 +12,9 @@ import {
   type TripDraft,
 } from "@/data/trips";
 import { Ionicons } from "@expo/vector-icons";
-import { useEffect, useState, type ReactNode } from "react";
+import { useState } from "react";
 import {
   ActivityIndicator,
-  Animated,
   Keyboard,
   KeyboardAvoidingView,
   Modal,
@@ -36,39 +36,6 @@ type TripFormModalProps = {
   /** Should throw if saving fails — the form then stays open with an error. */
   onSubmit: (draft: TripDraft) => Promise<void>;
 };
-
-/** Full-screen layer shown on top of the form (inside the same Modal), with
- * a short fade-in. The country list and calendar open as these instead of as
- * separate Modals: iOS can't present a second Modal while the first is being
- * dismissed, so swapping Modals meant closing the form, waiting, and
- * reopening it — which felt like the screen was breaking. */
-function Overlay({ children }: { children: ReactNode }) {
-  const [opacity] = useState(() => new Animated.Value(0));
-
-  useEffect(() => {
-    Animated.timing(opacity, {
-      toValue: 1,
-      duration: 180,
-      useNativeDriver: true,
-    }).start();
-  }, [opacity]);
-
-  return (
-    <Animated.View
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        opacity,
-        backgroundColor: palette.cream,
-      }}
-    >
-      {children}
-    </Animated.View>
-  );
-}
 
 const rowStyle = {
   flexDirection: "row" as const,
@@ -276,16 +243,16 @@ export function TripFormModal({
         </KeyboardAvoidingView>
 
         {step === "country" ? (
-          <Overlay>
+          <ModalOverlay>
             <CountryPickerContent
               onClose={() => setStep("form")}
               onSelect={(picked) => setCountryId(picked.id)}
             />
-          </Overlay>
+          </ModalOverlay>
         ) : null}
 
         {step === "dates" ? (
-          <Overlay>
+          <ModalOverlay>
             <DateRangePicker
               startDate={startDate}
               endDate={endDate}
@@ -296,7 +263,7 @@ export function TripFormModal({
                 setStep("form");
               }}
             />
-          </Overlay>
+          </ModalOverlay>
         ) : null}
       </Modal>
   );

@@ -3,6 +3,7 @@ import { ProgressCard } from "@/components/progress-card";
 import { ProgressRow } from "@/components/progress-row";
 import { ScreenHeader } from "@/components/screen-header";
 import { SearchBar } from "@/components/search-bar";
+import { SuggestionEntry } from "@/components/suggestion-entry";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -111,6 +112,7 @@ export default function LandmarksContinentPickerScreen() {
         <CountrySearchResults
           rows={searchRows}
           accentColor={categoryMeta?.fg ?? palette.brand}
+          footer={<SuggestionEntry category="landmarks" accentColor={categoryMeta?.fg} />}
         />
       ) : (
         <FlatList
@@ -126,6 +128,9 @@ export default function LandmarksContinentPickerScreen() {
               onPress={() => router.push(`/landmarks/continent/${item.continent.id}`)}
             />
           )}
+          ListFooterComponent={
+            <SuggestionEntry category="landmarks" accentColor={categoryMeta?.fg} />
+          }
         />
       )}
     </View>
