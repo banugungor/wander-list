@@ -13,8 +13,14 @@ import {
   suggestionHasCity,
   type SuggestionCategory,
 } from "@/data/suggestions";
+import {
+  pickSuggestionPhoto,
+  SuggestionPhotoTooLargeError,
+  type SuggestionPhoto,
+} from "@/data/suggestionPhoto";
 import { findCountry } from "@/data/trips";
 import { Ionicons } from "@expo/vector-icons";
+import { Image } from "expo-image";
 import { useState } from "react";
 import {
   ActivityIndicator,
@@ -38,6 +44,12 @@ type SuggestionModalProps = {
    * category pickers hide countries with no content yet, which are exactly
    * the ones people want to fill in. */
   countryId: string | null;
+  /** `heritage_photo` only: the site the photo is for. Fixed, like a locked
+   * country. */
+  heritageSite?: { id: string; name: string } | null;
+  /** Landmarks/cuisine/islands: an existing entry (row id + English name)
+   * the photo is for. The form then only asks for the photo. */
+  existingEntry?: { id: string; name: string } | null;
   onClose: () => void;
 };
 
@@ -64,6 +76,8 @@ export function SuggestionModal({
   visible,
   category,
   countryId: presetCountryId,
+  heritageSite = null,
+  existingEntry = null,
   onClose,
 }: SuggestionModalProps) {
   const { t, language } = useLanguage();
@@ -73,6 +87,8 @@ export function SuggestionModal({
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [description, setDescription] = useState("");
+  const [photo, setPhoto] = useState<SuggestionPhoto | null>(null);
+  const [pickingPhoto, setPickingPhoto] = useState(false);
   const [accepted, setAccepted] = useState(false);
   const [pickingCountry, setPickingCountry] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -89,6 +105,8 @@ export function SuggestionModal({
       setName("");
       setCity("");
       setDescription("");
+      setPhoto(null);
+      setPickingPhoto(false);
       setAccepted(false);
       setPickingCountry(false);
       setSubmitting(false);
@@ -100,16 +118,50 @@ export function SuggestionModal({
   const country = findCountry(presetCountryId ?? pickedCountryId);
   const countryLocked = presetCountryId !== null;
   const hasCity = suggestionHasCity(category);
+  // A heritage photo suggestion is just "this photo, for this site": no
+  // country/name/city/description to fill in, and the photo is the point.
+  const isHeritagePhoto = category === "heritage_photo";
+  // Same for a photo sent for an existing dish/island/landmark.
+  const isEntryPhoto = existingEntry !== null;
+  const photoOnly = isHeritagePhoto || isEntryPhoto;
+
+  const choosePhoto = async () => {
+    if (pickingPhoto) return;
+    Keyboard.dismiss();
+    setPickingPhoto(true);
+    setError(null);
+    try {
+      const picked = await pickSuggestionPhoto();
+      if (picked) setPhoto(picked);
+    } catch (e) {
+      console.log("SUGGESTION PHOTO PICK ERROR", e);
+      setError(
+        e instanceof SuggestionPhotoTooLargeError
+          ? t("suggest.photoTooLarge")
+          : t("suggest.photoFailed"),
+      );
+    } finally {
+      setPickingPhoto(false);
+    }
+  };
 
   const submit = async () => {
     const trimmedName = name.trim();
-    if (!country) {
-      setError(t("suggest.countryRequired"));
-      return;
-    }
-    if (!trimmedName) {
-      setError(t("suggest.nameRequired"));
-      return;
+    if (photoOnly) {
+      if (!(isHeritagePhoto ? heritageSite : existingEntry)) return;
+      if (!photo) {
+        setError(t("suggest.photoRequired"));
+        return;
+      }
+    } else {
+      if (!country) {
+        setError(t("suggest.countryRequired"));
+        return;
+      }
+      if (!trimmedName) {
+        setError(t("suggest.nameRequired"));
+        return;
+      }
     }
     if (!accepted) {
       setError(t("suggest.consentRequired"));
@@ -119,13 +171,36 @@ export function SuggestionModal({
     setSubmitting(true);
     setError(null);
     try {
-      await submitSuggestion({
-        category,
-        countryId: country.id,
-        name: trimmedName,
-        city: hasCity ? city.trim() || null : null,
-        description: description.trim() || null,
-      });
+      await submitSuggestion(
+        isHeritagePhoto && heritageSite
+          ? {
+              category,
+              countryId: null,
+              heritageSiteId: heritageSite.id,
+              name: heritageSite.name,
+              city: null,
+              description: null,
+              photo,
+            }
+          : existingEntry && country
+            ? {
+                category,
+                countryId: country.id,
+                targetId: existingEntry.id,
+                name: existingEntry.name,
+                city: null,
+                description: null,
+                photo,
+              }
+            : {
+                category,
+                countryId: country?.id ?? null,
+                name: trimmedName,
+                city: hasCity ? city.trim() || null : null,
+                description: description.trim() || null,
+                photo,
+              },
+      );
       setDone(true);
     } catch (e) {
       console.log("SUGGESTION SUBMIT ERROR", e);
@@ -173,7 +248,7 @@ export function SuggestionModal({
               }}
             >
               <Text style={{ fontSize: 18, fontWeight: "700", color: palette.ink }}>
-                {t(`suggest.${category}.title`)}
+                {t(isEntryPhoto ? `suggest.${category}.photoTitle` : `suggest.${category}.title`)}
               </Text>
               <Pressable onPress={onClose} hitSlop={8}>
                 <Ionicons name="close" size={24} color={palette.inkMuted} />
@@ -227,85 +302,153 @@ export function SuggestionModal({
                 showsVerticalScrollIndicator={false}
               >
                 <Text style={{ marginTop: 8, fontSize: 13, lineHeight: 19, color: palette.inkMuted }}>
-                  {t(`suggest.${category}.intro`)}
+                  {t(isEntryPhoto ? `suggest.${category}.photoIntro` : `suggest.${category}.intro`)}
                 </Text>
 
-                <Text style={labelStyle}>{t("suggest.countryLabel")}</Text>
-                <Pressable
-                  onPress={() => {
-                    if (countryLocked) return;
-                    Keyboard.dismiss();
-                    setPickingCountry(true);
-                  }}
-                  style={rowStyle}
-                >
-                  {country ? (
-                    <CountryFlag id={country.id} iso2={country.iso2} size={20} />
-                  ) : (
-                    <Ionicons name="flag-outline" size={18} color={palette.inkFaint} />
-                  )}
-                  <Text
-                    style={{
-                      flex: 1,
-                      fontSize: 15,
-                      color: country ? palette.ink : palette.inkFaint,
-                    }}
-                    numberOfLines={1}
-                  >
-                    {country
-                      ? getLocalizedCountryName(country.name, language)
-                      : t("suggest.countryNone")}
-                  </Text>
-                  {countryLocked ? null : (
-                    <Ionicons name="chevron-forward" size={16} color={palette.inkFaint} />
-                  )}
-                </Pressable>
-
-                <Text style={labelStyle}>{t(`suggest.${category}.nameLabel`)}</Text>
-                <TextInput
-                  value={name}
-                  onChangeText={setName}
-                  placeholder={t(`suggest.${category}.namePlaceholder`)}
-                  placeholderTextColor={palette.inkFaint}
-                  maxLength={MAX_SUGGESTION_NAME_LENGTH}
-                  style={[rowStyle, { height: 50, fontSize: 15, color: palette.ink }]}
-                />
-
-                {hasCity ? (
+                {photoOnly ? (
                   <>
-                    <Text style={labelStyle}>{t(`suggest.${category}.cityLabel`)}</Text>
+                    <Text style={labelStyle}>
+                      {t(isHeritagePhoto ? "suggest.heritage_photo.siteLabel" : `suggest.${category}.nameLabel`)}
+                    </Text>
+                    <View style={rowStyle}>
+                      <Ionicons name="business-outline" size={18} color={palette.inkFaint} />
+                      <Text style={{ flex: 1, fontSize: 15, color: palette.ink }} numberOfLines={2}>
+                        {isHeritagePhoto ? heritageSite?.name : existingEntry?.name}
+                      </Text>
+                    </View>
+
+                  </>
+                ) : (
+                  <>
+                    <Text style={labelStyle}>{t("suggest.countryLabel")}</Text>
+                    <Pressable
+                      onPress={() => {
+                        if (countryLocked) return;
+                        Keyboard.dismiss();
+                        setPickingCountry(true);
+                      }}
+                      style={rowStyle}
+                    >
+                      {country ? (
+                        <CountryFlag id={country.id} iso2={country.iso2} size={20} />
+                      ) : (
+                        <Ionicons name="flag-outline" size={18} color={palette.inkFaint} />
+                      )}
+                      <Text
+                        style={{
+                          flex: 1,
+                          fontSize: 15,
+                          color: country ? palette.ink : palette.inkFaint,
+                        }}
+                        numberOfLines={1}
+                      >
+                        {country
+                          ? getLocalizedCountryName(country.name, language)
+                          : t("suggest.countryNone")}
+                      </Text>
+                      {countryLocked ? null : (
+                        <Ionicons name="chevron-forward" size={16} color={palette.inkFaint} />
+                      )}
+                    </Pressable>
+
+                    <Text style={labelStyle}>{t(`suggest.${category}.nameLabel`)}</Text>
                     <TextInput
-                      value={city}
-                      onChangeText={setCity}
-                      placeholder={t(`suggest.${category}.cityPlaceholder`)}
+                      value={name}
+                      onChangeText={setName}
+                      placeholder={t(`suggest.${category}.namePlaceholder`)}
                       placeholderTextColor={palette.inkFaint}
-                      maxLength={MAX_SUGGESTION_CITY_LENGTH}
+                      maxLength={MAX_SUGGESTION_NAME_LENGTH}
                       style={[rowStyle, { height: 50, fontSize: 15, color: palette.ink }]}
                     />
-                  </>
-                ) : null}
 
-                <Text style={labelStyle}>{t("suggest.descriptionLabel")}</Text>
-                <TextInput
-                  value={description}
-                  onChangeText={setDescription}
-                  placeholder={t("suggest.descriptionPlaceholder")}
-                  placeholderTextColor={palette.inkFaint}
-                  maxLength={MAX_SUGGESTION_DESCRIPTION_LENGTH}
-                  multiline
-                  textAlignVertical="top"
-                  style={[
-                    rowStyle,
-                    {
-                      minHeight: 96,
-                      paddingTop: 12,
-                      paddingBottom: 12,
-                      alignItems: "flex-start",
-                      fontSize: 15,
-                      color: palette.ink,
-                    },
-                  ]}
-                />
+                    {hasCity ? (
+                      <>
+                        <Text style={labelStyle}>{t(`suggest.${category}.cityLabel`)}</Text>
+                        <TextInput
+                          value={city}
+                          onChangeText={setCity}
+                          placeholder={t(`suggest.${category}.cityPlaceholder`)}
+                          placeholderTextColor={palette.inkFaint}
+                          maxLength={MAX_SUGGESTION_CITY_LENGTH}
+                          style={[rowStyle, { height: 50, fontSize: 15, color: palette.ink }]}
+                        />
+                      </>
+                    ) : null}
+
+                    <Text style={labelStyle}>{t("suggest.descriptionLabel")}</Text>
+                    <TextInput
+                      value={description}
+                      onChangeText={setDescription}
+                      placeholder={t("suggest.descriptionPlaceholder")}
+                      placeholderTextColor={palette.inkFaint}
+                      maxLength={MAX_SUGGESTION_DESCRIPTION_LENGTH}
+                      multiline
+                      textAlignVertical="top"
+                      style={[
+                        rowStyle,
+                        {
+                          minHeight: 96,
+                          paddingTop: 12,
+                          paddingBottom: 12,
+                          alignItems: "flex-start",
+                          fontSize: 15,
+                          color: palette.ink,
+                        },
+                      ]}
+                    />
+
+                  </>
+                )}
+
+                <Text style={labelStyle}>
+                  {t(photoOnly ? "suggest.photoLabelRequired" : "suggest.photoLabel")}
+                </Text>
+                {photo ? (
+                  <View>
+                    <Image
+                      source={{ uri: photo.uri }}
+                      contentFit="cover"
+                      style={{ height: 180, borderRadius: 12, backgroundColor: palette.cream }}
+                    />
+                    <View style={{ flexDirection: "row", gap: 16, marginTop: 8 }}>
+                      <Pressable onPress={choosePhoto} hitSlop={6}>
+                        <Text style={{ fontSize: 13, fontWeight: "600", color: palette.brand }}>
+                          {t("suggest.photoChange")}
+                        </Text>
+                      </Pressable>
+                      <Pressable onPress={() => setPhoto(null)} hitSlop={6}>
+                        <Text style={{ fontSize: 13, fontWeight: "600", color: palette.danger }}>
+                          {t("suggest.photoRemove")}
+                        </Text>
+                      </Pressable>
+                    </View>
+                  </View>
+                ) : (
+                  <Pressable
+                    onPress={choosePhoto}
+                    disabled={pickingPhoto}
+                    style={[
+                      rowStyle,
+                      {
+                        height: 90,
+                        justifyContent: "center",
+                        borderStyle: "dashed",
+                        opacity: pickingPhoto ? 0.6 : 1,
+                      },
+                    ]}
+                  >
+                    {pickingPhoto ? (
+                      <ActivityIndicator color={palette.brand} />
+                    ) : (
+                      <>
+                        <Ionicons name="image-outline" size={22} color={palette.brand} />
+                        <Text style={{ fontSize: 15, fontWeight: "600", color: palette.brand }}>
+                          {t("suggest.photoPick")}
+                        </Text>
+                      </>
+                    )}
+                  </Pressable>
+                )}
 
                 <Pressable
                   onPress={() => setAccepted((v) => !v)}

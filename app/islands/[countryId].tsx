@@ -2,6 +2,7 @@ import { EntryListRow } from "@/components/entry-list-row";
 import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
 import { SuggestionEntry } from "@/components/suggestion-entry";
+import { useEntryPhotoSuggestion } from "@/hooks/use-entry-photo-suggestion";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -42,6 +43,8 @@ export default function IslandsCountryScreen() {
       ? Math.min(100, Math.round((visitedInCountry / islands.length) * 100))
       : 0;
 
+  const photoSuggestion = useEntryPhotoSuggestion("islands", id);
+
   const handleToggle = async (island: Island) => {
     const updated = await toggleIslandVisited(
       island.id,
@@ -65,12 +68,14 @@ export default function IslandsCountryScreen() {
       isVisited={visited.includes(item.id)}
       toggleColor={categoryMeta?.fg ?? palette.brand}
       onTogglePress={() => handleToggle(item)}
+      onAddPhotoPress={() => photoSuggestion.open({ id: item.id, name: item.name })}
     />
   );
 
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
       <Stack.Screen options={{ headerShown: false }} />
+      {photoSuggestion.modal}
 
       <ScreenHeader
         title={countryName}

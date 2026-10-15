@@ -1,6 +1,7 @@
 import { HeritageThumbnail } from "@/components/heritage-thumbnail";
 import { HeritageBadges } from "@/components/heritage-badges";
 import { ScreenHeader } from "@/components/screen-header";
+import { HeritagePhotoSuggestionEntry } from "@/components/suggestion-entry";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -118,6 +119,11 @@ export default function HeritageDetailScreen() {
           >
             {displayItem?.description ?? t("heritageDetail.noDescription")}
           </Text>
+
+          {/* The card brings its own side margin (made for full-width lists). */}
+          <View style={{ marginHorizontal: -16 }}>
+            <HeritagePhotoSuggestionEntry item={item} accentColor={categoryMeta?.fg} />
+          </View>
 
           <Pressable
             onPress={handleToggle}

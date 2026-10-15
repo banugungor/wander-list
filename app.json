@@ -2,7 +2,7 @@
   "expo": {
     "name": "wanderlist",
     "slug": "wander-list",
-    "version": "1.1.3",
+    "version": "1.1.4",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "wanderlist",
@@ -46,6 +46,14 @@
       ],
       "expo-font",
       "expo-image",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Wanderlist to access your photos so you can attach one to a suggestion.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ],
       "expo-sharing",
       "expo-status-bar",
       "expo-web-browser",

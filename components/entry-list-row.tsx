@@ -1,4 +1,5 @@
 import { palette } from "@/constants/palette";
+import { useLanguage } from "@/contexts/language-context";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { useState } from "react";
@@ -14,6 +15,10 @@ type EntryListRowProps = {
   isVisited: boolean;
   toggleColor: string;
   onTogglePress: () => void;
+  /** When set and the entry has no photo, shows a small "add a photo" button
+   * under the text (users can send us one — see "User suggestions" in
+   * CLAUDE.md). */
+  onAddPhotoPress?: () => void;
 };
 
 // Shared row for the Cuisine/Islands country screens (`app/cuisine/[countryId].tsx`,
@@ -33,7 +38,9 @@ export function EntryListRow({
   isVisited,
   toggleColor,
   onTogglePress,
+  onAddPhotoPress,
 }: EntryListRowProps) {
+  const { t } = useLanguage();
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -71,37 +78,63 @@ export function EntryListRow({
         </View>
       )}
 
-      <Pressable
-        onPress={() => setExpanded((prev) => !prev)}
-        disabled={!description}
-        style={{ flex: 1 }}
-      >
-        <Text style={{ fontSize: 15, fontWeight: "700", color: palette.ink }}>
-          {name}
-        </Text>
-        {city && (
-          <View style={{ flexDirection: "row", alignItems: "center", marginTop: 3, gap: 3 }}>
-            <Ionicons name="location-outline" size={11} color={palette.inkMuted} />
-            <Text style={{ fontSize: 11, color: palette.inkMuted }}>{city}</Text>
-          </View>
-        )}
-        {description && (
-          <View style={{ flexDirection: "row", alignItems: "flex-start", marginTop: 4, gap: 4 }}>
-            <Text
-              style={{ flex: 1, fontSize: 12, color: palette.inkMuted, lineHeight: 17 }}
-              numberOfLines={expanded ? undefined : 2}
-            >
-              {description}
+      <View style={{ flex: 1 }}>
+        <Pressable
+          onPress={() => setExpanded((prev) => !prev)}
+          disabled={!description}
+        >
+          <Text style={{ fontSize: 15, fontWeight: "700", color: palette.ink }}>
+            {name}
+          </Text>
+          {city && (
+            <View style={{ flexDirection: "row", alignItems: "center", marginTop: 3, gap: 3 }}>
+              <Ionicons name="location-outline" size={11} color={palette.inkMuted} />
+              <Text style={{ fontSize: 11, color: palette.inkMuted }}>{city}</Text>
+            </View>
+          )}
+          {description && (
+            <View style={{ flexDirection: "row", alignItems: "flex-start", marginTop: 4, gap: 4 }}>
+              <Text
+                style={{ flex: 1, fontSize: 12, color: palette.inkMuted, lineHeight: 17 }}
+                numberOfLines={expanded ? undefined : 2}
+              >
+                {description}
+              </Text>
+              <Ionicons
+                name={expanded ? "chevron-up" : "chevron-down"}
+                size={13}
+                color={palette.inkFaint}
+                style={{ marginTop: 2 }}
+              />
+            </View>
+          )}
+        </Pressable>
+
+        {!imageUrl && onAddPhotoPress ? (
+          <Pressable
+            onPress={onAddPhotoPress}
+            hitSlop={6}
+            style={({ pressed }) => ({
+              alignSelf: "flex-start",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 5,
+              marginTop: 8,
+              paddingHorizontal: 10,
+              paddingVertical: 5,
+              borderRadius: 999,
+              borderWidth: 1,
+              borderColor: palette.hairlineStrong,
+              opacity: pressed ? 0.7 : 1,
+            })}
+          >
+            <Ionicons name="camera-outline" size={13} color={palette.inkMuted} />
+            <Text style={{ fontSize: 11, fontWeight: "600", color: palette.inkMuted }}>
+              {t("suggest.addPhoto")}
             </Text>
-            <Ionicons
-              name={expanded ? "chevron-up" : "chevron-down"}
-              size={13}
-              color={palette.inkFaint}
-              style={{ marginTop: 2 }}
-            />
-          </View>
-        )}
-      </Pressable>
+          </Pressable>
+        ) : null}
+      </View>
 
       <Pressable
         onPress={onTogglePress}
