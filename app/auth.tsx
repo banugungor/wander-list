@@ -28,7 +28,7 @@ type AuthMode = "signIn" | "signUp" | "forgot" | "reset";
 
 const AGE_GROUPS = ["13-17", "18-24", "25-34", "35-44", "45-54", "55+"];
 const GENDERS = ["female", "male", "other"] as const;
-const PRIVACY_POLICY_URL = "https://banugungor.github.io/wander-list/privacy-policy.html";
+const PRIVACY_POLICY_URL = "https://wanderlist-legal.netlify.app/privacy-policy.html";
 
 export default function AuthScreen() {
   const { t, language } = useLanguage();

@@ -13,6 +13,7 @@ import worldData from "@/data/worldCountries.json";
 import { useCuisineMealIndex } from "@/hooks/use-cuisine-meal-index";
 import { useCuisineVisited } from "@/hooks/use-cuisine-visited";
 import { useCountrySearchRows } from "@/hooks/use-country-search-rows";
+import { useNameIndexSearchRows } from "@/hooks/use-name-index-search-rows";
 import { Stack, router } from "expo-router";
 import { useMemo, useState } from "react";
 import { ActivityIndicator, FlatList, Text, View } from "react-native";
@@ -65,6 +66,13 @@ export default function CuisineContinentPickerScreen() {
     routeBase: "cuisine",
   });
 
+  // ...plus individual cuisine matches by name, from a lazily-loaded names index.
+  const { rows: itemRows, loading: itemsLoading } = useNameIndexSearchRows({
+    category: "cuisine",
+    search,
+    language,
+  });
+
   const totalMeals = Object.values(counts).reduce((sum, c) => sum + c, 0);
   const percent =
     totalMeals > 0 ? Math.min(100, Math.round((visited.length / totalMeals) * 100)) : 0;
@@ -107,6 +115,10 @@ export default function CuisineContinentPickerScreen() {
         <CountrySearchResults
           rows={searchRows}
           accentColor={categoryMeta?.fg ?? palette.brand}
+          itemRows={itemRows}
+          itemsLoading={itemsLoading}
+          rowsTitle={t("explore.sectionCountries")}
+          itemsTitle={t("explore.sectionDishes")}
           footer={
             <SuggestionEntry category="cuisine" accentColor={categoryMeta?.fg} />
           }

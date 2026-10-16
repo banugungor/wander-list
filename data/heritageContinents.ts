@@ -1,4 +1,6 @@
 import { CONTINENT_BY_COUNTRY_ID, ContinentId } from "@/data/continents";
+import { getLocalizedCountryName } from "@/data/countryNamesTr";
+import { heritageSites } from "@/data/heritageSites";
 import worldData from "@/data/worldCountries.json";
 
 const NAME_TO_CONTINENT: Record<string, ContinentId> = {};
@@ -71,4 +73,29 @@ export function getContinentsForCountryField(countryField: string): ContinentId[
  * country name under its one continent. */
 export function getContinentForCountryName(name: string): ContinentId | undefined {
   return NAME_TO_CONTINENT[name] ?? ALIASES[name];
+}
+
+let heritageTokenByLocalizedName: Map<string, string> | null = null;
+
+/** The heritage dataset's own spelling of a `worldCountries.json` country
+ * (e.g. "Turkey" → "Türkiye"), or null when that country has no heritage
+ * site. Matches through the Turkish display name, since `COUNTRY_NAME_TR`
+ * already maps both spellings of a country to one name. Only call after
+ * `loadHeritageSites()` has resolved (the startup gate guarantees this for
+ * screens). */
+export function findHeritageCountryToken(worldCountryName: string): string | null {
+  // Don't memoize an empty map: if this ran before the dataset loaded, the
+  // result would stay empty for the rest of the session.
+  if (heritageSites.length === 0) return null;
+  if (!heritageTokenByLocalizedName) {
+    const map = new Map<string, string>();
+    for (const site of heritageSites) {
+      for (const token of splitCountryField(site.country)) {
+        const key = getLocalizedCountryName(token, "tr");
+        if (!map.has(key)) map.set(key, token);
+      }
+    }
+    heritageTokenByLocalizedName = map;
+  }
+  return heritageTokenByLocalizedName.get(getLocalizedCountryName(worldCountryName, "tr")) ?? null;
 }

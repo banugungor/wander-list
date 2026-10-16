@@ -1,5 +1,7 @@
 import { BadgesSection } from "@/components/badges-section";
 import { BottomTabBar } from "@/components/bottom-tab-bar";
+import { OffscreenShareCard } from "@/components/offscreen-share-card";
+import { SharePillButton } from "@/components/share-pill-button";
 import { ShareStoryCard } from "@/components/share-story-card";
 import { StatCard } from "@/components/stat-card";
 import { getCategory } from "@/constants/categories";
@@ -9,20 +11,12 @@ import { ActivityEntry, getActivityLog } from "@/data/activityLog";
 import { HERITAGE_VISITED_KEY } from "@/data/heritageStorage";
 import { parseIdList } from "@/data/parseIdList";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
-import { shareStatsToInstagramStory } from "@/data/shareStory";
 import { CUISINE_VISITED_KEY, ISLANDS_VISITED_KEY } from "@/data/storageKeys";
-import { Ionicons } from "@expo/vector-icons";
+import { useShareStory } from "@/hooks/use-share-story";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "expo-router";
-import { useCallback, useMemo, useRef, useState } from "react";
-import {
-  ActivityIndicator,
-  Alert,
-  Pressable,
-  ScrollView,
-  Text,
-  View,
-} from "react-native";
+import { useCallback, useMemo, useState } from "react";
+import { Pressable, ScrollView, Text, View } from "react-native";
 
 type Segment = "stats" | "badges";
 
@@ -57,9 +51,8 @@ export default function StatsScreen() {
   const [cuisineCount, setCuisineCount] = useState(0);
   const [islandsCount, setIslandsCount] = useState(0);
   const [activity, setActivity] = useState<ActivityEntry[]>([]);
-  const [sharing, setSharing] = useState(false);
   const [segment, setSegment] = useState<Segment>("stats");
-  const shareCardRef = useRef<View>(null);
+  const { cardRef: shareCardRef, sharing, share: handleShare } = useShareStory();
 
   useFocusEffect(
     useCallback(() => {
@@ -95,18 +88,6 @@ export default function StatsScreen() {
   const islands = getCategory("islands")!;
   const capitals = getCategory("capitals")!;
 
-  const handleShare = async () => {
-    setSharing(true);
-    try {
-      await shareStatsToInstagramStory(shareCardRef);
-    } catch (e) {
-      console.log("SHARE STORY ERROR", e);
-      Alert.alert(t("stats.shareErrorTitle"), t("stats.shareError"));
-    } finally {
-      setSharing(false);
-    }
-  };
-
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
       <ScrollView
@@ -138,41 +119,11 @@ export default function StatsScreen() {
           </View>
 
           {segment === "stats" ? (
-            <Pressable
+            <SharePillButton
+              label={t("stats.shareButton")}
               onPress={handleShare}
-              disabled={sharing}
-              style={({ pressed }) => [
-                {
-                  flexDirection: "row",
-                  alignItems: "center",
-                  gap: 6,
-                  paddingHorizontal: 12,
-                  paddingVertical: 8,
-                  borderRadius: 999,
-                  backgroundColor: palette.greenSoft,
-                },
-                pressed && { opacity: 0.7 },
-              ]}
-            >
-              {sharing ? (
-                <ActivityIndicator size="small" color={palette.greenText} />
-              ) : (
-                <Ionicons
-                  name="share-social-outline"
-                  size={15}
-                  color={palette.greenText}
-                />
-              )}
-              <Text
-                style={{
-                  fontSize: 12,
-                  fontWeight: "600",
-                  color: palette.greenText,
-                }}
-              >
-                {t("stats.shareButton")}
-              </Text>
-            </Pressable>
+              loading={sharing}
+            />
           ) : null}
         </View>
 
@@ -320,13 +271,8 @@ export default function StatsScreen() {
         )}
       </ScrollView>
 
-      {/* Off-screen — never shown, only captured by shareStatsToInstagramStory
-       * via shareCardRef. Positioned instead of unmounted so the ref is
-       * always ready by the time the share button is tapped. */}
-      <View
-        style={{ position: "absolute", top: 0, left: -9999 }}
-        pointerEvents="none"
-      >
+      {/* Never shown, only captured by useShareStory's share(). */}
+      <OffscreenShareCard>
         <ShareStoryCard
           ref={shareCardRef}
           heritageCount={heritageCount}
@@ -336,7 +282,7 @@ export default function StatsScreen() {
           title={t("stats.shareCardTitle")}
           footer={t("stats.shareCardFooter")}
         />
-      </View>
+      </OffscreenShareCard>
 
       <BottomTabBar />
     </View>

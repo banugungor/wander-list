@@ -13,6 +13,7 @@ import worldData from "@/data/worldCountries.json";
 import { useIslandsIndex } from "@/hooks/use-islands-index";
 import { useIslandsVisited } from "@/hooks/use-islands-visited";
 import { useCountrySearchRows } from "@/hooks/use-country-search-rows";
+import { useNameIndexSearchRows } from "@/hooks/use-name-index-search-rows";
 import { Stack, router } from "expo-router";
 import { useMemo, useState } from "react";
 import { ActivityIndicator, FlatList, Text, View } from "react-native";
@@ -65,6 +66,13 @@ export default function IslandsContinentPickerScreen() {
     routeBase: "islands",
   });
 
+  // ...plus individual islands matches by name, from a lazily-loaded names index.
+  const { rows: itemRows, loading: itemsLoading } = useNameIndexSearchRows({
+    category: "islands",
+    search,
+    language,
+  });
+
   const totalIslands = Object.values(counts).reduce((sum, c) => sum + c, 0);
   const percent =
     totalIslands > 0
@@ -109,6 +117,10 @@ export default function IslandsContinentPickerScreen() {
         <CountrySearchResults
           rows={searchRows}
           accentColor={categoryMeta?.fg ?? palette.brand}
+          itemRows={itemRows}
+          itemsLoading={itemsLoading}
+          rowsTitle={t("explore.sectionCountries")}
+          itemsTitle={t("explore.sectionIslands")}
           footer={
             <SuggestionEntry category="islands" accentColor={categoryMeta?.fg} />
           }
