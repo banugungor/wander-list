@@ -1,4 +1,5 @@
 import { CountrySearchResults } from "@/components/country-search-results";
+import { HeritageThumbnail } from "@/components/heritage-thumbnail";
 import { ProgressCard } from "@/components/progress-card";
 import { ProgressRow } from "@/components/progress-row";
 import { ScreenHeader } from "@/components/screen-header";
@@ -13,7 +14,9 @@ import {
   getContinentsForCountryField,
   splitCountryField,
 } from "@/data/heritageContinents";
+import { getLocalizedHeritageItem } from "@/data/heritageTranslations";
 import { matchesSearch } from "@/data/searchText";
+import { sortSearchMatches } from "@/hooks/use-name-index-search-rows";
 import { useHeritageExplorer } from "@/hooks/use-heritage-explorer";
 import { Stack, router } from "expo-router";
 import { useMemo, useState } from "react";
@@ -76,6 +79,27 @@ export default function HeritageContinentPickerScreen() {
       }));
   }, [search, heritage.data, heritage.visited, language]);
 
+  // Individual sites matched by name (English or Turkish). The dataset is
+  // bundled, so unlike the other categories no index has to be fetched.
+  const itemRows = useMemo(() => {
+    if (!search.trim()) return [];
+    const matches = heritage.data
+      .filter((item) => matchesSearch(search, item.name, item.nameTr ?? ""))
+      .map((item) => ({
+        item,
+        title: getLocalizedHeritageItem(item, language).name,
+      }));
+    return sortSearchMatches(matches, search, language).map(({ item, title }) => ({
+      key: item.id,
+      title,
+      subtitle: splitCountryField(item.country)
+        .map((c) => getLocalizedCountryName(c, language))
+        .join(", "),
+      leading: <HeritageThumbnail item={item} size={44} />,
+      onPress: () => router.push(`/heritage/${encodeURIComponent(item.id)}`),
+    }));
+  }, [search, heritage.data, language]);
+
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
       <Stack.Screen options={{ headerShown: false }} />
@@ -107,6 +131,9 @@ export default function HeritageContinentPickerScreen() {
         <CountrySearchResults
           rows={searchRows}
           accentColor={categoryMeta?.fg ?? palette.brand}
+          itemRows={itemRows}
+          rowsTitle={t("explore.sectionCountries")}
+          itemsTitle={t("explore.sectionHeritage")}
         />
       ) : (
         <FlatList

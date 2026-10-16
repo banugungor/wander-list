@@ -61,3 +61,6 @@ scripts/admin-panel.html
 scripts/admin_panel_bucket.sql
 scripts/admin_panel_policies.sql
 scripts/content_images_bucket.sql
+
+# Local Netlify folder
+.netlify
