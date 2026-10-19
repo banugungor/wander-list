@@ -14,10 +14,13 @@ import { ActivityIndicator, Alert, View } from "react-native";
 // RevenueCat Offering — there's no per-category offering/entitlement, so
 // this one screen serves all of them, routing back to whichever category
 // sent the viewer here.
-const ROUTE_BY_CATEGORY: Record<string, string> = {
+// `null` = just go back: used by the trip itinerary's activity picker, where
+// the screen underneath (that trip) is the right place to land.
+const ROUTE_BY_CATEGORY: Record<string, string | null> = {
   islands: "/islands",
   landmarks: "/landmarks",
   trips: "/(tabs)/trips",
+  tripDetail: null,
   profile: "/(tabs)/profile",
 };
 
@@ -31,7 +34,7 @@ const ROUTE_BY_CATEGORY: Record<string, string> = {
  * wherever the user came from. If no paywall could be shown at all, says so
  * in an alert before unwinding, rather than closing with no feedback. */
 export default function PaywallScreen() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const presented = useRef(false);
   const { category } = useLocalSearchParams<{ category?: string }>();
   const categoryId = category ?? "islands";
@@ -44,9 +47,12 @@ export default function PaywallScreen() {
       const { unlocked, failed } = await presentPaywallForCategory(
         ISLANDS_OFFERING_ID,
         ALL_ACCESS_ENTITLEMENT_ID,
+        language,
       );
       if (unlocked) {
-        router.replace((ROUTE_BY_CATEGORY[categoryId] ?? "/islands") as never);
+        const route = ROUTE_BY_CATEGORY[categoryId];
+        if (route === null) router.back();
+        else router.replace((route ?? "/islands") as never);
       } else if (failed) {
         Alert.alert(t("paywall.unavailableTitle"), t("paywall.unavailableMessage"), [
           { text: t("common.ok"), onPress: () => router.back() },
@@ -55,7 +61,7 @@ export default function PaywallScreen() {
         router.back();
       }
     })();
-  }, [categoryId, t]);
+  }, [categoryId, t, language]);
 
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream, alignItems: "center", justifyContent: "center" }}>
