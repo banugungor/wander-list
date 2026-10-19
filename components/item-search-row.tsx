@@ -9,6 +9,8 @@ export type ItemSearchRow = {
   /** Where the item lives — country name, or city name on a country screen. */
   subtitle: string;
   leading?: ReactNode;
+  /** Replaces the default chevron (e.g. a checkbox in a picker). */
+  trailing?: ReactNode;
   onPress: () => void;
 };
 
@@ -48,7 +50,7 @@ export function ItemSearchRowView({ row }: { row: ItemSearchRow }) {
           {row.subtitle}
         </Text>
       </View>
-      <Ionicons name="chevron-forward" size={15} color={palette.inkFaint} />
+      {row.trailing ?? <Ionicons name="chevron-forward" size={15} color={palette.inkFaint} />}
     </Pressable>
   );
 }

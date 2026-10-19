@@ -3,7 +3,17 @@ import { TRIPS_CACHE_KEY_PREFIX } from "@/data/storageKeys";
 import worldData from "@/data/worldCountries.json";
 import { supabase } from "@/lib/supabase";
 
-export type TripActivity = { id: string; text: string };
+/** Which list an activity was picked from (see components/trip-activity-picker.tsx).
+ * `id` is that list's own id (heritage site id, or the Supabase row id). */
+export const ACTIVITY_REF_CATEGORIES = ["heritage", "landmarks", "cuisine", "islands"] as const;
+export type ActivityRefCategory = (typeof ACTIVITY_REF_CATEGORIES)[number];
+export type ActivityRef = { category: ActivityRefCategory; id: string };
+
+/** `text` is a snapshot of the name in the language it was added in — a
+ * picked activity stays readable even if the source row later changes or is
+ * unavailable offline. `ref` is only set for activities picked from a list;
+ * hand-typed ones have none. */
+export type TripActivity = { id: string; text: string; ref?: ActivityRef };
 export type TripDay = { id: string; title: string; activities: TripActivity[] };
 
 export type Trip = {
@@ -55,15 +65,25 @@ export function normalizeDays(raw: unknown): TripDay[] {
     id: typeof day.id === "string" && day.id ? day.id : newId(),
     title: typeof day.title === "string" ? day.title : "",
     activities: Array.isArray(day.activities)
-      ? day.activities.filter(isRecord).map((activity) => ({
-          id:
-            typeof activity.id === "string" && activity.id
-              ? activity.id
-              : newId(),
-          text: typeof activity.text === "string" ? activity.text : "",
-        }))
+      ? day.activities.filter(isRecord).map((activity) => {
+          const ref = normalizeRef(activity.ref);
+          return {
+            id:
+              typeof activity.id === "string" && activity.id
+                ? activity.id
+                : newId(),
+            text: typeof activity.text === "string" ? activity.text : "",
+            ...(ref && { ref }),
+          };
+        })
       : [],
   }));
+}
+
+function normalizeRef(raw: unknown): ActivityRef | undefined {
+  if (!isRecord(raw) || typeof raw.id !== "string" || !raw.id) return undefined;
+  const category = ACTIVITY_REF_CATEGORIES.find((c) => c === raw.category);
+  return category ? { category, id: raw.id } : undefined;
 }
 
 function fromRow(row: TripRow): Trip {

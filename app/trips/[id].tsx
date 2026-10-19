@@ -1,7 +1,9 @@
 import { ScreenHeader } from "@/components/screen-header";
 import { TextInputModal } from "@/components/text-input-modal";
+import { TripActivityPicker, type ActivityDraft } from "@/components/trip-activity-picker";
 import { TripCover } from "@/components/trip-cover";
 import { TripFormModal } from "@/components/trip-form-modal";
+import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { showTripMenu } from "@/data/tripAlerts";
@@ -13,7 +15,6 @@ import { useState } from "react";
 import { ActivityIndicator, Alert, Pressable, ScrollView, Text, View } from "react-native";
 
 type TextTarget =
-  | { type: "addActivity"; dayId: string }
   | { type: "editActivity"; dayId: string; activityId: string }
   | { type: "dayTitle"; dayId: string };
 
@@ -25,6 +26,8 @@ export default function TripDetailScreen() {
   const trip = trips.find((candidate) => candidate.id === id);
 
   const [textTarget, setTextTarget] = useState<TextTarget | null>(null);
+  // Day whose "add activity" picker is open (null = closed).
+  const [pickerDayId, setPickerDayId] = useState<string | null>(null);
   const [editFormVisible, setEditFormVisible] = useState(false);
   // While a delete is in flight (and the screen is about to pop), keep showing
   // a spinner instead of flashing "trip not found" once the row is gone.
@@ -125,20 +128,30 @@ export default function TripDetailScreen() {
   const addDay = () =>
     saveDays(trip, [...trip.days, { id: newId(), title: "", activities: [] }]);
 
+  const addActivities = (dayId: string, drafts: ActivityDraft[]) => {
+    setPickerDayId(null);
+    saveDays(
+      trip,
+      mapDay(trip, dayId, (day) => ({
+        ...day,
+        activities: [...day.activities, ...drafts.map((draft) => ({ id: newId(), ...draft }))],
+      })),
+    );
+  };
+
+  // The paywall can't open over the picker's Modal on iOS, so close it first
+  // and navigate once it's gone (same delay as the trips list uses).
+  const openPaywallFromPicker = () => {
+    setPickerDayId(null);
+    setTimeout(() => router.push({ pathname: "/paywall", params: { category: "tripDetail" } }), 450);
+  };
+
   const handleTextSubmit = (value: string) => {
     if (!textTarget) return;
     const target = textTarget;
     setTextTarget(null);
 
-    if (target.type === "addActivity") {
-      saveDays(
-        trip,
-        mapDay(trip, target.dayId, (day) => ({
-          ...day,
-          activities: [...day.activities, { id: newId(), text: value }],
-        })),
-      );
-    } else if (target.type === "editActivity") {
+    if (target.type === "editActivity") {
       saveDays(
         trip,
         mapDay(trip, target.dayId, (day) => ({
@@ -166,6 +179,9 @@ export default function TripDetailScreen() {
     );
   };
 
+  const pickerDayIndex = trip.days.findIndex((day) => day.id === pickerDayId);
+  const pickerDay = trip.days[pickerDayIndex];
+
   const textModal = (() => {
     if (!textTarget) return null;
     const day = trip.days.find((candidate) => candidate.id === textTarget.dayId);
@@ -190,13 +206,7 @@ export default function TripDetailScreen() {
         allowEmpty: false,
       };
     }
-    return {
-      title: t("trips.addActivity"),
-      initialValue: "",
-      placeholder: t("trips.activityPlaceholder"),
-      submitLabel: t("trips.addActivity"),
-      allowEmpty: false,
-    };
+    return null;
   })();
 
   return (
@@ -224,6 +234,13 @@ export default function TripDetailScreen() {
       />
 
       <ScrollView contentContainerStyle={{ padding: 20, paddingBottom: 60 }}>
+        <TripCover
+          title={trip.title}
+          countryId={trip.countryId}
+          markSize={120}
+          style={{ height: 200, borderRadius: 24, marginBottom: 20 }}
+        />
+
         <View style={{ flexDirection: "row", alignItems: "center", gap: 14 }}>
           <View style={{ flex: 1 }}>
             <Pressable
@@ -242,12 +259,6 @@ export default function TripDetailScreen() {
               {dates ? ` · ${dates}` : ""}
             </Text>
           </View>
-          <TripCover
-            title={trip.title}
-            countryId={trip.countryId}
-            markSize={64}
-            style={{ width: 104, height: 104, borderRadius: 22 }}
-          />
         </View>
 
         <View style={{ marginTop: 28 }}>
@@ -322,7 +333,16 @@ export default function TripDetailScreen() {
                     }
                     style={{ flexDirection: "row", gap: 8, marginTop: 10 }}
                   >
-                    <Text style={{ fontSize: 14, color: palette.brand }}>•</Text>
+                    {activity.ref ? (
+                      <Ionicons
+                        name={getCategory(activity.ref.category)?.icon ?? "location-outline"}
+                        size={15}
+                        color={getCategory(activity.ref.category)?.fg ?? palette.brand}
+                        style={{ marginTop: 2 }}
+                      />
+                    ) : (
+                      <Text style={{ fontSize: 14, color: palette.brand }}>•</Text>
+                    )}
                     <Text style={{ flex: 1, fontSize: 14, lineHeight: 20, color: palette.ink }}>
                       {activity.text}
                     </Text>
@@ -330,7 +350,7 @@ export default function TripDetailScreen() {
                 ))}
 
                 <Pressable
-                  onPress={() => setTextTarget({ type: "addActivity", dayId: day.id })}
+                  onPress={() => setPickerDayId(day.id)}
                   style={{ flexDirection: "row", alignItems: "center", gap: 6, marginTop: 14 }}
                 >
                   <Ionicons name="add-circle-outline" size={18} color={palette.brand} />
@@ -374,6 +394,15 @@ export default function TripDetailScreen() {
         onClose={() => setTextTarget(null)}
         onDelete={textTarget?.type === "editActivity" ? handleTextDelete : undefined}
         deleteLabel={t("trips.delete")}
+      />
+
+      <TripActivityPicker
+        visible={pickerDayId !== null}
+        dayLabel={pickerDay ? pickerDay.title || defaultDayTitle(pickerDayIndex) : ""}
+        initialCountryId={trip.countryId}
+        onClose={() => setPickerDayId(null)}
+        onSubmit={(drafts) => pickerDayId && addActivities(pickerDayId, drafts)}
+        onNeedMembership={openPaywallFromPicker}
       />
 
       <TripFormModal
