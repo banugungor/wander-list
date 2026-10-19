@@ -4,6 +4,7 @@ import { CircularProgress } from "@/components/circular-progress";
 import { CountryFlag } from "@/components/country-flag";
 import { LanguageSwitch } from "@/components/language-switch";
 import { RecentItemCard } from "@/components/recent-item-card";
+import { StartHereCard } from "@/components/start-here-card";
 import { categories, getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -55,6 +56,10 @@ const OVERALL_PROGRESS_VALUE_COLORS: Record<string, string> = {
   [palette.greenText]: palette.greenShineText,
   [palette.coralText]: palette.orange,
 };
+
+// The "Buradan başla" shortcuts stay until the viewer has marked this many
+// things in total.
+const START_HERE_MAX_MARKS = 3;
 
 const categoryRows = categories.reduce<(typeof categories)[]>((rows, cat, i) => {
   const isLastOdd = i === categories.length - 1 && categories.length % 2 === 1;
@@ -292,6 +297,7 @@ export default function HomeScreen() {
     });
 
   const implementedStats = Object.values(stats).filter((s) => s.total > 0);
+  const totalMarked = Object.values(stats).reduce((sum, s) => sum + s.count, 0);
   const overallPercent =
     implementedStats.length > 0
       ? Math.round(
@@ -437,6 +443,13 @@ export default function HomeScreen() {
             </View>
           </View>
         </Pressable>
+
+        {/* FIRST-RUN SHORTCUTS — only while the viewer has marked next to
+            nothing (and once stats have loaded, so returning users don't see
+            it flash). One-tap routes to lists they can start ticking. */}
+        {Object.keys(stats).length > 0 && totalMarked < START_HERE_MAX_MARKS ? (
+          <StartHereCard />
+        ) : null}
 
         {/* CATEGORY GRID */}
         <View

@@ -123,15 +123,21 @@ export const ISLANDS_OFFERING_ID = "island_offering";
  * configured, offerings fetch failed — e.g. no network or products missing
  * from App Store Connect — or no offering exists), so callers can tell the
  * viewer instead of silently closing: App Review rejected build 1.1.1 (6)
- * as "unresponsive" because this path used to return with no feedback. */
+ * as "unresponsive" because this path used to return with no feedback.
+ *
+ * `locale` is the app's own UI language ("tr"/"en"): without it RevenueCat
+ * localizes the paywall by the *device* language, so switching language
+ * inside the app left the paywall in the OS language. */
 export async function presentPaywallForCategory(
   offeringId: string,
   entitlementId: string,
+  locale?: string,
 ): Promise<{ unlocked: boolean; failed: boolean }> {
   if (!configured) return { unlocked: false, failed: true };
 
   let failed = false;
   try {
+    if (locale) await Purchases.overridePreferredLocale(locale);
     const offerings = await Purchases.getOfferings();
     const offering = offerings.all[offeringId] ?? offerings.current ?? undefined;
     if (offering) {

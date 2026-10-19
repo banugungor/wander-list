@@ -7,6 +7,7 @@ import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { LanguageProvider, useLanguage } from "@/contexts/language-context";
+import { loadCountryImages } from "@/data/countryImages";
 import { loadHeritageImages } from "@/data/heritageImages";
 import { loadHeritageSites } from "@/data/heritageSites";
 import { configurePurchases } from "@/data/subscription";
@@ -54,9 +55,10 @@ export default function RootLayout() {
       .finally(() => setHeritageReady(true));
   }, []);
 
-  // Admin-panel heritage photos: fire-and-forget, never gates the splash.
+  // Admin-panel heritage + country photos: fire-and-forget, never gate the splash.
   useEffect(() => {
     loadHeritageImages();
+    loadCountryImages();
   }, []);
 
   useEffect(() => {

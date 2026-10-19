@@ -1,7 +1,9 @@
 import { CountryFlag } from "@/components/country-flag";
 import { palette } from "@/constants/palette";
 import { findCountry } from "@/data/trips";
+import { useCountryImageUrl } from "@/hooks/use-country-image-url";
 import { Ionicons } from "@expo/vector-icons";
+import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 import type { ReactNode } from "react";
 import { View, type StyleProp, type ViewStyle } from "react-native";
@@ -34,9 +36,10 @@ type TripCoverProps = {
   children?: ReactNode;
 };
 
-/** The trip card background: a per-trip gradient with the country's flag (or
- * a plane, when no country is set) as a faded watermark. Stands in for a
- * photo — there's no photo source for trips yet. */
+/** The trip card background: the country's cover photo (data/countryImages.ts)
+ * when it has one, else a per-trip gradient with the country's flag (or a
+ * plane, when no country is set) as a faded watermark. The photo gets a dark
+ * scrim at the bottom so white text on top stays readable. */
 export function TripCover({
   title,
   countryId,
@@ -45,6 +48,26 @@ export function TripCover({
   children,
 }: TripCoverProps) {
   const country = findCountry(countryId);
+  const photoUrl = useCountryImageUrl(countryId);
+
+  if (photoUrl) {
+    return (
+      <View style={[{ overflow: "hidden", backgroundColor: palette.creamDeep }, style]}>
+        <Image
+          source={{ uri: photoUrl }}
+          style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}
+          contentFit="cover"
+          transition={200}
+        />
+        <LinearGradient
+          colors={["rgba(0,0,0,0.05)", "rgba(0,0,0,0.55)"]}
+          pointerEvents="none"
+          style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}
+        />
+        {children}
+      </View>
+    );
+  }
 
   return (
     <LinearGradient

@@ -13,6 +13,7 @@ import worldData from "@/data/worldCountries.json";
 import { useLandmarksIndex } from "@/hooks/use-landmarks-index";
 import { useLandmarksVisited } from "@/hooks/use-landmarks-visited";
 import { useCountrySearchRows } from "@/hooks/use-country-search-rows";
+import { useNameIndexSearchRows } from "@/hooks/use-name-index-search-rows";
 import { Stack, router } from "expo-router";
 import { useMemo, useState } from "react";
 import { ActivityIndicator, FlatList, Text, View } from "react-native";
@@ -68,6 +69,13 @@ export default function LandmarksContinentPickerScreen() {
     routeBase: "landmarks",
   });
 
+  // ...plus individual landmarks matches by name, from a lazily-loaded names index.
+  const { rows: itemRows, loading: itemsLoading } = useNameIndexSearchRows({
+    category: "landmarks",
+    search,
+    language,
+  });
+
   const totalLandmarks = Object.values(countByCountry).reduce((sum, c) => sum + c, 0);
   const percent =
     totalLandmarks > 0
@@ -112,6 +120,10 @@ export default function LandmarksContinentPickerScreen() {
         <CountrySearchResults
           rows={searchRows}
           accentColor={categoryMeta?.fg ?? palette.brand}
+          itemRows={itemRows}
+          itemsLoading={itemsLoading}
+          rowsTitle={t("explore.sectionCountries")}
+          itemsTitle={t("explore.sectionPlaces")}
           footer={<SuggestionEntry category="landmarks" accentColor={categoryMeta?.fg} />}
         />
       ) : (

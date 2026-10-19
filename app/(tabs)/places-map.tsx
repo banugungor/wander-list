@@ -1,7 +1,11 @@
 import { CircularProgress } from "@/components/circular-progress";
 import { CountryFlag } from "@/components/country-flag";
+import { OffscreenShareCard } from "@/components/offscreen-share-card";
 import { ScreenHeader } from "@/components/screen-header";
 import { SearchBar } from "@/components/search-bar";
+import { SharePillButton } from "@/components/share-pill-button";
+import { ShareMilestoneModal } from "@/components/share-milestone-modal";
+import { ShareWorldCard } from "@/components/share-world-card";
 import { WorldMap } from "@/components/world-map";
 import { palette } from "@/constants/palette";
 import { useLanguage, type Language } from "@/contexts/language-context";
@@ -9,11 +13,16 @@ import {
   CONTINENT_BY_COUNTRY_ID,
   ContinentId,
   CONTINENTS,
+  getTotalContinentCount,
+  getVisitedContinents,
 } from "@/data/continents";
 import { getLocalizedCountryName } from "@/data/countryNamesTr";
+import { parseIdList } from "@/data/parseIdList";
 import { PLACES_VISITED_KEY, togglePlaceVisited } from "@/data/placesStorage";
 import worldData from "@/data/worldCountries.json";
 import { matchesSearch } from "@/data/searchText";
+import { claimShareMilestone } from "@/data/shareMilestone";
+import { useShareStory } from "@/hooks/use-share-story";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Stack, useFocusEffect } from "expo-router";
@@ -46,11 +55,13 @@ export default function PlacesMapScreen() {
     Set<ContinentId>
   >(new Set());
   const countries = worldData.countries as CountryPath[];
+  const { cardRef: shareCardRef, sharing, share: shareMap } = useShareStory();
+  const [shareMilestone, setShareMilestone] = useState<number | null>(null);
 
   useFocusEffect(
     useCallback(() => {
       AsyncStorage.getItem(PLACES_VISITED_KEY).then((raw) => {
-        setVisited(raw ? JSON.parse(raw) : []);
+        setVisited(parseIdList(raw));
       });
     }, []),
   );
@@ -62,6 +73,20 @@ export default function PlacesMapScreen() {
       visited,
     );
     setVisited(updated);
+
+    // Offer to share the map at milestone counts (see data/shareMilestone.ts) —
+    // only on a fresh mark, and once per milestone per device.
+    if (updated.length > visited.length) {
+      const milestone = await claimShareMilestone(updated.length);
+      if (milestone !== null) setShareMilestone(milestone);
+    }
+  };
+
+  // iOS can't present the share sheet while a Modal is still dismissing, so
+  // close the popup first and share after it's gone.
+  const handleMilestoneShare = () => {
+    setShareMilestone(null);
+    setTimeout(shareMap, 400);
   };
 
   // Marking a country from a tap is low-risk (adds to the list), but
@@ -157,6 +182,19 @@ export default function PlacesMapScreen() {
     });
   };
 
+  const visitedContinentCount = useMemo(
+    () => getVisitedContinents(visited).size,
+    [visited],
+  );
+
+  const worldCardProps = {
+    visitedCount: visited.length,
+    totalCount: countries.length,
+    continentCount: visitedContinentCount,
+    totalContinents: getTotalContinentCount(),
+    flags: visitedCountries,
+  };
+
   const percent =
     countries.length > 0
       ? Math.round((visited.length / countries.length) * 100)
@@ -216,6 +254,14 @@ export default function PlacesMapScreen() {
             <Text style={{ fontSize: 13, color: palette.inkMuted }}>
               {t("placesMap.countriesDiscovered", { total: countries.length })}
             </Text>
+            {visited.length > 0 ? (
+              <SharePillButton
+                style={{ marginTop: 8, alignSelf: "flex-start" }}
+                label={t("shareWorld.shareButton")}
+                onPress={shareMap}
+                loading={sharing}
+              />
+            ) : null}
           </View>
 
           <CircularProgress percent={percent} size={52} strokeWidth={6} />
@@ -488,6 +534,24 @@ export default function PlacesMapScreen() {
           <Ionicons name="add" size={18} color={palette.surface} />
         </Pressable>
       </ScrollView>
+
+      {/* Never shown, only captured by useShareStory's share(). */}
+      <OffscreenShareCard>
+        <ShareWorldCard ref={shareCardRef} {...worldCardProps} />
+      </OffscreenShareCard>
+
+      <ShareMilestoneModal
+        count={shareMilestone}
+        percent={
+          shareMilestone === null
+            ? 0
+            : Math.round((shareMilestone / countries.length) * 100)
+        }
+        onShare={handleMilestoneShare}
+        onClose={() => setShareMilestone(null)}
+      >
+        <ShareWorldCard {...worldCardProps} />
+      </ShareMilestoneModal>
 
       {/* PICKER MODAL */}
       <Modal

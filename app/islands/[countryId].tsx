@@ -1,6 +1,7 @@
 import { EntryListRow } from "@/components/entry-list-row";
 import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
+import { SearchBar } from "@/components/search-bar";
 import { SuggestionEntry } from "@/components/suggestion-entry";
 import { useEntryPhotoSuggestion } from "@/hooks/use-entry-photo-suggestion";
 import { getCategory } from "@/constants/categories";
@@ -13,9 +14,11 @@ import {
   type Island,
 } from "@/data/islands";
 import { toggleIslandVisited } from "@/data/islandsVisited";
+import { matchesSearch } from "@/data/searchText";
 import worldData from "@/data/worldCountries.json";
 import { useCountryIslands } from "@/hooks/use-country-islands";
 import { useIslandsVisited } from "@/hooks/use-islands-visited";
+import { useSearchParamState } from "@/hooks/use-search-param-state";
 import { Stack, useLocalSearchParams } from "expo-router";
 import { useMemo } from "react";
 import { ActivityIndicator, FlatList, Text, View } from "react-native";
@@ -36,6 +39,12 @@ export default function IslandsCountryScreen() {
   const categoryMeta = getCategory("islands");
   const { islands, loading } = useCountryIslands(id);
   const [visited, setVisited] = useIslandsVisited();
+  const [search, setSearch] = useSearchParamState();
+
+  const filteredIslands = useMemo(
+    () => islands.filter((i) => matchesSearch(search, i.name, i.nameTr ?? "")),
+    [islands, search],
+  );
 
   const visitedInCountry = islands.filter((i) => visited.includes(i.id)).length;
   const percent =
@@ -130,11 +139,23 @@ export default function IslandsCountryScreen() {
             accentFg={categoryMeta?.fg}
           />
 
+          <SearchBar
+            value={search}
+            onChangeText={setSearch}
+            placeholder={t("explore.searchPlaceholder")}
+          />
+
           <FlatList
             contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
-            data={islands}
+            data={filteredIslands}
             keyExtractor={(item) => item.id}
             renderItem={renderItem}
+            keyboardShouldPersistTaps="handled"
+            ListEmptyComponent={
+              <Text style={{ textAlign: "center", marginTop: 40, color: palette.inkMuted }}>
+                {t("explore.noResults")}
+              </Text>
+            }
             ListFooterComponent={
               <SuggestionEntry category="islands" countryId={id} accentColor={categoryMeta?.fg} />
             }

@@ -2,6 +2,7 @@ import { HeritageThumbnail } from "@/components/heritage-thumbnail";
 import { HeritageBadges } from "@/components/heritage-badges";
 import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
+import { SearchBar } from "@/components/search-bar";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -9,10 +10,11 @@ import { getLocalizedCountryName } from "@/data/countryNamesTr";
 import { splitCountryField } from "@/data/heritageContinents";
 import type { HeritageItem } from "@/data/heritageSites";
 import { getLocalizedHeritageItem } from "@/data/heritageTranslations";
+import { matchesSearch } from "@/data/searchText";
 import { useHeritageExplorer } from "@/hooks/use-heritage-explorer";
 import { Ionicons } from "@expo/vector-icons";
 import { Stack, router, useLocalSearchParams } from "expo-router";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { FlatList, Pressable, Text, View } from "react-native";
 
 export default function HeritageCountryScreen() {
@@ -28,6 +30,12 @@ export default function HeritageCountryScreen() {
         splitCountryField(item.country).includes(name),
       ),
     [heritage.data, name],
+  );
+
+  const [search, setSearch] = useState("");
+  const filteredSites = useMemo(
+    () => sites.filter((item) => matchesSearch(search, item.name, item.nameTr ?? "")),
+    [sites, search],
   );
 
   const visitedInCountry = sites.filter((item) =>
@@ -121,11 +129,23 @@ export default function HeritageCountryScreen() {
         accentFg={categoryMeta?.fg}
       />
 
+      <SearchBar
+        value={search}
+        onChangeText={setSearch}
+        placeholder={t("explore.searchPlaceholder")}
+      />
+
       <FlatList
         contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
-        data={sites}
+        data={filteredSites}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
+        keyboardShouldPersistTaps="handled"
+        ListEmptyComponent={
+          <Text style={{ textAlign: "center", marginTop: 40, color: palette.inkMuted }}>
+            {t("explore.noResults")}
+          </Text>
+        }
       />
     </View>
   );

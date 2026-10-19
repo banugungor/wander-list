@@ -1,6 +1,7 @@
 import { EntryListRow } from "@/components/entry-list-row";
 import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
+import { SearchBar } from "@/components/search-bar";
 import { SuggestionEntry } from "@/components/suggestion-entry";
 import { useEntryPhotoSuggestion } from "@/hooks/use-entry-photo-suggestion";
 import { getCategory } from "@/constants/categories";
@@ -14,9 +15,11 @@ import {
   type CuisineMeal,
 } from "@/data/cuisineMeals";
 import { toggleCuisineVisited } from "@/data/cuisineVisited";
+import { matchesSearch } from "@/data/searchText";
 import worldData from "@/data/worldCountries.json";
 import { useCountryMeals } from "@/hooks/use-country-meals";
 import { useCuisineVisited } from "@/hooks/use-cuisine-visited";
+import { useSearchParamState } from "@/hooks/use-search-param-state";
 import { Stack, useLocalSearchParams } from "expo-router";
 import { useMemo, useState } from "react";
 import {
@@ -45,6 +48,7 @@ export default function CuisineCountryMealsScreen() {
   const { meals, loading } = useCountryMeals(id);
   const [visited, setVisited] = useCuisineVisited();
   const [cityFilter, setCityFilter] = useState<string | null>(null);
+  const [search, setSearch] = useSearchParamState();
 
   const cities = useMemo(() => {
     const set = new Set<string>();
@@ -59,9 +63,11 @@ export default function CuisineCountryMealsScreen() {
   // (e.g. the data was just refreshed from Supabase).
   const activeCityFilter = cityFilter && cities.includes(cityFilter) ? cityFilter : null;
 
-  const filteredMeals = activeCityFilter
-    ? meals.filter((m) => localizedMealCity(m, language) === activeCityFilter)
-    : meals;
+  const filteredMeals = meals.filter(
+    (m) =>
+      (!activeCityFilter || localizedMealCity(m, language) === activeCityFilter) &&
+      matchesSearch(search, m.name, m.nameTr ?? ""),
+  );
 
   const tastedInCountry = meals.filter((m) => visited.includes(m.id)).length;
   const percent =
@@ -148,6 +154,12 @@ export default function CuisineCountryMealsScreen() {
           data={filteredMeals}
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
+          keyboardShouldPersistTaps="handled"
+          ListEmptyComponent={
+            <Text style={{ textAlign: "center", marginTop: 40, color: palette.inkMuted }}>
+              {t("explore.noResults")}
+            </Text>
+          }
           ListFooterComponent={
             <SuggestionEntry category="cuisine" countryId={id} accentColor={categoryMeta?.fg} />
           }
@@ -162,6 +174,12 @@ export default function CuisineCountryMealsScreen() {
                 percent={percent}
                 accentBg={categoryMeta?.bg}
                 accentFg={categoryMeta?.fg}
+              />
+
+              <SearchBar
+                value={search}
+                onChangeText={setSearch}
+                placeholder={t("explore.searchPlaceholder")}
               />
 
               {cities.length > 0 && (

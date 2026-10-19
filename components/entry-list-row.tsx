@@ -1,7 +1,7 @@
+import { ItemThumbnail } from "@/components/item-thumbnail";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { Ionicons } from "@expo/vector-icons";
-import { Image } from "expo-image";
 import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 
@@ -56,27 +56,7 @@ export function EntryListRow({
         gap: 14,
       }}
     >
-      {imageUrl ? (
-        <Image
-          source={{ uri: imageUrl }}
-          style={{ width: 64, height: 64, borderRadius: 16 }}
-          contentFit="cover"
-          transition={200}
-        />
-      ) : (
-        <View
-          style={{
-            width: 64,
-            height: 64,
-            borderRadius: 16,
-            backgroundColor: palette.creamDeep,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Ionicons name={icon} size={22} color={iconColor} />
-        </View>
-      )}
+      <ItemThumbnail imageUrl={imageUrl} icon={icon} iconColor={iconColor} size={64} />
 
       <View style={{ flex: 1 }}>
         <Pressable

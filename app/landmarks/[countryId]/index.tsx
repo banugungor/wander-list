@@ -1,3 +1,4 @@
+import { CountrySearchResults } from "@/components/country-search-results";
 import { ProgressCard } from "@/components/progress-card";
 import { ProgressRow } from "@/components/progress-row";
 import { ScreenHeader } from "@/components/screen-header";
@@ -12,10 +13,11 @@ import { visitedCountByCity } from "@/data/landmarks";
 import worldData from "@/data/worldCountries.json";
 import { matchesSearch } from "@/data/searchText";
 import { useCityIndex } from "@/hooks/use-city-index";
+import { useNameIndexSearchRows } from "@/hooks/use-name-index-search-rows";
 import { useLandmarksIndex } from "@/hooks/use-landmarks-index";
 import { useLandmarksVisited } from "@/hooks/use-landmarks-visited";
 import { Stack, router, useLocalSearchParams } from "expo-router";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
@@ -75,6 +77,36 @@ export default function LandmarksCountryCitiesScreen() {
       })
       .sort((a, b) => localizedCityName(a, language).localeCompare(localizedCityName(b, language)));
   }, [cities, search, filter, visitedByCity, language]);
+
+  // Individual landmarks of this country matching the search; their subtitle
+  // is the city they're in rather than the (already known) country.
+  const cityNameFor = useCallback(
+    (entry: { cityId: string | null }) => {
+      const city = entry.cityId ? cityById[entry.cityId] : undefined;
+      return city ? localizedCityName(city, language) : countryName;
+    },
+    [cityById, language, countryName],
+  );
+  const { rows: landmarkRows, loading: landmarksSearchLoading } =
+    useNameIndexSearchRows({
+      category: "landmarks",
+      search,
+      language,
+      countryId: id,
+      subtitleFor: cityNameFor,
+    });
+
+  const cityRows = useMemo(
+    () =>
+      filteredCities.map((c) => ({
+        key: c.id,
+        title: localizedCityName(c, language),
+        done: visitedByCity[c.id] ?? 0,
+        total: countByCity[c.id] ?? 0,
+        onPress: () => router.push(`/landmarks/${id}/${c.id}`),
+      })),
+    [filteredCities, visitedByCity, countByCity, language, id],
+  );
 
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
@@ -170,32 +202,54 @@ export default function LandmarksCountryCitiesScreen() {
             })}
           </View>
 
-          <FlatList
-            contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
-            data={filteredCities}
-            keyExtractor={(item) => item.id}
-            ListFooterComponent={
-              <SuggestionEntry category="landmarks" countryId={id} accentColor={categoryMeta?.fg} />
-            }
-            ListEmptyComponent={
-              <Text style={{ textAlign: "center", marginTop: 40, color: palette.inkMuted }}>
-                {t("explore.noResults")}
-              </Text>
-            }
-            renderItem={({ item }) => {
-              const cityTotal = countByCity[item.id] ?? 0;
-              const cityVisited = visitedByCity[item.id] ?? 0;
-              return (
-                <ProgressRow
-                  title={localizedCityName(item, language)}
-                  fractionLabel={`${cityVisited}/${cityTotal}`}
-                  percent={Math.round((cityVisited / cityTotal) * 100)}
-                  accentColor={categoryMeta?.fg ?? palette.brand}
-                  onPress={() => router.push(`/landmarks/${id}/${item.id}`)}
+          {search.trim() ? (
+            <CountrySearchResults
+              rows={cityRows}
+              accentColor={categoryMeta?.fg ?? palette.brand}
+              itemRows={landmarkRows}
+              itemsLoading={landmarksSearchLoading}
+              rowsTitle={t("explore.sectionCities")}
+              itemsTitle={t("explore.sectionPlaces")}
+              footer={
+                <SuggestionEntry
+                  category="landmarks"
+                  countryId={id}
+                  accentColor={categoryMeta?.fg}
                 />
-              );
-            }}
-          />
+              }
+            />
+          ) : (
+            <FlatList
+              contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
+              data={filteredCities}
+              keyExtractor={(item) => item.id}
+              ListFooterComponent={
+                <SuggestionEntry
+                  category="landmarks"
+                  countryId={id}
+                  accentColor={categoryMeta?.fg}
+                />
+              }
+              ListEmptyComponent={
+                <Text style={{ textAlign: "center", marginTop: 40, color: palette.inkMuted }}>
+                  {t("explore.noResults")}
+                </Text>
+              }
+              renderItem={({ item }) => {
+                const cityTotal = countByCity[item.id] ?? 0;
+                const cityVisited = visitedByCity[item.id] ?? 0;
+                return (
+                  <ProgressRow
+                    title={localizedCityName(item, language)}
+                    fractionLabel={`${cityVisited}/${cityTotal}`}
+                    percent={Math.round((cityVisited / cityTotal) * 100)}
+                    accentColor={categoryMeta?.fg ?? palette.brand}
+                    onPress={() => router.push(`/landmarks/${id}/${item.id}`)}
+                  />
+                );
+              }}
+            />
+          )}
         </>
       )}
     </View>

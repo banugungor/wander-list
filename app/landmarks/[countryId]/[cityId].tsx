@@ -2,6 +2,7 @@ import { EntryListRow } from "@/components/entry-list-row";
 import { useEntryPhotoSuggestion } from "@/hooks/use-entry-photo-suggestion";
 import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
+import { SearchBar } from "@/components/search-bar";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -13,10 +14,12 @@ import {
   type Landmark,
 } from "@/data/landmarks";
 import { toggleLandmarkVisited } from "@/data/landmarksVisited";
+import { matchesSearch } from "@/data/searchText";
 import worldData from "@/data/worldCountries.json";
 import { useCityIndex } from "@/hooks/use-city-index";
 import { useCityLandmarks } from "@/hooks/use-city-landmarks";
 import { useLandmarksVisited } from "@/hooks/use-landmarks-visited";
+import { useSearchParamState } from "@/hooks/use-search-param-state";
 import { Stack, useLocalSearchParams } from "expo-router";
 import { useMemo } from "react";
 import { ActivityIndicator, FlatList, Text, View } from "react-native";
@@ -39,6 +42,12 @@ export default function LandmarksCityScreen() {
   const categoryMeta = getCategory("landmarks");
   const { landmarks, loading } = useCityLandmarks(id, city);
   const [visited, setVisited] = useLandmarksVisited();
+  const [search, setSearch] = useSearchParamState();
+
+  const filteredLandmarks = useMemo(
+    () => landmarks.filter((l) => matchesSearch(search, l.name, l.nameTr ?? "")),
+    [landmarks, search],
+  );
 
   const visitedInCity = landmarks.filter((l) => visited.includes(l.id)).length;
   const percent =
@@ -130,11 +139,23 @@ export default function LandmarksCityScreen() {
             accentFg={categoryMeta?.fg}
           />
 
+          <SearchBar
+            value={search}
+            onChangeText={setSearch}
+            placeholder={t("explore.searchPlaceholder")}
+          />
+
           <FlatList
             contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
-            data={landmarks}
+            data={filteredLandmarks}
             keyExtractor={(item) => item.id}
             renderItem={renderItem}
+            keyboardShouldPersistTaps="handled"
+            ListEmptyComponent={
+              <Text style={{ textAlign: "center", marginTop: 40, color: palette.inkMuted }}>
+                {t("explore.noResults")}
+              </Text>
+            }
           />
         </>
       )}
