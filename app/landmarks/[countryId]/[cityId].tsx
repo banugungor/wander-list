@@ -1,4 +1,5 @@
 import { EntryListRow } from "@/components/entry-list-row";
+import { useEntryPhotoSuggestion } from "@/hooks/use-entry-photo-suggestion";
 import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
 import { SearchBar } from "@/components/search-bar";
@@ -54,6 +55,8 @@ export default function LandmarksCityScreen() {
       ? Math.min(100, Math.round((visitedInCity / landmarks.length) * 100))
       : 0;
 
+  const photoSuggestion = useEntryPhotoSuggestion("landmarks", id);
+
   const handleToggle = async (landmark: Landmark) => {
     const updated = await toggleLandmarkVisited(
       landmark.id,
@@ -77,12 +80,14 @@ export default function LandmarksCityScreen() {
       isVisited={visited.includes(item.id)}
       toggleColor={categoryMeta?.fg ?? palette.brand}
       onTogglePress={() => handleToggle(item)}
+      onAddPhotoPress={() => photoSuggestion.open({ id: item.id, name: item.name })}
     />
   );
 
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
       <Stack.Screen options={{ headerShown: false }} />
+      {photoSuggestion.modal}
 
       <ScreenHeader
         title={cityName}

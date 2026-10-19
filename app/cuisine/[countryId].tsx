@@ -3,6 +3,7 @@ import { ProgressCard } from "@/components/progress-card";
 import { ScreenHeader } from "@/components/screen-header";
 import { SearchBar } from "@/components/search-bar";
 import { SuggestionEntry } from "@/components/suggestion-entry";
+import { useEntryPhotoSuggestion } from "@/hooks/use-entry-photo-suggestion";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -72,6 +73,8 @@ export default function CuisineCountryMealsScreen() {
   const percent =
     meals.length > 0 ? Math.min(100, Math.round((tastedInCountry / meals.length) * 100)) : 0;
 
+  const photoSuggestion = useEntryPhotoSuggestion("cuisine", id);
+
   const handleToggle = async (meal: CuisineMeal) => {
     const updated = await toggleCuisineVisited(
       meal.id,
@@ -96,12 +99,14 @@ export default function CuisineCountryMealsScreen() {
       isVisited={visited.includes(item.id)}
       toggleColor={categoryMeta?.fg ?? palette.brand}
       onTogglePress={() => handleToggle(item)}
+      onAddPhotoPress={() => photoSuggestion.open({ id: item.id, name: item.name })}
     />
   );
 
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
       <Stack.Screen options={{ headerShown: false }} />
+      {photoSuggestion.modal}
 
       <ScreenHeader
         title={countryName}
