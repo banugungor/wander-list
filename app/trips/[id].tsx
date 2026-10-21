@@ -29,6 +29,8 @@ export default function TripDetailScreen() {
   const [textTarget, setTextTarget] = useState<TextTarget | null>(null);
   // Day whose "add activity" picker is open (null = closed).
   const [pickerDayId, setPickerDayId] = useState<string | null>(null);
+  // Day currently in reorder mode (↑ ↓ on each activity), null = none.
+  const [reorderDayId, setReorderDayId] = useState<string | null>(null);
   const [editFormVisible, setEditFormVisible] = useState(false);
   // While a delete is in flight (and the screen is about to pop), keep showing
   // a spinner instead of flashing "trip not found" once the row is gone.
@@ -118,9 +120,27 @@ export default function TripDetailScreen() {
     ]);
   };
 
+  // Swaps an activity with its neighbour. The order is also the map's route
+  // order (data/tripStops.ts), so it is saved like any other edit.
+  const moveActivity = (dayId: string, from: number, delta: -1 | 1) => {
+    const to = from + delta;
+    saveDays(
+      trip,
+      mapDay(trip, dayId, (day) => {
+        if (to < 0 || to >= day.activities.length) return day;
+        const activities = [...day.activities];
+        [activities[from], activities[to]] = [activities[to], activities[from]];
+        return { ...day, activities };
+      }),
+    );
+  };
+
   const openDayMenu = (day: TripDay, index: number) => {
     Alert.alert(day.title || defaultDayTitle(index), undefined, [
       { text: t("trips.renameDay"), onPress: () => setTextTarget({ type: "dayTitle", dayId: day.id }) },
+      ...(day.activities.length > 1
+        ? [{ text: t("trips.reorderDay"), onPress: () => setReorderDayId(day.id) }]
+        : []),
       { text: t("trips.deleteDay"), style: "destructive", onPress: () => confirmDeleteDay(day) },
       { text: t("common.cancel"), style: "cancel" },
     ]);
@@ -271,7 +291,9 @@ export default function TripDetailScreen() {
             </Text>
           ) : null}
 
-          {trip.days.map((day, index) => (
+          {trip.days.map((day, index) => {
+            const reordering = reorderDayId === day.id;
+            return (
             <View key={day.id} style={{ flexDirection: "row", gap: 12 }}>
               <View style={{ width: 44, alignItems: "center" }}>
                 <Text style={{ fontSize: 11, color: palette.inkMuted }}>{t("trips.dayLabel")}</Text>
@@ -323,18 +345,27 @@ export default function TripDetailScreen() {
                       {day.title || defaultDayTitle(index)}
                     </Text>
                   </Pressable>
-                  <Pressable onPress={() => openDayMenu(day, index)} hitSlop={10}>
-                    <Ionicons name="ellipsis-horizontal" size={20} color={palette.inkMuted} />
-                  </Pressable>
+                  {reordering ? (
+                    <Pressable onPress={() => setReorderDayId(null)} hitSlop={10}>
+                      <Text style={{ fontSize: 14, fontWeight: "700", color: palette.brand }}>
+                        {t("trips.reorderDone")}
+                      </Text>
+                    </Pressable>
+                  ) : (
+                    <Pressable onPress={() => openDayMenu(day, index)} hitSlop={10}>
+                      <Ionicons name="ellipsis-horizontal" size={20} color={palette.inkMuted} />
+                    </Pressable>
+                  )}
                 </View>
 
-                {day.activities.map((activity) => (
+                {day.activities.map((activity, activityIndex) => (
                   <Pressable
                     key={activity.id}
+                    disabled={reordering}
                     onPress={() =>
                       setTextTarget({ type: "editActivity", dayId: day.id, activityId: activity.id })
                     }
-                    style={{ flexDirection: "row", gap: 8, marginTop: 10 }}
+                    style={{ flexDirection: "row", alignItems: "center", gap: 8, marginTop: 10 }}
                   >
                     {activity.ref ? (
                       <Ionicons
@@ -349,21 +380,40 @@ export default function TripDetailScreen() {
                     <Text style={{ flex: 1, fontSize: 14, lineHeight: 20, color: palette.ink }}>
                       {activity.text}
                     </Text>
+                    {reordering ? (
+                      <View style={{ flexDirection: "row", gap: 6 }}>
+                        <MoveButton
+                          icon="chevron-up"
+                          label={t("trips.moveUp")}
+                          disabled={activityIndex === 0}
+                          onPress={() => moveActivity(day.id, activityIndex, -1)}
+                        />
+                        <MoveButton
+                          icon="chevron-down"
+                          label={t("trips.moveDown")}
+                          disabled={activityIndex === day.activities.length - 1}
+                          onPress={() => moveActivity(day.id, activityIndex, 1)}
+                        />
+                      </View>
+                    ) : null}
                   </Pressable>
                 ))}
 
-                <Pressable
-                  onPress={() => setPickerDayId(day.id)}
-                  style={{ flexDirection: "row", alignItems: "center", gap: 6, marginTop: 14 }}
-                >
-                  <Ionicons name="add-circle-outline" size={18} color={palette.brand} />
-                  <Text style={{ fontSize: 14, fontWeight: "600", color: palette.brand }}>
-                    {t("trips.addActivity")}
-                  </Text>
-                </Pressable>
+                {reordering ? null : (
+                  <Pressable
+                    onPress={() => setPickerDayId(day.id)}
+                    style={{ flexDirection: "row", alignItems: "center", gap: 6, marginTop: 14 }}
+                  >
+                    <Ionicons name="add-circle-outline" size={18} color={palette.brand} />
+                    <Text style={{ fontSize: 14, fontWeight: "600", color: palette.brand }}>
+                      {t("trips.addActivity")}
+                    </Text>
+                  </Pressable>
+                )}
               </View>
             </View>
-          ))}
+            );
+          })}
         </View>
 
         <Pressable
@@ -416,5 +466,39 @@ export default function TripDetailScreen() {
         onSubmit={(draft) => update(trip.id, draft)}
       />
     </View>
+  );
+}
+
+/** One ↑ / ↓ button of a day's reorder mode. */
+function MoveButton({
+  icon,
+  label,
+  disabled,
+  onPress,
+}: {
+  icon: "chevron-up" | "chevron-down";
+  label: string;
+  disabled: boolean;
+  onPress: () => void;
+}) {
+  return (
+    <Pressable
+      onPress={onPress}
+      disabled={disabled}
+      hitSlop={6}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      style={{
+        width: 32,
+        height: 32,
+        borderRadius: 16,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: palette.greenSoft,
+        opacity: disabled ? 0.35 : 1,
+      }}
+    >
+      <Ionicons name={icon} size={18} color={palette.greenText} />
+    </Pressable>
   );
 }
