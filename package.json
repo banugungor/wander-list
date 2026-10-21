@@ -18,6 +18,7 @@
     "lint": "expo lint",
     "compress-heritage": "node scripts/compress-heritage-data.mjs",
     "admin-heritage-list": "node scripts/embed-heritage-in-admin-panel.mjs",
+    "build-city-map": "node scripts/build-city-map.mjs",
     "heritage-status": "node --no-warnings scripts/heritage-translation-status.mjs",
     "catalog-snapshot": "node --env-file=.env scripts/catalog-snapshot.mjs",
     "postinstall": "patch-package"

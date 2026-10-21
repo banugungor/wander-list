@@ -78,3 +78,19 @@ create policy "Anyone can read landmarks"
 -- the user reach the toggle UI.
 alter table public.user_backups
   add column if not exists landmarks_visited jsonb not null default '[]';
+
+-- Optional map position (WGS84 degrees), used by the trip map
+-- (components/trip-map.tsx). Nullable: a landmark without coordinates is
+-- simply left off the map. Filled by hand-run scripts such as
+-- add_landmark_coords_rome.sql — from Wikidata (CC0), not from GeoNames or
+-- any other source that needs an in-app credit.
+alter table public.landmarks
+  add column if not exists lat double precision,
+  add column if not exists lng double precision;
+
+alter table public.landmarks
+  drop constraint if exists landmarks_lat_range,
+  drop constraint if exists landmarks_lng_range;
+alter table public.landmarks
+  add constraint landmarks_lat_range check (lat is null or lat between -90 and 90),
+  add constraint landmarks_lng_range check (lng is null or lng between -180 and 180);

@@ -31,11 +31,18 @@ const DECORATIONS: Partial<
     topOffset: -25,
     rightOffset: 4,
   },
+  landmarks: {
+    source: require("../assets/decor/landmarks.webp"),
+    resizeMode: "cover",
+    heightScale: 0.9,
+    topOffset: 10,
+    rightOffset: -10,
+  },
   cuisine: {
     source: require("../assets/decor/cuisine.webp"),
     resizeMode: "cover",
     heightScale: 0.9,
-    topOffset: -5,
+    topOffset: 5,
     rightOffset: -14,
   },
   islands: {

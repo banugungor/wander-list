@@ -4,6 +4,12 @@ export const HERITAGE_VISITED_KEY = "visited_heritage";
 export const HERITAGE_IMAGES_CACHE_KEY = "heritage_images_v1";
 // Same idea for country_images (country id -> cover photo URL, data/countryImages.ts).
 export const COUNTRY_IMAGES_CACHE_KEY = "country_images_v1";
+// Offline read cache of the landmark coordinates the trip map uses (landmark
+// id -> [lat, lng], data/landmarkCoords.ts). Not user data either.
+export const LANDMARK_COORDS_CACHE_KEY = "landmark_coords_v1";
+// Offline read cache of the trip map's building icons (item key -> image URL,
+// data/mapIcons.ts). Not user data either.
+export const MAP_ICONS_CACHE_KEY = "map_icons_v1";
 
 export const CUISINE_VISITED_KEY = "visited_meals";
 export const CUISINE_AREA_TOTALS_KEY = "cuisine_area_totals";

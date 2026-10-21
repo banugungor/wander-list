@@ -1,4 +1,5 @@
 import { ChipPicker } from "@/components/chip-picker";
+import { CityPickerContent } from "@/components/city-picker-content";
 import { CountryFlag } from "@/components/country-flag";
 import { CountryPickerContent } from "@/components/country-picker-modal";
 import { ItemSearchRowView } from "@/components/item-search-row";
@@ -54,13 +55,26 @@ const MAX_ACTIVITY_LENGTH = 200;
 
 const optionKey = (ref: ActivityRef) => `${ref.category}:${ref.id}`;
 
+const filterPillStyle = {
+  flexDirection: "row",
+  alignItems: "center",
+  gap: 6,
+  paddingHorizontal: 12,
+  paddingVertical: 7,
+  borderRadius: 999,
+  backgroundColor: palette.surface,
+  borderWidth: 1,
+  borderColor: palette.hairline,
+} as const;
+
 /** "+ Aktivite ekle" on a trip day: write your own text, and/or tick items
  * from the Heritage / Landmarks / Cuisine / Islands lists, then add them all
  * at once. The list can be limited to one country with the pill under the
  * chips — a trip can span several countries, so it's the picker's own filter
  * (remembered while the screen is open) rather than the trip's single
- * country. The country list opens as an overlay inside this Modal, not a
- * second Modal (see modal-overlay.tsx). */
+ * country — and, for Heritage and Landmarks, to one city of that country with
+ * the pill next to it. The country and city lists open as overlays inside
+ * this Modal, not a second Modal (see modal-overlay.tsx). */
 export function TripActivityPicker({
   visible,
   dayLabel,
@@ -82,6 +96,9 @@ export function TripActivityPicker({
   // the trip's own country applies.
   const [pickedCountry, setPickedCountry] = useState<{ id: string | null } | null>(null);
   const [choosingCountry, setChoosingCountry] = useState(false);
+  // City filter (a `CityFilterOption.key`), only meaningful within a country.
+  const [cityKey, setCityKey] = useState<string | null>(null);
+  const [choosingCity, setChoosingCity] = useState(false);
   const [islandsOpen, setIslandsOpen] = useState<boolean | null>(null);
 
   const countryId = pickedCountry ? pickedCountry.id : initialCountryId;
@@ -100,9 +117,10 @@ export function TripActivityPicker({
     };
   }, [visible]);
 
-  const { options, loading } = useTripActivityOptions({
+  const { options, cities, activeCityKey, loading } = useTripActivityOptions({
     category,
     countryId,
+    cityKey,
     search,
     language,
     enabled: visible,
@@ -111,11 +129,20 @@ export function TripActivityPicker({
   const trimmedCustom = customText.trim();
   const count = selected.size + (trimmedCustom ? 1 : 0);
 
+  const activeCity = cities.find((city) => city.key === activeCityKey) ?? null;
+
   const reset = () => {
     setSelected(new Map());
     setCustomText("");
     setSearch("");
     setChoosingCountry(false);
+    setChoosingCity(false);
+  };
+
+  // A city belongs to one country, so changing the country drops the filter.
+  const pickCountry = (id: string | null) => {
+    setPickedCountry({ id });
+    setCityKey(null);
   };
 
   const close = () => {
@@ -165,8 +192,12 @@ export function TripActivityPicker({
     <Modal
       visible={visible}
       animationType="slide"
-      // Android's back button steps out of the country list first.
-      onRequestClose={() => (choosingCountry ? setChoosingCountry(false) : close())}
+      // Android's back button steps out of the country/city list first.
+      onRequestClose={() => {
+        if (choosingCity) setChoosingCity(false);
+        else if (choosingCountry) setChoosingCountry(false);
+        else close();
+      }}
     >
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : undefined}
@@ -225,23 +256,22 @@ export function TripActivityPicker({
           />
         </View>
 
-        <View style={{ flexDirection: "row", marginHorizontal: 16, marginTop: 12 }}>
+        <View
+          style={{
+            flexDirection: "row",
+            flexWrap: "wrap",
+            alignItems: "center",
+            rowGap: 8,
+            marginHorizontal: 16,
+            marginTop: 12,
+          }}
+        >
           <Pressable
             onPress={() => {
               Keyboard.dismiss();
               setChoosingCountry(true);
             }}
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              gap: 6,
-              paddingHorizontal: 12,
-              paddingVertical: 7,
-              borderRadius: 999,
-              backgroundColor: palette.surface,
-              borderWidth: 1,
-              borderColor: palette.hairline,
-            }}
+            style={filterPillStyle}
           >
             {country ? <CountryFlag id={country.id} iso2={country.iso2} size={14} /> : (
               <Ionicons name="earth-outline" size={15} color={palette.inkMuted} />
@@ -253,13 +283,41 @@ export function TripActivityPicker({
           </Pressable>
           {country ? (
             <Pressable
-              onPress={() => setPickedCountry({ id: null })}
+              onPress={() => pickCountry(null)}
               hitSlop={8}
               accessibilityLabel={t("trips.allCountries")}
               style={{ justifyContent: "center", marginLeft: 8 }}
             >
               <Ionicons name="close-circle" size={20} color={palette.inkFaint} />
             </Pressable>
+          ) : null}
+
+          {cities.length > 0 ? (
+            <>
+              <Pressable
+                onPress={() => {
+                  Keyboard.dismiss();
+                  setChoosingCity(true);
+                }}
+                style={[filterPillStyle, { marginLeft: 12 }]}
+              >
+                <Ionicons name="location-outline" size={15} color={palette.inkMuted} />
+                <Text style={{ fontSize: 13, color: palette.ink }}>
+                  {activeCity ? activeCity.label : t("trips.allCities")}
+                </Text>
+                <Ionicons name="chevron-down" size={13} color={palette.inkFaint} />
+              </Pressable>
+              {activeCity ? (
+                <Pressable
+                  onPress={() => setCityKey(null)}
+                  hitSlop={8}
+                  accessibilityLabel={t("trips.allCities")}
+                  style={{ justifyContent: "center", marginLeft: 8 }}
+                >
+                  <Ionicons name="close-circle" size={20} color={palette.inkFaint} />
+                </Pressable>
+              ) : null}
+            </>
           ) : null}
         </View>
 
@@ -354,7 +412,18 @@ export function TripActivityPicker({
           <ModalOverlay>
             <CountryPickerContent
               onClose={() => setChoosingCountry(false)}
-              onSelect={(picked) => setPickedCountry({ id: picked.id })}
+              onSelect={(picked) => pickCountry(picked.id)}
+            />
+          </ModalOverlay>
+        ) : null}
+
+        {choosingCity ? (
+          <ModalOverlay>
+            <CityPickerContent
+              cities={cities}
+              selectedKey={activeCityKey}
+              onClose={() => setChoosingCity(false)}
+              onSelect={setCityKey}
             />
           </ModalOverlay>
         ) : null}

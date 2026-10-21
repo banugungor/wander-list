@@ -3,6 +3,7 @@ import { TextInputModal } from "@/components/text-input-modal";
 import { TripActivityPicker, type ActivityDraft } from "@/components/trip-activity-picker";
 import { TripCover } from "@/components/trip-cover";
 import { TripFormModal } from "@/components/trip-form-modal";
+import { TripMapSection } from "@/components/trip-map-section";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
@@ -260,6 +261,8 @@ export default function TripDetailScreen() {
             </Text>
           </View>
         </View>
+
+        <TripMapSection trip={trip} />
 
         <View style={{ marginTop: 28 }}>
           {trip.days.length === 0 ? (
