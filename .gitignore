@@ -62,5 +62,10 @@ scripts/admin_panel_bucket.sql
 scripts/admin_panel_policies.sql
 scripts/content_images_bucket.sql
 
+# One-off bulk landmark imports: run once in the Supabase SQL editor, then
+# they are only history (the live tables are the source of truth). Kept
+# local. add_landmarks_2..4 were committed before this rule and stay tracked.
+scripts/add_landmarks_*.sql
+
 # Local Netlify folder
 .netlify
