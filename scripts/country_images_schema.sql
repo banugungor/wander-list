@@ -33,5 +33,5 @@ drop policy if exists "Admin can write country images" on public.country_images;
 create policy "Admin can write country images"
   on public.country_images
   for all
-  using (auth.jwt() ->> 'email' = 'banuuzun9@gmail.com')
-  with check (auth.jwt() ->> 'email' = 'banuuzun9@gmail.com');
+  using (auth.jwt() ->> 'email' = '<ADMIN_EMAIL>')
+  with check (auth.jwt() ->> 'email' = '<ADMIN_EMAIL>');

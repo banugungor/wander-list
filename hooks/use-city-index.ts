@@ -5,12 +5,14 @@ const EMPTY: CityIndex = { byId: {} };
 
 /** Stale-while-revalidate city id -> City record index, used by the
  * landmarks city picker and terminal screens to resolve a city id to its
- * display name without a per-screen round trip. */
-export function useCityIndex(): CityIndex & { loading: boolean } {
+ * display name without a per-screen round trip. Pass `enabled = false` to
+ * skip the fetch (a screen that only sometimes needs city names). */
+export function useCityIndex(enabled = true): CityIndex & { loading: boolean } {
   const [index, setIndex] = useState<CityIndex>(EMPTY);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(enabled);
 
   useEffect(() => {
+    if (!enabled) return;
     let cancelled = false;
 
     getCachedCityIndex().then((cached) => {
@@ -35,7 +37,7 @@ export function useCityIndex(): CityIndex & { loading: boolean } {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [enabled]);
 
   return { ...index, loading };
 }
