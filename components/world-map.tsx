@@ -189,6 +189,9 @@ export function WorldMap({
   const liveOpacity = useSharedValue(1);
   const locked = useSharedValue(false);
   const pinching = useSharedValue(false);
+  // Where the fingers were (relative to the frame center) when the pinch began.
+  const pinchFx = useSharedValue(0);
+  const pinchFy = useSharedValue(0);
 
   // Stable reference so the memoized layers don't re-render on every parent
   // render just because the caller passed a new closure.
@@ -261,18 +264,24 @@ export function WorldMap({
     runOnJS(commit)(z, cx, cy);
   };
 
-  // The live layer scales around the frame center, so a pinch keeps the point
-  // under the fingers fixed by shifting the translation to compensate.
+  // The live layer scales around the frame center, so a pinch keeps the map
+  // point that was under the fingers at the start under them (wherever they
+  // drift to) by shifting the translation to compensate: tx = f - r * f0.
   const pinchGesture = Gesture.Pinch()
     .onBegin(() => {
       if (locked.value) return;
       liveOpacity.value = 1;
     })
-    .onStart(() => {
+    .onStart((e) => {
       pinching.value = true;
+      pinchFx.value = e.focalX - FRAME_W / 2;
+      pinchFy.value = e.focalY - FRAME_H / 2;
     })
     .onUpdate((e) => {
       if (locked.value) return;
+      // A gesture that began while the previous commit was still settling
+      // never showed the live layer again — do it now.
+      liveOpacity.value = 1;
       const lowest = Math.max(1, z0.value * MIN_RELATIVE_SCALE);
       const total = Math.min(MAX_SCALE, Math.max(lowest, z0.value * e.scale));
       const r = total / z0.value;
@@ -280,7 +289,7 @@ export function WorldMap({
       const fy = e.focalY - FRAME_H / 2;
       rs.value = r;
       rtx.value = clampOffset(
-        fx * (1 - r),
+        fx - r * pinchFx.value,
         r,
         z0.value,
         cx0.value,
@@ -289,7 +298,7 @@ export function WorldMap({
         FRAME_W,
       );
       rty.value = clampOffset(
-        fy * (1 - r),
+        fy - r * pinchFy.value,
         r,
         z0.value,
         cy0.value,
