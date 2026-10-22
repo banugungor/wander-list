@@ -15,6 +15,11 @@ export const LANDMARK_DETAIL_CACHE_KEY_PREFIX = "landmark_detail_v1_";
 // Offline read cache of the trip map's building icons (item key -> image URL,
 // data/mapIcons.ts). Not user data either.
 export const MAP_ICONS_CACHE_KEY = "map_icons_v1";
+// Offline read cache of the trip map's city base maps (data/cityMapStore.ts):
+// the index of every city (id -> bbox + version), and one entry per city
+// (prefix + id) holding its downloaded map. Not user data either.
+export const CITY_MAP_INDEX_CACHE_KEY = "city_map_index_v1";
+export const CITY_MAP_CACHE_KEY_PREFIX = "city_map_v1_";
 
 export const CUISINE_VISITED_KEY = "visited_meals";
 export const CUISINE_AREA_TOTALS_KEY = "cuisine_area_totals";

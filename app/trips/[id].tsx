@@ -7,15 +7,21 @@ import { TripMapSection } from "@/components/trip-map-section";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
-import { showTripMenu } from "@/data/tripAlerts";
 import { getHeritageSiteById } from "@/data/heritageSites";
+import { mapIconUrlForRef } from "@/data/mapIcons";
+import { showTripMenu } from "@/data/tripAlerts";
 import { formatDateRange, newId, type Trip, type TripDay, type TripDraft } from "@/data/trips";
 import { useLandmarkDetailIds } from "@/hooks/use-landmark-detail-ids";
+import { useMapIcons } from "@/hooks/use-map-icons";
 import { useTrips } from "@/hooks/use-trips";
 import { Ionicons } from "@expo/vector-icons";
+import { Image } from "expo-image";
 import { Stack, router, useLocalSearchParams } from "expo-router";
 import { useState } from "react";
 import { ActivityIndicator, Alert, Pressable, ScrollView, Text, View } from "react-native";
+
+// Back / menu buttons sit on the photo, so they need a backdrop that reads on any picture.
+const OVER_PHOTO_BG = "rgba(255,255,255,0.85)";
 
 type TextTarget =
   | { type: "editActivity"; dayId: string; activityId: string }
@@ -24,6 +30,7 @@ type TextTarget =
 export default function TripDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { t, language } = useLanguage();
+  const mapIcons = useMapIcons();
   const landmarkDetailIds = useLandmarkDetailIds();
   const { trips, sessionReady, loading, update, remove } = useTrips();
 
@@ -263,35 +270,52 @@ export default function TripDetailScreen() {
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
       <Stack.Screen options={{ headerShown: false }} />
 
-      <ScreenHeader
-        title={t("trips.itinerary")}
-        right={
-          <Pressable
-            onPress={openTripMenu}
-            accessibilityLabel={t("trips.menuLabel")}
-            style={{
-              width: 36,
-              height: 36,
-              borderRadius: 18,
-              backgroundColor: palette.greenSoft,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Ionicons name="ellipsis-horizontal" size={18} color={palette.greenText} />
-          </Pressable>
-        }
-      />
+      {/* Floats over the cover photo, which runs up under the status bar. */}
+      <View style={{ position: "absolute", top: 0, left: 0, right: 0, zIndex: 10 }}>
+        <ScreenHeader
+          title=""
+          accentBg={OVER_PHOTO_BG}
+          right={
+            <Pressable
+              onPress={openTripMenu}
+              accessibilityLabel={t("trips.menuLabel")}
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: 18,
+                backgroundColor: OVER_PHOTO_BG,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Ionicons name="ellipsis-horizontal" size={18} color={palette.greenText} />
+            </Pressable>
+          }
+        />
+      </View>
 
-      <ScrollView contentContainerStyle={{ padding: 20, paddingBottom: 60 }}>
+      <ScrollView contentContainerStyle={{ padding: 20, paddingTop: 0, paddingBottom: 60 }}>
         <TripCover
           title={trip.title}
           countryId={trip.countryId}
           markSize={120}
-          style={{ height: 200, borderRadius: 24, marginBottom: 20 }}
+          // Bleeds out of the ScrollView's 20pt side padding to span the full screen width.
+          style={{ height: 300, marginHorizontal: -20 }}
+        />
+        {/* Rounded top edge that overlaps the photo's bottom, so the content reads as a sheet. */}
+        <View
+          pointerEvents="none"
+          style={{
+            height: 28,
+            marginHorizontal: -20,
+            marginTop: -28,
+            borderTopLeftRadius: 28,
+            borderTopRightRadius: 28,
+            backgroundColor: palette.cream,
+          }}
         />
 
-        <View style={{ flexDirection: "row", alignItems: "center", gap: 14 }}>
+        <View style={{ marginTop: 20, flexDirection: "row", alignItems: "center", gap: 14 }}>
           <View style={{ flex: 1 }}>
             <Pressable
               onPress={openEditForm}
@@ -396,16 +420,7 @@ export default function TripDetailScreen() {
                     }
                     style={{ flexDirection: "row", alignItems: "center", gap: 8, marginTop: 10 }}
                   >
-                    {activity.ref ? (
-                      <Ionicons
-                        name={getCategory(activity.ref.category)?.icon ?? "location-outline"}
-                        size={15}
-                        color={getCategory(activity.ref.category)?.fg ?? palette.brand}
-                        style={{ marginTop: 2 }}
-                      />
-                    ) : (
-                      <Text style={{ fontSize: 14, color: palette.brand }}>•</Text>
-                    )}
+                    <ActivityLeadIcon activity={activity} icons={mapIcons} />
                     <Text style={{ flex: 1, fontSize: 14, lineHeight: 20, color: palette.ink }}>
                       {activity.text}
                     </Text>
@@ -502,6 +517,31 @@ export default function TripDetailScreen() {
 }
 
 /** One ↑ / ↓ button of a day's reorder mode. */
+/** Bullet in front of an activity: the place's map icon when it has one, else
+ * its category icon (picked from a list) or a plain dot (hand-typed). */
+function ActivityLeadIcon({
+  activity,
+  icons,
+}: {
+  activity: TripDay["activities"][number];
+  icons: Record<string, string>;
+}) {
+  const iconUrl = mapIconUrlForRef(icons, activity.ref);
+  if (iconUrl) {
+    return <Image source={{ uri: iconUrl }} style={{ width: 38, height: 35 }} contentFit="contain" />;
+  }
+  if (!activity.ref) return <Text style={{ fontSize: 14, color: palette.brand }}>•</Text>;
+  const category = getCategory(activity.ref.category);
+  return (
+    <Ionicons
+      name={category?.icon ?? "location-outline"}
+      size={25}
+      color={category?.fg ?? palette.brand}
+      style={{ marginTop: 2 }}
+    />
+  );
+}
+
 function MoveButton({
   icon,
   label,

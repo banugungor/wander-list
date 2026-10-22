@@ -95,9 +95,10 @@ function placeLabels(
 
 /** A trip's mappable stops drawn on a stylised city base map: numbered pins
  * (coloured by day) joined by a dashed route in visiting order. The base map
- * is pre-built vector data (data/cityMaps.ts), so this needs no network and
- * no native map module — it is plain react-native-svg plus absolutely
- * positioned pins, which also lets the share card capture it. */
+ * is pre-built vector data (a `city_maps` row, downloaded once and cached —
+ * data/cityMapStore.ts), so it needs no tile server and no native map module —
+ * it is plain react-native-svg plus absolutely positioned pins, which also
+ * lets the share card capture it. */
 export function TripMap({
   map,
   stops,

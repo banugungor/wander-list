@@ -1,8 +1,10 @@
 // Build step — NOT part of the app runtime.
 // Turns OpenStreetMap data for one city into the small, stylable vector
 // base map that components/trip-map.tsx draws (rivers, water, parks, main
-// roads as pre-simplified SVG path strings), written to
-// assets/citymaps/<id>.json. The data is ODbL — the app shows a visible
+// roads as pre-simplified SVG path strings), written as an idempotent SQL
+// upsert to scripts/city_maps/<id>.sql — run that in the Supabase SQL Editor
+// (after scripts/city_maps_schema.sql); the app downloads maps from the
+// `city_maps` table, nothing is bundled. The data is ODbL — the app shows a visible
 // "© OpenStreetMap contributors" line wherever the map is drawn.
 //
 // Usage:
@@ -10,13 +12,14 @@
 //   OSM_JSON=/path/to/overpass-response.json node scripts/build-city-map.mjs rome
 // (OSM_JSON skips the Overpass request and reuses a saved response.)
 //
-// To add a city: add an entry to CITY_MAPS below, run this, then register
-// the generated file in data/cityMaps.ts.
+// To add a city: add an entry to CITY_MAPS below, run this, run the SQL, and
+// give the city's landmarks coordinates.
 //
 // The projection here MUST match projectToMap() in data/cityMaps.ts:
 // equirectangular, x scaled by cos(mid-latitude), north-up.
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { cityMapSql } from "./lib/city-map-sql.mjs";
 
 const CITY_MAPS = {
   rome: {
@@ -30,9 +33,24 @@ const CITY_MAPS = {
     width: 1000,
     labels: [{ text: "Tevere", textTr: "Tiber", lat: 41.9085, lng: 12.4795, kind: "water" }],
   },
+  ljubljana: {
+    name: "Ljubljana",
+    nameTr: "Ljubljana",
+    // The old town, castle hill, Tivoli Park, Metelkova and the university
+    // library — all of Ljubljana's landmarks in the database. A small frame
+    // (~4.4 km), so tertiary roads are drawn as minor roads too: with only
+    // primary/secondary the centre would be nearly empty.
+    bbox: { south: 46.032, west: 14.48, north: 46.072, east: 14.532 },
+    width: 1000,
+    minorHighways: ["tertiary"],
+    labels: [
+      { text: "Ljubljanica", textTr: "Ljubljanica", lat: 46.0503, lng: 14.5047, kind: "water" },
+    ],
+  },
 };
 
-const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
+// The public server is sometimes overloaded; OVERPASS_URL points at a mirror.
+const OVERPASS_URL = process.env.OVERPASS_URL ?? "https://overpass-api.de/api/interpreter";
 // Clip lines/polygons to the frame plus a margin so nothing off-screen
 // inflates the file; the SVG viewBox crops the margin anyway.
 const MARGIN = 0.04;
@@ -47,7 +65,10 @@ const ROAD_CLASS = {
   secondary: "minor",
 };
 
-function overpassQuery({ south, west, north, east }) {
+const BASE_HIGHWAYS = Object.keys(ROAD_CLASS);
+
+function overpassQuery({ south, west, north, east }, minorHighways = []) {
+  const highways = [...BASE_HIGHWAYS, ...minorHighways].join("|");
   const b = `${south - 0.01},${west - 0.01},${north + 0.01},${east + 0.01}`;
   return `[out:json][timeout:120];
 (
@@ -57,7 +78,7 @@ function overpassQuery({ south, west, north, east }) {
   way["leisure"~"^(park|garden)$"](${b});
   relation["leisure"~"^(park|garden)$"](${b});
   way["landuse"~"^(grass|forest|recreation_ground)$"](${b});
-  way["highway"~"^(motorway|trunk|primary|secondary)$"](${b});
+  way["highway"~"^(${highways})$"](${b});
 );
 out geom;`;
 }
@@ -69,7 +90,7 @@ async function loadOsm(config) {
   const response = await fetch(OVERPASS_URL, {
     method: "POST",
     headers: { "User-Agent": "WanderlistCityMapBuilder/1.0" },
-    body: new URLSearchParams({ data: overpassQuery(config.bbox) }),
+    body: new URLSearchParams({ data: overpassQuery(config.bbox, config.minorHighways) }),
   });
   if (!response.ok) throw new Error(`Overpass ${response.status}`);
   return response.json();
@@ -197,6 +218,9 @@ async function main() {
   };
   const toPoints = (geometry) => geometry.map((p) => project(p.lat, p.lon));
 
+  const roadClass = (highway) =>
+    ROAD_CLASS[highway] ?? (config.minorHighways?.includes(highway) ? "minor" : null);
+
   const layers = { rivers: [], canals: [], water: [], green: [], major: [], minor: [] };
 
   const addLine = (layer, geometry) => {
@@ -224,7 +248,7 @@ async function main() {
     if (element.type === "way" && element.geometry) {
       if (tags.waterway === "river") addLine("rivers", element.geometry);
       else if (tags.waterway === "canal") addLine("canals", element.geometry);
-      else if (ROAD_CLASS[tags.highway]) addLine(ROAD_CLASS[tags.highway], element.geometry);
+      else if (roadClass(tags.highway)) addLine(roadClass(tags.highway), element.geometry);
       else if (polygonLayer) {
         const first = element.geometry[0];
         const last = element.geometry[element.geometry.length - 1];
@@ -262,13 +286,13 @@ async function main() {
     major: layers.major.join(""),
   };
 
-  const outputPath = fileURLToPath(new URL(`../assets/citymaps/${id}.json`, import.meta.url));
-  await mkdir(fileURLToPath(new URL("../assets/citymaps/", import.meta.url)), { recursive: true });
-  const text = JSON.stringify(output);
-  await writeFile(outputPath, text);
+  const outputDir = fileURLToPath(new URL("./city_maps/", import.meta.url));
+  await mkdir(outputDir, { recursive: true });
+  const sql = cityMapSql(output);
+  await writeFile(`${outputDir}${id}.sql`, sql);
 
   const sizes = Object.entries(layers).map(([name, paths]) => `${name} ${paths.length}`);
-  console.log(`${id}: ${(text.length / 1024).toFixed(0)}KB  (${sizes.join(", ")})`);
+  console.log(`${id}: ${(sql.length / 1024).toFixed(0)}KB  (${sizes.join(", ")})`);
 }
 
 main();

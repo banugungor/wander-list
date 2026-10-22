@@ -7,11 +7,12 @@ import { useLanguage } from "@/contexts/language-context";
 import { pickCityMap } from "@/data/cityMaps";
 import { collectTripStops, splitByMap } from "@/data/tripStops";
 import { formatDateRange, type Trip } from "@/data/trips";
+import { useCityMap, useCityMapIndex } from "@/hooks/use-city-maps";
 import { useLandmarkCoords } from "@/hooks/use-landmark-coords";
 import { useMapIcons } from "@/hooks/use-map-icons";
 import { useShareStory } from "@/hooks/use-share-story";
 import { useMemo, useState } from "react";
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { ActivityIndicator, Pressable, ScrollView, Text, View } from "react-native";
 
 const MAP_ASPECT = 0.95; // height / width
 
@@ -19,7 +20,9 @@ const MAP_ASPECT = 0.95; // height / width
  * heritage sites on a stylised city map (components/trip-map.tsx), a per-day
  * filter, and a share-to-story button. Renders nothing when none of the
  * trip's activities has coordinates on a city map we have — which is every
- * trip outside the cities listed in data/cityMaps.ts. */
+ * trip outside the cities in the Supabase `city_maps` table
+ * (data/cityMapStore.ts). The map itself is downloaded the first time it is
+ * needed, so the block shows a placeholder until then. */
 export function TripMapSection({ trip }: { trip: Trip }) {
   const { t, language } = useLanguage();
   const landmarkCoords = useLandmarkCoords();
@@ -30,14 +33,24 @@ export function TripMapSection({ trip }: { trip: Trip }) {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
   const [width, setWidth] = useState(0);
 
-  const { map, onMap, outsideCount } = useMemo(() => {
-    const stops = collectTripStops(trip.days, landmarkCoords);
-    const picked = pickCityMap(stops.map((stop) => stop.position));
-    if (!picked) return { map: null, onMap: [], outsideCount: 0 };
-    return { map: picked, ...splitByMap(stops, picked) };
-  }, [trip.days, landmarkCoords]);
+  const cityIndex = useCityMapIndex();
 
-  if (!map || onMap.length === 0) return null;
+  const stops = useMemo(
+    () => collectTripStops(trip.days, landmarkCoords),
+    [trip.days, landmarkCoords],
+  );
+  const mapId = useMemo(
+    () => pickCityMap(stops.map((stop) => stop.position), cityIndex),
+    [stops, cityIndex],
+  );
+  const entry = mapId ? cityIndex[mapId] : null;
+  const { map, failed } = useCityMap(mapId, entry?.updatedAt ?? null);
+  const { onMap, outsideCount } = useMemo(
+    () => (entry ? splitByMap(stops, entry) : { onMap: [], outsideCount: 0 }),
+    [stops, entry],
+  );
+
+  if (!entry || onMap.length === 0 || failed) return null;
 
   const daysWithStops = [...new Set(onMap.map((stop) => stop.dayIndex))];
   // A filter pointing at a day that has since been deleted or emptied falls
@@ -57,7 +70,11 @@ export function TripMapSection({ trip }: { trip: Trip }) {
         <Text style={{ fontSize: 18, fontWeight: "700", color: palette.ink }}>
           {t("trips.mapTitle")}
         </Text>
-        <SharePillButton label={t("trips.mapShare")} onPress={share} loading={sharing} />
+        <SharePillButton
+          label={t("trips.mapShare")}
+          onPress={share}
+          loading={sharing || !map}
+        />
       </View>
 
       {daysWithStops.length > 1 ? (
@@ -87,7 +104,22 @@ export function TripMapSection({ trip }: { trip: Trip }) {
         onLayout={(event) => setWidth(Math.floor(event.nativeEvent.layout.width))}
         style={{ marginTop: 12 }}
       >
-        {width > 0 ? (
+        {width > 0 && !map ? (
+          <View
+            style={{
+              height: Math.round(width * MAP_ASPECT),
+              borderRadius: 20,
+              borderWidth: 1,
+              borderColor: palette.hairline,
+              backgroundColor: palette.creamDeep,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <ActivityIndicator color={palette.inkMuted} />
+          </View>
+        ) : null}
+        {width > 0 && map ? (
           <TripMap
             map={map}
             stops={visibleStops}
@@ -108,17 +140,19 @@ export function TripMapSection({ trip }: { trip: Trip }) {
         </Text>
       ) : null}
 
-      <OffscreenShareCard>
-        <ShareTripMapCard
-          ref={cardRef}
-          title={trip.title}
-          dates={formatDateRange(trip.startDate, trip.endDate, language)}
-          map={map}
-          stops={onMap}
-          icons={icons}
-          dayCount={trip.days.length}
-        />
-      </OffscreenShareCard>
+      {map ? (
+        <OffscreenShareCard>
+          <ShareTripMapCard
+            ref={cardRef}
+            title={trip.title}
+            dates={formatDateRange(trip.startDate, trip.endDate, language)}
+            map={map}
+            stops={onMap}
+            icons={icons}
+            dayCount={trip.days.length}
+          />
+        </OffscreenShareCard>
+      ) : null}
     </View>
   );
 }

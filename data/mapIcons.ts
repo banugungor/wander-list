@@ -7,6 +7,16 @@ import { MAP_ICONS_CACHE_KEY } from "@/data/storageKeys";
 export const mapIconKey = (category: "landmarks" | "heritage", id: string) =>
   `${category}:${id}`;
 
+/** The map icon URL for a trip activity's `ref`, or null when it isn't a
+ * landmark/heritage pick or that place has no icon. */
+export function mapIconUrlForRef(
+  icons: Record<string, string>,
+  ref: { category: string; id: string } | undefined,
+): string | null {
+  if (!ref || (ref.category !== "landmarks" && ref.category !== "heritage")) return null;
+  return icons[mapIconKey(ref.category, ref.id)] ?? null;
+}
+
 /** Small illustrated building icons for the trip map, keyed by `mapIconKey`,
  * from the Supabase `map_icons` table (scripts/map_icons_schema.sql, added
  * from the admin panel's "Harita ikonu" tab). A place without a row keeps the
