@@ -297,6 +297,7 @@ export const translations = {
       addCount: "Ekle ({{count}})",
       noItemsForCountry: "Bu ülke için bu listede henüz kayıt yok.",
       editActivity: "Aktiviteyi düzenle",
+      openPlacePage: "Yerin sayfasını aç",
       activityPlaceholder: "Örn. Ayasofya'yı gez",
       addDay: "Gün ekle",
       noDays: "Henüz gün eklemedin. İlk günü ekleyerek başla.",
@@ -331,6 +332,12 @@ export const translations = {
       loading: "Gezilecek yerler yükleniyor…",
       empty: "Bu şehir için henüz gezilecek yer eklenmedi.",
       visited: "Gezildi",
+      details: "Detaylar",
+    },
+    landmarkDetail: {
+      notFound: "Bu yer bulunamadı.",
+      markVisited: "Gezildi olarak işaretle",
+      markedVisited: "Gezildi olarak işaretlendi",
     },
     heritagePicker: {
       progressLabel: "İlerleme",
@@ -740,6 +747,7 @@ export const translations = {
       addCount: "Add ({{count}})",
       noItemsForCountry: "Nothing in this list for this country yet.",
       editActivity: "Edit activity",
+      openPlacePage: "Open the place's page",
       activityPlaceholder: "e.g. Visit Hagia Sophia",
       addDay: "Add day",
       noDays: "No days yet. Start by adding the first day.",
@@ -774,6 +782,12 @@ export const translations = {
       loading: "Loading landmarks…",
       empty: "No landmarks have been added for this city yet.",
       visited: "Visited",
+      details: "Details",
+    },
+    landmarkDetail: {
+      notFound: "This place could not be found.",
+      markVisited: "Mark as visited",
+      markedVisited: "Marked as visited",
     },
     heritagePicker: {
       progressLabel: "Progress",

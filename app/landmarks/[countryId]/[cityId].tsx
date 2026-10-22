@@ -18,9 +18,10 @@ import { matchesSearch } from "@/data/searchText";
 import worldData from "@/data/worldCountries.json";
 import { useCityIndex } from "@/hooks/use-city-index";
 import { useCityLandmarks } from "@/hooks/use-city-landmarks";
+import { useLandmarkDetailIds } from "@/hooks/use-landmark-detail-ids";
 import { useLandmarksVisited } from "@/hooks/use-landmarks-visited";
 import { useSearchParamState } from "@/hooks/use-search-param-state";
-import { Stack, useLocalSearchParams } from "expo-router";
+import { Stack, router, useLocalSearchParams } from "expo-router";
 import { useMemo } from "react";
 import { ActivityIndicator, FlatList, Text, View } from "react-native";
 
@@ -55,6 +56,7 @@ export default function LandmarksCityScreen() {
       ? Math.min(100, Math.round((visitedInCity / landmarks.length) * 100))
       : 0;
 
+  const detailIds = useLandmarkDetailIds();
   const photoSuggestion = useEntryPhotoSuggestion("landmarks", id);
 
   const handleToggle = async (landmark: Landmark) => {
@@ -81,6 +83,7 @@ export default function LandmarksCityScreen() {
       toggleColor={categoryMeta?.fg ?? palette.brand}
       onTogglePress={() => handleToggle(item)}
       onAddPhotoPress={() => photoSuggestion.open({ id: item.id, name: item.name })}
+      onDetailPress={detailIds[item.id] ? () => router.push(`/landmark/${item.id}`) : undefined}
     />
   );
 

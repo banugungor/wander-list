@@ -8,7 +8,9 @@ import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { showTripMenu } from "@/data/tripAlerts";
+import { getHeritageSiteById } from "@/data/heritageSites";
 import { formatDateRange, newId, type Trip, type TripDay, type TripDraft } from "@/data/trips";
+import { useLandmarkDetailIds } from "@/hooks/use-landmark-detail-ids";
 import { useTrips } from "@/hooks/use-trips";
 import { Ionicons } from "@expo/vector-icons";
 import { Stack, router, useLocalSearchParams } from "expo-router";
@@ -22,6 +24,7 @@ type TextTarget =
 export default function TripDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { t, language } = useLanguage();
+  const landmarkDetailIds = useLandmarkDetailIds();
   const { trips, sessionReady, loading, update, remove } = useTrips();
 
   const trip = trips.find((candidate) => candidate.id === id);
@@ -198,6 +201,32 @@ export default function TripDetailScreen() {
         activities: day.activities.filter((activity) => activity.id !== target.activityId),
       })),
     );
+  };
+
+  // Picked-from-list heritage places have a page of their own (if the bundled
+  // site still exists), and so do landmarks the admin wrote details for;
+  // dishes and islands have no per-item screen. Navigates once the modal has
+  // finished dismissing (see trips.tsx for why).
+  const editedActivity =
+    textTarget?.type === "editActivity"
+      ? trip.days
+          .find((day) => day.id === textTarget.dayId)
+          ?.activities.find((activity) => activity.id === textTarget.activityId)
+      : undefined;
+  const placePath = (() => {
+    const ref = editedActivity?.ref;
+    if (ref?.category === "heritage" && getHeritageSiteById(ref.id)) {
+      return `/heritage/${ref.id}`;
+    }
+    if (ref?.category === "landmarks" && landmarkDetailIds[ref.id]) {
+      return `/landmark/${ref.id}`;
+    }
+    return null;
+  })();
+  const openPlacePage = () => {
+    if (!placePath) return;
+    setTextTarget(null);
+    setTimeout(() => router.push(placePath as never), 450);
   };
 
   const pickerDayIndex = trip.days.findIndex((day) => day.id === pickerDayId);
@@ -447,6 +476,9 @@ export default function TripDetailScreen() {
         onClose={() => setTextTarget(null)}
         onDelete={textTarget?.type === "editActivity" ? handleTextDelete : undefined}
         deleteLabel={t("trips.delete")}
+        linkAction={
+          placePath ? { label: t("trips.openPlacePage"), onPress: openPlacePage } : undefined
+        }
       />
 
       <TripActivityPicker

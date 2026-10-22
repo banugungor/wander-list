@@ -94,3 +94,17 @@ alter table public.landmarks
 alter table public.landmarks
   add constraint landmarks_lat_range check (lat is null or lat between -90 and 90),
   add constraint landmarks_lng_range check (lng is null or lng between -180 and 180);
+
+-- Long-form "detail page" text (v2). Optional and filled only for the places
+-- worth a page of their own; the list screens never download it (they select
+-- explicit columns), only the detail screen app/landmark/[id].tsx does.
+-- `has_details` is a computed flag so the app can fetch just "which landmarks
+-- have a page" (data/landmarkDetails.ts) without pulling the texts: true when
+-- either language is filled, null otherwise (null so a `not null` filter works).
+alter table public.landmarks
+  add column if not exists details text,
+  add column if not exists details_tr text;
+
+alter table public.landmarks
+  add column if not exists has_details boolean
+  generated always as (case when coalesce(details, details_tr) is not null then true end) stored;

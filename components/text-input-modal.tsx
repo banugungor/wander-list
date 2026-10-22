@@ -1,5 +1,6 @@
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
+import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import {
   KeyboardAvoidingView,
@@ -25,6 +26,8 @@ type TextInputModalProps = {
   /** Shows a red delete action (editing an existing item). */
   onDelete?: () => void;
   deleteLabel?: string;
+  /** A link row under the field (e.g. "open this place's page"). */
+  linkAction?: { label: string; onPress: () => void };
 };
 
 /** A small centered dialog with one text field — the cross-platform stand-in
@@ -41,6 +44,7 @@ export function TextInputModal({
   onClose,
   onDelete,
   deleteLabel,
+  linkAction,
 }: TextInputModalProps) {
   const { t } = useLanguage();
   const [value, setValue] = useState(initialValue);
@@ -111,6 +115,19 @@ export function TextInputModal({
                 color: palette.ink,
               }}
             />
+
+            {linkAction ? (
+              <Pressable
+                onPress={linkAction.onPress}
+                hitSlop={8}
+                style={{ marginTop: 14, flexDirection: "row", alignItems: "center", gap: 6 }}
+              >
+                <Text style={{ fontSize: 14, fontWeight: "600", color: palette.brand }}>
+                  {linkAction.label}
+                </Text>
+                <Ionicons name="chevron-forward" size={14} color={palette.brand} />
+              </Pressable>
+            ) : null}
 
             <View
               style={{

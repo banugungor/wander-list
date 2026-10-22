@@ -1,4 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { LANDMARK_DETAIL_CACHE_KEY_PREFIX } from "@/data/storageKeys";
 import { supabase } from "@/lib/supabase";
 
 export type Landmark = {
@@ -23,6 +24,11 @@ type LandmarkRow = {
   image_url: string | null;
 };
 
+/** The list columns. Spelled out (not `*`) so the long `details` texts never
+ * ride along with every city's list or its cache. */
+const LIST_COLUMNS =
+  "id, country_id, city_id, name, name_tr, description, description_tr, image_url";
+
 function fromRow(row: LandmarkRow): Landmark {
   return {
     id: String(row.id),
@@ -45,6 +51,58 @@ export function localizedLandmarkDescription(
   language: "tr" | "en",
 ): string | null {
   return (language === "tr" && landmark.descriptionTr) || landmark.description;
+}
+
+/** A landmark plus its optional long-form texts — only the detail screen loads
+ * these (see `fetchLandmarkDetail`). */
+export type LandmarkDetail = Landmark & {
+  details: string | null;
+  detailsTr: string | null;
+};
+
+export function localizedLandmarkDetails(
+  landmark: LandmarkDetail,
+  language: "tr" | "en",
+): string | null {
+  // Either language may be the only one filled in, so fall back both ways.
+  return (language === "tr" && landmark.detailsTr) || landmark.details || landmark.detailsTr;
+}
+
+/** The last cached copy of one landmark's detail page, or null. */
+export async function getCachedLandmarkDetail(id: string): Promise<LandmarkDetail | null> {
+  const raw = await AsyncStorage.getItem(`${LANDMARK_DETAIL_CACHE_KEY_PREFIX}${id}`);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw);
+  } catch (e) {
+    console.log("LANDMARK DETAIL CACHE PARSE ERROR", e);
+    return null;
+  }
+}
+
+/** Live-fetches one landmark with its detail texts and refreshes its cache.
+ * Resolves to null if the row no longer exists; throws on a network error —
+ * callers keep showing the cached copy. */
+export async function fetchLandmarkDetail(id: string): Promise<LandmarkDetail | null> {
+  const { data, error } = await supabase
+    .from("landmarks")
+    .select(`${LIST_COLUMNS}, details, details_tr`)
+    .eq("id", id)
+    .maybeSingle();
+  if (error) throw error;
+  if (!data) return null;
+
+  const row = data as LandmarkRow & { details: string | null; details_tr: string | null };
+  const detail: LandmarkDetail = {
+    ...fromRow(row),
+    details: row.details,
+    detailsTr: row.details_tr,
+  };
+  await AsyncStorage.setItem(
+    `${LANDMARK_DETAIL_CACHE_KEY_PREFIX}${id}`,
+    JSON.stringify(detail),
+  );
+  return detail;
 }
 
 const LANDMARKS_CACHE_PREFIX = "landmarks_";
@@ -73,7 +131,7 @@ export async function fetchLandmarksForCity(
 ): Promise<Landmark[]> {
   const { data, error } = await supabase
     .from("landmarks")
-    .select("*")
+    .select(LIST_COLUMNS)
     .eq("country_id", countryId)
     .eq("city_id", cityId)
     .order("sort_order", { ascending: true });
