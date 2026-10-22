@@ -19,6 +19,9 @@ type EntryListRowProps = {
    * under the text (users can send us one — see "User suggestions" in
    * CLAUDE.md). */
   onAddPhotoPress?: () => void;
+  /** When set, shows a "Details" pill that opens the entry's own page
+   * (landmarks that have a long-form text, see data/landmarkDetails.ts). */
+  onDetailPress?: () => void;
 };
 
 // Shared row for the Cuisine/Islands country screens (`app/cuisine/[countryId].tsx`,
@@ -39,6 +42,7 @@ export function EntryListRow({
   toggleColor,
   onTogglePress,
   onAddPhotoPress,
+  onDetailPress,
 }: EntryListRowProps) {
   const { t } = useLanguage();
   const [expanded, setExpanded] = useState(false);
@@ -89,6 +93,32 @@ export function EntryListRow({
             </View>
           )}
         </Pressable>
+
+        {onDetailPress ? (
+          <Pressable
+            onPress={onDetailPress}
+            hitSlop={6}
+            style={({ pressed }) => ({
+              alignSelf: "flex-start",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 4,
+              marginTop: 8,
+              paddingHorizontal: 10,
+              paddingVertical: 5,
+              borderRadius: 999,
+              backgroundColor: palette.cream,
+              borderWidth: 1,
+              borderColor: palette.hairlineStrong,
+              opacity: pressed ? 0.7 : 1,
+            })}
+          >
+            <Text style={{ fontSize: 11, fontWeight: "600", color: palette.ink }}>
+              {t("landmarksCity.details")}
+            </Text>
+            <Ionicons name="chevron-forward" size={12} color={palette.ink} />
+          </Pressable>
+        ) : null}
 
         {!imageUrl && onAddPhotoPress ? (
           <Pressable

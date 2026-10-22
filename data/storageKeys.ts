@@ -7,6 +7,11 @@ export const COUNTRY_IMAGES_CACHE_KEY = "country_images_v1";
 // Offline read cache of the landmark coordinates the trip map uses (landmark
 // id -> [lat, lng], data/landmarkCoords.ts). Not user data either.
 export const LANDMARK_COORDS_CACHE_KEY = "landmark_coords_v1";
+// Offline read cache of which landmarks have a detail page (landmark id -> true,
+// data/landmarkDetails.ts), and one entry per opened detail page (prefix + id,
+// data/landmarks.ts). Not user data either.
+export const LANDMARK_DETAIL_IDS_CACHE_KEY = "landmark_detail_ids_v1";
+export const LANDMARK_DETAIL_CACHE_KEY_PREFIX = "landmark_detail_v1_";
 // Offline read cache of the trip map's building icons (item key -> image URL,
 // data/mapIcons.ts). Not user data either.
 export const MAP_ICONS_CACHE_KEY = "map_icons_v1";
