@@ -1,4 +1,4 @@
-import { isInsideMap, type CityMap, type LatLng } from "@/data/cityMaps";
+import { isInsideMap, type CityMapBbox, type LatLng } from "@/data/cityMaps";
 import { getHeritageSiteById } from "@/data/heritageSites";
 import type { TripDay } from "@/data/trips";
 
@@ -62,7 +62,7 @@ export function collectTripStops(
  * day trip to Ostia from a Rome trip, say). */
 export function splitByMap(
   stops: TripStop[],
-  map: CityMap,
+  map: { bbox: CityMapBbox },
 ): { onMap: TripStop[]; outsideCount: number } {
   const onMap = stops.filter((stop) => isInsideMap(map, stop.position));
   return { onMap, outsideCount: stops.length - onMap.length };

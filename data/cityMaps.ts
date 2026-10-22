@@ -1,20 +1,26 @@
-import romeMap from "@/assets/citymaps/rome.json";
-
 // Stylised vector base maps of single cities, drawn by components/trip-map.tsx
-// as the background of a trip's route. Each is a small JSON generated from
+// as the background of a trip's route. Each is a row of the Supabase
+// `city_maps` table (scripts/city_maps_schema.sql), generated from
 // OpenStreetMap by scripts/build-city-map.mjs (rivers, water, parks, main
-// roads — nothing is fetched at runtime). OSM data is ODbL, so the map
-// component always prints "© OpenStreetMap contributors". To add a city:
-// build its JSON, import it here and add it to CITY_MAPS.
+// roads) and downloaded on demand by data/cityMapStore.ts. OSM data is ODbL,
+// so the map component always prints "© OpenStreetMap contributors". This
+// file holds the types and the pure geometry; nothing here fetches.
 
 export type LatLng = { lat: number; lng: number };
+
+/** Geographic frame a city map's paths were generated for. */
+export type CityMapBbox = { south: number; west: number; north: number; east: number };
+
+/** What the app knows of every city map before downloading any of them:
+ * where it is (to pick the one a trip's stops fall in) and a version, so a
+ * cached copy is reused until the row changes. */
+export type CityMapIndexEntry = { bbox: CityMapBbox; updatedAt: string };
 
 export type CityMap = {
   id: string;
   name: string;
   nameTr: string;
-  /** Geographic frame the paths were generated for. */
-  bbox: { south: number; west: number; north: number; east: number };
+  bbox: CityMapBbox;
   /** Size of the path coordinate space ("map units"). */
   width: number;
   height: number;
@@ -29,8 +35,6 @@ export type CityMap = {
   major: string;
 };
 
-export const CITY_MAPS: CityMap[] = [romeMap as CityMap];
-
 export type MapPoint = { x: number; y: number };
 
 /** Lat/lng → map units. Must match makeProjector() in
@@ -43,21 +47,24 @@ export function projectToMap(map: CityMap, { lat, lng }: LatLng): MapPoint {
   return { x: (lng - west) * cosLat * k, y: (north - lat) * k };
 }
 
-export function isInsideMap(map: CityMap, { lat, lng }: LatLng): boolean {
+export function isInsideMap(map: { bbox: CityMapBbox }, { lat, lng }: LatLng): boolean {
   const { south, west, north, east } = map.bbox;
   return lat >= south && lat <= north && lng >= west && lng <= east;
 }
 
-/** The registered map that contains the most of `points` (null when none
- * contains any). A trip isn't tied to one city, so the map is chosen from
- * where its stops actually are. */
-export function pickCityMap(points: LatLng[]): CityMap | null {
-  let best: CityMap | null = null;
+/** The id of the city map (of those in `index`) that contains the most of
+ * `points`, or null when none contains any. A trip isn't tied to one city, so
+ * the map is chosen from where its stops actually are. */
+export function pickCityMap(
+  points: LatLng[],
+  index: Record<string, CityMapIndexEntry>,
+): string | null {
+  let best: string | null = null;
   let bestCount = 0;
-  for (const map of CITY_MAPS) {
-    const count = points.filter((point) => isInsideMap(map, point)).length;
+  for (const [id, entry] of Object.entries(index)) {
+    const count = points.filter((point) => isInsideMap(entry, point)).length;
     if (count > bestCount) {
-      best = map;
+      best = id;
       bestCount = count;
     }
   }
