@@ -7,8 +7,9 @@
 export const SHOWCASE_SIZE = 3;
 export const MIN_VISIT_YEAR = 1950;
 
-/** country id -> year it was visited. */
-export type CountryYears = Record<string, number>;
+/** country id -> the years it was visited, newest first (a country can be
+ * visited more than once). */
+export type CountryYears = Record<string, number[]>;
 
 export type ProfileExtras = {
   badge_showcase: string[];
@@ -34,19 +35,26 @@ export function sanitizeShowcase(value: unknown): string[] {
   return Array.from(new Set(ids)).slice(0, SHOWCASE_SIZE);
 }
 
+function isVisitYear(value: unknown, maxYear: number): value is number {
+  return (
+    typeof value === "number" &&
+    Number.isInteger(value) &&
+    value >= MIN_VISIT_YEAR &&
+    value <= maxYear
+  );
+}
+
+/** Keeps only valid years, de-duplicated and newest first, and drops countries
+ * left with none. A single number (the shape before a country could have
+ * several years) is read as a one-year list. */
 export function sanitizeCountryYears(value: unknown): CountryYears {
   if (!value || typeof value !== "object" || Array.isArray(value)) return {};
   const maxYear = new Date().getFullYear();
   const result: CountryYears = {};
-  for (const [id, year] of Object.entries(value as Record<string, unknown>)) {
-    if (
-      typeof year === "number" &&
-      Number.isInteger(year) &&
-      year >= MIN_VISIT_YEAR &&
-      year <= maxYear
-    ) {
-      result[id] = year;
-    }
+  for (const [id, raw] of Object.entries(value as Record<string, unknown>)) {
+    const list = Array.isArray(raw) ? raw : [raw];
+    const years = Array.from(new Set(list.filter((y) => isVisitYear(y, maxYear))));
+    if (years.length > 0) result[id] = years.sort((a, b) => b - a);
   }
   return result;
 }

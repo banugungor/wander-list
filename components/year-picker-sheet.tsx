@@ -8,17 +8,23 @@ type Props = {
   visible: boolean;
   /** Shown in the title, e.g. "🇮🇹 Italy". */
   title: string;
-  selectedYear: number | null;
-  onPick: (year: number | null) => void;
+  /** Years already chosen for this country. */
+  selectedYears: number[];
+  /** A year chip was tapped: add it, or remove it if it was already chosen. */
+  onToggle: (year: number) => void;
+  /** Removes every year. */
+  onClear: () => void;
   onClose: () => void;
 };
 
-/** Bottom sheet to pick the year a country was visited (or clear it). */
+/** Bottom sheet to pick the year(s) a country was visited: chips toggle on tap,
+ * "Bitti" closes. */
 export function YearPickerSheet({
   visible,
   title,
-  selectedYear,
-  onPick,
+  selectedYears,
+  onToggle,
+  onClear,
   onClose,
 }: Props) {
   const { t } = useLanguage();
@@ -58,11 +64,11 @@ export function YearPickerSheet({
           <ScrollView style={{ marginTop: 14 }}>
             <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
               {years.map((year) => {
-                const active = year === selectedYear;
+                const active = selectedYears.includes(year);
                 return (
                   <Pressable
                     key={year}
-                    onPress={() => onPick(year)}
+                    onPress={() => onToggle(year)}
                     style={{
                       paddingHorizontal: 14,
                       paddingVertical: 8,
@@ -83,9 +89,9 @@ export function YearPickerSheet({
                 );
               })}
             </View>
-            {selectedYear !== null ? (
+            {selectedYears.length > 0 ? (
               <Pressable
-                onPress={() => onPick(null)}
+                onPress={onClear}
                 style={{ marginTop: 14, padding: 12, alignItems: "center" }}
               >
                 <Text style={{ fontSize: 14, fontWeight: "600", color: palette.danger }}>
@@ -94,6 +100,23 @@ export function YearPickerSheet({
               </Pressable>
             ) : null}
           </ScrollView>
+          <Pressable
+            onPress={onClose}
+            style={({ pressed }) => [
+              {
+                marginTop: 14,
+                paddingVertical: 13,
+                borderRadius: 999,
+                alignItems: "center",
+                backgroundColor: palette.brand,
+              },
+              pressed && { opacity: 0.85 },
+            ]}
+          >
+            <Text style={{ fontSize: 15, fontWeight: "700", color: palette.surface }}>
+              {t("me.yearDone")}
+            </Text>
+          </Pressable>
         </Pressable>
       </Pressable>
     </Modal>

@@ -1,10 +1,9 @@
 import { CountryFlag } from "@/components/country-flag";
-import { YearPickerSheet } from "@/components/year-picker-sheet";
 import { palette } from "@/constants/palette";
 import { type Language, useLanguage } from "@/contexts/language-context";
 import { getLocalizedCountryName } from "@/data/countryNamesTr";
 import type { CountryYears } from "@/data/profileExtras";
-import worldData from "@/data/worldCountries.json";
+import { getWorldCountry, type WorldCountry } from "@/data/countryLookup";
 import { useMemo, useState } from "react";
 import { Pressable, Text, View, useWindowDimensions } from "react-native";
 
@@ -21,11 +20,6 @@ const INK_COLORS = [
   palette.amberText,
 ];
 
-type WorldCountry = { id: string; name: string; iso2?: string };
-const COUNTRY_BY_ID = new Map<string, WorldCountry>(
-  (worldData.countries as WorldCountry[]).map((c) => [c.id, c]),
-);
-
 // Stable pseudo-random tilt/colour per country, so a stamp never changes look
 // between renders and the passport still looks hand-stamped.
 function hashOf(id: string): number {
@@ -34,21 +28,28 @@ function hashOf(id: string): number {
   return h;
 }
 
-function Stamp({
+export function Stamp({
   country,
   language,
   size,
-  year,
+  years,
   addYearLabel,
   onPress,
 }: {
   country: WorldCountry;
   language: Language;
   size: number;
-  year: number | undefined;
+  /** Years visited, newest first; shown as the newest plus "+N" for the rest. */
+  years: number[] | undefined;
   addYearLabel: string;
-  onPress: () => void;
+  onPress?: () => void;
 }) {
+  const hasYear = !!years && years.length > 0;
+  const yearLabel = hasYear
+    ? years.length > 1
+      ? `${years[0]} +${years.length - 1}`
+      : String(years[0])
+    : "";
   const h = hashOf(country.id);
   const color = INK_COLORS[h % INK_COLORS.length];
   const tilt = ((h >> 3) % 17) - 8;
@@ -100,12 +101,12 @@ function Stamp({
       <Text
         style={{
           marginTop: 2,
-          fontSize: year ? 11 : 8,
+          fontSize: hasYear ? 11 : 8,
           fontWeight: "800",
-          color: year ? color : palette.inkFaint,
+          color: hasYear ? color : palette.inkFaint,
         }}
       >
-        {year ?? addYearLabel}
+        {hasYear ? yearLabel : addYearLabel}
       </Text>
     </Pressable>
   );
@@ -116,30 +117,28 @@ type Props = {
   visitedIds: string[];
   /** Year visited per country id (optional, see data/countryYears.ts). */
   years: CountryYears;
-  /** `null` clears the year. */
-  onYearChange: (countryId: string, year: number | null) => void;
+  /** A stamp was tapped: the screen opens the year picker for that country. */
+  onStampPress: (countryId: string) => void;
 };
 
 /** "Pasaportum": visited countries drawn as passport stamps, newest first.
- * Tapping a stamp sets the year it was visited. */
-export function PassportStamps({ visitedIds, years, onYearChange }: Props) {
+ * Tapping a stamp sets the year(s) it was visited. */
+export function PassportStamps({ visitedIds, years, onStampPress }: Props) {
   const { t, language } = useLanguage();
   const { width } = useWindowDimensions();
   const size = Math.floor((width - HORIZONTAL_CHROME - STAMP_GAP * 2) / 3);
   const [expanded, setExpanded] = useState(false);
-  const [pickedId, setPickedId] = useState<string | null>(null);
 
   const all = useMemo(
     () =>
       visitedIds
-        .map((id) => COUNTRY_BY_ID.get(id))
+        .map((id) => getWorldCountry(id))
         .filter((c): c is WorldCountry => !!c)
         .reverse(),
     [visitedIds],
   );
   const shown = expanded ? all : all.slice(0, COLLAPSED_STAMPS);
   const extra = all.length - COLLAPSED_STAMPS;
-  const picked = pickedId ? COUNTRY_BY_ID.get(pickedId) : undefined;
 
   return (
     <View
@@ -166,9 +165,9 @@ export function PassportStamps({ visitedIds, years, onYearChange }: Props) {
               country={c}
               language={language}
               size={size}
-              year={years[c.id]}
+              years={years[c.id]}
               addYearLabel={t("me.addYear")}
-              onPress={() => setPickedId(c.id)}
+              onPress={() => onStampPress(c.id)}
             />
           ))}
           {extra > 0 ? (
@@ -192,17 +191,6 @@ export function PassportStamps({ visitedIds, years, onYearChange }: Props) {
           ) : null}
         </View>
       )}
-
-      <YearPickerSheet
-        visible={picked !== undefined}
-        title={picked ? getLocalizedCountryName(picked.name, language) : ""}
-        selectedYear={pickedId ? years[pickedId] ?? null : null}
-        onPick={(year) => {
-          if (pickedId) onYearChange(pickedId, year);
-          setPickedId(null);
-        }}
-        onClose={() => setPickedId(null)}
-      />
     </View>
   );
 }
