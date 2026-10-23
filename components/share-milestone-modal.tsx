@@ -1,15 +1,9 @@
 import { palette } from "@/constants/palette";
-import {
-  SHARE_STORY_CARD_HEIGHT,
-  SHARE_STORY_CARD_WIDTH,
-} from "@/components/share-story-card";
+import { ScaledShareCard } from "@/components/scaled-share-card";
 import { useLanguage } from "@/contexts/language-context";
 import type { ReactNode } from "react";
 import { Modal, Pressable, Text, View } from "react-native";
 
-// The preview is the real story card shrunk down, so it must keep the 9:16
-// ratio — scaling the card (rather than re-laying it out) is what keeps the
-// preview identical to what gets shared.
 const PREVIEW_SCALE = 0.55;
 
 type ShareMilestoneModalProps = {
@@ -74,29 +68,7 @@ export function ShareMilestoneModal({
             {t("shareWorld.milestoneMessage", { percent })}
           </Text>
 
-          <View
-            style={{
-              width: SHARE_STORY_CARD_WIDTH * PREVIEW_SCALE,
-              height: SHARE_STORY_CARD_HEIGHT * PREVIEW_SCALE,
-              borderRadius: 14,
-              overflow: "hidden",
-            }}
-          >
-            <View
-              style={{
-                width: SHARE_STORY_CARD_WIDTH,
-                height: SHARE_STORY_CARD_HEIGHT,
-                transform: [
-                  { translateX: -(SHARE_STORY_CARD_WIDTH * (1 - PREVIEW_SCALE)) / 2 },
-                  { translateY: -(SHARE_STORY_CARD_HEIGHT * (1 - PREVIEW_SCALE)) / 2 },
-                  { scale: PREVIEW_SCALE },
-                ],
-              }}
-              pointerEvents="none"
-            >
-              {children}
-            </View>
-          </View>
+          <ScaledShareCard scale={PREVIEW_SCALE}>{children}</ScaledShareCard>
 
           <View style={{ marginTop: 16, width: "100%", gap: 8 }}>
             <Pressable

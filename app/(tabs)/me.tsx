@@ -2,42 +2,55 @@ import { BadgeShowcase } from "@/components/badge-showcase";
 import { BadgesSection } from "@/components/badges-section";
 import { BottomTabBar } from "@/components/bottom-tab-bar";
 import { OffscreenShareCard } from "@/components/offscreen-share-card";
+import {
+  availableShareCards,
+  ProfileShareCard,
+  type ProfileShareData,
+  type ShareCardId,
+} from "@/components/profile-share-card";
+import { ProfileShareSheet } from "@/components/profile-share-sheet";
 import { PassportStamps } from "@/components/passport-stamps";
 import { ProfileHero } from "@/components/profile-hero";
 import { SectionLabel } from "@/components/section-label";
+import { TravelTimeline } from "@/components/travel-timeline";
 import { SharePillButton } from "@/components/share-pill-button";
-import { ShareStoryCard } from "@/components/share-story-card";
 import { StatCard } from "@/components/stat-card";
 import { WorldMapPreview } from "@/components/world-map-preview";
+import { YearPickerSheet } from "@/components/year-picker-sheet";
 import { getCategory } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { type Badge, type BadgeContext, computeBadges } from "@/data/badges";
 import { loadBadgeShowcase, saveBadgeShowcase } from "@/data/badgeShowcase";
-import { loadCountryYears, setCountryYear } from "@/data/countryYears";
+import { loadCountryYears, setCountryYears } from "@/data/countryYears";
 import type { CountryYears } from "@/data/profileExtras";
 import { getVisitedContinents } from "@/data/continents";
+import { getWorldCountry } from "@/data/countryLookup";
+import { getLocalizedCountryName } from "@/data/countryNamesTr";
 import { HERITAGE_VISITED_KEY } from "@/data/heritageStorage";
 import { heritageSites } from "@/data/heritageSites";
 import { parseIdList } from "@/data/parseIdList";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
 import { CUISINE_VISITED_KEY, ISLANDS_VISITED_KEY } from "@/data/storageKeys";
+import { getProfileIdentity } from "@/data/profileIdentity";
 import { getTitleKey } from "@/data/titles";
+import { buildTravelTimeline } from "@/data/travelTimeline";
 import worldData from "@/data/worldCountries.json";
 import { useSession } from "@/hooks/use-session";
 import { useShareStory } from "@/hooks/use-share-story";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router, useFocusEffect } from "expo-router";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 
 const TOTAL_COUNTRIES = worldData.countries.length;
 
 // "Profilim" — replaced the old Stats tab (app/(tabs)/stats.tsx). One scroll:
-// hero → passport stamps → world map → badge showcase → category counters →
-// all badges.
+// hero → passport stamps → year timeline → world map → badge showcase →
+// category counters → all badges. The header's share button opens a sheet to
+// pick which card (components/profile-share-card.tsx) to share.
 export default function MeScreen() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { session } = useSession();
   const [heritageCount, setHeritageCount] = useState(0);
   const [placesIds, setPlacesIds] = useState<string[]>([]);
@@ -47,7 +60,12 @@ export default function MeScreen() {
   const [badges, setBadges] = useState<Badge[]>([]);
   const [showcaseIds, setShowcaseIds] = useState<string[]>([]);
   const [years, setYears] = useState<CountryYears>({});
+  // Country whose "which year?" sheet is open (opened from a stamp or a timeline flag).
+  const [yearPickId, setYearPickId] = useState<string | null>(null);
   const { cardRef: shareCardRef, sharing, share: handleShare } = useShareStory();
+  const [shareOpen, setShareOpen] = useState(false);
+  const [shareCardId, setShareCardId] = useState<ShareCardId>("identity");
+  const [shareYear, setShareYear] = useState<number | null>(null);
 
   useFocusEffect(
     useCallback(() => {
@@ -90,9 +108,29 @@ export default function MeScreen() {
     saveBadgeShowcase(ids);
   };
 
-  const changeYear = async (countryId: string, year: number | null) => {
-    setYears(await setCountryYear(countryId, year));
+  // Adds or removes one year for a country. The screen state is updated first
+  // so quick successive taps in the sheet build on each other; the full list is
+  // then persisted.
+  const saveYears = (countryId: string, list: number[]) => {
+    setYears((prev) => {
+      const next = { ...prev };
+      if (list.length > 0) next[countryId] = list;
+      else delete next[countryId];
+      return next;
+    });
+    setCountryYears(countryId, list);
   };
+  const toggleYear = (countryId: string, year: number) => {
+    const current = years[countryId] ?? [];
+    saveYears(
+      countryId,
+      current.includes(year)
+        ? current.filter((y) => y !== year)
+        : [...current, year].sort((a, b) => b - a),
+    );
+  };
+
+  const yearPickCountry = yearPickId ? getWorldCountry(yearPickId) : undefined;
 
   const heritage = getCategory("heritage")!;
   const cuisine = getCategory("cuisine")!;
@@ -102,6 +140,36 @@ export default function MeScreen() {
   const titleKey = ctx
     ? getTitleKey("places", ctx) ?? getTitleKey("heritage", ctx)
     : null;
+
+  const shareData = useMemo<ProfileShareData>(() => {
+    const { displayName, home } = getProfileIdentity(
+      session?.user ?? null,
+      t("me.guestName"),
+    );
+    const yearList = buildTravelTimeline(placesIds, years).years.map((g) => g.year);
+    return {
+      name: displayName,
+      titleKey,
+      home,
+      placesIds,
+      years,
+      continents: getVisitedContinents(placesIds).size,
+      heritage: heritageCount,
+      cuisine: cuisineCount,
+      islands: islandsCount,
+      // The picked year if it still exists, else the newest one.
+      year: shareYear !== null && yearList.includes(shareYear) ? shareYear : yearList[0] ?? null,
+    };
+  }, [session, t, titleKey, placesIds, years, heritageCount, cuisineCount, islandsCount, shareYear]);
+  const availableCards = availableShareCards(shareData);
+  const activeCardId = availableCards.includes(shareCardId) ? shareCardId : availableCards[0];
+
+  // iOS can't present the share sheet while a Modal is still dismissing, so
+  // close the picker first and share once it's gone.
+  const handleShareChosen = () => {
+    setShareOpen(false);
+    setTimeout(handleShare, 400);
+  };
 
   return (
     <View style={{ flex: 1, backgroundColor: palette.cream }}>
@@ -125,8 +193,8 @@ export default function MeScreen() {
             {t("me.title")}
           </Text>
           <SharePillButton
-            label={t("stats.shareButton")}
-            onPress={handleShare}
+            label={t("me.shareButton")}
+            onPress={() => setShareOpen(true)}
             loading={sharing}
           />
         </View>
@@ -142,7 +210,14 @@ export default function MeScreen() {
         <PassportStamps
           visitedIds={placesIds}
           years={years}
-          onYearChange={changeYear}
+          onStampPress={setYearPickId}
+        />
+
+        <SectionLabel>{t("me.timeline")}</SectionLabel>
+        <TravelTimeline
+          visitedIds={placesIds}
+          years={years}
+          onCountryPress={setYearPickId}
         />
 
         <SectionLabel>{t("shareWorld.title")}</SectionLabel>
@@ -211,18 +286,38 @@ export default function MeScreen() {
         <BadgesSection badges={badges} ctx={ctx} />
       </ScrollView>
 
-      {/* Never shown, only captured by useShareStory's share(). */}
+      {/* Never shown, only captured by useShareStory's share(): the card
+          currently chosen in the share sheet. */}
       <OffscreenShareCard>
-        <ShareStoryCard
-          ref={shareCardRef}
-          heritageCount={heritageCount}
-          placesCount={placesIds.length}
-          cuisineCount={cuisineCount}
-          islandsCount={islandsCount}
-          title={t("stats.shareCardTitle")}
-          footer={t("stats.shareCardFooter")}
-        />
+        <ProfileShareCard ref={shareCardRef} id={activeCardId} data={shareData} />
       </OffscreenShareCard>
+
+      <ProfileShareSheet
+        visible={shareOpen}
+        data={shareData}
+        cardId={activeCardId}
+        onCardChange={setShareCardId}
+        onYearChange={setShareYear}
+        onShare={handleShareChosen}
+        onClose={() => setShareOpen(false)}
+      />
+
+      <YearPickerSheet
+        visible={yearPickCountry !== undefined}
+        title={
+          yearPickCountry
+            ? getLocalizedCountryName(yearPickCountry.name, language)
+            : ""
+        }
+        selectedYears={yearPickId ? years[yearPickId] ?? [] : []}
+        onToggle={(year) => {
+          if (yearPickId) toggleYear(yearPickId, year);
+        }}
+        onClear={() => {
+          if (yearPickId) saveYears(yearPickId, []);
+        }}
+        onClose={() => setYearPickId(null)}
+      />
 
       <BottomTabBar />
     </View>

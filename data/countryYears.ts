@@ -7,7 +7,7 @@ import {
 import { COUNTRY_YEARS_KEY } from "@/data/storageKeys";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// The year the user says they visited a country (optional, set from the
+// The years the user says they visited a country (optional, set from the
 // passport on the profile screen). Separate from the visited-id list so the
 // toggle contract in placesStorage.ts stays unchanged.
 
@@ -26,14 +26,15 @@ async function writeYears(years: CountryYears): Promise<void> {
   await AsyncStorage.setItem(COUNTRY_YEARS_KEY, JSON.stringify(years));
 }
 
-/** Sets (or, with `null`, clears) a country's year and returns the new map. */
-export async function setCountryYear(
+/** Replaces a country's list of visit years (empty clears it) and returns the
+ * new map. Callers pass the whole list, newest first. */
+export async function setCountryYears(
   id: string,
-  year: number | null,
+  list: number[],
 ): Promise<CountryYears> {
   const years = await loadCountryYears();
-  if (year === null) delete years[id];
-  else years[id] = year;
+  if (list.length === 0) delete years[id];
+  else years[id] = list;
   queueCloudSync();
   try {
     await writeYears(years);

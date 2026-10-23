@@ -2,18 +2,11 @@ import { CountryFlag } from "@/components/country-flag";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { getLocalizedCountryName } from "@/data/countryNamesTr";
-import worldData from "@/data/worldCountries.json";
+import { getProfileIdentity } from "@/data/profileIdentity";
 import { Ionicons } from "@expo/vector-icons";
 import type { User } from "@supabase/supabase-js";
 import { router } from "expo-router";
 import { Pressable, Text, View } from "react-native";
-
-type WorldCountry = { id: string; name: string; iso2?: string };
-
-function metaString(user: User | null | undefined, key: string): string {
-  const value = user?.user_metadata?.[key];
-  return typeof value === "string" ? value.trim() : "";
-}
 
 type Props = {
   user: User | null;
@@ -34,14 +27,7 @@ export function ProfileHero({
 }: Props) {
   const { t, language } = useLanguage();
 
-  const fullName = [metaString(user, "first_name"), metaString(user, "last_name")]
-    .filter(Boolean)
-    .join(" ");
-  const displayName = fullName || user?.email?.split("@")[0] || t("me.guestName");
-  const homeId = metaString(user, "country_id");
-  const home = homeId
-    ? (worldData.countries as WorldCountry[]).find((c) => c.id === homeId)
-    : undefined;
+  const { displayName, home } = getProfileIdentity(user, t("me.guestName"));
 
   return (
     <View
