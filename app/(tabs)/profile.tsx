@@ -3,14 +3,25 @@ import { LanguageSwitch } from "@/components/language-switch";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
 import { ACTIVITY_LOG_KEY } from "@/data/activityLog";
-import { deleteAccount, pushToCloud } from "@/data/cloudSync";
+import {
+  deleteAccount,
+  pushToCloud,
+  queueCloudSync,
+  signOutAndClearLocal,
+} from "@/data/cloudSync";
 import { clearTripsCache } from "@/data/trips";
 import { useSession } from "@/hooks/use-session";
 import { HERITAGE_VISITED_KEY } from "@/data/heritageStorage";
 import { PLACES_VISITED_KEY } from "@/data/placesStorage";
-import { CUISINE_AREA_TOTALS_KEY, CUISINE_VISITED_KEY, ISLANDS_VISITED_KEY } from "@/data/storageKeys";
+import {
+  BADGE_SHOWCASE_KEY,
+  COUNTRY_YEARS_KEY,
+  CUISINE_AREA_TOTALS_KEY,
+  CUISINE_VISITED_KEY,
+  ISLANDS_VISITED_KEY,
+  LANDMARKS_VISITED_KEY,
+} from "@/data/storageKeys";
 import { ALL_ACCESS_ENTITLEMENT_ID, isCategoryUnlocked, logoutPurchases } from "@/data/subscription";
-import { supabase } from "@/lib/supabase";
 import { useAppStore } from "@/store/useAppStore";
 import { FontAwesome6, Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -139,13 +150,20 @@ export default function ProfileScreen() {
           text: t("profile.resetConfirmAction"),
           style: "destructive",
           onPress: async () => {
+            // Marks the device as ahead of the cloud first, so a failed or
+            // offline push is retried later instead of the cloud copy coming
+            // back on the next launch (see data/cloudSync.ts).
+            queueCloudSync();
             await AsyncStorage.multiRemove([
               HERITAGE_VISITED_KEY,
               CUISINE_VISITED_KEY,
               CUISINE_AREA_TOTALS_KEY,
               PLACES_VISITED_KEY,
               ISLANDS_VISITED_KEY,
+              LANDMARKS_VISITED_KEY,
               ACTIVITY_LOG_KEY,
+              BADGE_SHOWCASE_KEY,
+              COUNTRY_YEARS_KEY,
             ]);
             useAppStore.getState().setVisitedHeritage([]);
             if (session) {
@@ -190,10 +208,21 @@ export default function ProfileScreen() {
         {
           text: t("auth.signOutAction"),
           style: "destructive",
-          onPress: () => {
+          onPress: async () => {
+            const userId = session?.user.id;
+            // Uploads unsynced edits, then wipes this device's copy of the
+            // account's data (see data/cloudSync.ts). false = offline with
+            // pending edits: stay signed in rather than lose them.
+            const done = await signOutAndClearLocal();
+            if (!done) {
+              Alert.alert(
+                t("auth.signOutUnsyncedTitle"),
+                t("auth.signOutUnsyncedMessage"),
+              );
+              return;
+            }
             logoutPurchases();
-            if (session) clearTripsCache(session.user.id);
-            supabase.auth.signOut();
+            if (userId) clearTripsCache(userId);
           },
         },
       ],

@@ -32,6 +32,19 @@ export const PLACES_VISITED_KEY = "visited_countries";
 
 export const ACTIVITY_LOG_KEY = "activity_log_v1";
 
+// "1" while the device holds changes that haven't reached `user_backups` yet
+// (set by queueCloudSync, cleared after a successful push or pull — see
+// data/cloudSync.ts). Decides whether a launch/foreground sync pushes (keep
+// the local edits) or pulls (the cloud copy wins). Not user data, not synced.
+export const CLOUD_SYNC_DIRTY_KEY = "cloud_sync_dirty_v1";
+
+// The (up to 3) badge ids the user pinned to their profile showcase
+// (data/badgeShowcase.ts), and the year they visited each country
+// (data/countryYears.ts, country id -> year). Both are cloud-synced inside
+// user_backups.profile_extras.
+export const BADGE_SHOWCASE_KEY = "badge_showcase_v1";
+export const COUNTRY_YEARS_KEY = "visited_country_years_v1";
+
 export const CATALOG_HIGHLIGHTS_KEY = "catalog_highlights_v1";
 
 export const APP_LANGUAGE_KEY = "app_language";

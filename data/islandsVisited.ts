@@ -22,8 +22,9 @@ export async function toggleIslandVisited(
     ? visited.filter((v) => v !== id)
     : [...visited, id];
 
-  await AsyncStorage.setItem(ISLANDS_VISITED_KEY, JSON.stringify(updated));
+  // Before the write, so an in-flight cloud pull backs off (see queueCloudSync).
   queueCloudSync();
+  await AsyncStorage.setItem(ISLANDS_VISITED_KEY, JSON.stringify(updated));
 
   if (!wasVisited) {
     maybePromptSignup();

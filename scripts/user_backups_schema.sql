@@ -17,3 +17,10 @@ create policy "Users manage their own backup"
   for all
   using (auth.uid() = user_id)
   with check (auth.uid() = user_id);
+
+-- Profile-only extras (badge showcase + the year each country was visited),
+-- stored as {"badge_showcase": [...ids], "country_years": {"<countryId>": 2019}}.
+-- The app keeps working without this column (it retries the backup without it),
+-- but the showcase/years then stay on the device only.
+alter table public.user_backups
+  add column if not exists profile_extras jsonb not null default '{}';

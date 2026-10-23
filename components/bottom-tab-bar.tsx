@@ -6,7 +6,7 @@ import { Pressable, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type TabDef = {
-  href: "/" | "/trips" | "/stats" | "/profile";
+  href: "/" | "/trips" | "/me" | "/profile";
   icon: keyof typeof Ionicons.glyphMap;
   activeIcon: keyof typeof Ionicons.glyphMap;
 };
@@ -17,8 +17,8 @@ const tabs: TabDef[] = [
 ];
 
 const tabsRight: TabDef[] = [
-  { href: "/stats", icon: "stats-chart-outline", activeIcon: "stats-chart" },
-  { href: "/profile", icon: "person-outline", activeIcon: "person" },
+  { href: "/me", icon: "person-outline", activeIcon: "person" },
+  { href: "/profile", icon: "settings-outline", activeIcon: "settings" },
 ];
 
 export function BottomTabBar() {

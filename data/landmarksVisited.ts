@@ -22,8 +22,9 @@ export async function toggleLandmarkVisited(
     ? visited.filter((v) => v !== id)
     : [...visited, id];
 
-  await AsyncStorage.setItem(LANDMARKS_VISITED_KEY, JSON.stringify(updated));
+  // Before the write, so an in-flight cloud pull backs off (see queueCloudSync).
   queueCloudSync();
+  await AsyncStorage.setItem(LANDMARKS_VISITED_KEY, JSON.stringify(updated));
 
   if (!wasVisited) {
     maybePromptSignup();
