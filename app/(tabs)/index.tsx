@@ -333,7 +333,7 @@ export default function HomeScreen() {
 
         {/* OVERALL PROGRESS */}
         <Pressable
-          onPress={() => router.push("/stats")}
+          onPress={() => router.push("/me")}
           style={({ pressed }) => [{ marginTop: 20 }, pressed && { opacity: 0.9 }]}
         >
           <View

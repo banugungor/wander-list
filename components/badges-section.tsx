@@ -1,15 +1,10 @@
 import { BadgeTile } from "@/components/badge-tile";
+import { SectionLabel } from "@/components/section-label";
 import type { CategoryId } from "@/constants/categories";
 import { palette } from "@/constants/palette";
 import { useLanguage } from "@/contexts/language-context";
-import { type Badge, type BadgeContext, computeBadges } from "@/data/badges";
-import { heritageSites } from "@/data/heritageSites";
-import { parseIdList } from "@/data/parseIdList";
-import { HERITAGE_VISITED_KEY, PLACES_VISITED_KEY } from "@/data/storageKeys";
+import type { Badge, BadgeContext } from "@/data/badges";
 import { getTitleKey } from "@/data/titles";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useFocusEffect } from "expo-router";
-import { useCallback, useState } from "react";
 import { Text, View } from "react-native";
 
 const SECTIONS: {
@@ -22,32 +17,16 @@ const SECTIONS: {
   { labelKey: "badges.continents", idPrefix: "continent_" },
 ];
 
-// Badge grid rendered as the "Rozetler" segment of the Stats tab
-// (app/(tabs)/stats.tsx) — it used to be its own /badges tab.
-export function BadgesSection() {
+// Full badge grid on the profile screen (app/(tabs)/me.tsx), which computes
+// `badges`/`ctx` once and also feeds them to the showcase above it.
+export function BadgesSection({
+  badges,
+  ctx,
+}: {
+  badges: Badge[];
+  ctx: BadgeContext | null;
+}) {
   const { t } = useLanguage();
-  const [badges, setBadges] = useState<Badge[]>([]);
-  const [ctx, setCtx] = useState<BadgeContext | null>(null);
-
-  useFocusEffect(
-    useCallback(() => {
-      const load = async () => {
-        const [heritageRaw, placesRaw] = await Promise.all([
-          AsyncStorage.getItem(HERITAGE_VISITED_KEY),
-          AsyncStorage.getItem(PLACES_VISITED_KEY),
-        ]);
-
-        const nextCtx: BadgeContext = {
-          heritageVisitedCount: parseIdList(heritageRaw).length,
-          heritageTotal: heritageSites.length,
-          countriesVisitedIds: parseIdList(placesRaw),
-        };
-        setCtx(nextCtx);
-        setBadges(computeBadges(nextCtx));
-      };
-      load().catch((e) => console.log("BADGES LOAD ERROR", e));
-    }, []),
-  );
 
   return (
     <View>
@@ -64,22 +43,12 @@ export function BadgesSection() {
 
         return (
           <View key={section.idPrefix}>
-            <Text
-              style={{
-                marginTop: 26,
-                marginBottom: 14,
-                fontSize: 11,
-                fontWeight: "700",
-                color: palette.inkMuted,
-                letterSpacing: 0.6,
-                textTransform: "uppercase",
-              }}
-            >
+            <SectionLabel>
               {t(section.labelKey)}
               {titleKey ? (
                 <Text style={{ color: palette.brand }}> · {t(titleKey)}</Text>
               ) : null}
-            </Text>
+            </SectionLabel>
             <View
               style={{
                 flexDirection: "row",

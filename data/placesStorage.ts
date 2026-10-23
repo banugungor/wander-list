@@ -1,6 +1,7 @@
 import { logActivity } from "@/data/activityLog";
 import { maybePromptSignup } from "@/data/authPrompt";
 import { queueCloudSync } from "@/data/cloudSync";
+import { removeCountryYear } from "@/data/countryYears";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { PLACES_VISITED_KEY } from "@/data/storageKeys";
 
@@ -24,8 +25,10 @@ export async function togglePlaceVisited(
     ? visited.filter((v) => v !== id)
     : [...visited, id];
 
-  await AsyncStorage.setItem(PLACES_VISITED_KEY, JSON.stringify(updated));
+  // Before the writes, so an in-flight cloud pull backs off (see queueCloudSync).
   queueCloudSync();
+  await AsyncStorage.setItem(PLACES_VISITED_KEY, JSON.stringify(updated));
+  if (wasVisited) await removeCountryYear(id);
 
   if (!wasVisited) {
     maybePromptSignup();

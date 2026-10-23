@@ -33,8 +33,8 @@ const WORLD_W = worldData.width;
 // around y≈521) — crop the SVG viewBox to that band (with a small margin)
 // instead of rendering the full 0–525 height, so land fills the map
 // top-to-bottom rather than floating in a tall box with empty margins.
-const MAP_Y = 55;
-const MAP_H = 471;
+export const MAP_Y = 55;
+export const MAP_H = 471;
 const FRAME_W = Dimensions.get("window").width;
 const FRAME_H = FRAME_W * (MAP_H / WORLD_W);
 /** Screen points per viewBox unit at zoom 1. */

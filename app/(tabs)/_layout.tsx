@@ -32,7 +32,7 @@ export default function TabLayout() {
         }}
       />
       <Stack.Screen
-        name="stats"
+        name="me"
         options={{
           headerShown: false,
         }}
