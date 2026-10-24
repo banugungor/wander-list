@@ -28,6 +28,8 @@ type CountrySearchResultsProps = {
   /** Section headings — shown only when both sections have something. */
   rowsTitle?: string;
   itemsTitle?: string;
+  /** Space under the list; raise it when a bar is overlaid at the bottom. */
+  bottomPadding?: number;
 };
 
 type Entry =
@@ -49,6 +51,7 @@ export function CountrySearchResults({
   itemsLoading = false,
   rowsTitle,
   itemsTitle,
+  bottomPadding = 40,
 }: CountrySearchResultsProps) {
   const { t } = useLanguage();
 
@@ -73,7 +76,7 @@ export function CountrySearchResults({
 
   return (
     <FlatList
-      contentContainerStyle={{ paddingTop: 16, paddingBottom: 40 }}
+      contentContainerStyle={{ paddingTop: 16, paddingBottom: bottomPadding }}
       keyboardShouldPersistTaps="handled"
       data={entries}
       keyExtractor={(entry) => entry.key}

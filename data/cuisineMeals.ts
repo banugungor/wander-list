@@ -89,16 +89,32 @@ export type CuisineMealIndex = {
    * tasted meal ids into a per-country/per-continent tasted count without an
    * extra round trip per screen. */
   countryByMealId: Record<string, string>;
+  /** country id -> photo of its first dish (lowest `sort_order` that has an
+   * `image_url`), used as the country card's picture on the cuisine picker.
+   * A country with no dish photo has no entry. */
+  coverByCountry: Record<string, string>;
 };
 
 async function getCachedMealIndex(): Promise<CuisineMealIndex | null> {
   const raw = await AsyncStorage.getItem(INDEX_CACHE_KEY);
-  return raw ? JSON.parse(raw) : null;
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw) as Partial<CuisineMealIndex>;
+    if (!parsed || typeof parsed !== "object") return null;
+    return {
+      counts: parsed.counts ?? {},
+      countryByMealId: parsed.countryByMealId ?? {},
+      // Caches written before covers existed don't have this field.
+      coverByCountry: parsed.coverByCountry ?? {},
+    };
+  } catch {
+    return null;
+  }
 }
 
 const INDEX_PAGE_SIZE = 1000;
 
-/** Live-fetches every meal's (id, country_id), paginating in
+/** Live-fetches every meal's (id, country_id, first photo), paginating in
  * INDEX_PAGE_SIZE-row pages — Supabase/PostgREST caps a single response at
  * 1000 rows by default, which would otherwise silently truncate (and
  * plateau) counts once cuisine_meals grows past that. Used by the
@@ -106,23 +122,38 @@ const INDEX_PAGE_SIZE = 1000;
 export async function fetchMealIndex(): Promise<CuisineMealIndex> {
   const counts: Record<string, number> = {};
   const countryByMealId: Record<string, string> = {};
+  const coverByCountry: Record<string, string> = {};
+  const coverSortOrder: Record<string, number> = {};
 
   for (let from = 0; ; from += INDEX_PAGE_SIZE) {
     const { data, error } = await supabase
       .from("cuisine_meals")
-      .select("id, country_id")
+      .select("id, country_id, image_url, sort_order")
       .range(from, from + INDEX_PAGE_SIZE - 1);
     if (error) throw error;
 
-    for (const row of data as { id: number; country_id: string }[]) {
+    for (const row of data as {
+      id: number;
+      country_id: string;
+      image_url: string | null;
+      sort_order: number | null;
+    }[]) {
       counts[row.country_id] = (counts[row.country_id] ?? 0) + 1;
       countryByMealId[String(row.id)] = row.country_id;
+
+      if (row.image_url) {
+        const order = row.sort_order ?? Number.MAX_SAFE_INTEGER;
+        if (coverSortOrder[row.country_id] === undefined || order < coverSortOrder[row.country_id]) {
+          coverSortOrder[row.country_id] = order;
+          coverByCountry[row.country_id] = row.image_url;
+        }
+      }
     }
 
     if (data.length < INDEX_PAGE_SIZE) break;
   }
 
-  const index: CuisineMealIndex = { counts, countryByMealId };
+  const index: CuisineMealIndex = { counts, countryByMealId, coverByCountry };
   await AsyncStorage.setItem(INDEX_CACHE_KEY, JSON.stringify(index));
   return index;
 }
