@@ -7,7 +7,9 @@ function metaString(user: User | null | undefined, key: string): string {
 }
 
 /** Name and home country shown on the profile and its share cards. Read from
- * the sign-up fields in `user_metadata` (type-guarded: it's untyped JSON). */
+ * the sign-up fields in `user_metadata` (type-guarded: it's untyped JSON). With
+ * no name on the account it falls back to `guestName`, never to the email: this
+ * name ends up on share cards that are posted publicly. */
 export function getProfileIdentity(
   user: User | null | undefined,
   guestName: string,
@@ -17,7 +19,7 @@ export function getProfileIdentity(
     .join(" ");
   const homeId = metaString(user, "country_id");
   return {
-    displayName: fullName || user?.email?.split("@")[0] || guestName,
+    displayName: fullName || guestName,
     home: homeId ? getWorldCountry(homeId) : undefined,
   };
 }
