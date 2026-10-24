@@ -5,7 +5,11 @@ import {
 } from "@/data/cuisineMeals";
 import { useEffect, useState } from "react";
 
-const EMPTY: CuisineMealIndex = { counts: {}, countryByMealId: {} };
+const EMPTY: CuisineMealIndex = {
+  counts: {},
+  countryByMealId: {},
+  coverByCountry: {},
+};
 
 /** Stale-while-revalidate id -> country_id / country_id -> count index, used
  * by the continent and country picker screens to show where content already
